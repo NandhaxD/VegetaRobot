@@ -60,5 +60,6 @@ heroku3
 telegraph
 youtube_search
 search_engine_parser
-countryinfo
+countryinfo==0.1.2
 faker
+PyDictionary==2.0.1
