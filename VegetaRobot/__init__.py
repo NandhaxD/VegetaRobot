@@ -6,7 +6,9 @@ import spamwatch
 import telegram.ext as tg
 from redis import StrictRedis
 from pyrogram import Client, errors
+from Python_ARQ import ARQ
 
+from aiohttp import ClientSession
 from telethon import TelegramClient
 
 StartTime = time.time()
@@ -108,7 +110,7 @@ if ENV:
             "Your blacklisted chats list does not contain valid integers.")
 
 else:
-    from KURUMIBOT.config import Development as Config
+    from VegetaRobot.config import Development as Config
     TOKEN = Config.TOKEN
 
     try:
@@ -158,6 +160,7 @@ else:
     NO_LOAD = Config.NO_LOAD
     DEL_CMDS = Config.DEL_CMDS
     STRICT_GBAN = Config.STRICT_GBAN
+    STRICT_GMUTE = Config.STRICT_GMUTE
     WORKERS = Config.WORKERS
     BAN_STICKER = Config.BAN_STICKER
     ALLOW_EXCL = Config.ALLOW_EXCL
@@ -170,6 +173,7 @@ else:
     SPAMWATCH_API = Config.SPAMWATCH_API
     INFOPIC = Config.INFOPIC
 
+
     try:
         BL_CHATS = set(int(x) for x in Config.BL_CHATS or [])
     except ValueError:
@@ -181,12 +185,27 @@ DEV_USERS.add(OWNER_ID)
 
 if not SPAMWATCH_API:
     sw = None
-    LOGGER.warning("SpamWatch API key missing! recheck your config.")
+    LOGGER.warning("[VEGETA ERROR]: SpamWatch API key Is Missing! Recheck Your Config.")
 else:
-    sw = spamwatch.Client(SPAMWATCH_API)
+    try:
+        sw = spamwatch.Client(SPAMWATCH_API)
+    except:
+        sw = None
+        LOGGER.warning("[VEGETA ERROR]: Can't connect to SpamWatch!")
 
+# Credits Logger
+print("[VEGETA] VEGETA Is Starting. | Pigasus X Team Project | Licensed Under GPLv3.")
+print("[VEGETA] VEGETA ROBOT! Successfully Connected Pigasus X Team • Tamil Nadu")
+print("[VEGETA] Project Maintained By: github.com/Ctzfamily (t.me/Ctzfamily)")
+
+print("[VEGETA]: TELETHON CLIENT STARTING")
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
-telethn = TelegramClient("SungJinwoo", API_ID, API_HASH)
+telethn = TelegramClient("VegetaRobot", API_ID, API_HASH)
+pbot = Client("Vegetapyro", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
+print("[INFO]: INITIALZING AIOHTTP SESSION")
+aiohttpsession = ClientSession()
+print("[INFO]: INITIALIZING ARQ CLIENT")
+arq = ARQ("https://thearq.tech", "YIECCC-NAJARO-OLLREW-SJSRIP-ARQ", aiohttpsession)
 dispatcher = updater.dispatcher
 
 DRAGONS = list(DRAGONS) + list(DEV_USERS)
