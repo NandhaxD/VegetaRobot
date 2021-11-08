@@ -131,29 +131,24 @@ def get_id(update: Update, context: CallbackContext):
                 f"• {html.escape(user1.first_name)} - <code>{user1.id}</code>.",
                 parse_mode=ParseMode.HTML)
 
-        else:
+   else:
 
             user = bot.get_chat(user_id)
             msg.reply_text(
-                f"•{html.escape(user.first_name)}'s id is <code>{user.id}</code>.",
-              
+                f"{html.escape(user.first_name)}'s id is <code>{user.id}</code>.",
+                parse_mode=ParseMode.HTML)
 
     else:
 
         if chat.type == "private":
             msg.reply_text(
-                f"{html.escape(user.first_name}Your id is <code>{chat.id}</code>.",
+                f"Your id is <code>{chat.id}</code>.",
                 parse_mode=ParseMode.HTML)
 
         else:
-          msg.reply_text(
-           f"Group Id is: <code>{chat.id}</code>.",
-                parse_mode=ParseMode.HTML)
-           
-               
-           
-           
-           
+            msg.reply_text(
+                f"This group's id is <code>{chat.id}</code>.",
+                parse_mode=ParseMode.HTML)                  
 
 
 @SaitamaTelethonClient.on(
