@@ -1,6 +1,7 @@
 {
-      "name": "Vegeta",
+       "name": "Vegeta",
       "description": "An Anime themed Telegram group management bot.",
+      "logo": "https://telegra.ph/file/279aabde88baf84afeaee.jpg",
       "keywords": [
          "telegram",
          "anime",
