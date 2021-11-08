@@ -135,21 +135,19 @@ def get_id(update: Update, context: CallbackContext):
 
             user = bot.get_chat(user_id)
             msg.reply_text(
-                f"•{html.escape(user.first_name)}'s id is <code>{user.id}</code>.\n"
+                f"•{html.escape(user.first_name)}'s id is <code>{user.id}</code>.",
               
-                f"•ɢʀᴏᴜᴘ ɪᴅ: <code>{chat.id}</code>.",
-                parse_mode=ParseMode.HTML)
 
     else:
 
         if chat.type == "private":
             msg.reply_text(
-                f"Your id is <code>{chat.id}</code>.",
+                f"{html.escape(user.first_name}Your id is <code>{chat.id}</code>.",
                 parse_mode=ParseMode.HTML)
 
         else:
           msg.reply_text(
-           f"**Group Id**: <code>{chat.id}</code>.",
+           f"Group Id is: <code>{chat.id}</code>.",
                 parse_mode=ParseMode.HTML)
            
                
@@ -231,9 +229,9 @@ def info(update: Update, context: CallbackContext):
         return
 
     rep = message.reply_text(
-        "<code>Appraising...</code>", parse_mode=ParseMode.HTML)
+        "<code>**Appraising**...</code>", parse_mode=ParseMode.HTML)
 
-    text = (f"╒═══「<b> Appraisal results:</b> 」\n"
+    text = (f"╒═══「<b> **Appraisal results**:</b> 」\n"
             f"ɪᴅ: <code>{user.id}</code>\n"
             f"ғʀɪsᴛ ɴᴀᴍᴇ: {html.escape(user.first_name)}")
 
@@ -297,7 +295,7 @@ def info(update: Update, context: CallbackContext):
         disaster_level_present = True
 
     if disaster_level_present:
-        text += ' \n[<a href="https://t.me/PigasusOfficial/36">What is The Rank</a>]'.format(
+        text += ' \n[<a href="https://t.me/PegasusXteam/36">What is The Rank</a>]'.format(
             bot.username)
 
     try:
