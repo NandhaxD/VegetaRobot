@@ -20,7 +20,8 @@ from VegetaRobot import (
     dispatcher,
     StartTime,
     telethn,
-    updater)
+    updater,
+    pbot)
     
 # needed to dynamically load modules
 # NOTE: Module order is not guaranteed, specify that in the config file!
@@ -650,4 +651,5 @@ def main():
 if __name__ == '__main__':
     LOGGER.info("Successfully loaded modules: " + str(ALL_MODULES))
     telethn.start(bot_token=TOKEN)
+    pbot.start()
     main()
