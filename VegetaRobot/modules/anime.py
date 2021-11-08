@@ -5,8 +5,8 @@ import textwrap
 import bs4
 import jikanpy
 import requests
-from KURUMIBOT import DEV_USERS, OWNER_ID, DRAGONS, dispatcher
-from KURUMIBOT.modules.disable import DisableAbleCommandHandler
+from VegetaRobot import DEV_USERS, OWNER_ID, DRAGONS, dispatcher
+from VegetaRobot.modules.disable import DisableAbleCommandHandler
 from telegram import (InlineKeyboardButton, InlineKeyboardMarkup, ParseMode,
                       Update)
 from telegram.ext import CallbackContext, CallbackQueryHandler, run_async
