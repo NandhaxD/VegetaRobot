@@ -79,7 +79,7 @@ if ENV:
     NO_LOAD = os.environ.get("NO_LOAD", "translation").split()
     DEL_CMDS = bool(os.environ.get('DEL_CMDS', False))
     STRICT_GBAN = bool(os.environ.get('STRICT_GBAN', False))
-    STRICT_GMUTE = bool(os.environ.get('STRICT_GMUTE', True))
+    
     WORKERS = int(os.environ.get('WORKERS', 8))
     BAN_STICKER = os.environ.get('BAN_STICKER',
                                  'CAADAgADOwADPPEcAXkko5EB3YGYAg')
@@ -91,10 +91,13 @@ if ENV:
     SUPPORT_CHAT = os.environ.get('SUPPORT_CHAT', None)
     SPAMWATCH_SUPPORT_CHAT = os.environ.get('SPAMWATCH_SUPPORT_CHAT', None)
     SPAMWATCH_API = os.environ.get('SPAMWATCH_API', None)
+    BOT_NAME = os.environ.get("BOT_NAME", True) # Name Of your Bot.4
     REPOSITORY = os.environ.get("REPOSITORY", "")
     REDIS_URL = os.environ.get("REDIS_URL")
+
     IBM_WATSON_CRED_URL = os.environ.get("IBM_WATSON_CRED_URL", None)
     IBM_WATSON_CRED_PASSWORD = os.environ.get("IBM_WATSON_CRED_PASSWORD", None)
+    REM_BG_API_KEY = os.environ.get("REM_BG_API_KEY", None) # From:- https://www.remove.bg/
     TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TEMP_DOWNLOAD_DIRECTORY", "./")
     HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
     TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TEMP_DOWNLOAD_DIRECTORY", "./")
@@ -108,7 +111,7 @@ if ENV:
             "Your blacklisted chats list does not contain valid integers.")
 
 else:
-    from KURUMIBOT.config import Development as Config
+    from VegetaRobot.config import Development as Config
     TOKEN = Config.TOKEN
 
     try:
@@ -158,6 +161,7 @@ else:
     NO_LOAD = Config.NO_LOAD
     DEL_CMDS = Config.DEL_CMDS
     STRICT_GBAN = Config.STRICT_GBAN
+    
     WORKERS = Config.WORKERS
     BAN_STICKER = Config.BAN_STICKER
     ALLOW_EXCL = Config.ALLOW_EXCL
@@ -186,9 +190,10 @@ else:
     sw = spamwatch.Client(SPAMWATCH_API)
 
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
-telethn = TelegramClient("SungJinwoo", API_ID, API_HASH)
+telethn = TelegramClient("VegetaRonot", API_ID, API_HASH)
+pbot = Client("VegetaRobot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
+pgram = Client("VegetaRobot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 dispatcher = updater.dispatcher
-
 
 DRAGONS = list(DRAGONS) + list(DEV_USERS)
 DEV_USERS = list(DEV_USERS)
@@ -205,3 +210,20 @@ from VegetaRobot.modules.helper_funcs.handlers import (CustomCommandHandler,
 tg.RegexHandler = CustomRegexHandler
 tg.CommandHandler = CustomCommandHandler
 tg.MessageHandler = CustomMessageHandler
+
+print("Starting Pyrogram Client")
+pgram.start()
+
+print("Aquiring BOT Client Info")
+
+bottie = pgram.get_me()
+
+BOT_ID = bottie.id
+BOT_USERNAME = bottie.username
+BOT_NAME = bottie.first_name
+BOT_MENTION = bottie.mention
+
+
+
+
+
