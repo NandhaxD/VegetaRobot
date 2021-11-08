@@ -1,4 +1,7 @@
 future
+faker
+motor
+PyDictionary==2.0.1
 emoji
 lxml
 beautifulsoup4
@@ -44,13 +47,15 @@ validators
 pyrogram
 nltk
 aiohttp>=3.7.4
+pykeyboard==0.1.2
 Pillow>=4.2.0
 CurrencyConverter
-googletrans
+googletrans==4.0.0-rc1
 google_trans_new
 pyrate-limiter
 nekos.py
 tgcrypto
+python-arq==6.0.3
 hachoir
 configparser
 bing_image_downloader
@@ -60,9 +65,7 @@ heroku3
 telegraph
 youtube_search
 search_engine_parser
+glitch_this
+NumPy
+opencv-python-headless
 countryinfo==0.1.2
-faker
-motor
-PyDictionary==2.0.1
-pykeyboard==0.1.2
-
