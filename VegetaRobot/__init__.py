@@ -200,7 +200,7 @@ print("[VEGETA] Project Maintained By: github.com/Ctzfamily (t.me/Ctzfamily)")
 
 print("[VEGETA]: TELETHON CLIENT STARTING")
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
-telethn = TelegramClient("VegetaRobot", API_ID, API_HASH)
+telethn = TelegramClient("Vegeabot", API_ID, API_HASH)
 pbot = Client("Vegetapyro", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 print("[INFO]: INITIALZING AIOHTTP SESSION")
 aiohttpsession = ClientSession()
