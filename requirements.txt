@@ -64,4 +64,5 @@ countryinfo==0.1.2
 faker
 motor
 PyDictionary==2.0.1
+pykeyboard==0.1.2
 
