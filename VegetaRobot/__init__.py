@@ -6,6 +6,7 @@ import spamwatch
 import telegram.ext as tg
 from redis import StrictRedis
 from pyrogram import Client, errors
+from Python_ARQ import ARQ
 
 from telethon import TelegramClient
 
@@ -186,14 +187,31 @@ DEV_USERS.add(OWNER_ID)
 
 if not SPAMWATCH_API:
     sw = None
-    LOGGER.warning("SpamWatch API key missing! recheck your config.")
+    LOGGER.warning("[if not SPAMWATCH_API:
+    sw = None
+    LOGGER.warning("[VEGETA ERROR]: SpamWatch API key Is Missing! Recheck Your Config.")
 else:
-    sw = spamwatch.Client(SPAMWATCH_API)
+    try:
+        sw = spamwatch.Client(SPAMWATCH_API)
+    except:
+        sw = None
+        LOGGER.warning("[VEGETA ERROR]: Can't connect to SpamWatch!")
+
+# Credits Logger
+print("[VEGETA] VEGETA Is Starting. | PegasusXTeam | Licensed Under GPLv3.")
+print("[VEGETA] Vegeta Robot! Successfully Connected With A PegasusXTeam • TamilNadu)
+print("[VEGETA] Project Maintained By: github.com/AASFCYBERKING (t.me/AASFCYBERKING)")
+
 
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
+print("[VEGETA]: TELETHON CLIENT STARTING")
 telethn = TelegramClient("VegetaRonot", API_ID, API_HASH)
 pbot = Client("VegetaRobot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 pgram = Client("VegetaRobot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
+print("[INFO]: INITIALZING AIOHTTP SESSION")
+aiohttpsession = ClientSession()
+print("[INFO]: INITIALIZING ARQ CLIENT")
+arq = ARQ("https://thearq.tech", "YIECCC-NAJARO-OLLREW-SJSRIP-ARQ", aiohttpsession)
 dispatcher = updater.dispatcher
 
 DRAGONS = list(DRAGONS) + list(DEV_USERS)
