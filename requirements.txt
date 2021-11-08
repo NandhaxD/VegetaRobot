@@ -61,3 +61,4 @@ telegraph
 youtube_search
 search_engine_parser
 countryinfo
+faker
