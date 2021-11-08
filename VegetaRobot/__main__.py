@@ -5,23 +5,9 @@ from sys import argv
 from typing import Optional
 import VegetaRobot.modules.sql.users_sql as sql
 
-
-from VegetaRobot import (
-    ALLOW_EXCL,
-    CERT_PATH,
-    DONATION_LINK,
-    LOGGER,
-    OWNER_ID,
-    PORT,
-    TOKEN,
-    URL,
-    WEBHOOK,
-    SUPPORT_CHAT,
-    dispatcher,
-    StartTime,
-    telethn,
-    updater,
-    pbot)
+from GilbertAnimeBot import (ALLOW_EXCL, CERT_PATH, DONATION_LINK, LOGGER,
+                          OWNER_ID, PORT, SUPPORT_CHAT, TOKEN, URL, WEBHOOK,
+                          SUPPORT_CHAT, StartTime, telethn, updater, pbot)
     
 # needed to dynamically load modules
 # NOTE: Module order is not guaranteed, specify that in the config file!
