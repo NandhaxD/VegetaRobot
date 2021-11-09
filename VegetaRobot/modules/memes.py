@@ -21,14 +21,15 @@ def memes(update: Update, context: CallbackContext):
         random.choice(memes_strings.MEMES_IMG))
 
 __help__ = """
- • `/memes`*:* gives random anime quotes
+ • `/memes`*:* gives random anime quotes **(:**
+ • `/memeCreat`*:* {text} created your meme **(:**
  
 """
 MEMES_HANDLER = DisableAbleCommandHandler("memes", memes)
 
 dispatcher.add_handler(MEMES_HANDLER)
 
-__mod_name__ = "😂meme/Fan"
+__mod_name__ = "😂meme/Fun"
 __command_list__ = [
     "memes"
 ]
