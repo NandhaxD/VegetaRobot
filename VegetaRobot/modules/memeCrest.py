@@ -75,3 +75,8 @@ file_helpo = file_help.replace("_", " ")
 
 
 mod_name = "memeCreat"
+
+]
+__handlers__ = [
+    MEMECREAT_HANDLER
+]
