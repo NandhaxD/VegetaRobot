@@ -402,7 +402,11 @@ __help__ = """
  • `/punchme`*:* punches the user who issued the command
  • `/kickme`*:* kicks the user who issued the command
 
-*Admins only:*
+*Muting a user commands:*
+ • `/mute <userhandle>`*:* silences a user. Can also be used as a reply, muting the replied to user.
+ • `/tmute <userhandle> x(m/h/d)`*:* mutes a user for x time. (via handle, or reply). `m` = `minutes`, `h` = `hours`, `d` = `days`.
+ • `/unmute <userhandle>`*:* unmutes a user. Can also be used as a reply, muting the replied to user.
+*ban a user commands:*
  • `/ban <userhandle>`*:* bans a user. (via handle, or reply)
  • `/sban <userhandle>`*:* Silently ban a user. Deletes command, Replied message and doesn't reply. (via handle, or reply)
  • `/tban <userhandle> x(m/h/d)`*:* bans a user for `x` time. (via handle, or reply). `m` = `minutes`, `h` = `hours`, `d` = `days`.
@@ -425,7 +429,7 @@ dispatcher.add_handler(UNBAN_HANDLER)
 dispatcher.add_handler(ROAR_HANDLER)
 dispatcher.add_handler(PUNCHME_HANDLER)
 
-__mod_name__ = "📛Bans"
+__mod_name__ = "📛Ban/Mute"
 __handlers__ = [
     BAN_HANDLER,
     TEMPBAN_HANDLER,
