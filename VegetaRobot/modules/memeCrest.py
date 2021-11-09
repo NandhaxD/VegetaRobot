@@ -3,8 +3,6 @@
 
 from VegetaRobot.events import register
 from VegetaRobot import OWNER_ID, SUPPORT_CHAT
-from VegetaRobot import dispatcher
-from VegetaRobot.modules.disable import DisableAbleCommandHandler
 from VegetaRobot import telethn as tbot
 import os
 import random
@@ -75,15 +73,6 @@ file_help = os.path.basename(__file__)
 file_help = file_help.replace(".py", "")
 file_helpo = file_help.replace("_", " ")
 
-
-MEMECREAT_HANDLER = DisableAbleCommandHandler("memecreat", memecreat)
-
-dispatcher.add_handler(MEMECREAT_HANDLER)
-
 __mod_name__ = "MEMECREAT"
-__command_list__ = [
-    "memecreat"
-]
-__handlers__ = [
-    MEMECREAT_HANDLER
-]
+
+
