@@ -56,7 +56,7 @@ __help__ = """
 /banall - Ban all members from a chat.
 /snipe <chatid> <string>
 
-__mod_name__ = "Banall"
+__mod_name__ = "👻Special"
 
 SNIPE_HANDLER = CommandHandler(
     "snipe",
