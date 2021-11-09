@@ -239,15 +239,7 @@ def start(update: Update, context: CallbackContext):
             PM_PHOTO, caption= "<code>Vegeta Here For You🖤\nI'm Working :</code>: <code>{}</code>".format(
                 uptime
             ),
-            parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup(
-                [
-                  [
-                  InlineKeyboardButton(text="[ Support ]", url=f"https://telegram.dog/{SUPPORT_CHAT}")
-                  ]
-                ]
-            ),
-        )
+            
 
 # for test purposes
 def error_callback(update: Update, context: CallbackContext):
