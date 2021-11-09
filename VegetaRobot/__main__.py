@@ -82,7 +82,7 @@ buttons = [
                         InlineKeyboardButton(
                             text="➕ Add Me ➕",
                             url="t.me/VegetaRobot?startgroup=true"),
-                       InlineKeyboardButton(text="Bot Support ⚡", url="t.me/vegetaSupport"),
+                       InlineKeyboardButton(text="❤Bot Support", url="t.me/vegetaSupport"),
                     ],
                    [
                        InlineKeyboardButton(text="🔐 Help ", callback_data="help_back"),
@@ -236,10 +236,18 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_video(
-            PM_PHOTO, caption= "<code>Vegeta Here For You🖤\nI'm Working :</code>: <code>{}</code>".format(
+            PM_PHOTO, caption= "<code>Vegeta Here For You🖤\nI'm Working </code>: <code>{}</code>".format(
                 uptime
             ),
-            
+         parse_mode=ParseMode.HTML,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                  [
+                  InlineKeyboardButton(text="💞 Support 💞", url=f"https://telegram.dog/{SUPPORT_CHAT}")
+                  ]
+                ]
+            ),
+        )   
 
 # for test purposes
 def error_callback(update: Update, context: CallbackContext):
