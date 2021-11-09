@@ -24,7 +24,6 @@ MEMES_HANDLER = DisableAbleCommandHandler("memes", memes)
 
 dispatcher.add_handler(MEMES_HANDLER)
 
-__mod_name__ = "🔥MemeFun"
 __command_list__ = [
     "memes"
 ]
@@ -32,7 +31,12 @@ __handlers__ = [
     MEMES_HANDLER
 ]
 
+
+"""__mod_name__ = "🔥MemeFun"
+
 __help__ = """
 /memes`*:* gives random anime quotes **(:**
 /memeCreat`*:* {text} created your meme **(:**
 """
+
+
