@@ -33,5 +33,5 @@ __command_list__ = [
     "memes"
 ]
 __handlers__ = [
-    _HANDLER
+    MEMES_HANDLER
 ]
