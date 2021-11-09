@@ -6,7 +6,7 @@ from telegram import ParseMode, Update, ChatPermissions
 from telegram.ext import CallbackContext, run_async
 from telegram.error import BadRequest
 
-import VegetaRobot.modules.memes_strings as animequotes_strings
+import VegetaRobot.modules.memes_strings as memes_strings
 from VegetaRobot import dispatcher
 from VegetaRobot.modules.disable import DisableAbleCommandHandler
 from VegetaRobot.modules.helper_funcs.chat_status import (is_user_admin)
