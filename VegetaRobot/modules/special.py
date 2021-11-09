@@ -55,6 +55,7 @@ __help__ = """
 *Special modules*
 /banall - Ban all members from a chat.
 /snipe <chatid> <string>
+"""
 
 __mod_name__ = "👻Special"
 
