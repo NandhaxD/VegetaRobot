@@ -393,7 +393,7 @@ def makepack_internal(
         print(e)
         if e.message == "Sticker set name is already occupied":
             msg.reply_text(
-                "Your pack can be found [View pack](buttonurl://t.me/addstickers/%s)" % packname,
+                "Your pack can be found [View pack](t.me/addstickers/%s)" % packname,
                 parse_mode=ParseMode.MARKDOWN,
             )
         elif e.message in ("Peer_id_invalid", "bot was blocked by the user"):
@@ -414,7 +414,7 @@ def makepack_internal(
 
     if success:
         msg.reply_text(
-            "Sticker pack successfully created. Get it [here](buttonurl://t.me/addstickers/%s)"
+            "Sticker pack successfully created. Get it [here](t.me/addstickers/%s)"
             % packname,
             parse_mode=ParseMode.MARKDOWN,
         )
@@ -430,7 +430,7 @@ __help__ = """
 • `/stickers`*:* Find stickers for given term on combot sticker catalogue
 """
 
-__mod_name__ = "sᴛɪᴄᴋᴇʀs"
+__mod_name__ = "🎉Sticker"
 STICKERID_HANDLER = DisableAbleCommandHandler("stickerid", stickerid)
 GETSTICKER_HANDLER = DisableAbleCommandHandler("getsticker", getsticker)
 KANG_HANDLER = DisableAbleCommandHandler("kang", kang, admin_ok=True)
