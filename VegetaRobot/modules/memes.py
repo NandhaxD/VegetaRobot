@@ -23,8 +23,8 @@ def memes(update: Update, context: CallbackContext):
 __help__ = """
  '/memes`*:* gives random anime quotes **(:**
  `/memeCreat`*:* {text} created your meme **(:**
- 
 """
+
 MEMES_HANDLER = DisableAbleCommandHandler("memes", memes)
 
 dispatcher.add_handler(MEMES_HANDLER)
