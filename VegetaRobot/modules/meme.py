@@ -2,7 +2,7 @@
 #this module only Created in @VegetaRobot
 
 from VegetaRobot.events import register
-from VegetaRobot import OWNER_ID
+from VegetaRobot import OWNER_ID, SUPPORT_CHAT
 from VegetaRobot import telethn as tbot
 import os
 import random
@@ -66,7 +66,7 @@ async def lego(event):
     if os.path.exists(fname2):
             os.remove(fname2)
  except Exception as e:
-   await event.reply(f'**Error Report {SUPPORT_CHAT}**, {e}')
+   await event.reply(f'**Error Report @{SUPPORT_CHAT}**, {e}')
 
    
 file_help = os.path.basename(__file__)
