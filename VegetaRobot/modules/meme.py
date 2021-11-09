@@ -1,4 +1,5 @@
-# © @VegetaRobot Don't remove credits your remove this your mother dicker 😂
+#Don't remove credits your remove this your mother dicker 😂
+#this module only Created in @VegetaRobot
 
 from VegetaRobot.events import register
 from VegetaRobot import OWNER_ID
@@ -10,7 +11,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 logopics = [
  
- "https://telegra.ph/file/10f5b56945d4322593b73.jpg"
+ "./VegetaRobot/imagefiles/memefiles/IMG_20211104_190153_323.jpg"
  
 ]
  
@@ -59,13 +60,13 @@ async def lego(event):
     x = (image_widthz-w)/2
     y= ((image_heightz-h)/2+6)
     draw.text((x, y), text, font=font, fill="black", stroke_width=25, stroke_fill="Yellow")
-    fname2 = "Logo.png"
+    fname2 = "Vegeta.png"
     img.save(fname2, "png")
     await tbot.send_file(event.chat_id, fname2, caption="**Made By @VegetaRobot**\n Join Our [Support](t.me/pigasusSupport)\n Join our [Updates](t.me/pigasusupdates) ")
     if os.path.exists(fname2):
             os.remove(fname2)
  except Exception as e:
-   await event.reply(f'**Error Report @PigasusSupport**, {e}')
+   await event.reply(f'**Error Report {SUPPORT_CHAT}**, {e}')
 
    
 file_help = os.path.basename(__file__)
