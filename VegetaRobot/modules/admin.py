@@ -464,6 +464,10 @@ __help__ = """
  • `/demote`*:* demotes the user replied to
  • `/title <title here>`*:* sets a custom title for an admin that the bot promoted
  • `/admincache`*:* force refresh the admins list
+ *Delete messages*
+ - /del: deletes the message you replied to
+ - /purge: deletes all messages between this and the replied to message.
+ - /purge <integer X>: deletes the replied message, and X messages following it if replied to a message.
 """
 
 ADMINLIST_HANDLER = DisableAbleCommandHandler("admins", adminlist)
@@ -489,7 +493,7 @@ dispatcher.add_handler(DEMOTE_HANDLER)
 dispatcher.add_handler(SET_TITLE_HANDLER)
 dispatcher.add_handler(ADMIN_REFRESH_HANDLER)
 
-__mod_name__ = "👮Admin"
+__mod_name__ = "👮Admins"
 __command_list__ = [
     "adminlist", "admins", "invitelink", "promote", "demote", "admincache"
 ]
