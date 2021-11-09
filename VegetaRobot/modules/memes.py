@@ -31,3 +31,8 @@ __command_list__ = [
 __handlers__ = [
     MEMES_HANDLER
 ]
+
+__help__ = """
+/memes`*:* gives random anime quotes **(:**
+/memeCreat`*:* {text} created your meme **(:**
+"""
