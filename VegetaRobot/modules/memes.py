@@ -18,25 +18,23 @@ def memes(update: Update, context: CallbackContext):
     name = message.reply_to_message.from_user.first_name if message.reply_to_message else message.from_user.first_name
     reply_photo = message.reply_to_message.reply_photo if message.reply_to_message else message.reply_photo
     reply_photo(
-        random.choice(memes_strings.MEMES_IMG))
+        random.choice(animequotes_strings.MEMES_IMG))
 
+__help__ = """
+ • `/memes`*:* gives random anime quotes.
+ • `/memeCreat`*:* (text) creating your meme.
+ 
+"""
 MEMES_HANDLER = DisableAbleCommandHandler("memes", memes)
 
 dispatcher.add_handler(MEMES_HANDLER)
 
+__mod_name__ = "🔥MemeFan"
 __command_list__ = [
     "memes"
 ]
 __handlers__ = [
     MEMES_HANDLER
 ]
-
-
-"""__mod_name__ = "🔥MemeFun"
-
-__help__ = """
-/memes`*:* gives random anime quotes **(:**
-/memeCreat`*:* {text} created your meme **(:**
-"""
 
 
