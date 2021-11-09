@@ -80,13 +80,13 @@ PM_START_TEXT = """
 buttons = [
     [
                         InlineKeyboardButton(
-                            text="Add Me ⚡",
+                            text="➕ Add Me ➕",
                             url="t.me/VegetaRobot?startgroup=true"),
                        InlineKeyboardButton(text="Bot Support ⚡", url="t.me/vegetaSupport"),
                     ],
                    [
                        InlineKeyboardButton(text="🔐 Help ", callback_data="help_back"),
-                       InlineKeyboardButton(text="📊 Network", url="t.me/pegasusNetworkofficial"),
+                       InlineKeyboardButton(text="📊 Network", url="t.me/pegasusXteam"),
                        InlineKeyboardButton(text="🔔 Logs", url="t.me/pegasusLogs"),
                      ],
                     [                  
