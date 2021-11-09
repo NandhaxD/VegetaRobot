@@ -3,6 +3,8 @@
 
 from VegetaRobot.events import register
 from VegetaRobot import OWNER_ID, SUPPORT_CHAT
+from VegetaRobot import dispatcher
+from VegetaRobot.modules.disable import DisableAbleCommandHandler
 from VegetaRobot import telethn as tbot
 import os
 import random
@@ -31,7 +33,7 @@ pic_choice = random.choice(logopics)
 font_choice = random.choice(logofonts)
 
 
-@register(pattern="^/memeCreat ?(.*)")
+@register(pattern="^/memecreat ?(.*)")
 async def lego(event):
  quew = event.pattern_match.group(1)
  if event.sender_id == OWNER_ID:
@@ -74,8 +76,13 @@ file_help = file_help.replace(".py", "")
 file_helpo = file_help.replace("_", " ")
 
 
-mod_name = "memeCreat"
+MEMECREAT_HANDLER = DisableAbleCommandHandler("memecreat", memecreat)
 
+dispatcher.add_handler(MEMECREAT_HANDLER)
+
+__mod_name__ = "MEMECREAT"
+__command_list__ = [
+    "memecreat"
 ]
 __handlers__ = [
     MEMECREAT_HANDLER
