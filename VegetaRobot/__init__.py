@@ -187,6 +187,7 @@ else:
 
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
 telethn = TelegramClient("SungJinwoo", API_ID, API_HASH)
+pgram = Client("VegetaRobot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 dispatcher = updater.dispatcher
 
 DRAGONS = list(DRAGONS) + list(DEV_USERS)
@@ -204,3 +205,15 @@ from VegetaRobot.modules.helper_funcs.handlers import (CustomCommandHandler,
 tg.RegexHandler = CustomRegexHandler
 tg.CommandHandler = CustomCommandHandler
 tg.MessageHandler = CustomMessageHandler
+
+print("Starting Pyrogram Client")
+pgram.start()
+
+print("Aquiring BOT Client Info")
+
+bottie = pgram.get_me()
+
+BOT_ID = bottie.id
+BOT_USERNAME = bottie.username
+BOT_NAME = bottie.first_name
+BOT_MENTION = bottie.mention
