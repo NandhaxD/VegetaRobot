@@ -59,7 +59,7 @@ async def lego(event):
     draw.text(((image_widthz-w)/2, (image_heightz-h)/2), text, font=font, fill=(250, 250, 250))
     x = (image_widthz-w)/2
     y= ((image_heightz-h)/2+6)
-    draw.text((x, y), text, font=font, fill="black", stroke_width=25, stroke_fill="Yellow")
+    draw.text((x, y), text, font=font, fill="black", stroke_width=15, stroke_fill="Yellow")
     fname2 = "Vegeta.png"
     img.save(fname2, "png")
     await tbot.send_file(event.chat_id, fname2, caption="**Made By @VegetaRobot**\n Join Our [Support](t.me/pigasusSupport)\n Join our [Updates](t.me/pigasusupdates) ")
