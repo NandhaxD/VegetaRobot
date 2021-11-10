@@ -541,7 +541,8 @@ dispatcher.add_handler(ADMINLIST_HANDLER)
 dispatcher.add_handler(PIN_HANDLER)
 dispatcher.add_handler(UNPIN_HANDLER)
 dispatcher.add_handler(_HANDLER)
-
+dispatcher.add_handler(SETCHATPIC_HANDLER)
+dispatcher.add_handler(RMCHATPIC_HANDLER)
 dispatcher.add_handler(INVITE_HANDLER)
 dispatcher.add_handler(PROMOTE_HANDLER)
 dispatcher.add_handler(DEMOTE_HANDLER)
@@ -550,7 +551,7 @@ dispatcher.add_handler(ADMIN_REFRESH_HANDLER)
 
 __mod_name__ = "👮Admins"
 __command_list__ = [
-    "adminlist", "admins", "invitelink", "promote", "demote", "admincache", "setgpic", "rmgpic"
+    "adminlist", "admins", "invitelink", "promote", "demote", "admincache", "setgpic", "delgpic"
 ]
 __handlers__ = [
     ADMINLIST_HANDLER, PIN_HANDLER, UNPIN_HANDLER, INVITE_HANDLER,
