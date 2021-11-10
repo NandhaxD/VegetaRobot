@@ -365,9 +365,9 @@ def help_button(update, context):
 
 
 
-def eren_data_callback(update, context):
+def vegeta_data_callback(update, context):
     query = update.callback_query
-    if query.data == "eren_":
+    if query.data == "vegeta_":
         query.message.edit_text(
             text="""CallBackQueriesData Here""",
             parse_mode=ParseMode.MARKDOWN,
@@ -375,12 +375,12 @@ def eren_data_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Back", callback_data="eren_back")
+                    InlineKeyboardButton(text="Back", callback_data="vegeta_back")
                  ]
                 ]
             ),
         )
-    elif query.data == "eren_back":
+    elif query.data == "vegeta_back":
         query.message.edit_text(
                 PM_START_TEXT,
                 reply_markup=InlineKeyboardMarkup(buttons),
