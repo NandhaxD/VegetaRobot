@@ -137,6 +137,7 @@ HELP_MSG = "Click the button below to get help manu in your pm."
 DONATE_STRING = """Contact to **@PegasusSupportofficial**"""
 HELP_IMG= "https://telegra.ph/file/9d2c6e3b28afe7619856e.jpg"
 PM_PHOTO= "https://telegra.ph/file/374d0887609fc70e093bd.mp4"
+START_IMG= "https://telegra.ph/file/0c48783bf8a446a82b30d.jpg"
 
 
 
