@@ -4,6 +4,7 @@ import re
 import random
 from sys import argv
 from typing import Optional
+import VegetaRobot.modules.sql.users_sql as sql
 
 from VegetaRobot import (
     ALLOW_EXCL,
@@ -248,8 +249,8 @@ def start(update: Update, context: CallbackContext):
             )
             first_name = update.effective_user.first_name
             update.effective_message.reply_photo(
-                START_IMG,(
-                PM_START_TEXT.format
+                START_IMG,
+                PM_START_TEXT.format(
                     escape_markdown(context.bot.first_name),
                     escape_markdown(first_name),
                     escape_markdown(uptime),
