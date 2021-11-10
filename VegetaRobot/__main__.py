@@ -1,5 +1,6 @@
 import importlib
 import time
+import random 
 import re
 from sys import argv
 from typing import Optional
@@ -78,11 +79,14 @@ def get_readable_time(seconds: int) -> str:
 
 PM_START_TEXT = """
  ───『[Vegeta The Robot](https://telegra.ph/file/0c48783bf8a446a82b30d.jpg)』───
-Hello! User,👋
+Hello! {}👋
 I am *Vegeta*
 ➪ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴀɴᴅ ᴍᴀᴋᴇ ᴀᴅᴍɪɴ ᴛᴏ ᴍᴀɴᴀɢᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴡɪᴛʜ ᴇxᴘʟᴏsɪᴠᴇ.
 ┏━━━━━━━━━━━━━━━━━━━━━┓
 ┃➪ ᴄʟɪᴄᴋ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ ʜᴇʟᴘ ᴛᴏ ┃ᴇxᴘʟᴏʀᴇ ᴍᴏʀᴇ ᴀʙᴏᴜᴛ ᴍᴇ ᴀɴᴅ ᴍʏ ┃ғᴇᴀᴛᴜʀᴇs.
+┃ ₪ *Uptime: {}
+┃ ₪ {} *users,
+┃ ₪ *Across {} *chats.
 ┗━━━━━━━━━━━━━━━━━━━━━┛
 """
 STICKERS = (
@@ -233,14 +237,23 @@ def start(update: Update, context: CallbackContext):
 
             elif args[0][1:].isdigit() and "rules" in IMPORTED:
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
-
-       else:
-            update.effective_message.reply_text(
-                PM_START_TEXT,
+                
+            else:
+            update.effective_message.reply_sticker(
+                random.choice(STICKERS),
+                timeout=60,
+            )
+            first_name = update.effective_user.first_name
+            update.effective_message.reply_photo(
+                START_IMG,
+                PM_START_TEXT.format(
+                    escape_markdown(context.bot.first_name),
+                    escape_markdown(first_name),
+                    escape_markdown(uptime),
+                    sql.num_users(),
+                    sql.num_chats()),                        
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
-                update.effective_message.reply_sticker(
-                random.choice(STICKERS),
                 timeout=60,
             )
     else:
