@@ -247,7 +247,6 @@ def start(update: Update, context: CallbackContext):
                 random.choice(STICKERS),
                 timeout=60,
             )
-            first_name = update.effective_user.first_name
             update.effective_message.reply_photo(
                 START_IMG,
                 PM_START_TEXT.format(
