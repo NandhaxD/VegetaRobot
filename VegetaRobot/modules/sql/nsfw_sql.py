@@ -1,6 +1,6 @@
 import threading
 from sqlalchemy import Column, String
-from KURUMIBOT.modules.sql import BASE, SESSION
+from VegetaRobot.modules.sql import BASE, SESSION
 #   |----------------------------------|
 #   |  Test Module by @EverythingSuckz |
 #   |        Kang with Credits         |
