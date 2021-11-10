@@ -242,6 +242,14 @@ def start(update: Update, context: CallbackContext):
                 uptime
             ),
             parse_mode=ParseMode.HTML,
+        reply_markup=InlineKeyboardMarkup(
+                [
+                  [
+                  InlineKeyboardButton(text="[ Support ]", url=f"https://telegram.dog/{SUPPORT_CHAT}"),
+                  InlineKeyboardButton(text="[ Updates ]", url=f"t.me/pegasusUpdates"),
+                  ]
+                ]
+            ),
         )
 
 
