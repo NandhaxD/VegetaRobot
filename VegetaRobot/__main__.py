@@ -124,7 +124,11 @@ List of all the Modules:
     "" if not ALLOW_EXCL else "📝All commands can either be used with / or !.",
 )
 
-DONATE_STRING = """Plant a tree and give water to birds, that's your donation.."""
+HELP_MSG = "Click the button below to get help manu in your pm."
+DONATE_STRING = """Contact to **@PegasusSupportofficial**"""
+HELP_IMG= "https://telegra.ph/file/9d2c6e3b28afe7619856e.jpg"
+PM_PHOTO= "https://telegra.ph/file/374d0887609fc70e093bd.mp4"
+
 
 
 IMPORTED = {}
