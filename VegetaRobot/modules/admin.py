@@ -542,7 +542,6 @@ ADMIN_REFRESH_HANDLER = CommandHandler(
 dispatcher.add_handler(ADMINLIST_HANDLER)
 dispatcher.add_handler(PIN_HANDLER)
 dispatcher.add_handler(UNPIN_HANDLER)
-dispatcher.add_handler(_HANDLER)
 dispatcher.add_handler(SETCHATPIC_HANDLER)
 dispatcher.add_handler(RMCHATPIC_HANDLER)
 dispatcher.add_handler(INVITE_HANDLER)
