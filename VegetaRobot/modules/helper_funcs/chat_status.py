@@ -58,6 +58,10 @@ def is_user_admin(chat: Chat, user_id: int, member: ChatMember = None) -> bool:
                 return user_id in admin_list
     else:
         return member.status in ("administrator", "creator")
+    
+    def is_user_in_chat(chat: Chat, user_id: int) -> bool:
+    member = chat.get_member(user_id)
+    return member.status not in ("left", "kicked")
 
 
 def is_bot_admin(chat: Chat, bot_id: int, bot_member: ChatMember = None) -> bool:
