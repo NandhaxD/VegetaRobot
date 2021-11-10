@@ -104,7 +104,7 @@ buttons = [
                              url=f"https://t.me/{SUPPORT_CHAT}"),
                        InlineKeyboardButton(
                              text="📢 Updates",
-                             url="https://t.me/PegasusUpdates")
+                             url="https://t.me/PegasusUpdates"
          ),
     ],
 ] 
