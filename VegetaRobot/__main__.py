@@ -67,14 +67,13 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-───「 [Vegeta The Robot](https://telegra.ph/file/0c48783bf8a446a82b30d.jpg) 」───
-*Whassup! {},*
-*I am an Anime themed advance group management bot with a lot of New Features.*
-➖➖➖➖➖➖➖➖➖➖➖➖➖
-♆ *Uptime:* `{}`
-♆ `{}` *users, across* `{}` *chats.*
-➖➖➖➖➖➖➖➖➖➖➖➖➖
-☫ Checkout The Help Buttons To Check My Abilities ✌
+───『[Vegeta The Robot](https://telegra.ph/file/0c48783bf8a446a82b30d.jpg)』───
+Hello! User,
+I am *Vegeta*
+➪ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴀɴᴅ ᴍᴀᴋᴇ ᴀᴅᴍɪɴ ᴛᴏ ᴍᴀɴᴀɢᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴡɪᴛʜ ᴇxᴘʟᴏsɪᴠᴇ.
+┏━━━━━━━━━━━━━━━━━━━━━┓
+┃➪ ᴄʟɪᴄᴋ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ ʜᴇʟᴘ ᴛᴏ ┃ᴇxᴘʟᴏʀᴇ ᴍᴏʀᴇ ᴀʙᴏᴜᴛ ᴍᴇ ᴀɴᴅ ᴍʏ ┃ғᴇᴀᴛᴜʀᴇs.
+┗━━━━━━━━━━━━━━━━━━━━━┛
 """
 
 buttons = [
