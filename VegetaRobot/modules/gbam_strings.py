@@ -23,7 +23,7 @@ GBAM_REASON = (
     "sasta fri-fire player",
     "sasta chhota bhim",
     "Baka baka",
-    "Baka gay
+    "Baka gay",
     "Baka boomer",
     "Baka nibba",
     "Baka niggee",
