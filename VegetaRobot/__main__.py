@@ -1,6 +1,5 @@
 import importlib
 import time
-import random 
 import re
 from sys import argv
 from typing import Optional
@@ -89,11 +88,6 @@ I am *Vegeta*
 ┃ ₪ *Across {} *chats.
 ┗━━━━━━━━━━━━━━━━━━━━━┛
 """
-STICKERS = (
-      "CAACAgUAAx0CTpRfGwACF41hMfagTfWdHNFici1VtOCQVVNYmgACgh8AAsZRxhU6tKJa_ySnnCAE",
-      "CAACAgUAAx0CTpRfGwACF5phMfi5vgKwQFg6KuzHiEc79QFT0QACCR4AAsZRxhVu32VqEb3_1SAE",
-      "CAACAgUAAx0CTpRfGwACGIBhQcGJDHuuXsU5el3I86SEx3nTpgAC2R8AAsZRxhUpEe6EcVukQCAE",
-)    
 
 buttons = [
     [
@@ -240,12 +234,7 @@ def start(update: Update, context: CallbackContext):
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
                 
             else:
-            update.effective_message.reply_sticker(
-                random.choice(STICKERS),
-                timeout=60,
-            )
-            first_name = update.effective_user.first_name
-            update.effective_message.reply_photo(
+              update.effective_message.reply_photo(
                 START_IMG,
                 PM_START_TEXT.format(
                     escape_markdown(context.bot.first_name),
@@ -266,8 +255,8 @@ def start(update: Update, context: CallbackContext):
         reply_markup=InlineKeyboardMarkup(
                 [
                   [
-                  InlineKeyboardButton(text="[ Support ]", url=f"https://telegram.dog/{SUPPORT_CHAT}"),
-                  InlineKeyboardButton(text="[ Updates ]", url=f"t.me/pegasusUpdates"),
+                  InlineKeyboardButton(text=" Support ", url=f"https://telegram.dog/{SUPPORT_CHAT}"),
+                  InlineKeyboardButton(text=" Updates ", url=f"t.me/pegasusUpdates"),
                   ]
                 ]
             ),
