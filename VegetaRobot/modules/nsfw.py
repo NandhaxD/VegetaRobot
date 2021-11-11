@@ -195,31 +195,6 @@ def holo(update, context):
     msg.reply_photo(nekos.img(target))
 
 @run_async
-def keta(update, context):
-    chat_id = update.effective_chat.id
-    if not update.effective_message.chat.type == "private":
-        is_nsfw = sql.is_nsfw(chat_id)
-        if not is_nsfw:
-            return
-    msg = update.effective_message
-    target = 'keta'
-    if not target:
-        msg.reply_text("No URL was received from the API!")
-        return
-    msg.reply_photo(nekos.img(target))
-
-@run_async
-def tits(update, context):
-    chat_id = update.effective_chat.id
-    if not update.effective_message.chat.type == "private":
-        is_nsfw = sql.is_nsfw(chat_id)
-        if not is_nsfw:
-            return
-    msg = update.effective_message
-    target = "tits"
-    msg.reply_photo(nekos.img(target))
-
-@run_async
 def smug(update, context):
     msg = update.effective_message
     target = "smug"
