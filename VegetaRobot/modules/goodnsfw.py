@@ -217,6 +217,7 @@ Usage:
 Commands :   
  - /neko: Sends Random SFW Neko source Images.
  - /ngif: Sends Random Neko GIFs.
+ - /wallpaper get wonderfull anime wallpapers.
  - /feed: Sends Random Feeding GIFs.
  - /kemonomimi: Sends Random KemonoMimi source Images.
  - /gasm: Sends Random Orgasm Stickers.
@@ -225,4 +226,4 @@ Commands :
  - /baka: Sends Random Baka Shout GIFs.
 """
 
-__mod_name__ = "GoodNswf"
+__mod_name__ = "🐰AnimePG"
