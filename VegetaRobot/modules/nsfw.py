@@ -170,7 +170,6 @@ KEMONOMIMI_HANDLER = CommandHandler("kemonomimi", kemonomimi)
 GASM_HANDLER = CommandHandler("gasm", gasm)
 POKE_HANDLER = CommandHandler("poke", poke)
 HOLO_HANDLER = CommandHandler("holo", holo)
-ERO_HANDLER = CommandHandler("ero", ero)
 SMUG_HANDLER = CommandHandler("smug", smug)
 BAKA_HANDLER = CommandHandler("baka", baka)
 
