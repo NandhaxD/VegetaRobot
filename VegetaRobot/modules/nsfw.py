@@ -105,28 +105,6 @@ def feed(update, context):
     msg.reply_video(nekos.img(target))
 
 @run_async
-def cum(update, context):
-    chat_id = update.effective_chat.id
-    if not update.effective_message.chat.type == "private":
-        is_nsfw = sql.is_nsfw(chat_id)
-        if not is_nsfw:
-            return
-    msg = update.effective_message
-    target = "cum_jpg"
-    msg.reply_photo(nekos.img(target))
-
-@run_async
-def bj(update, context):
-    chat_id = update.effective_chat.id
-    if not update.effective_message.chat.type == "private":
-        is_nsfw = sql.is_nsfw(chat_id)
-        if not is_nsfw:
-            return
-    msg = update.effective_message
-    target = "blowjob"
-    msg.reply_photo(nekos.img(target))
-
-@run_async
 def nekonsfw(update, context):
     chat_id = update.effective_chat.id
     if not update.effective_message.chat.type == "private":
