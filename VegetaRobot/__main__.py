@@ -238,7 +238,7 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_video(
-            PM_PHOTO, caption= "<code>Vegeta Here For You\nI'm Working :</code>: <code>{}</code>".format(
+            PM_PHOTO, caption= "Vegeta Here For You\nI'm Working : <code>{}</code>".format(
                 uptime
             ),
             parse_mode=ParseMode.HTML,
