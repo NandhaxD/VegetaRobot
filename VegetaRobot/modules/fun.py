@@ -511,6 +511,7 @@ __help__ = """
  ✪ /plet <text>*:* make ur text sticker in different colours
  
  ✪ /truth or /dare*:* Send random truth or dare.
+ ✪ /memeCreat*:* sone text creating meme for you.
 
 *Memes*
 ✪ /hitler*:* Quote a message and type this command to make a caption of hitler
@@ -529,7 +530,7 @@ All regex filters can be disabled incase u don't want... like: `/disable goodnig
 
 """
 
-__mod_name__ = "😜Memes/fun"
+__mod_name__ = "😜Memes"
 
 
 PAT_HANDLER = DisableAbleCommandHandler("pat", pat)
