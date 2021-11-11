@@ -98,25 +98,6 @@ def ngif(update, context):
     target = "ngif"
     msg.reply_video(nekos.img(target))
 
-
-@run_async
-def tickle(update, context):
-     msg = update.effective_message
-     target = "tickle"
-     msg.reply_video(nekos.img(target))
-
-@run_async
-def lewd(update, context):
-    chat_id = update.effective_chat.id
-    if not update.effective_message.chat.type == "private":
-        is_nsfw = sql.is_nsfw(chat_id)
-        if not is_nsfw:
-            return
-    msg = update.effective_message
-    target = "lewd"
-    msg.reply_photo(nekos.img(target))
-
-
 @run_async
 def feed(update, context):
     msg = update.effective_message
