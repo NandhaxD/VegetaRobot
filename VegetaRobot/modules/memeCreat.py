@@ -1,4 +1,4 @@
-#Don't remove credits your remove this your mother dicker 😂
+
 #this module only Created in @VegetaRobot
 
 from VegetaRobot.events import register
@@ -62,7 +62,7 @@ async def lego(event):
     draw.text((x, y), text, font=font, fill="black", stroke_width=15, stroke_fill="Yellow")
     fname2 = "Vegeta.png"
     img.save(fname2, "png")
-    await tbot.send_file(event.chat_id, fname2, caption="**Made By @VegetaRobot**\n Join Our [Support](t.me/pigasusSupport)\n Join our [Updates](t.me/pigasusupdates) ")
+    await tbot.send_file(event.chat_id, fname2, caption="**Made By @VegetaRobot** ")
     if os.path.exists(fname2):
             os.remove(fname2)
  except Exception as e:
