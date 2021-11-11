@@ -82,28 +82,6 @@ def neko(update, context):
     msg.reply_photo(nekos.img(target))
 
 @run_async
-def lewdkemo(update, context):
-    chat_id = update.effective_chat.id
-    if not update.effective_message.chat.type == "private":
-        is_nsfw = sql.is_nsfw(chat_id)
-        if not is_nsfw:
-            return
-    msg = update.effective_message
-    target = "lewdkemo"
-    msg.reply_photo(nekos.img(target))
-
-@run_async
-def feetgif(update, context):
-    chat_id = update.effective_chat.id
-    if not update.effective_message.chat.type == "private":
-        is_nsfw = sql.is_nsfw(chat_id)
-        if not is_nsfw:
-            return
-    msg = update.effective_message
-    target = "feetg"
-    msg.reply_video(nekos.img(target))
-
-@run_async
 def cumgif(update, context):
     chat_id = update.effective_chat.id
     if not update.effective_message.chat.type == "private":
