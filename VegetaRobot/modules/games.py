@@ -62,8 +62,11 @@ async def _(event):
         except BaseException:
             pass
 
-
-
+__help__="""
+/dice or /dice 1 to 6 any value
+/ball or /ball 1 to 5 any value
+/dart or /dart 1 to 6 any value
+"""
  
 
 __mod_name__ = "🎮Game"
