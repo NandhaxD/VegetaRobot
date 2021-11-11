@@ -1,3 +1,4 @@
+#this good nsfw module only created for @VegetaRobot and thanks to @Everythingsuckz, all suckz removed by @Ctzfamily
 import os
 import html
 import nekos
