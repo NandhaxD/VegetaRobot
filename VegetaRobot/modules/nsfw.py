@@ -154,29 +154,6 @@ def poke(update, context):
     target = "poke"
     msg.reply_video(nekos.img(target))
 
-
-@run_async
-def anal(update, context):
-    chat_id = update.effective_chat.id
-    if not update.effective_message.chat.type == "private":
-        is_nsfw = sql.is_nsfw(chat_id)
-        if not is_nsfw:
-            return
-    msg = update.effective_message
-    target = "anal"
-    msg.reply_video(nekos.img(target))
-
-@run_async
-def avatar(update, context):
-    msg = update.effective_message
-    target = "nsfw_avatar"
-    with open("temp.png", "wb") as f:
-        f.write(requests.get(nekos.img(target)).content)
-    img = Image.open("temp.png")
-    img.save("temp.webp", "webp")
-    msg.reply_document(open("temp.webp", "rb"))
-    os.remove("temp.webp")
-
 @run_async
 def holo(update, context):
     msg = update.effective_message
