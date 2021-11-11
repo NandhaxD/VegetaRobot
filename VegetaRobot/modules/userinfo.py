@@ -14,7 +14,7 @@ from telegram.ext.dispatcher import run_async
 from telegram.error import BadRequest
 from telegram.utils.helpers import escape_markdown, mention_html
 
-from XForceSTB import (DEV_USERS, OWNER_ID, DRAGONS, DEMONS, TIGERS, WOLVES,
+from VegetaRobot import (DEV_USERS, OWNER_ID, DRAGONS, DEMONS, TIGERS, WOLVES,
                           INFOPIC, dispatcher, sw)
 from VegetaRobot.__main__ import STATS, TOKEN, USER_INFO
 import VegetaRobot.modules.sql.userinfo_sql as sql
