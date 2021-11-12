@@ -77,7 +77,7 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
- ───『[Vegeta The Robot](https://telegra.ph/file/0c48783bf8a446a82b30d.jpg)』───
+ ───『[Vegeta The Robot]』───
 Hello! User,👋
 I am *Vegeta*
 ➪ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴀɴᴅ ᴍᴀᴋᴇ ᴀᴅᴍɪɴ ᴛᴏ ᴍᴀɴᴀɢᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴡɪᴛʜ ᴇxᴘʟᴏsɪᴠᴇ.
@@ -127,7 +127,8 @@ List of all the Modules:
 HELP_MSG = "Click the button below to get help manu in your pm."
 DONATE_STRING = """Contact to **@PegasusSupportofficial**"""
 HELP_IMG= "https://telegra.ph/file/9d2c6e3b28afe7619856e.jpg"
-PM_PHOTO= "https://telegra.ph/file/374d0887609fc70e093bd.mp4"
+GROUPSTART_IMG= "https://telegra.ph/file/374d0887609fc70e093bd.mp4"
+PMSTART_IMG= "https://telegra.ph/file/0c48783bf8a446a82b30d.jpg"
 
 
 
@@ -230,15 +231,16 @@ def start(update: Update, context: CallbackContext):
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
 
         else:
-            update.effective_message.reply_text(
-                PM_START_TEXT,
+            update.effective_message.reply_photo(
+                PMSTART_IMG,
+                PM_START_TEXT.
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
             )
     else:
         update.effective_message.reply_video(
-            PM_PHOTO, caption= "Vegeta Here For You\nI'm Working : <code>{}</code>".format(
+            GROUPSTART_IMG, caption= "Vegeta Here For You\nI'm Working : <code>{}</code>".format(
                 uptime
             ),
             parse_mode=ParseMode.HTML,
