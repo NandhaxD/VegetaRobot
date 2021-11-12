@@ -26,7 +26,6 @@ from VegetaRobot.modules import ALL_MODULES
 from VegetaRobot.modules.helper_funcs.chat_status import is_user_admin
 from VegetaRobot.modules.helper_funcs.misc import paginate_modules
 from VegetaRobot.modules.disable import DisableAbleCommandHandler
-from telegram.utils.helpers import escape_markdown, mention_html
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
 from telegram.error import (
     BadRequest,
@@ -239,7 +238,7 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_video(
-            PM_PHOTO, caption= "hello "{html.escape(user.first_name)}"  /nVegeta Here For You\nI'm Working : <code>{}</code>".format(
+            PM_PHOTO, caption= "Vegeta Here For You\nI'm Working : <code>{}</code>".format(
                 uptime
             ),
             parse_mode=ParseMode.HTML,
