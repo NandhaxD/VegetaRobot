@@ -232,8 +232,7 @@ def start(update: Update, context: CallbackContext):
 
         else:
             update.effective_message.reply_photo(
-                PMSTART_IMG,
-                PM_START_TEXT.
+                PMSTART_IMG,PM_START_TEXT,
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
