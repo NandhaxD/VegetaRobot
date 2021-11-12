@@ -1,7 +1,4 @@
 future
-faker
-motor
-PyDictionary==2.0.1
 emoji
 lxml
 beautifulsoup4
@@ -18,7 +15,6 @@ psutil
 jikanpy
 speedtest-cli
 coffeehouse
-pymongo
 regex
 bleach
 git+https://github.com/starry69/python-markdown2.git
@@ -27,7 +23,6 @@ telethon==1.16.4
 spamwatch
 alphabet_detector
 cachetools
-dnspython
 fontTools
 gtts
 tswift
@@ -49,26 +44,20 @@ validators
 pyrogram
 nltk
 aiohttp>=3.7.4
-pykeyboard==0.1.2
 Pillow>=4.2.0
 CurrencyConverter
+googletrans
 google_trans_new
-#googletrans
 pyrate-limiter
 nekos.py
 tgcrypto
-python-arq==6.0.3
 hachoir
 configparser
 bing_image_downloader
 parsel
-envparse
 urllib3
 heroku3
 telegraph
 youtube_search
 search_engine_parser
-glitch_this
-NumPy
 opencv-python-headless #imageedit
-countryinfo==0.1.2
