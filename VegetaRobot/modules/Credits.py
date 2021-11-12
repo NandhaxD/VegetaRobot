@@ -5,7 +5,7 @@ from pyrogram.types import *
 from VegetaRobot.conf import get_str_key
 from VegetaRobot import pgram
 
-REPO_TEXT = "[Vegeta The Robot](https://telegra.ph/file/95de573f7b0374af5375d.jpg) Powerfull group manager public Now! your going to fork this repo don't forget to give Star🌟 **Don't Remove this Credits Module of VegetaRobot**🙏"
+REPO_TEXT = "[Vegeta The Robot](https://telegra.ph/file/95de573f7b0374af5375d.jpg) Powerfull group manager public Now! your going to fork this repo don't forget to give Star🌟 Don't Remove this Credits Module of VegetaRobot🙏"
   
 BUTTONS = InlineKeyboardMarkup(
       [[
