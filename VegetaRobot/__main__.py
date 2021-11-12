@@ -26,6 +26,7 @@ from VegetaRobot.modules import ALL_MODULES
 from VegetaRobot.modules.helper_funcs.chat_status import is_user_admin
 from VegetaRobot.modules.helper_funcs.misc import paginate_modules
 from VegetaRobot.modules.disable import DisableAbleCommandHandler
+from telegram.utils.helpers import escape_markdown, mention_html
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
 from telegram.error import (
     BadRequest,
