@@ -9,10 +9,10 @@ REPO_TEXT = "[Vegeta The Robot](https://telegra.ph/file/95de573f7b0374af5375d.jp
   
 BUTTONS = InlineKeyboardMarkup(
       [[
-        InlineKeyboardButton("Repo", url=f"t.me/VegetaRobot"),
+        InlineKeyboardButton("Open bot", url=f"t.me/VegetaRobot"),
         InlineKeyboardButton("Network", url=f"t.me/pegasusXteam"),
       ],[
-        InlineKeyboardButton("Repo", url="https://t.me/github/ctzfamily/vegetaRobot"),
+        InlineKeyboardButton("Repositorie", url="https://t.me/github/ctzfamily/vegetaRobot"),
       ]]
     )
   
