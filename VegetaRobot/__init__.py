@@ -65,7 +65,7 @@ if ENV:
         raise Exception(
             "Your tiger users list does not contain valid integers.")
 
-    INFOPIC = bool(os.environ.get('INFOPIC', Ture))
+    INFOPIC = bool(os.environ.get('INFOPIC', False))
     EVENT_LOGS = os.environ.get('EVENT_LOGS', None)
     WEBHOOK = bool(os.environ.get('WEBHOOK', False))
     URL = os.environ.get('URL', "")  # Does not contain token
@@ -157,6 +157,7 @@ else:
     DB_URI = Config.SQLALCHEMY_DATABASE_URI
     DONATION_LINK = Config.DONATION_LINK
     LOAD = Config.LOAD
+    INFOPIC = Config.INFOPIC
     NO_LOAD = Config.NO_LOAD
     DEL_CMDS = Config.DEL_CMDS
     STRICT_GBAN = Config.STRICT_GBAN
