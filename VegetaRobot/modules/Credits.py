@@ -5,15 +5,14 @@ from pyrogram.types import *
 from VegetaRobot.conf import get_str_key
 from VegetaRobot import pgram
 
-REPO_TEXT = "[Vegeta The Robot](https://telegra.ph/file/95de573f7b0374af5375d.jpg) Powerfull group manager public Now!/n your going to fork this repo don't forget to give Star🌟/n Don't Remove this Credits Module 🙏"
+REPO_TEXT = "[Vegeta The Robot](https://telegra.ph/file/95de573f7b0374af5375d.jpg) Powerfull group manager public Now!/n your going to fork this repo don't forget to give Star🌟/n Don't Remove this Credits Module for [Vegeta](t.me/vegetaRobot)🙏"
   
 BUTTONS = InlineKeyboardMarkup(
       [[
-        InlineKeyboardButton("Repo", url=f"https://github.com/Ctzfamily/VegetaRobot"),
-        InlineKeyboardButton("Network", url=f"https://t.me/pegasusXteam"),
+        InlineKeyboardButton("Repo", url=f"t.me/VegetaRobot"),
+        InlineKeyboardButton("Network", url=f"t.me/pegasusXteam"),
       ],[
-        InlineKeyboardButton("Pegasus Updates ", url="https://t.me/Pegasusupdates"),
-        InlineKeyboardButton("PegasusSupport", url="https://t.me/PegasusSupportOfficial"),
+        InlineKeyboardButton("Repo", url="https://t.me/github/ctzfamily/vegetaRobot"),
       ]]
     )
   
