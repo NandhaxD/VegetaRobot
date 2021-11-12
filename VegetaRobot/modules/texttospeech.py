@@ -1,4 +1,4 @@
-from innexiaBot import telethn as tbot
+from VegetaRobot import telethn as tbot
 import os
 
 from gtts import gTTS
