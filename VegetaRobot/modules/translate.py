@@ -1,6 +1,6 @@
 from VegetaRobot import pgram
 from VegetaRobot.arqclient import arq
-from VegetaRobot.pyroerror import capture_err
+from VegetaRobot.pyrogramee.errors import capture_err
 
 from pyrogram import filters
 
