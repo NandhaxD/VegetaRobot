@@ -52,8 +52,8 @@ aiohttp>=3.7.4
 pykeyboard==0.1.2
 Pillow>=4.2.0
 CurrencyConverter
-googletrans==4.0.0-rc1
 google_trans_new
+#googletrans
 pyrate-limiter
 nekos.py
 tgcrypto
