@@ -9,10 +9,10 @@ REPO_TEXT = "[Vegeta The Robot](t.me/vegetaRobot) Powerfull group manager public
   
 BUTTONS = InlineKeyboardMarkup(
       [[
-        InlineKeyboardButton("🤖Open bot", url=f"https://t.me/VegetaRobot"),
-        InlineKeyboardButton("📊Network", url=f"https://t.me/pegasusXteam"),
+        InlineKeyboardButton("Open bot", url=f"https://t.me/VegetaRobot"),
+        InlineKeyboardButton("Network", url=f"https://t.me/pegasusXteam"),
       ],[
-        InlineKeyboardButton("Repo", url="https://github/ctzfamily/vegetaRobot"),
+        InlineKeyboardButton("Repositorie", url="https://github/ctzfamily/vegetaRobot"),
       ]]
     )
   
