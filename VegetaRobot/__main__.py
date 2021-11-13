@@ -238,7 +238,7 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_video(
-            GROUPSTART_IMG, caption= "hi {},/n Vegeta Here For You\nI'm Working : <code>{}</code>.format(
+            GROUPSTART_IMG, caption= "hi {},/n Vegeta Here For You\nI'm Working : <code>{}</code>".format(
                 first_name
                 uptime
             ),
