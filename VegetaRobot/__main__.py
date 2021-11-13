@@ -239,7 +239,7 @@ def start(update: Update, context: CallbackContext):
     else:
         update.effective_message.reply_video(
             GROUPSTART_IMG, caption= "hi {},/n Vegeta Here For You\nI'm Working : <code>{}</code>".format(
-                uptime,first_name
+             first_name,uptime
             ),
             parse_mode=ParseMode.HTML,
         reply_markup=InlineKeyboardMarkup(
