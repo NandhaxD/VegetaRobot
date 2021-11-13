@@ -110,7 +110,7 @@ if ENV:
             "Your blacklisted chats list does not contain valid integers.")
 
 else:
-    from KURUMIBOT.config import Development as Config
+    from VegetaRobot.config import Development as Config
     TOKEN = Config.TOKEN
 
     try:
@@ -190,7 +190,7 @@ else:
     sw = spamwatch.Client(SPAMWATCH_API)
 
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
-telethn = TelegramClient("KURUMIBOT", API_ID, API_HASH)
+telethn = TelegramClient("VegetaRobot", API_ID, API_HASH)
 pgram = Client("VegetaRobot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 dispatcher = updater.dispatcher
 
