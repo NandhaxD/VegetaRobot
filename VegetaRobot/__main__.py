@@ -237,6 +237,7 @@ def start(update: Update, context: CallbackContext):
                 timeout=60,
             )
     else:
+        first_name = update.effective_user.first_name
         update.effective_message.reply_video(
             GROUPSTART_IMG, caption= "hi {},/n Vegeta Here For You\nI'm Working : <code>{}</code>".format(
              first_name,uptime
