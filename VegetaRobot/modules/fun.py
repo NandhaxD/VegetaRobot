@@ -33,6 +33,7 @@ def goodmorning(update, context):
     first_name = update.effective_user.first_name
     reply = f"Good Morning! {escape_markdown(first_name)}"
     message.reply_text(reply, parse_mode=ParseMode.MARKDOWN)
+
     
     @run_async
 def gbun(update, context):
