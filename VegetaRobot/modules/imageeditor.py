@@ -453,4 +453,5 @@ Bright, Circle, RemBG, Blur, Border, Flip, Glitch, Sticker maker and more
   🔹 `/rmbg [REPLY]`*:* Revove BG of replied image/sticker.
   🔹 `/reverse`*:* Does a reverse image search of the media which it was replied to.
   🔹 `/q`*:*reply for message get sticker type.
+  🔹 `/plet [text]`*:* make ur text sticker.
 """
