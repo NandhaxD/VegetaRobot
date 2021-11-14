@@ -1,6 +1,7 @@
 
 from telegram.ext import CallbackContext, CommandHandler, Filters, run_async
 from telegram.utils.helpers import escape_markdown
+from telegram import MAX_MESSAGE_LENGTH, ParseMode, Update
 
 from VegetaRobot.modules.helper_funcs.alternate import typing_action
 
