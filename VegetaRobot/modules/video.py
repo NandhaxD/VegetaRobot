@@ -240,4 +240,4 @@ __help__ = """
  - `/song` <name> downloading song for yt and upload audio file.
 """
 
-__mod_name__ = "📩YT"
+__mod_name__ = "📥YT"
