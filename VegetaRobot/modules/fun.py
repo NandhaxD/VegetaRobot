@@ -74,6 +74,17 @@ def gbam(update, context):
         context.bot.sendMessage(chat.id, gbam, parse_mode=ParseMode.HTML)
         
         
+@run_async
+@typing_action
+def decide(update, context):
+    args = update.effective_message.text.split(None, 1)
+    if len(args) >= 2:  # Don't reply if no args
+        reply_text = (
+            update.effective_message.reply_to_message.reply_text
+            if update.effective_message.reply_to_message
+            else update.effective_message.reply_text
+        )
+        reply_text(random.choice(fun.DECIDE))
         
         
       
