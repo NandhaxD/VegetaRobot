@@ -34,8 +34,8 @@ def goodmorning(update, context):
 
     __mod_name__="😂Funs"
     
-GOODMORNING_HANDLER
-GOODNIGHT_HANDLER
+GOODMORNING_HANDLER = DisableAbleCommandHandler("goodmorning", goodmorning)
+GOODNIGHT_HANDLER = DisableAbleCommandHandler("goodnight", goodnight)
 
 dispatcher.add_handler(GDMORNING_HANDLER)
 dispatcher.add_handler(GDNIGHT_HANDLER)
