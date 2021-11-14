@@ -86,3 +86,10 @@ GBAM_HANDLER = CommandHandler("gbam", gbam)
 
 dispatcher.add_handler(GOODMORNING_HANDLER)
 dispatcher.add_handler(GOODNIGHT_HANDLER)
+dispatcher.add_handler(GBAM_HANDLER)
+dispatcher.add_handler(GBUM_HANDLER)
+
+
+
+#guys this it you like pegasusXteam ask join @pegasusSupportofficial
+# © pegasusXteam
