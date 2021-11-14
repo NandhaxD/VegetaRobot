@@ -30,3 +30,14 @@ def goodmorning(update, context):
     first_name = update.effective_user.first_name
     reply = f"Good Morning! {escape_markdown(first_name)}"
     message.reply_text(reply, parse_mode=ParseMode.MARKDOWN)
+
+    __mod_name__="global_filter"
+    
+GDMORNING_HANDLER = DisableAbleMessageHandler(
+    Filters.regex(r"(?i)(goodmorning|good morning)"),
+    goodmorning,
+    friendly="goodmorning",
+)
+GDNIGHT_HANDLER = DisableAbleMessageHandler(
+    Filters.regex(r"(?i)(goodnight|good night)"), goodnight, friendly="goodnight"
+)
