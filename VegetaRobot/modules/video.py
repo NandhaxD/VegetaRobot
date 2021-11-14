@@ -235,10 +235,9 @@ async def download_video(v_url):
         await rkp.delete()
 
 __help__ = """
- *You can either enter just the song name or both the artist and song
-  name. *
+ *Download youtube Videos and Songs...*
  - `/video` <songname artist(optional)>: uploads the video song in it's best quality available
- - `/lyrics` <song>: returns the lyrics of that song.
+ - `/song` <name> downloading song for yt and upload audio file.
 """
 
-__mod_name__ = " YT Video "
+__mod_name__ = "📩YT"
