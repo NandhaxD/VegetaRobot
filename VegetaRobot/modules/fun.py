@@ -35,7 +35,7 @@ def goodmorning(update, context):
     message.reply_text(reply, parse_mode=ParseMode.MARKDOWN)
 
     
-    @run_async
+@run_async
 def gbun(update, context):
     user = update.effective_user
     chat = update.effective_chat
