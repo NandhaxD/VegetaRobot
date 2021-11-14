@@ -18,6 +18,9 @@ prequel_btn = "⬅️ Prequel"
 sequel_btn = "Sequel ➡️"
 close_btn = "Close ❌"
 
+ANIME_IMG = "https://telegra.ph/file/56b16e6599af473d692f9.gif"
+MANGA_IMG = "https://telegra.ph/file/e6b1c11a9cd09a9c0e223.gif"
+CHARACTER_IMG = "https://telegra.ph/file/a355b31aa5dfe112605d2.gif"
 
 def shorten(description, info='anilist.co'):
     msg = ""
