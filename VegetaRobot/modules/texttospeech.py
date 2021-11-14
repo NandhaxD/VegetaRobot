@@ -74,7 +74,7 @@ async def _(event):
         )
         os.remove("k.mp3")
         
- __help__ = """
+__help__="""
  *I can convert text to voice...*
  🔹 `/tts` <lang code>*:* Reply to any message to get text to speech output.
 *Language Codes*
