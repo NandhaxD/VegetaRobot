@@ -34,8 +34,11 @@ def goodmorning(update, context):
 
     __mod_name__="😂Funs"
     
-GOODMORNING_HANDLER = DisableAbleCommandHandler("goodmorning", goodmorning)
-GOODNIGHT_HANDLER = DisableAbleCommandHandler("goodnight", goodnight)
-
+GOODMORNING_HANDLER = DisableAbleMessageHandler(
+    Filters.regex(r"(?i)(gm|good morning)"), goodmorning, friendly="goodmorning"
+)
+GOODNIGHT_HANDLER = DisableAbleMessageHandler(
+    Filters.regex(r"(?i)(gn|good night)"), goodnight, friendly="goodnight"
+)
 dispatcher.add_handler(GOODMORNING_HANDLER)
 dispatcher.add_handler(GOODNIGHT_HANDLER)
