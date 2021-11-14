@@ -88,7 +88,7 @@ GBAM_HANDLER = CommandHandler("gbam", gbam)
 dispatcher.add_handler(GOODMORNING_HANDLER)
 dispatcher.add_handler(GOODNIGHT_HANDLER)
 dispatcher.add_handler(GBAM_HANDLER)
-dispatcher.add_handler(GBUM_HANDLER)
+dispatcher.add_handler(GBUN_HANDLER)
 
 
 
