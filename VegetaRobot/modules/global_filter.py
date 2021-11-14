@@ -8,6 +8,7 @@ from telegram.error import BadRequest
 from telegram.ext import CallbackContext, CommandHandler, Filters, run_async
 from telegram.utils.helpers import escape_markdown
 
+import VegetaRobot.modules.global_filter_strings as global_filter
 from VegetaRobot import DEMONS, DRAGONS, dispatcher
 from VegetaRobot.modules.disable import DisableAbleCommandHandler, DisableAbleMessageHandler
 from VegetaRobot.modules.helper_funcs.alternate import typing_action
