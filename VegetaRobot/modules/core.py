@@ -10,7 +10,7 @@ from VegetaRobot import OWNER_ID, DEV_USERS
 from VegetaRobot import TEMP_DOWNLOAD_DIRECTORY as path
 from VegetaRobot import TEMP_DOWNLOAD_DIRECTORY
 from datetime import datetime
-water = './VegetaRobot/resources/vegeta2.png'
+water = './VegetaRobot/imagefiles/vegeta2.png'
 client = tbot
 
 @register(pattern=r"^/upload ?(.*)")
