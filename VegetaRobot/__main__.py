@@ -240,7 +240,7 @@ def start(update: Update, context: CallbackContext):
         first_name = update.effective_user.first_name
         update.effective_message.reply_video(
             GROUPSTART_IMG, caption= "**hi {},**\n**Vegeta Here For You**\n**I'm Working **: <code>{}</code>".format(
-             first_name,uptime
+             first_name,uptime,ParseMode
             ),
             parse_mode=ParseMode.HTML,
         reply_markup=InlineKeyboardMarkup(
