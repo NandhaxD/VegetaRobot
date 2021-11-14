@@ -75,16 +75,9 @@ def gbam(update, context):
         
         
 @run_async
-@typing_action
-def decide(update, context):
-    args = update.effective_message.text.split(None, 1)
-    if len(args) >= 2:  # Don't reply if no args
-        reply_text = (
-            update.effective_message.reply_to_message.reply_text
-            if update.effective_message.reply_to_message
-            else update.effective_message.reply_text
-        )
-        reply_text(random.choice(fun.DECIDE))
+def decide(update: Update, context: CallbackContext):
+    reply_text = update.effective_message.reply_to_message.reply_text if update.effective_message.reply_to_message else update.effective_message.reply_text
+    reply_text(random.choice(fun_strings.DECIDE))
         
         
       
