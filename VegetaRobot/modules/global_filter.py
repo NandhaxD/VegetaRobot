@@ -1,9 +1,19 @@
+import html
+import random
+import re
 
+import requests as r
+from telegram import MAX_MESSAGE_LENGTH, ParseMode, Update
+from telegram.error import BadRequest
 from telegram.ext import CallbackContext, CommandHandler, Filters, run_async
 from telegram.utils.helpers import escape_markdown
-from telegram import MAX_MESSAGE_LENGTH, ParseMode, Update
 
+import VegetaRobot.modules.fun_strings as fun
+from VegetaRobot import DEMONS, DRAGONS, dispatcher
+from VegetaRobot.modules.disable import DisableAbleCommandHandler, DisableAbleMessageHandler
 from VegetaRobot.modules.helper_funcs.alternate import typing_action
+from VegetaRobot.modules.helper_funcs.extraction import extract_user
+
 
 @run_async
 @typing_action
