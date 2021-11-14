@@ -86,7 +86,7 @@ def decide(update: Update, context: CallbackContext):
     
 GOODMORNING_HANDLER = DisableAbleMessageHandler(Filters.regex(r"(?i)(goodmorning|gm|good morning)"), goodmorning, friendly="goodmorning")
 GOODNIGHT_HANDLER = DisableAbleMessageHandler(Filters.regex(r"(?i)(goodnight|gn|good night)"), goodnight, friendly="goodnight")
-DECIDE_HANDLER = CommandHanler("decide", decide")
+DECIDE_HANDLER = DisableAbleCommandHandler("decide", decide)
 GBUN_HANDLER = CommandHandler("gbun", gbun)
 GBAM_HANDLER = CommandHandler("gbam", gbam)
 
