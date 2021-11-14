@@ -37,5 +37,5 @@ def goodmorning(update, context):
 GOODMORNING_HANDLER = DisableAbleCommandHandler("goodmorning", goodmorning)
 GOODNIGHT_HANDLER = DisableAbleCommandHandler("goodnight", goodnight)
 
-dispatcher.add_handler(GDMORNING_HANDLER)
-dispatcher.add_handler(GDNIGHT_HANDLER)
+dispatcher.add_handler(GOODMORNING_HANDLER)
+dispatcher.add_handler(GOODNIGHT_HANDLER)
