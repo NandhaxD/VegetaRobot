@@ -257,8 +257,7 @@ def character(update: Update, context: CallbackContext):
     message = update.effective_message
     search = message.text.split(' ', 1)
     if len(search) == 1:
-        update.effective_message.reply_text(
-            'Format : /character < character name >')
+        update.effective_message.reply_animation(CHARACTER_IMG, caption="""Format : /character < character name >""", parse_mode="markdown")
         return
     search = search[1]
     variables = {'query': search}
@@ -293,7 +292,7 @@ def manga(update: Update, context: CallbackContext):
     message = update.effective_message
     search = message.text.split(' ', 1)
     if len(search) == 1:
-        update.effective_message.reply_text('Format : /manga < manga name >')
+        update.effective_message.reply_animation(MANGA_IMG, caption="""Format : /manga < manga name >""", parse_mode="markdown")
         return
     search = search[1]
     variables = {'search': search}
