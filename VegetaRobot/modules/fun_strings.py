@@ -32,4 +32,7 @@ GBAM_REASON = (
     "Potta",
     "Mairu",
 )
- 
+
+DECIDE = ("Yes.", "NoU.", "Maybe.", "No.")
+    
+    
