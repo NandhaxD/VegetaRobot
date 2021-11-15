@@ -148,7 +148,6 @@ text4font = [
     "🇾 ",
     "🇿 ",
 ]
-
 text5font = [
     "ᴀ",
     "ʙ",
@@ -318,11 +317,11 @@ def text5(update, context):
             
 __help__ = """
 
- ❍ `/text1` *:* Try Yourself!
- ❍ `/text2` *:* Try Yourself!
- ❍ `/text3` *:* Try Yourself!
- ❍ `/text4` *:* Try Yourself!
- ❍ `/text5` *:* Try Yourself!
+ ❍ `/text1`*:* Try Yourself!
+ ❍ `/text2`*:* Try Yourself!
+ ❍ `/text3`*:* Try Yourself!
+ ❍ `/text4`*:* Try Yourself!
+ ❍ `/text5`*:* Try Yourself!
 """
 __mod_name__ = "🎇Styletext"
 
