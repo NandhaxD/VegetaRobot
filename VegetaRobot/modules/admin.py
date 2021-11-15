@@ -618,7 +618,7 @@ RMCHATPIC_HANDLER = CommandHandler("delgpic", rmchatpic, filters=Filters.group)
 INVITE_HANDLER = DisableAbleCommandHandler("invitelink", invite)
 
 PROMOTE_HANDLER = DisableAbleCommandHandler("promote", promote)
-FULLPROMOTE_HANDLER = DisableAbleCommandHandler("fullpromote")
+FULLPROMOTE_HANDLER = DisableAbleCommandHandler("fullpromote", fullpromote)
 DEMOTE_HANDLER = DisableAbleCommandHandler("demote", demote)
 
 SET_TITLE_HANDLER = CommandHandler("title", set_title)
