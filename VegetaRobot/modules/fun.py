@@ -92,7 +92,7 @@ def dare(update, context):
     update.effective_message.reply_text(random.choice(fun.DARE))
         
         
- 
+        
 @run_async
 @typing_action
 def owo(update, context):
@@ -131,9 +131,7 @@ def owo(update, context):
         reply_text = reply_text.replace("ove", "uv")
         reply_text = reply_text.replace("ｏｖｅ", "ｕｖ")
         reply_text += " " + random.choice(faces)
-        message.reply_to_message.reply_text(reply_text)
-                                            
-                                            
+        message.reply_to_message.reply_text(reply_text)                                    
                                             
                                             
                                             
