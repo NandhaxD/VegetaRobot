@@ -114,8 +114,23 @@ def ban(update: Update, context: CallbackContext) -> str:
             f"<code> </code><b>•  User:</b> {mention_html(member.user.id, html.escape(member.user.first_name))}"
         )
         if reason:
-            reply += f"\n<code> </code><b>•  Reason:</b> \n{html.escape(reason)}"
-        bot.sendMessage(chat.id, reply, parse_mode=ParseMode.HTML, quote=False)
+            reply += f"\n<code> </code><b>• Reason:</b> \n{html.escape(reason)}"
+
+        bot.sendMessage(
+            chat.id,
+            reply,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton(
+                            text="Unban", callback_data=f"unbanb_unban={user_id}"
+                        ),
+                        InlineKeyboardButton(text="Delete", callback_data="unbanb_del"),
+                    ]
+                ]
+            ),
+            parse_mode=ParseMode.HTML,
+        )
         return log
 
     except BadRequest as excp:
