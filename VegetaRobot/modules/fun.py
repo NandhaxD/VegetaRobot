@@ -78,6 +78,18 @@ def gbam(update, context):
 def decide(update: Update, context: CallbackContext):
     reply_text = update.effective_message.reply_to_message.reply_text if update.effective_message.reply_to_message else update.effective_message.reply_text
     reply_text(random.choice(fun_strings.DECIDE))
+    
+    
+@run_async
+@typing_action
+def truth(update, context):
+    update.effective_message.reply_text(random.choice(fun.TRUTH))
+
+
+@run_async
+@typing_action
+def dare(update, context):
+    update.effective_message.reply_text(random.choice(fun.DARE))
         
         
       
