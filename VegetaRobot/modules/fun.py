@@ -138,7 +138,7 @@ def owo(update, context):
                                             
                                             
 
- __mod_name__="😂Funs"
+       __mod_name__="😂Funs"
     
 GOODMORNING_HANDLER = DisableAbleMessageHandler(Filters.regex(r"(?i)(goodmorning|gm|good morning)"), goodmorning, friendly="goodmorning")
 GOODNIGHT_HANDLER = DisableAbleMessageHandler(Filters.regex(r"(?i)(goodnight|gn|good night)"), goodnight, friendly="goodnight")
