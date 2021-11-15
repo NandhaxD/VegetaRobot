@@ -53,8 +53,18 @@ def snipe(update: Update, context: CallbackContext):
 
 __help__ = """
 *Special modules*
-/banall - Ban all members from a chat.
-/snipe <chatid> <string>
+
+──「 *Owner only*: 」──
+-> /banall
+Ban all members from a chat
+──「 *Sudo only*: 」──
+-> /snipe <chatid> <string>
+Make me send a message to a specific chat.
+
+──「 *Admin only*: 」──
+-> /tagall or @all
+/tagall cmd for tag group members for reply message.
+@all [text] for tagall members.
 """
 
 __mod_name__ = "👻Special"
