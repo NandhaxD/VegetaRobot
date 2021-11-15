@@ -126,8 +126,8 @@ def promote(update: Update, context: CallbackContext) -> str:
             can_delete_messages=bot_member.can_delete_messages,
             can_invite_users=bot_member.can_invite_users,
             can_restrict_members=bot_member.can_restrict_members,
-            can_pin_messages=bot_member.can_pin_messages,
-        )
+            can_pin_messages=bot_member.can_pin_messages, )
+        
     except BadRequest as err:
         if err.message == "User_not_mutual_contact":
             message.reply_text(
@@ -514,6 +514,10 @@ __help__ = """
  • `/demote`*:* demotes the user replied to
  • `/title <title here>`*:* sets a custom title for an admin that the bot promoted
  • `/admincache`*:* force refresh the admins list
+ 
+ *gorup info changer*
+ - /setgpic*:* reply to the image set chat pic.
+ - /delgpic*:* delete a chat pic.
  
  *Delete messages*:
  - /del: deletes the message you replied to
