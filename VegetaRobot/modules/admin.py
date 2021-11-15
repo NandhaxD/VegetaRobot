@@ -12,7 +12,8 @@ from VegetaRobot.modules.helper_funcs.chat_status import (bot_admin, can_pin,
                                                           user_can_changeinfo,
                                                            connection_status,
                                                            user_admin,
-                                                           ADMIN_CACHE)
+                                                           ADMIN_CACHE,
+                                                        can_manage_voice_chats )
 
 from VegetaRobot.modules.helper_funcs.extraction import (extract_user,
                                                           extract_user_and_text)
