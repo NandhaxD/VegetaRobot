@@ -131,14 +131,14 @@ def owo(update, context):
         reply_text = reply_text.replace("ove", "uv")
         reply_text = reply_text.replace("ｏｖｅ", "ｕｖ")
         reply_text += " " + random.choice(faces)
-        message.reply_to_message.reply_text(reply_text
+        message.reply_to_message.reply_text(reply_text)
                                             
                                             
                                             
                                             
                                             
 
-    __mod_name__="😂Funs"
+ __mod_name__="😂Funs"
     
 GOODMORNING_HANDLER = DisableAbleMessageHandler(Filters.regex(r"(?i)(goodmorning|gm|good morning)"), goodmorning, friendly="goodmorning")
 GOODNIGHT_HANDLER = DisableAbleMessageHandler(Filters.regex(r"(?i)(goodnight|gn|good night)"), goodnight, friendly="goodnight")
