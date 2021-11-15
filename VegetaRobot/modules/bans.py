@@ -473,7 +473,7 @@ def selfunban(context: CallbackContext, update: Update) -> str:
     return log
 
 
-
+@run_async
 @bot_admin
 @can_restrict
 @loggable
@@ -528,7 +528,7 @@ UNBAN_HANDLER = CommandHandler("unban", unban)
 UNBAN_BUTTON_HANDLER = CallbackQueryHandler(unbanb_btn, pattern=r"unbanb_")
 ROAR_HANDLER = CommandHandler("roar", selfunban)
 PUNCHME_HANDLER = DisableAbleCommandHandler(["punchme", "kickme"], punchme, filters=Filters.group)
-BANME_HANDLER = CommandHandler("banme", banme, run_async=True)
+BANME_HANDLER = CommandHandler("banme", banme)
 
 
 dispatcher.add_handler(BAN_HANDLER)
