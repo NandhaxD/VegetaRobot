@@ -133,7 +133,7 @@ def ban(update: Update, context: CallbackContext) -> str:
                         InlineKeyboardButton(
                             text="❕Unban", callback_data=f"unbanb_unban={user_id}"
                         ),
-                        InlineKeyboardButton(text="❌Delete", callback_data="unbanb_del"),
+                        InlineKeyboardButton(text="❌ Delete", callback_data="unbanb_del"),
                     ]
                 ]
             ),
@@ -163,6 +163,7 @@ def ban(update: Update, context: CallbackContext) -> str:
 
 
 @run_async
+
 @connection_status
 @bot_admin
 @can_restrict
@@ -178,7 +179,7 @@ def temp_ban(update: Update, context: CallbackContext) -> str:
     user_id, reason = extract_user_and_text(message, args)
 
     if not user_id:
-        message.reply_text("I doubt that's a user.")
+        message.reply_text("Dude! at least refer some user to ban...")
         return log_message
 
     try:
@@ -220,8 +221,18 @@ def temp_ban(update: Update, context: CallbackContext) -> str:
         log += "\n<b>Reason:</b> {}".format(reason)
 
     try:
-        chat.kick_member(user_id, until_date=bantime)
+        chat.ban_member(user_id, until_date=bantime)
         # bot.send_sticker(chat.id, BAN_STICKER)  # banhammer marie sticker
+
+        reply_msg = (
+            f"<code>❕</code><b>Temp Banned</b>\n"
+            f"<code> </code><b>• User:</b> {mention_html(member.user.id, html.escape(member.user.first_name))}\n"
+            f"<code> </code><b>• Banned for: {time_val}</b>"
+        )
+
+        if reason:
+            reply_msg += f"\n<code> </code><b>• Reason:</b> {html.escape(reason)}"
+
         bot.sendMessage(
             chat.id,
             reply_msg,
@@ -231,14 +242,12 @@ def temp_ban(update: Update, context: CallbackContext) -> str:
                         InlineKeyboardButton(
                             text="❕Unban", callback_data=f"unbanb_unban={user_id}"
                         ),
-                        InlineKeyboardButton(text="❌Delete", callback_data="unbanb_del"),
+                        InlineKeyboardButton(text="❌ Delete", callback_data="unbanb_del"),
                     ]
                 ]
             ),
             parse_mode=ParseMode.HTML,
-
-
-       )
+        )
         return log
 
     except BadRequest as excp:
@@ -260,6 +269,11 @@ def temp_ban(update: Update, context: CallbackContext) -> str:
             message.reply_text("Well damn, I can't ban that user.")
 
     return log_message
+    
+ 
+
+    
+
 
 
 
