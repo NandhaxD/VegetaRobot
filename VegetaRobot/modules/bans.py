@@ -503,8 +503,9 @@ def banme(update: Update, context: CallbackContext):
         update.effective_message.reply_text("Huh? I can't :/")
 
 __help__ = """
- • `/punchme`*:* punches the user who issued the command
- • `/kickme`*:* kicks the user who issued the command
+ • `/punchme`*:* punches the user who issued the command.
+ • `/kickme`*:* kicks the user who issued the command.
+ • `/banme`*:* user can do self.
 
 *Muting a user commands:*
  • `/mute <userhandle>`*:* silences a user. Can also be used as a reply, muting the replied to user.
@@ -531,6 +532,7 @@ BANME_HANDLER = CommandHandler("banme", banme, run_async=True)
 
 
 dispatcher.add_handler(BAN_HANDLER)
+dispatcher.add_handler(BANME_HANDLER)
 dispatcher.add_handler(TEMPBAN_HANDLER)
 dispatcher.add_handler(PUNCH_HANDLER)
 dispatcher.add_handler(UNBAN_BUTTON_HANDLER)
@@ -541,6 +543,7 @@ dispatcher.add_handler(PUNCHME_HANDLER)
 __mod_name__ = "📛Ban/Mute"
 __handlers__ = [
     BAN_HANDLER,
+    BANME_HANDLER,
     TEMPBAN_HANDLER,
     PUNCH_HANDLER,
     UNBAN_HANDLER,
