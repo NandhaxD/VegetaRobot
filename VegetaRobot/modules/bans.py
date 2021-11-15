@@ -131,9 +131,9 @@ def ban(update: Update, context: CallbackContext) -> str:
                 [
                     [
                         InlineKeyboardButton(
-                            text="Unban", callback_data=f"unbanb_unban={user_id}"
+                            text="❕Unban", callback_data=f"unbanb_unban={user_id}"
                         ),
-                        InlineKeyboardButton(text="Delete", callback_data="unbanb_del"),
+                        InlineKeyboardButton(text="❌Delete", callback_data="unbanb_del"),
                     ]
                 ]
             ),
@@ -224,10 +224,21 @@ def temp_ban(update: Update, context: CallbackContext) -> str:
         # bot.send_sticker(chat.id, BAN_STICKER)  # banhammer marie sticker
         bot.sendMessage(
             chat.id,
-            f"Banned! User {mention_html(member.user.id, html.escape(member.user.first_name))} "
-            f"will be banned for {time_val}.",
+            reply_msg,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton(
+                            text="❕Unban", callback_data=f"unbanb_unban={user_id}"
+                        ),
+                        InlineKeyboardButton(text="❌Delete", callback_data="unbanb_del"),
+                    ]
+                ]
+            ),
             parse_mode=ParseMode.HTML,
-        )
+
+
+       )
         return log
 
     except BadRequest as excp:
@@ -473,39 +484,11 @@ def selfunban(context: CallbackContext, update: Update) -> str:
     return log
 
 
-@run_async
-@bot_admin
-@can_restrict
-@loggable
-def banme(update: Update, context: CallbackContext):
-    user_id = update.effective_message.from_user.id
-    chat = update.effective_chat
-    user = update.effective_user
-    if is_user_admin(update.effective_chat, user_id):
-        update.effective_message.reply_text("Yeahhh.. not gonna ban an admin.")
-        return
-
-    res = update.effective_chat.ban_member(user_id)
-    if res:
-        update.effective_message.reply_text("Yes, you're right! GTFO..")
-        return (
-            "<b>{}:</b>"
-            "\n#BANME"
-            "\n<b>User:</b> {}"
-            "\n<b>ID:</b> <code>{}</code>".format(
-                html.escape(chat.title),
-                mention_html(user.id, user.first_name),
-                user_id,
-            )
-        )
-
-    else:
-        update.effective_message.reply_text("Huh? I can't :/")
-
+        
 __help__ = """
  • `/punchme`*:* punches the user who issued the command.
  • `/kickme`*:* kicks the user who issued the command.
- • `/banme`*:* user can do self.
+
 
 *Muting a user commands:*
  • `/mute <userhandle>`*:* silences a user. Can also be used as a reply, muting the replied to user.
@@ -528,11 +511,11 @@ UNBAN_HANDLER = CommandHandler("unban", unban)
 UNBAN_BUTTON_HANDLER = CallbackQueryHandler(unbanb_btn, pattern=r"unbanb_")
 ROAR_HANDLER = CommandHandler("roar", selfunban)
 PUNCHME_HANDLER = DisableAbleCommandHandler(["punchme", "kickme"], punchme, filters=Filters.group)
-BANME_HANDLER = CommandHandler("banme", banme)
+
 
 
 dispatcher.add_handler(BAN_HANDLER)
-dispatcher.add_handler(BANME_HANDLER)
+
 dispatcher.add_handler(TEMPBAN_HANDLER)
 dispatcher.add_handler(PUNCH_HANDLER)
 dispatcher.add_handler(UNBAN_BUTTON_HANDLER)
@@ -543,7 +526,7 @@ dispatcher.add_handler(PUNCHME_HANDLER)
 __mod_name__ = "📛Ban/Mute"
 __handlers__ = [
     BAN_HANDLER,
-    BANME_HANDLER,
+
     TEMPBAN_HANDLER,
     PUNCH_HANDLER,
     UNBAN_HANDLER,
