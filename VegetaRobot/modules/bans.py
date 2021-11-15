@@ -23,6 +23,7 @@ from VegetaRobot import (
 import VegetaRobot.modules.sql.users_sql as sql
 from VegetaRobot.modules.disable import DisableAbleCommandHandler
 from VegetaRobot.modules.helper_funcs.chat_status import (
+    user_admin_no_reply,
     bot_admin,
     can_restrict,
     connection_status,
