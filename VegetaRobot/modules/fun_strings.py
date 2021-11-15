@@ -12,15 +12,15 @@ GBAM = "<b>Beginning Of Global Bam For {user2}</b>  \n \nChat Id : <code>{chatid
 
 # These words for just for fun don't mind it
 GBAM_REASON = (
-    "Setha Paila",
-    "Nara Paila",
-    "Jatti Paila",
-    "Punda Mavan",
-    "Thayoli Mavan",
-    "Loosu",
-    "Mutha ko",
-    "Sunni",
-    "Devudiya",
+    "a bitch",
+    "gay to gay",
+    "no 1 noob",
+    "fucker",
+    "mother ticker",
+    "One punch a gay",
+    "fuck of topic",
+    "no respect",
+    "chuthiya bhaiya",
     "Kundu Pusanika",
     "Manda Paila",
     "Savu la Nee Poi savu",
@@ -28,7 +28,7 @@ GBAM_REASON = (
     "Mundam",
     "Arivuktha mudnam",
     "Korangu",
-    "Korean Paithiyam",
+    "Korean gays",
     "Potta",
     "Mairu",
 )
