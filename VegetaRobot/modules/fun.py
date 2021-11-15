@@ -92,47 +92,6 @@ def dare(update, context):
     update.effective_message.reply_text(random.choice(fun.DARE))
         
         
-        
-@run_async
-@typing_action
-def owo(update, context):
-    message = update.effective_message
-    if not message.reply_to_message:
-        message.reply_text("I need a message to meme.")
-    else:
-        faces = [
-            "(・`ω´・)",
-            ";;w;;",
-            "owo",
-            "UwU",
-            ">w<",
-            "^w^",
-            "\(^o\) (/o^)/",
-            "( ^ _ ^)∠☆",
-            "(ô_ô)",
-            "~:o",
-            ";____;",
-            "(*^*)",
-            "(>_",
-            "(♥_♥)",
-            "*(^O^)*",
-            "((+_+))",
-        ]
-        reply_text = re.sub(r"[rl]", "w", message.reply_to_message.text)
-        reply_text = re.sub(r"[ｒｌ]", "ｗ", message.reply_to_message.text)
-        reply_text = re.sub(r"[RL]", "W", reply_text)
-        reply_text = re.sub(r"[ＲＬ]", "Ｗ", reply_text)
-        reply_text = re.sub(r"n([aeiouａｅｉｏｕ])", r"ny\1", reply_text)
-        reply_text = re.sub(r"ｎ([ａｅｉｏｕ])", r"ｎｙ\1", reply_text)
-        reply_text = re.sub(r"N([aeiouAEIOU])", r"Ny\1", reply_text)
-        reply_text = re.sub(r"Ｎ([ａｅｉｏｕＡＥＩＯＵ])", r"Ｎｙ\1", reply_text)
-        reply_text = re.sub(r"\!+", " " + random.choice(faces), reply_text)
-        reply_text = re.sub(r"！+", " " + random.choice(faces), reply_text)
-        reply_text = reply_text.replace("ove", "uv")
-        reply_text = reply_text.replace("ｏｖｅ", "ｕｖ")
-        reply_text += " " + random.choice(faces)
-        message.reply_to_message.reply_text(reply_text)                                    
-                                            
                                             
                                             
 
@@ -145,7 +104,6 @@ GBUN_HANDLER = CommandHandler("gbun", gbun)
 GBAM_HANDLER = CommandHandler("gbam", gbam)
 DARE_HANDLER = DisableAbleCommandHandler("dare", dare)
 TRUTH_HANDLER = DisableAbleCommandHandler("truth", truth)
-OWO_HANDLER = DisableAbleCommandHandler("owo", owo)
 
 dispatcher.add_handler(GOODMORNING_HANDLER)
 dispatcher.add_handler(GOODNIGHT_HANDLER)
@@ -154,7 +112,7 @@ dispatcher.add_handler(GBUN_HANDLER)
 dispatcher.add_handler(DECIDE_HANDLER)
 dispatcher.add_handler(TRUTH_HANDLER)
 dispatcher.add_handler(DARE_HANDLER)
-dispatcher.add_handler(OWO_HANDLER)
+
 
 
 #guys this it you like pegasusXteam ask join @pegasusSupportofficial
