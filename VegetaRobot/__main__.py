@@ -242,7 +242,7 @@ def start(update: Update, context: CallbackContext):
             GROUPSTART_IMG, caption= "*hi {},*\n*Vegeta Here For You*\n*I'm Working* : <code>{}</code>".format(
              first_name,uptime
             ),
-            parse_mode=ParseMode.MARKDOWN
+            parse_mode=ParseMode.MARKDOWN,
         reply_markup=InlineKeyboardMarkup(
                 [
                   [
