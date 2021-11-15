@@ -14,7 +14,7 @@ from pyrogram.types import ChatPermissions, InlineKeyboardButton, InlineKeyboard
 
 from VegetaRobot import DRAGONS as SUDO_USERS
 from VegetaRobot import pgram
-from VegetaRobot.modules.sql import forceSubscribe_sql as sql
+from VegetaRobot.modules.sql_extended import forceSubscribe_sql as sql
 
 logging.basicConfig(level=logging.INFO)
 
