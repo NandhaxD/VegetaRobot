@@ -193,7 +193,7 @@ def text1(update, context):
         string = "  ".join(args).lower()
 
     if not string:
-        message.reply_text("Usage is `/text1 <text>`", parse_mode=ParseMode.MARKDOWN)
+        message.reply_text("plz reply to the text.", parse_mode=ParseMode.MARKDOWN)
         return
 
     for normiecharacter in string:
@@ -221,7 +221,7 @@ def text2(update, context):
         string = "  ".join(args).lower()
 
     if not string:
-        message.reply_text("Usage is `/text2 <text>`", parse_mode=ParseMode.MARKDOWN)
+        message.reply_text("plz reply to the text.", parse_mode=ParseMode.MARKDOWN)
         return
 
     for normiecharacter in string:
@@ -249,7 +249,7 @@ def text3(update, context):
         string = "  ".join(args).lower()
 
     if not string:
-        message.reply_text("Usage is `/text3 <text>`", parse_mode=ParseMode.MARKDOWN)
+        message.reply_text("plz reply to the text.", parse_mode=ParseMode.MARKDOWN)
         return
 
     for normiecharacter in string:
@@ -277,7 +277,7 @@ def text4(update, context):
         string = "  ".join(args).lower()
 
     if not string:
-        message.reply_text("Usage is `/text4 <text>`", parse_mode=ParseMode.MARKDOWN)
+        message.reply_text("plz reply to the text.", parse_mode=ParseMode.MARKDOWN)
         return
 
     for normiecharacter in string:
@@ -305,7 +305,7 @@ def text5(update, context):
         string = "  ".join(args).lower()
 
     if not string:
-        message.reply_text("Usage is `/text5 <text>`", parse_mode=ParseMode.MARKDOWN)
+        message.reply_text("plz reply to the text.", parse_mode=ParseMode.MARKDOWN)
         return
 
     for normiecharacter in string:
@@ -318,11 +318,11 @@ def text5(update, context):
             
 __help__ = """
 
- ❍ `/text1`*:* Try Yourself!
- ❍ `/text2`*:* Try Yourself!
- ❍ `/text3`*:* Try Yourself!
- ❍ `/text4`*:* Try Yourself!
- ❍ `/text5`*:* Try Yourself!
+ ❍ `/text1`*:* reply to the text.
+ ❍ `/text2`*:* reply to the text.
+ ❍ `/text3`*:* reply to the text.
+ ❍ `/text4`*:* reply to the text.
+ ❍ `/text5`*:* reply to the text.
 """
 __mod_name__ = "🎇Styletext"
 
