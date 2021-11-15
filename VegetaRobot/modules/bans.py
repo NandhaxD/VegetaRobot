@@ -250,7 +250,7 @@ def temp_ban(update: Update, context: CallbackContext) -> str:
 
 
 
-@run_async
+
 @connection_status
 @bot_admin
 @can_restrict
@@ -493,6 +493,7 @@ BAN_HANDLER = CommandHandler(["ban", "sban"], ban)
 TEMPBAN_HANDLER = CommandHandler(["tban"], temp_ban)
 PUNCH_HANDLER = CommandHandler(["punch", "kick"], punch)
 UNBAN_HANDLER = CommandHandler("unban", unban)
+UNBAN_BUTTON_HANDLER = CallbackQueryHandler(unbanb_btn, pattern=r"unbanb_")
 ROAR_HANDLER = CommandHandler("roar", selfunban)
 PUNCHME_HANDLER = DisableAbleCommandHandler(["punchme", "kickme"], punchme, filters=Filters.group)
 
