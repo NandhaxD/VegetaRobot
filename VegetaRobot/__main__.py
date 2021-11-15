@@ -239,10 +239,10 @@ def start(update: Update, context: CallbackContext):
     else:
         first_name = update.effective_user.first_name
         update.effective_message.reply_video(
-            GROUPSTART_IMG, caption= "hi {},\nVegeta Here For You\nI'm Working : <code>{}</code>".format(
+            GROUPSTART_IMG, caption= "*hi {},*\n*Vegeta Here For You*\n*I'm Working* : <code>{}</code>".format(
              first_name,uptime
             ),
-            parse_mode=ParseMode.HTML,
+            parse_mode=ParseMode.MARKDOWN
         reply_markup=InlineKeyboardMarkup(
                 [
                   [
