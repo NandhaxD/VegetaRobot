@@ -91,11 +91,24 @@ def truth(update, context):
 def dare(update, context):
     update.effective_message.reply_text(random.choice(fun.DARE))
         
-        
-                                            
-                                            
+@run_async
+def yesnowtf(update, context):
+    msg = update.effective_message
+    chat = update.effective_chat
+    res = r.get("https://yesno.wtf/api")
+    if res.status_code != 200:
+        return msg.reply_text(random.choice(fun.DECIDE))
+    else:
+        res = res.json()
+    try:
+        context.bot.send_animation(
+            chat.id, animation=res["image"], caption=str(res["answer"]).upper()
+        )
+    except BadRequest:
+        return
 
-   __mod_name__ = "😜Memes" 
+                                            
+                                            
     
 GOODMORNING_HANDLER = DisableAbleMessageHandler(Filters.regex(r"(?i)(goodmorning|gm|good morning)"), goodmorning, friendly="goodmorning")
 GOODNIGHT_HANDLER = DisableAbleMessageHandler(Filters.regex(r"(?i)(goodnight|gn|good night)"), goodnight, friendly="goodnight")
@@ -104,6 +117,7 @@ GBUN_HANDLER = CommandHandler("gbun", gbun)
 GBAM_HANDLER = CommandHandler("gbam", gbam)
 DARE_HANDLER = DisableAbleCommandHandler("dare", dare)
 TRUTH_HANDLER = DisableAbleCommandHandler("truth", truth)
+YESNOWTF_HANDLER = DisableAbleCommandHandler("decide", yesnowtf)
 
 dispatcher.add_handler(GOODMORNING_HANDLER)
 dispatcher.add_handler(GOODNIGHT_HANDLER)
@@ -112,6 +126,7 @@ dispatcher.add_handler(GBUN_HANDLER)
 dispatcher.add_handler(DECIDE_HANDLER)
 dispatcher.add_handler(TRUTH_HANDLER)
 dispatcher.add_handler(DARE_HANDLER)
+dispatcher.add_handler(YESNOWTF_HANDLER)
 
 
 
