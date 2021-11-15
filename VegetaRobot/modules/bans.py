@@ -527,6 +527,8 @@ UNBAN_HANDLER = CommandHandler("unban", unban)
 UNBAN_BUTTON_HANDLER = CallbackQueryHandler(unbanb_btn, pattern=r"unbanb_")
 ROAR_HANDLER = CommandHandler("roar", selfunban)
 PUNCHME_HANDLER = DisableAbleCommandHandler(["punchme", "kickme"], punchme, filters=Filters.group)
+BANME_HANDLER = CommandHandler("banme", banme, run_async=True)
+
 
 dispatcher.add_handler(BAN_HANDLER)
 dispatcher.add_handler(TEMPBAN_HANDLER)
