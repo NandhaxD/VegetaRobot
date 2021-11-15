@@ -500,6 +500,7 @@ PUNCHME_HANDLER = DisableAbleCommandHandler(["punchme", "kickme"], punchme, filt
 dispatcher.add_handler(BAN_HANDLER)
 dispatcher.add_handler(TEMPBAN_HANDLER)
 dispatcher.add_handler(PUNCH_HANDLER)
+dispatcher.add_handler(UNBAN_BUTTON_HANDLER)
 dispatcher.add_handler(UNBAN_HANDLER)
 dispatcher.add_handler(ROAR_HANDLER)
 dispatcher.add_handler(PUNCHME_HANDLER)
