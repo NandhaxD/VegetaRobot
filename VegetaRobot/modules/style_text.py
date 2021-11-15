@@ -61,7 +61,7 @@ text1font = [
     "ʸ",
     "ᶻ",
 ]
-bubblefont = [
+text2font = [
     "ⓐ",
     "ⓑ",
     "ⓒ",
@@ -89,63 +89,8 @@ bubblefont = [
     "ⓨ",
     "ⓩ",
 ]
-fbubblefont = [
-    "🅐",
-    "🅑",
-    "🅒",
-    "🅓",
-    "🅔",
-    "🅕",
-    "🅖",
-    "🅗",
-    "🅘",
-    "🅙",
-    "🅚",
-    "🅛",
-    "🅜",
-    "🅝",
-    "🅞",
-    "🅟",
-    "🅠",
-    "🅡",
-    "🅢",
-    "🅣",
-    "🅤",
-    "🅥",
-    "🅦",
-    "🅧",
-    "🅨",
-    "🅩",
-]
-squarefont = [
-    "🄰",
-    "🄱",
-    "🄲",
-    "🄳",
-    "🄴",
-    "🄵",
-    "🄶",
-    "🄷",
-    "🄸",
-    "🄹",
-    "🄺",
-    "🄻",
-    "🄼",
-    "🄽",
-    "🄾",
-    "🄿",
-    "🅀",
-    "🅁",
-    "🅂",
-    "🅃",
-    "🅄",
-    "🅅",
-    "🅆",
-    "🅇",
-    "🅈",
-    "🅉",
-]
-fsquarefont = [
+
+text3font = [
     "🅰",
     "🅱",
     "🅲",
@@ -201,34 +146,7 @@ bluefont = [
     "🇾 ",
     "🇿 ",
 ]
-latinfont = [
-    "𝒶",
-    "𝒷",
-    "𝒸",
-    "𝒹",
-    "ℯ",
-    "𝒻",
-    "ℊ",
-    "𝒽",
-    "𝒾",
-    "𝒿",
-    "𝓀",
-    "𝓁",
-    "𝓂",
-    "𝓃",
-    "ℴ",
-    "𝓅",
-    "𝓆",
-    "𝓇",
-    "𝓈",
-    "𝓉",
-    "𝓊",
-    "𝓋",
-    "𝓌",
-    "𝓍",
-    "𝓎",
-    "𝓏",
-]
+
 linedfont = [
     "ᴀ",
     "ʙ",
@@ -289,7 +207,7 @@ def text1(update, context):
 
 @run_async
 @typing_action
-def bubble(update, context):
+def text2(update, context):
     args = context.args
     message = update.effective_message
     string = ""
@@ -301,13 +219,13 @@ def bubble(update, context):
         string = "  ".join(args).lower()
 
     if not string:
-        message.reply_text("Usage is `/bubble <text>`", parse_mode=ParseMode.MARKDOWN)
+        message.reply_text("Usage is `/text2 <text>`", parse_mode=ParseMode.MARKDOWN)
         return
 
     for normiecharacter in string:
         if normiecharacter in normiefont:
-            bubblecharacter = bubblefont[normiefont.index(normiecharacter)]
-            string = string.replace(normiecharacter, bubblecharacter)
+            text2character = text2font[normiefont.index(normiecharacter)]
+            string = string.replace(normiecharacter, text2character)
 
     if message.reply_to_message:
         message.reply_to_message.reply_text(string)
@@ -317,7 +235,7 @@ def bubble(update, context):
 
 @run_async
 @typing_action
-def fbubble(update, context):
+def text3(update, context):
     args = context.args
     message = update.effective_message
     string = ""
@@ -329,41 +247,13 @@ def fbubble(update, context):
         string = "  ".join(args).lower()
 
     if not string:
-        message.reply_text("Usage is `/fbubble <text>`", parse_mode=ParseMode.MARKDOWN)
+        message.reply_text("Usage is `/text3 <text>`", parse_mode=ParseMode.MARKDOWN)
         return
 
     for normiecharacter in string:
         if normiecharacter in normiefont:
-            fbubblecharacter = fbubblefont[normiefont.index(normiecharacter)]
-            string = string.replace(normiecharacter, fbubblecharacter)
-
-    if message.reply_to_message:
-        message.reply_to_message.reply_text(string)
-    else:
-        message.reply_text(string)
-
-
-@run_async
-@typing_action
-def square(update, context):
-    args = context.args
-    message = update.effective_message
-    string = ""
-
-    if message.reply_to_message:
-        string = message.reply_to_message.text.lower().replace(" ", "  ")
-
-    if args:
-        string = "  ".join(args).lower()
-
-    if not string:
-        message.reply_text("Usage is `/square <text>`", parse_mode=ParseMode.MARKDOWN)
-        return
-
-    for normiecharacter in string:
-        if normiecharacter in normiefont:
-            squarecharacter = squarefont[normiefont.index(normiecharacter)]
-            string = string.replace(normiecharacter, squarecharacter)
+            text3character = text3font[normiefont.index(normiecharacter)]
+            string = string.replace(normiecharacter, text3character)
 
     if message.reply_to_message:
         message.reply_to_message.reply_text(string)
