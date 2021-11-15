@@ -20,6 +20,7 @@ from VegetaRobot import (
     WOLVES,
     dispatcher,
 )
+import VegetaRobot.modules.sql.users_sql as sql
 from VegetaRobot.modules.disable import DisableAbleCommandHandler
 from VegetaRobot.modules.helper_funcs.chat_status import (
     bot_admin,
