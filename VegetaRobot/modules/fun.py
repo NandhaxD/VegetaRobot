@@ -147,7 +147,7 @@ GBUN_HANDLER = CommandHandler("gbun", gbun)
 GBAM_HANDLER = CommandHandler("gbam", gbam)
 DARE_HANDLER = DisableAbleCommandHandler("dare", dare)
 TRUTH_HANDLER = DisableAbleCommandHandler("truth", truth)
-TRUTH_HANDLER = DisableAbleCommandHandler("owo", owo)
+OWO_HANDLER = DisableAbleCommandHandler("owo", owo)
 
 dispatcher.add_handler(GOODMORNING_HANDLER)
 dispatcher.add_handler(GOODNIGHT_HANDLER)
