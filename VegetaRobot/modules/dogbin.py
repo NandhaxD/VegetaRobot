@@ -9,8 +9,8 @@ from telegram import Message, Chat, Update, Bot, MessageEntity, ParseMode
 from telegram.ext import CommandHandler, run_async, Filters
 from telegram.utils.helpers import escape_markdown
 
-from VegetaRbot import dispatcher
-from VegetaRbot.modules.disable import DisableAbleCommandHandler
+from VegetaRobot import dispatcher
+from VegetaRobot.modules.disable import DisableAbleCommandHandler
 
 BASE_URL = 'https://del.dog'
 
