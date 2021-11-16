@@ -1,4 +1,5 @@
 import html
+import re
 from typing import Optional
 
 from VegetaRobot import LOGGER, TIGERS, dispatcher
