@@ -230,6 +230,47 @@ def temp_mute(update: Update, context: CallbackContext) -> str:
             message.reply_text("Well damn, I can't mute that user.")
 
     return ""
+  
+@user_admin_no_reply
+@bot_admin
+@loggable
+def button(update: Update, context: CallbackContext) -> str:
+    query: Optional[CallbackQuery] = update.callback_query
+    user: Optional[User] = update.effective_user
+    bot: Optional[Bot] = context.bot
+    match = re.match(r"unmute_\((.+?)\)", query.data)
+    if match:
+        user_id = match.group(1)
+        chat: Optional[Chat] = update.effective_chat
+        member = chat.get_member(user_id)
+        chat_permissions = ChatPermissions (
+                can_send_messages=True,
+                can_invite_users=True,
+                can_pin_messages=True,
+                can_send_polls=True,
+                can_change_info=True,
+                can_send_media_messages=True,
+                can_send_other_messages=True,
+                can_add_web_page_previews=True
+        )                
+        unmuted = bot.restrict_chat_member(chat.id, int(user_id), chat_permissions)
+        if unmuted:
+        	update.effective_message.edit_text(
+        	    f"Admin {mention_html(user.id, user.first_name)} Unmuted {mention_html(member.user.id, member.user.first_name)}!",
+        	    parse_mode=ParseMode.HTML,
+        	)
+        	query.answer("Unmuted!")
+        	return (
+                    f"<b>{html.escape(chat.title)}:</b>\n" 
+                    f"#UNMUTE\n" 
+                    f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n"
+                    f"<b>User:</b> {mention_html(member.user.id, member.user.first_name)}"
+                )
+    else:
+        update.effective_message.edit_text(
+            "This user is not muted or has left the group!"
+        )
+        return ""
 
 MUTE_HANDLER = CommandHandler("mute", mute)
 UNMUTE_HANDLER = CommandHandler("unmute", unmute)
