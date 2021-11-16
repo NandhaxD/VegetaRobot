@@ -76,14 +76,25 @@ def mute(update: Update, context: CallbackContext) -> str:
     if member.can_send_messages is None or member.can_send_messages:
         chat_permissions = ChatPermissions(can_send_messages=False)
         bot.restrict_chat_member(chat.id, user_id, chat_permissions)
+        msg = (
+            f"<code>🗣️</code><b>Mute Event</b>\n"
+            f"<code> </code><b>• Muted User:</b> {mention_html(member.user.id, member.user.first_name)}"
+            )
+        if reason:
+            msg += f"\n<code> </code><b>• Reason:</b> \n{html.escape(reason)}"
+
+        keyboard = InlineKeyboardMarkup([[
+            InlineKeyboardButton(
+                "Unmute", callback_data="unmute_({})".format(member.user.id))
+        ]])
         bot.sendMessage(
             chat.id,
-            f"Muted <b>{html.escape(member.user.first_name)}</b> with no expiration date!",
-            parse_mode=ParseMode.HTML)
+            msg,
+            reply_markup=keyboard,
+            parse_mode=ParseMode.HTML,
+        )
         return log
-
-    else:
-        message.reply_text("This user is already muted!")
+    message.reply_text("This user is already muted!")
 
     return ""
 
