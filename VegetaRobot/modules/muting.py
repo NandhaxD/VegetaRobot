@@ -3,6 +3,7 @@ from typing import Optional
 
 from VegetaRobot import LOGGER, TIGERS, dispatcher
 from VegetaRobot.modules.helper_funcs.chat_status import (bot_admin,
+                                                          user_admin_no_reply,
                                                            can_restrict,
                                                            connection_status,
                                                            is_user_admin,
