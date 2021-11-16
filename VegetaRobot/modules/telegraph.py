@@ -12,7 +12,7 @@ r = telegraph.create_account(short_name=emilia)
 auth_url = r["auth_url"]
 
 
-@register(pattern="^/t(m|xt) ?(.*)")
+@register(pattern="^/tg(m|xt) ?(.*)")
 async def _(event):
     if event.fwd_from:
         return
