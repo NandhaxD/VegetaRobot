@@ -287,7 +287,7 @@ __help__ = """
  ❍ /zip: reply to a telegram file to compress it in .zip format
  ❍ /unzip: reply to a telegram file to decompress it from the .zip format
   
-*Telegraph Uploader only upload 6mb file*
- ❍ /tm: upload image or GIFs telegraph.
+*Telegraph Uploader only upload 3 to 5 mb files*
+ ❍ /telegraph: upload image or GIFs telegraph.
    
 """
