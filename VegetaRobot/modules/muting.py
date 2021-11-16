@@ -222,25 +222,39 @@ def temp_mute(update: Update, context: CallbackContext) -> str:
         if member.can_send_messages is None or member.can_send_messages:
             chat_permissions = ChatPermissions(can_send_messages=False)
             bot.restrict_chat_member(
-                chat.id, user_id, chat_permissions, until_date=mutetime)
-            bot.sendMessage(
-                chat.id,
-                f"Muted <b>{html.escape(member.user.first_name)}</b> for {time_val}!",
-                parse_mode=ParseMode.HTML)
+                  chat_permissions = ChatPermissions(can_send_messages=False)
+            bot.restrict_chat_member(
+                chat.id, user_id, chat_permissions, until_date=mutetime,
+            )     
+            msg = (
+                f"<code>🗣️</code><b>Time Mute Event</b>\n"
+                f"<code> </code><b>• Muted User:</b> {mention_html(member.user.id, member.user.first_name)}\n"
+                f"<code> </code><b>• User will be Muted for:</b> {time_val}\n"
+            )
+
+            keyboard = InlineKeyboardMarkup([[
+                InlineKeyboardButton(
+                    "Unmute", callback_data="unmute_({})".format(member.user.id))
+            ]])
+            bot.sendMessage(chat.id, msg, reply_markup=keyboard, parse_mode=ParseMode.HTML)
+
             return log
-        else:
-            message.reply_text("This user is already muted.")
+        message.reply_text("This user is already muted.")
 
     except BadRequest as excp:
         if excp.message == "Reply message not found":
             # Do not reply
             message.reply_text(f"Muted for {time_val}!", quote=False)
             return log
-        else:
-            LOGGER.warning(update)
-            LOGGER.exception("ERROR muting user %s in chat %s (%s) due to %s",
-                             user_id, chat.title, chat.id, excp.message)
-            message.reply_text("Well damn, I can't mute that user.")
+        LOGGER.warning(update)
+        LOGGER.exception(
+            "ERROR muting user %s in chat %s (%s) due to %s",
+            user_id,
+            chat.title,
+            chat.id,
+            excp.message,
+        )
+        message.reply_text("Well damn, I can't mute that user.")
 
     return ""
   
