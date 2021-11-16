@@ -185,6 +185,7 @@ def temp_mute(update: Update, context: CallbackContext) -> str:
     user_id, reason = extract_user_and_text(message, args)
     reply = check_user(user_id, bot, chat)
 
+
     if reply:
         message.reply_text(reply)
         return ""
@@ -192,18 +193,13 @@ def temp_mute(update: Update, context: CallbackContext) -> str:
     member = chat.get_member(user_id)
 
     if not reason:
-        message.reply_text(
-            "You haven't specified a time to mute this user for!")
+        message.reply_text("You haven't specified a time to mute this user for!")
         return ""
 
     split_reason = reason.split(None, 1)
 
     time_val = split_reason[0].lower()
-    if len(split_reason) > 1:
-        reason = split_reason[1]
-    else:
-        reason = ""
-
+    reason = split_reason[1] if len(split_reason) > 1 else ""
     mutetime = extract_time(message, time_val)
 
     if not mutetime:
@@ -214,7 +210,8 @@ def temp_mute(update: Update, context: CallbackContext) -> str:
         f"#TEMP MUTED\n"
         f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n"
         f"<b>User:</b> {mention_html(member.user.id, member.user.first_name)}\n"
-        f"<b>Time:</b> {time_val}")
+        f"<b>Time:</b> {time_val}"
+    )
     if reason:
         log += f"\n<b>Reason:</b> {reason}"
 
