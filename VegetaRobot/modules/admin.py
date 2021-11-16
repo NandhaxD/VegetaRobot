@@ -20,6 +20,35 @@ from VegetaRobot.modules.helper_funcs.extraction import (extract_user,
 from VegetaRobot.modules.log_channel import loggable
 from VegetaRobot.modules.helper_funcs.alternate import send_message
 
+
+@bot_admin
+@user_admin
+def setchat_title(update: Update, context: CallbackContext):
+    chat = update.effective_chat
+    msg = update.effective_message
+    user = update.effective_user
+    args = context.args
+
+    if user_can_changeinfo(chat, user, context.bot.id) is False:
+        msg.reply_text("You don't have enough rights to change chat info!")
+        return
+
+    title = " ".join(args)
+    if not title:
+        msg.reply_text("Enter some text to set new title in your chat!")
+        return
+
+    try:
+        context.bot.set_chat_title(int(chat.id), str(title))
+        msg.reply_text(
+            f"Successfully set <b>{title}</b> as new chat title!",
+            parse_mode=ParseMode.HTML,
+        )
+    except BadRequest as excp:
+        msg.reply_text(f"Error! {excp.message}.")
+        return
+        
+        
 @bot_admin
 @user_admin
 def setchatpic(update: Update, context: CallbackContext):
