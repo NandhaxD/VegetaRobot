@@ -617,10 +617,10 @@ dispatcher.add_handler(ADMIN_REFRESH_HANDLER)
 
 __mod_name__ = "👮Admins"
 __command_list__ = [
-    "adminlist", "admins", "invitelink", "promote", "demote", "admincache", "setgpic", "delgpic", "setgtitle"
+    "adminlist", "admins", "invitelink", "promote", "demote", "admincache", "setgpic", "delgpic", "setgtitle", "setdesc"
 ]
 __handlers__ = [
     ADMINLIST_HANDLER, PIN_HANDLER, UNPIN_HANDLER, INVITE_HANDLER,
     PROMOTE_HANDLER, DEMOTE_HANDLER, SET_TITLE_HANDLER, SETCHAT_TITLE_HANDLER, ADMIN_REFRESH_HANDLER, SETCHATPIC_HANDLER,
-    RMCHATPIC_HANDLER
+    RMCHATPIC_HANDLER, SET_DESC_HANDLER
 ]
