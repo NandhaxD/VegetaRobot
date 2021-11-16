@@ -18,7 +18,6 @@ from VegetaRobot.modules.helper_funcs.extraction import (
 )
 from VegetaRobot.modules.helper_funcs.string_handling import extract_time
 from VegetaRobot.modules.log_channel import loggable
-from VegetaRobot.modules.redis.approvals_redis import is_approved
 from telegram import (
     Bot, 
     Chat, 
