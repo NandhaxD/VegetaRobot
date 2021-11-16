@@ -12,11 +12,11 @@ from VegetaRobot.modules.helper_funcs.chat_status import (bot_admin, can_pin,
                                                           user_can_changeinfo,
                                                            connection_status,
                                                            user_admin,
-                                                           ADMIN_CACHE,
-                                                        can_manage_voice_chats, )
+                                                           ADMIN_CACHE, )
+
 
 from VegetaRobot.modules.helper_funcs.extraction import (extract_user,
-                                                          extract_user_and_text)
+                                                        extract_user_and_text)
 from VegetaRobot.modules.log_channel import loggable
 from VegetaRobot.modules.helper_funcs.alternate import send_message
 
@@ -211,8 +211,8 @@ def fullpromote(update: Update, context: CallbackContext) -> str:
             can_promote_members=bot_member.can_promote_members,
             can_restrict_members=bot_member.can_restrict_members,
             can_pin_messages=bot_member.can_pin_messages,
-            can_manage_voice_chats=bot_member.can_manage_voice_chats,
-        )
+              )
+
     except BadRequest as err:
         if err.message == "User_not_mutual_contact":
             message.reply_text("I can't promote someone who isn't in the group.")
