@@ -584,6 +584,7 @@ __help__ = """
 ADMINLIST_HANDLER = DisableAbleCommandHandler("admins", adminlist)
 
 PIN_HANDLER = CommandHandler("pin", pin, filters=Filters.group)
+SET_DESC_HANDLER = CommandHandler("setdesc", set_desc, filters=Filters.group)
 UNPIN_HANDLER = CommandHandler("unpin", unpin, filters=Filters.group)
 SETCHATPIC_HANDLER = CommandHandler("setgpic", setchatpic, filters=Filters.group)
 RMCHATPIC_HANDLER = CommandHandler("delgpic", rmchatpic, filters=Filters.group)
