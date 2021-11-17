@@ -75,8 +75,11 @@ async def _(event):
         os.remove("k.mp3")
         
 __help__="""
+ *text to voice only on english*
+ - `/tts`(text)*:* convert to text to voice.
+ 
  *I can convert text to voice...*
- 🔹 `/tts` <lang code>*:* Reply to any message to get text to speech output.
+ 🔹 `/tts` <lang code>*:* Reply to any message to get text to speech output. (only admins)
 *Language Codes*
 `af,am,ar,az,be,bg,bn,bs,ca,ceb,co,cs,cy,da,de,el,en,eo,es,
 et,eu,fa,fi,fr,fy,ga,gd,gl,gu,ha,haw,hi,hmn,hr,ht,hu,hy,
