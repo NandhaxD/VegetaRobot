@@ -63,7 +63,6 @@ search_engine_parser
 opencv-python-headless #imageedit
 envparse
 secureme #encrypt
-motor
-pymongo==3.11.0
+
 
 
