@@ -83,3 +83,7 @@ __mod_name__ = "📓MYINFO"
 __command_list__ = [
     "myinfo"
 ]
+
+"""
+this module by Valt
+© @pegasusXteam
