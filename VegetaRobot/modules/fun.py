@@ -83,7 +83,7 @@ def decide(update: Update, context: CallbackContext):
 @run_async
 @typing_action
 def repo(update, context):
-    update.effective_message.reply_text(fun.REPO))
+    update.effective_message.reply_text(random.choice(fun.REPO))
  
 
 @run_async
