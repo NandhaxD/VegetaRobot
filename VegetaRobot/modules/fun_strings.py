@@ -87,6 +87,8 @@ TRUTH = (
     "How long have you gone without a shower?",
 )
 
+REPO = ("github.com/ctzfamily/VegetaRobot")
+
 DARE = (
     "Show the most embarrassing photo on your phone",
     "Show the last five people you texted and what the messages said",
