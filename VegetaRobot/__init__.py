@@ -3,6 +3,7 @@ import os
 import sys
 import time
 import spamwatch
+from aiohttp import ClientSession
 import telegram.ext as tg
 from redis import StrictRedis
 from pyrogram import Client, errors
@@ -188,6 +189,10 @@ if not SPAMWATCH_API:
     LOGGER.warning("SpamWatch API key missing! recheck your config.")
 else:
     sw = spamwatch.Client(SPAMWATCH_API)
+    
+#install aiohttp session
+print("[VegetaRobot]: Initializing AIOHTTP Session")
+aiohttpsession = ClientSession() 
 
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
 telethn = TelegramClient("KURUMIBOT", API_ID, API_HASH)
