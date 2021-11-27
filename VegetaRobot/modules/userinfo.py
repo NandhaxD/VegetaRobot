@@ -516,7 +516,8 @@ Examples:
  `/setbio This user is a wolf` (reply to the user)
 
 *Overall Information about you:*
- • `/info` or `/status`*:* get information about a user. 
+ • `/info` or `/status`*:* get information about a user.
+ • `/myinfo`: shows your info in inline button
  
 
 """
