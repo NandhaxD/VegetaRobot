@@ -87,7 +87,7 @@ TRUTH = (
     "How long have you gone without a shower?",
 )
 
-REPO = ("github.com/Ctzfamily/VegetaRobot","github.com/ctzfamily/VegetaRobot")
+REPO = ("github.com/Ctzfamily/VegetaRobot","**oh!! you going fork Vegeta? ok! but dont forget to give a star repo try repo 1 more time /repo**")
 
 DARE = (
     "Show the most embarrassing photo on your phone",
