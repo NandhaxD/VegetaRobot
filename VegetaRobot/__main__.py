@@ -115,7 +115,7 @@ Helpful commands:
 - /start: Starts me! You've probably already used this.
 - /help: Sends this message; I'll tell you more about myself!
 - /donate: Gives you info on how to support me and my creator.
-If you want to report bugs or have any questions on how to use me then feel free to reach out: @PegasusSupportOfficial.
+If you want to report bugs or have any questions on how to use me then feel free to reach out: @VegetaSupport.
 All commands can be used with the following: [(/),(!),(?),(.),(~)](https://telegra.ph/file/561fa547f3c4940c95ddf.jpg)
 List of all the Modules:
 """.format(
@@ -246,7 +246,7 @@ def start(update: Update, context: CallbackContext):
                 [
                   [
                   InlineKeyboardButton(text=" Support ", url=f"https://telegram.dog/{SUPPORT_CHAT}"),
-                  InlineKeyboardButton(text=" Updates ", url=f"t.me/pegasusUpdates"),
+                  InlineKeyboardButton(text=" Updates ", url=f"t.me/VegetaUpdates"),
                   ]
                 ]
             ),
@@ -325,7 +325,7 @@ def help_button(update, context):
         if mod_match:
             module = mod_match.group(1)
             text = (
-                "Powered by @VegetaRobot\nHere is the help for the *{}* module:\n".format(
+                "Powered by @UnitedSupport\nHere is the help for the *{}* module:\n".format(
                     HELPABLE[module].__mod_name__
                 )
                 + HELPABLE[module].__help__
