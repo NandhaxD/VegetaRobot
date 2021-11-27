@@ -14,7 +14,7 @@ from VegetaRobot import (
     TOKEN,
     URL,
     WEBHOOK,
-    SUPPORT_CHAT,
+    SUPPORT_CHAT,UPDATES_CHANNEL,
     dispatcher,
     StartTime,
     telethn,
