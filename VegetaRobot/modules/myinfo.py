@@ -16,13 +16,14 @@ from VegetaRobot import dispatcher
 
 
 edit_time = 5
-""" =======================CONSTANTS====================== """
-file1 = "https://telegra.ph/file/02d357bbd9d52f31c10b5.jpg"
-file2 = "https://telegra.ph/file/9bdd8c4227aa24e1cbc8d.jpg"
-file3 = "https://telegra.ph/file/76ee4464e9facbb07a8da.jpg"
-file4 = "https://telegra.ph/file/7715ad2e1bf1df1b7a225.jpg"
-file5 = "https://telegra.ph/file/9b504dba8f2735ab668dd.jpg"
-""" =======================CONSTANTS====================== """
+""" =======================VEGETA====================== """
+file1 = "https://telegra.ph/file/bc258c88be230d824d687.jpg"
+file2 = "https://telegra.ph/file/6ddb38a0a85a18500d49a.jpg"
+file3 = "https://telegra.ph/file/7fd1f54fc821b3f8a15a0.jpg"
+file4 = "https://telegra.ph/file/ec11e66958ccebb5f96a8.jpg"
+file5 = "https://telegra.ph/file/f5e5a31be9ba7ea30f9d0.jpg"
+""" =======================VEGETA====================== """
+
 
 @register(pattern="/myinfo")
 async def proboyx(event):
