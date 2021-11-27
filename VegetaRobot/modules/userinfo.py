@@ -495,6 +495,11 @@ __help__ = """
 *ID:*
  • `/id`*:* get the current group id. If used by replying to a message, gets that user's id.
  • `/gifid`*:* reply to a gif to me to tell you its file ID.
+ 
+*AFK:*
+ • `/afk <reason>`*:* mark yourself as AFK(away from keyboard).
+ • `brb <reason>`*:* same as the afk command - but not a command.
+When marked as AFK, any mentions will be replied to with a message to say you're not available!
 
 *Self addded information:* 
  • `/setme <text>`*:* will set your info
@@ -536,7 +541,7 @@ dispatcher.add_handler(GET_BIO_HANDLER)
 dispatcher.add_handler(SET_ABOUT_HANDLER)
 dispatcher.add_handler(GET_ABOUT_HANDLER)
 
-__mod_name__ = "📜Info|bio"
+__mod_name__ = "📜Info|afk"
 __command_list__ = ["setbio", "bio", "setme", "me", "info"]
 __handlers__ = [
     ID_HANDLER, GIFID_HANDLER, INFO_HANDLER, SET_BIO_HANDLER, GET_BIO_HANDLER,
