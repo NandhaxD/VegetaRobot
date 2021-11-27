@@ -79,7 +79,13 @@ def decide(update: Update, context: CallbackContext):
     reply_text = update.effective_message.reply_to_message.reply_text if update.effective_message.reply_to_message else update.effective_message.reply_text
     reply_text(random.choice(fun.DECIDE))
     
-    
+  
+@run_async
+@typing_action
+def repo(update, context):
+    update.effective_message.reply_text(fun.REPO))
+ 
+
 @run_async
 @typing_action
 def truth(update, context):
@@ -101,6 +107,7 @@ GBUN_HANDLER = CommandHandler("gbun", gbun)
 GBAM_HANDLER = CommandHandler("gbam", gbam)
 DARE_HANDLER = DisableAbleCommandHandler("dare", dare)
 TRUTH_HANDLER = DisableAbleCommandHandler("truth", truth)
+REPO_HANDLER = DisableAbleCommandHandler("repo", repo)
 
 dispatcher.add_handler(GOODMORNING_HANDLER)
 dispatcher.add_handler(GOODNIGHT_HANDLER)
@@ -109,6 +116,8 @@ dispatcher.add_handler(GBUN_HANDLER)
 dispatcher.add_handler(DECIDE_HANDLER)
 dispatcher.add_handler(TRUTH_HANDLER)
 dispatcher.add_handler(DARE_HANDLER)
+dispatcher.add_handler(REPO_HANDLER)
+
 
 
 
