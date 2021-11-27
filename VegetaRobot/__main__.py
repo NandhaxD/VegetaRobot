@@ -89,9 +89,8 @@ I am *Vegeta*
 buttons = [
     [
         InlineKeyboardButton(
-                            text="➕ Add Me ➕",
+                            text="☑ Add Vegeta to group ☑",
                             url="t.me/VegetaRobot?startgroup=true"),
-                       InlineKeyboardButton(text="❤Bot Support", url="t.me/vegetaSupport"),
                     ],
                    [
                        InlineKeyboardButton(text="🔐 Help ", callback_data="help_back"),
@@ -336,7 +335,8 @@ def help_button(update, context):
                 parse_mode=ParseMode.MARKDOWN,
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup(
-                    [[InlineKeyboardButton(text="⬅ Back", callback_data="help_back")]]
+                    [[InlineKeyboardButton(text="⬅ Back", callback_data="help_back"),
+                      InlineKeyboardButton(text="⬅ Home", callback_data="vegeta_back")]]
                 ),
             )
 
