@@ -11,7 +11,7 @@ from pyrogram.types import (
 from VegetaRobot import BOT_NAME
 
 # By @ZeusXRobot
-from VegetaRobot.resources.ImageEditor.edit_1 import (  # pylint:disable=import-error
+from VegetaRobot.resources.IMGEDITOR.edit_1 import (  # pylint:disable=import-error
     black_white,
     box_blur,
     bright,
@@ -19,7 +19,7 @@ from VegetaRobot.resources.ImageEditor.edit_1 import (  # pylint:disable=import-
     mix,
     normal_blur,
 )
-from VegetaRobot.resources.ImageEditor.edit_2 import (  # pylint:disable=import-error
+from VegetaRobot.resources.IMGEDITOR.edit_2 import (  # pylint:disable=import-error
     cartoon,
     circle_with_bg,
     circle_without_bg,
@@ -29,13 +29,13 @@ from VegetaRobot.resources.ImageEditor.edit_2 import (  # pylint:disable=import-
     sepia_mode,
     sticker,
 )
-from VegetaRobot.resources.ImageEditor.edit_3 import (  # pylint:disable=import-error
+from VegetaRobot.resources.IMGEDITOR.edit_3 import (  # pylint:disable=import-error
     black_border,
     blue_border,
     green_border,
     red_border,
 )
-from VegetaRobot.resources.ImageEditor.edit_4 import (  # pylint:disable=import-error
+from VegetaRobot.resources.IMGEDITOR.edit_4 import (  # pylint:disable=import-error
     inverted,
     removebg_plain,
     removebg_sticker,
@@ -45,7 +45,7 @@ from VegetaRobot.resources.ImageEditor.edit_4 import (  # pylint:disable=import-
     rotate_270,
     round_sticker,
 )
-from VegetaRobot.resources.ImageEditor.edit_5 import (  # pylint:disable=import-error
+from VegetaRobot.resources.IMGEDITOR.edit_5 import (  # pylint:disable=import-error
     normalglitch_1,
     normalglitch_2,
     normalglitch_3,
