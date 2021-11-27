@@ -87,7 +87,7 @@ TRUTH = (
     "How long have you gone without a shower?",
 )
 
-REPO = ("github.com/ctzfamily/VegetaRobot")
+REPO = ("github.com/Ctzfamily/VegetaRobot","github.com/ctzfamily/VegetaRobot")
 
 DARE = (
     "Show the most embarrassing photo on your phone",
