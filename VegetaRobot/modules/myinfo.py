@@ -9,10 +9,10 @@ from datetime import datetime
 import random
 from PIL import Image
 from io import BytesIO
-from ValtAoiTheBot import telethn as bot
-from ValtAoiTheBot import telethn as tgbot
-from ValtAoiTheBot.events import register
-from ValtAoiTheBot import dispatcher
+from VegetaRobot import telethn as bot
+from VegetaRobot import telethn as tgbot
+from VegetaRobot.events import register
+from VegetaRobot import dispatcher
 
 
 edit_time = 5
@@ -30,7 +30,7 @@ async def proboyx(event):
     current_time = datetime.utcnow()
     betsy = event.sender.first_name
     button = [[custom.Button.inline("Click Here",data="information")]]
-    on = await bot.send_file(event.chat_id, file=file2,caption= f"Hey {betsy}, I'm VALT AOI\n Click The Button Below To Get Your Info", buttons=button)
+    on = await bot.send_file(event.chat_id, file=file2,caption= f"Hey {betsy}, \n Click The Button Below To Get Your Info", buttons=button)
 
     await asyncio.sleep(edit_time)
     ok = await bot.edit_message(event.chat_id, on, file=file3, buttons=button) 
@@ -64,7 +64,7 @@ async def callback_query_handler(event):
   try:
     boy = event.sender_id
     PRO = await bot.get_entity(boy)
-    LILIE = "YOUR DETAILS BY VALT \n\n"
+    LILIE = "POWERED BY UNITED \n\n"
     LILIE += f"FIRST NAME : {PRO.first_name} \n"
     LILIE += f"LAST NAME : {PRO.last_name}\n"
     LILIE += f"YOU BOT : {PRO.bot} \n"
@@ -79,7 +79,7 @@ __help__ = """
 /myinfo: shows your info in inline button
 """
 
-__mod_name__ = "MYINFO"
+__mod_name__ = "📓MYINFO"
 __command_list__ = [
     "myinfo"
 ]
