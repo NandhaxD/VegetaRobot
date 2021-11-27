@@ -29,9 +29,9 @@ file5 = "https://telegra.ph/file/f5e5a31be9ba7ea30f9d0.jpg"
 async def proboyx(event):
     chat = await event.get_chat()
     current_time = datetime.utcnow()
-    betsy = event.sender.first_name
-    button = [[custom.Button.inline("Click Here",data="information")]]
-    on = await bot.send_file(event.chat_id, file=file2,caption= f"Hey {betsy}, \n Click The Button Below To Get Your Info", buttons=button)
+    firstname = event.sender.first_name
+    button = [[custom.Button.inline("information",data="information")]]
+    on = await bot.send_file(event.chat_id, file=file2,caption= f"hello {firstname}, \n Click The Button Below To Get Your Info", buttons=button)
 
     await asyncio.sleep(edit_time)
     ok = await bot.edit_message(event.chat_id, on, file=file3, buttons=button) 
