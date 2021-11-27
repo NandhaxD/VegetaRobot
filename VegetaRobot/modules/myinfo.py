@@ -86,5 +86,6 @@ __command_list__ = [
 ]
 
 """
-this module by Valt
+tmyinfo module by Valt
 © @pegasusXteam
+"""
