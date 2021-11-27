@@ -76,11 +76,7 @@ async def callback_query_handler(event):
   except Exception as e:
     await event.reply(f"{e}")
 
-__help__ = """
-/myinfo: shows your info in inline button
-"""
 
-__mod_name__ = "📓MYINFO"
 __command_list__ = [
     "myinfo"
 ]
