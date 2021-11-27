@@ -579,7 +579,7 @@ __help__ = """
  - /setgpic*:* reply to the image set chat pic.
  - /delgpic*:* delete a chat pic.
  - /settitle*:* (text) bot can change chat tilte.
- - /setdecs*:* (text) bot can change chat descrepicion.
+ - /setdesc*:* (text) bot can change chat descrepicion.
  
  *Delete messages*:
  - /del: deletes the message you replied to
