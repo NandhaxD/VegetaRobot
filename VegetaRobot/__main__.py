@@ -89,7 +89,7 @@ JOIN OFFICIAL
 ──『ᴛʜᴀɴᴋs  ғᴏʀ  ᴜsɪɴɢ』
 """
 PMSTART_CHAT = (
-    "[I defect you friza....heeeheee!!!](https://telegra.ph/file/277fdd6886a4fc9c1d854.jpg)",
+    "[ I defect you friza.... Haaa haaa!!!](https://telegra.ph/file/e3562d9105926983715d9.mp4)",
     "[I'm Prince Vegeta I Hope Your Planets](https://telegra.ph/file/9aed3b24431552db6d87d.jpg)",
     "[Dont Teach My Family 🔥](https://telegra.ph/file/bd5f26483bae7d400ec7e.jpg)",
     "[kaaaameeeee kaaaameee boommmm!!!!](https://telegra.ph/file/adfffdc36ff4303eb7523.jpg)", )
@@ -97,20 +97,19 @@ PMSTART_CHAT = (
 buttons = [
     [
         InlineKeyboardButton(
-                            text="☑ Add Vegeta to group ☑",
+                            text="☑ Add Vegeta to Group ☑",
                             url="t.me/VegetaRobot?startgroup=true"),
                     ],
                    [
-                       InlineKeyboardButton(text="🔐 Help ", callback_data="help_back"),
-                       InlineKeyboardButton(text="📊 Network", url="t.me/pegasusXteam"),
-                       InlineKeyboardButton(text="🔔 Logs", url="t.me/pegasusLogs"),
+                       InlineKeyboardButton(text="*Network", url="t.me/pegasusXteam"),
+                       InlineKeyboardButton(text="•Logs", url="t.me/pegasusLogs"),
                      ],
                     [                  
                        InlineKeyboardButton(
-                             text="🗯 Support",
+                             text="•Support",
                              url=f"https://t.me/{SUPPORT_CHAT}"),
                        InlineKeyboardButton(
-                             text="📢 Updates",
+                             text="•Updates",
                              url=f"https://t.me/{UPDATES_CHANNEL}"
          ),
     ],
@@ -135,7 +134,7 @@ HELP_MSG = "Click the button below to get help manu in your pm."
 DONATE_STRING = """Contact to **@PegasusXrobot**"""
 HELP_IMG= "https://telegra.ph/file/9d2c6e3b28afe7619856e.jpg"
 GROUPSTART_IMG= "https://telegra.ph/file/aac824153c53d30e7abb4.mp4"
-
+PM_IMG= "https://telegra.ph/file/9d2c6e3b28afe7619856e.jpg"
 
 
 IMPORTED = {}
@@ -242,8 +241,8 @@ def start(update: Update, context: CallbackContext):
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
             )
-            update.effective_message.reply_text(
-                PM_START_TEXT,
+            update.effective_message.reply_photo(
+                PM_IMG,PM_START_TEXT,
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
