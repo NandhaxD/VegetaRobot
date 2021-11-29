@@ -79,19 +79,16 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
- ──『*SAIYAN VEGETA*』
+ ──『[SAIYAN VEGETA](https://telegra.ph/file/5c24e42b677e7e8ec46b2.jpg)』
 
-*Hey {},✋*
+Hey User!!✋
 𝐈 Am *Prince Vegeta* Add 𝐌𝐞 𝐓𝐨 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩 𝐈 𝐖𝐢𝐥𝐥 𝐃𝐞𝐬𝐭𝐫𝐨𝐲 𝐄𝐯𝐢𝐥𝐬 𝐖𝐢𝐭𝐡 𝐌𝐲 Powers...\n
 *SEE MY POWER - /help*
-*POWER LAVEL TIME* - {}
-*USER'S* - {}
-*CHAT'S* - {}
 
 *JOIN OFFICIAL* -
 [CHANNEL](t.me/pegasusUpdates) - [SUPPORT](t.me/pegasusSupportChat)
 
-──『*ᴛʜᴀɴᴋs ғᴏʀ ᴜsɪɴɢ*』
+──『*ᴛʜᴀɴᴋs  ғᴏʀ  ᴜsɪɴɢ*』
 """
 PMSTART_CHAT = (
     "[ I defect you friza.... Haaa haaa!!!](https://telegra.ph/file/e3562d9105926983715d9.mp4)",
@@ -253,11 +250,7 @@ def start(update: Update, context: CallbackContext):
             )
             first_name = update.effective_user.first_name
             update.effective_message.reply_photo(
-               random.choice(PM_IMG),PM_START_TEXT.format(
-                    escape_markdown(first_name),
-                    escape_markdown(uptime),
-                    sql.num_users(),
-                    sql.num_chats()),         
+               random.choice(PM_IMG),PM_START_TEXT,
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
@@ -272,8 +265,8 @@ def start(update: Update, context: CallbackContext):
         reply_markup=InlineKeyboardMarkup(
                 [
                   [
-                  InlineKeyboardButton(text=" Support ", url=f"https://telegram.dog/{SUPPORT_CHAT}"),
-                  InlineKeyboardButton(text=" Updates ", url=f"t.me/VegetaUpdates"),
+                  InlineKeyboardButton(text="✧ Support ", url=f"https://telegram.dog/{SUPPORT_CHAT}"),
+                  InlineKeyboardButton(text="✧ Updates ", url=f"t.me/VegetaUpdates"),
                   ]
                 ]
             ),
