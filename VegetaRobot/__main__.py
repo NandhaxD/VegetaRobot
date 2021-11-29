@@ -1,4 +1,5 @@
 import importlib
+import random
 import time
 import re
 from sys import argv
@@ -85,6 +86,11 @@ I am *Vegeta*
 ┃➪ ᴄʟɪᴄᴋ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ ʜᴇʟᴘ ᴛᴏ ┃ᴇxᴘʟᴏʀᴇ ᴍᴏʀᴇ ᴀʙᴏᴜᴛ ᴍᴇ ᴀɴᴅ ᴍʏ ┃ғᴇᴀᴛᴜʀᴇs.
 ┗━━━━━━━━━━━━━━━━━━━━━┛
 """
+STICKERS = (
+    "**hello i am super saiyan Vegeta nice to meet you✋**"
+    "**What you Checking here🤔**"
+    "**pero join @UnitedSupport**"
+    "**kame kame boommmm!!!!**"
 
 buttons = [
     [
@@ -229,6 +235,11 @@ def start(update: Update, context: CallbackContext):
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
 
         else:
+            update.effective_message.reply_sticker(
+                random.choice(STICKERS),
+                parse_mode=ParseMode.MARKDOWN,
+                timeout=60,
+            )
             update.effective_message.reply_text(
                 PM_START_TEXT,
                 reply_markup=InlineKeyboardMarkup(buttons),
