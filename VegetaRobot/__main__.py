@@ -113,7 +113,7 @@ buttons = [
                              url=f"https://t.me/{UPDATES_CHANNEL}),
                        ],
                       [
-                          InlineKeyboardButton(text="✧ help cmds", callback="help_back"
+                          InlineKeyboardButton(text="✧ help cmds", callback_data="help_back"
          ),
     ],
 ] 
