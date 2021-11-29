@@ -82,6 +82,6 @@ __command_list__ = [
 ]
 
 
-#myinfo module by Valt
+#myinfo module created by @h0daka
 #Copyright by @pegasusXteam
 
