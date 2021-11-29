@@ -90,7 +90,7 @@ STICKERS = (
     "**hello i am super saiyan Vegeta nice to meet you✋**"
     "**What you Checking here🤔**"
     "**pero join @UnitedSupport**"
-    "**kame kame boommmm!!!!**"
+    "**kame kame boommmm!!!!**" )
 
 buttons = [
     [
