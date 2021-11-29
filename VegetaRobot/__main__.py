@@ -101,7 +101,7 @@ buttons = [
                             url="t.me/VegetaRobot?startgroup=true"),
                     ],
                    [
-                       InlineKeyboardButton(text="*Network", url="t.me/pegasusXteam"),
+                       InlineKeyboardButton(text="•Network", url="t.me/pegasusXteam"),
                        InlineKeyboardButton(text="•Logs", url="t.me/pegasusLogs"),
                      ],
                     [                  
@@ -134,7 +134,9 @@ HELP_MSG = "Click the button below to get help manu in your pm."
 DONATE_STRING = """Contact to **@PegasusXrobot**"""
 HELP_IMG= "https://telegra.ph/file/9d2c6e3b28afe7619856e.jpg"
 GROUPSTART_IMG= "https://telegra.ph/file/aac824153c53d30e7abb4.mp4"
-PM_IMG= "https://telegra.ph/file/9d2c6e3b28afe7619856e.jpg"
+
+PM_IMG = ( "https://telegra.ph/file/9d2c6e3b28afe7619856e.jpg",
+           "https://telegra.ph/file/9aed3b24431552db6d87d.jpg", )
 
 
 IMPORTED = {}
@@ -242,7 +244,7 @@ def start(update: Update, context: CallbackContext):
                 timeout=60,
             )
             update.effective_message.reply_photo(
-                PM_IMG,PM_START_TEXT,
+               random.choice(PM_IMG),PM_START_TEXT,
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
