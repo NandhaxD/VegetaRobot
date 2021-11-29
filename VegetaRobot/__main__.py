@@ -2,7 +2,7 @@ import importlib
 import random
 import time
 import re
-import VegetaRobot.modules.sql.users_sql as sql
+
 from sys import argv
 from typing import Optional
 
