@@ -87,9 +87,9 @@ I am *Vegeta*
 ┗━━━━━━━━━━━━━━━━━━━━━┛
 """
 PMSTART_CHAT = (
-    "**i am the super saiyan Vegeta nice to meet you**",
-    "**What you Checking here🤔**",
-    "*pero join @UnitedSupport*",
+    "[I defect you friza....heeeheee!!!](https://telegra.ph/file/277fdd6886a4fc9c1d854.jpg)",
+    "[I'm prince  vegeta i hope your planet](https://telegra.ph/file/9aed3b24431552db6d87d.jpg)",
+    "*hey join @UnitedSupport*",
     "[haha haha hmmm kame kame boommmm!!!!](https://telegra.ph/file/adfffdc36ff4303eb7523.jpg)", )
 
 buttons = [
