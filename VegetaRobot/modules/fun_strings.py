@@ -249,7 +249,9 @@ SFW_STRINGS = (
     "You can be the first person to step on sun. Have a try.",
 )
     
-  REPO = "github.com/ctzfamily/vegetaRobot"
+  
+REPO = "github.com/Ctzfamily/VegetaRobot"
+
   
   
     
