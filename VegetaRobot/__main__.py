@@ -83,16 +83,15 @@ PM_START_TEXT = """
 
 *Hey {},✋*
 𝐈 Am *Prince Vegeta* Add 𝐌𝐞 𝐓𝐨 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩 𝐈 𝐖𝐢𝐥𝐥 𝐃𝐞𝐬𝐭𝐫𝐨𝐲 𝐄𝐯𝐢𝐥𝐬 𝐖𝐢𝐭𝐡 𝐌𝐲 Powers...\n
-*SEE MY POWER - /help*\n
+*SEE MY POWER - /help*
 *POWER LAVEL TIME* - {}
-*USER's* - {}
-*CHATS* - {}
-
+*USER'S* - {}
+*CHAT'S* - {}
 
 *JOIN OFFICIAL* -
 [CHANNEL](t.me/pegasusUpdates) - [SUPPORT](t.me/pegasusSupportChat)
 
-──『ᴛʜᴀɴᴋs  ғᴏʀ  ᴜsɪɴɢ』
+──『*ᴛʜᴀɴᴋs ғᴏʀ ᴜsɪɴɢ*』
 """
 PMSTART_CHAT = (
     "[ I defect you friza.... Haaa haaa!!!](https://telegra.ph/file/e3562d9105926983715d9.mp4)",
