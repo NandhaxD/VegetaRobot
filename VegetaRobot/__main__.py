@@ -86,11 +86,11 @@ I am *Vegeta*
 ┃➪ ᴄʟɪᴄᴋ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ ʜᴇʟᴘ ᴛᴏ ┃ᴇxᴘʟᴏʀᴇ ᴍᴏʀᴇ ᴀʙᴏᴜᴛ ᴍᴇ ᴀɴᴅ ᴍʏ ┃ғᴇᴀᴛᴜʀᴇs.
 ┗━━━━━━━━━━━━━━━━━━━━━┛
 """
-STICKERS = (
-    "**hello i am super saiyan Vegeta nice to meet you✋**"
+PMSTART_CHAT = (
+    "**i am the super saiyan Vegeta nice to meet you**"
     "**What you Checking here🤔**"
     "**pero join @UnitedSupport**"
-    "**kame kame boommmm!!!!**" )
+    "**haha haha hmmm kame kame boommmm!!!!**" )
 
 buttons = [
     [
@@ -235,8 +235,8 @@ def start(update: Update, context: CallbackContext):
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
 
         else:
-            update.effective_message.reply_sticker(
-                random.choice(STICKERS),
+            update.effective_message.reply_text(
+                random.choice(PMSTART_CHAT),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
             )
