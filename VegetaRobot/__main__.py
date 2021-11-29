@@ -89,8 +89,8 @@ I am *Vegeta*
 PMSTART_CHAT = (
     "**i am the super saiyan Vegeta nice to meet you**",
     "**What you Checking here🤔**",
-    "**pero join @UnitedSupport**",
-    "**haha haha hmmm kame kame boommmm!!!!**", )
+    "*pero join @UnitedSupport*",
+    "[haha haha hmmm kame kame boommmm!!!!](https://telegra.ph/file/adfffdc36ff4303eb7523.jpg)", )
 
 buttons = [
     [
