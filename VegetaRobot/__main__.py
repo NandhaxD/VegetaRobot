@@ -249,7 +249,9 @@ def start(update: Update, context: CallbackContext):
             )
             first_name = update.effective_user.first_name
             update.effective_message.reply_photo(
-               random.choice(PM_IMG),PM_START_TEXT.for
+               random.choice(PM_IMG),PM_START_TEXT.format(
+                    escape_markdown(first_name),
+                    escape_markdown(uptime)),
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
