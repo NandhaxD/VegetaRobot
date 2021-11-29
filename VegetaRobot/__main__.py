@@ -2,6 +2,7 @@ import importlib
 import random
 import time
 import re
+import VegetaRobot.modules.sql.users_sql as sql
 from sys import argv
 from typing import Optional
 
@@ -249,10 +250,12 @@ def start(update: Update, context: CallbackContext):
                 timeout=60,
             )
             first_name = update.effective_user.first_name
-            update.effective_message.reply_text(
+            update.effective_message.reply_photo(
                random.choice(PM_IMG),PM_START_TEXT.format(
                     escape_markdown(first_name),
-                    escape_markdown(uptime)),
+                    escape_markdown(uptime),
+                    sql.num_users(),
+                    sql.num_chats()),         
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
