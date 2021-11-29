@@ -83,7 +83,7 @@ PM_START_TEXT = """
 Hello {},✋
 𝐈 Am *Prince Vegeta* Add 𝐌𝐞 𝐓𝐨 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩 𝐈 𝐖𝐢𝐥𝐥 𝐃𝐞𝐬𝐭𝐫𝐨𝐲 𝐄𝐯𝐢𝐥𝐬 𝐖𝐢𝐭𝐡 𝐌𝐲 Powers...\n
 *SEE MY POWER - /help*\n
-*POWER LAVEL - {}
+*POWER LAVEL TIME* - {}
 
 *JOIN OFFICIAL* -
 [CHANNEL](t.me/pegasusUpdates) - [SUPPORT](t.me/pegasusSupportChat)
@@ -252,7 +252,7 @@ def start(update: Update, context: CallbackContext):
             update.effective_message.reply_photo(
                random.choice(PM_IMG),PM_START_TEXT.format(
                     escape_markdown(first_name),
-                    escape_markdown(uptime)),
+                    escape_markdown(uptime),
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
