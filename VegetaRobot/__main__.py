@@ -78,13 +78,14 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
- ───『[Vegeta The Robot](https://telegra.ph/file/0c48783bf8a446a82b30d.jpg)』───
-Hello! User,👋
-I am *Vegeta*
-➪ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴀɴᴅ ᴍᴀᴋᴇ ᴀᴅᴍɪɴ ᴛᴏ ᴍᴀɴᴀɢᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴡɪᴛʜ ᴇxᴘʟᴏsɪᴠᴇ.
-┏━━━━━━━━━━━━━━━━━━━━━┓
-┃➪ ᴄʟɪᴄᴋ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ ʜᴇʟᴘ ᴛᴏ ┃ᴇxᴘʟᴏʀᴇ ᴍᴏʀᴇ ᴀʙᴏᴜᴛ ᴍᴇ ᴀɴᴅ ᴍʏ ┃ғᴇᴀᴛᴜʀᴇs.
-┗━━━━━━━━━━━━━━━━━━━━━┛
+ ──『SUPER SAIYAN VEGETA』
+
+Hello User!!✋
+𝐈 Am Prince Vegeta Add 𝐌𝐞 𝐓𝐨 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩 𝐈 𝐖𝐢𝐥𝐥 𝐃𝐞𝐬𝐭𝐫𝐨𝐲 𝐄𝐯𝐢𝐥𝐬 𝐖𝐢𝐭𝐡 𝐌𝐲 Powers...
+
+JOIN OFFICIAL 
+[CHANNEL](pegasusUpdates) - [SUPPORT](t.me/pegasusSupportChat)
+──『ᴛʜᴀɴᴋs  ғᴏʀ  ᴜsɪɴɢ』
 """
 PMSTART_CHAT = (
     "[I defect you friza....heeeheee!!!](https://telegra.ph/file/277fdd6886a4fc9c1d854.jpg)",
