@@ -292,6 +292,6 @@ __help__ = """
  ❍ /decrypt - reply to hide (text) showing hide text to normal text.
   
 *Telegraph Uploader only upload 3 to 5 mb files*
- ❍ /telegraph: upload image or GIFs telegraph.
+ ❍ /tm: upload image or GIFs telegraph.
    
 """
