@@ -81,7 +81,8 @@ PM_START_TEXT = """
  ──『*SAIYAN VEGETA*』
 
 Hello User!!✋
-𝐈 Am *Prince Vegeta* Add 𝐌𝐞 𝐓𝐨 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩 𝐈 𝐖𝐢𝐥𝐥 𝐃𝐞𝐬𝐭𝐫𝐨𝐲 𝐄𝐯𝐢𝐥𝐬 𝐖𝐢𝐭𝐡 𝐌𝐲 Powers...
+𝐈 Am *Prince Vegeta* Add 𝐌𝐞 𝐓𝐨 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩 𝐈 𝐖𝐢𝐥𝐥 𝐃𝐞𝐬𝐭𝐫𝐨𝐲 𝐄𝐯𝐢𝐥𝐬 𝐖𝐢𝐭𝐡 𝐌𝐲 Powers...\n
+YOU CAN SEE MY POWER - /helo
 
 JOIN OFFICIAL 
 [CHANNEL](t.me/pegasusUpdates) - [SUPPORT](t.me/pegasusSupportChat)
@@ -136,7 +137,10 @@ HELP_IMG= "https://telegra.ph/file/9d2c6e3b28afe7619856e.jpg"
 GROUPSTART_IMG= "https://telegra.ph/file/aac824153c53d30e7abb4.mp4"
 
 PM_IMG = ( "https://telegra.ph/file/9d2c6e3b28afe7619856e.jpg",
-           "https://telegra.ph/file/9aed3b24431552db6d87d.jpg", )
+           "https://telegra.ph/file/9aed3b24431552db6d87d.jpg",
+           "https://telegra.ph/file/0f8643d86be3f82dc21be.jpg",
+           "https://telegra.ph/file/b191b0482d7a058dc0141.jpg",
+           "https://telegra.ph/file/5c24e42b677e7e8ec46b2.jpg", )
 
 
 IMPORTED = {}
