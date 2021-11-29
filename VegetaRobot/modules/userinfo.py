@@ -224,7 +224,7 @@ def info(update: Update, context: CallbackContext):
         return
 
     rep = message.reply_text(
-        "<code>Connecting to Pegasus</code>", parse_mode=ParseMode.HTML)
+        "<code>Connecting to pegasus</code>", parse_mode=ParseMode.HTML)
 
     text = (f"╒═══「<b> Pegasus DB Userinfo:</b> 」\n"
             f"ID: <code>{user.id}</code>\n"
@@ -271,16 +271,16 @@ def info(update: Update, context: CallbackContext):
     disaster_level_present = False
 
     if user.id == OWNER_ID:
-        text += "\n\nThis person is a 'Owner'."
+        text += "\n\n[BOT OWNER]"
         disaster_level_present = True
     elif user.id in DEV_USERS:
-        text += "\n\nThe Power level of this person is 'S-Ranks'."
+        text += "\n\n[S-Ranks] OF BOT"
         disaster_level_present = True
     elif user.id in DRAGONS:
-        text += "\n\nThe Power level of this person is 'A-Ranks'."
+        text += "\n\n[A-Ranks] OF BOT"
         disaster_level_present = True
     elif user.id in DEMONS:
-        text += "\n\nThe Power level of this person is 'B-Ranks'."
+        text += "\n\n[B-Ranks] OF BOT"
         disaster_level_present = True
     elif user.id in TIGERS:
         text += "\n\nThe Power level of this person is 'tigers of vegeta'."
@@ -290,7 +290,7 @@ def info(update: Update, context: CallbackContext):
         disaster_level_present = True
 
     if disaster_level_present:
-        text += ' [<a href="https://t.me/pegasusxteam/36">What is Ranks</a>]'.format(
+        text += ' \n[<a href="https://t.me/pegasusxteam/36">What is Ranks</a>]'.format(
             bot.username)
 
     try:
