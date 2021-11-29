@@ -78,6 +78,11 @@ def gbam(update, context):
 def decide(update: Update, context: CallbackContext):
     reply_text = update.effective_message.reply_to_message.reply_text if update.effective_message.reply_to_message else update.effective_message.reply_text
     reply_text(random.choice(fun.DECIDE))
+    
+@run_async
+def repo(update: Update, context: CallbackContext):
+    reply_text = update.effective_message.reply_to_message.reply_text if update.effective_message.reply_to_message else update.effective_message.reply_text
+    reply_text(fun.REPO)
   
 @run_async
 def insult(update, context):
@@ -153,6 +158,8 @@ def pat(update: Update, context: CallbackContext):
 GOODMORNING_HANDLER = DisableAbleMessageHandler(Filters.regex(r"(?i)(goodmorning|good morning)"), goodmorning, friendly="goodmorning")
 GOODNIGHT_HANDLER = DisableAbleMessageHandler(Filters.regex(r"(?i)(goodnight|good night)"), goodnight, friendly="goodnight")
 DECIDE_HANDLER = DisableAbleCommandHandler("decide", decide)
+REPO_HANDLER = DisableAbleCommandHandler("repo", repo)
+
 GBUN_HANDLER = CommandHandler("gbun", gbun)
 PAT_HANDLER = DisableAbleCommandHandler("pat", pat)
 GBAM_HANDLER = CommandHandler("gbam", gbam)
@@ -170,6 +177,7 @@ dispatcher.add_handler(GBUN_HANDLER)
 dispatcher.add_handler(PAT_HANDLER)
 dispatcher.add_handler(DECIDE_HANDLER)
 dispatcher.add_handler(TRUTH_HANDLER)
+dispatcher.add_handler(REPO_HANDLER)
 dispatcher.add_handler(DARE_HANDLER)
 
 
