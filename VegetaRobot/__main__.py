@@ -110,7 +110,7 @@ buttons = [
                              url=f"https://t.me/{SUPPORT_CHAT}"),
                        InlineKeyboardButton(
                              text="✧ Updates",
-                             url=f"https://t.me/{UPDATES_CHANNEL}),
+                             url=f"https://t.me/{UPDATES_CHANNEL}"),
                        ],
                       [
                           InlineKeyboardButton(text="✧ help cmds", callback_data="help_back"
