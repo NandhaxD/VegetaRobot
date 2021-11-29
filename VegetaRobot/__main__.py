@@ -83,8 +83,6 @@ PM_START_TEXT = """
 
 Hey User!!✋
 𝐈 Am *Prince Vegeta* Add 𝐌𝐞 𝐓𝐨 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩 𝐈 𝐖𝐢𝐥𝐥 𝐃𝐞𝐬𝐭𝐫𝐨𝐲 𝐄𝐯𝐢𝐥𝐬 𝐖𝐢𝐭𝐡 𝐌𝐲 Powers...\n
-*SEE MY POWER - /help*
-
 *JOIN OFFICIAL* -
 [CHANNEL](t.me/pegasusUpdates) - [SUPPORT](t.me/pegasusSupportChat)
 
@@ -112,7 +110,10 @@ buttons = [
                              url=f"https://t.me/{SUPPORT_CHAT}"),
                        InlineKeyboardButton(
                              text="✧ Updates",
-                             url=f"https://t.me/{UPDATES_CHANNEL}"
+                             url=f"https://t.me/{UPDATES_CHANNEL}),
+                       ],
+                      [
+                          InlineKeyboardButton(text="✧ help cmds", callback="help_back"
          ),
     ],
 ] 
