@@ -249,7 +249,7 @@ def start(update: Update, context: CallbackContext):
     else:
         first_name = update.effective_user.first_name
         update.effective_message.reply_video(
-            GROUPSTART_IMG, caption= "*hey {},*\n*kaaamee kameee*\n*Power lavel* : {} ".format(
+            GROUPSTART_IMG, caption= "*hey {},*\n*Super Saiyan here*\n*Power lavel time* : {} ".format(
              first_name,uptime
             ),
             parse_mode=ParseMode.MARKDOWN,
