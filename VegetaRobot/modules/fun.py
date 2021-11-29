@@ -79,11 +79,12 @@ def decide(update: Update, context: CallbackContext):
     reply_text = update.effective_message.reply_to_message.reply_text if update.effective_message.reply_to_message else update.effective_message.reply_text
     reply_text(random.choice(fun.DECIDE))
     
+
 @run_async
-def repo(update: Update, context: CallbackContext):
-    reply_text = update.effective_message.reply_to_message.reply_text if update.effective_message.reply_to_message else update.effective_message.reply_text
-    reply_text(fun.REPO)
-  
+@typing_action
+def repo(update, context):
+    update.effective_message.reply_text(fun.REPO)
+ 
 @run_async
 def insult(update, context):
     context.bot.sendChatAction(update.effective_chat.id, "typing") # Bot typing before send messages
