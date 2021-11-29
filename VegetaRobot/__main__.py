@@ -87,10 +87,10 @@ I am *Vegeta*
 ┗━━━━━━━━━━━━━━━━━━━━━┛
 """
 PMSTART_CHAT = (
-    "[I defect you friza....heeeheee!!!](https://telegra.ph/file/277fdd6886a4fc9c1d854.jpg)",
-    "[I'm prince  vegeta i hope your planet](https://telegra.ph/file/9aed3b24431552db6d87d.jpg)",
-    "*hey join @UnitedSupport*",
-    "[haha haha hmmm kame kame boommmm!!!!](https://telegra.ph/file/adfffdc36ff4303eb7523.jpg)", )
+    "*[I defect you friza....heeeheee!!!](https://telegra.ph/file/277fdd6886a4fc9c1d854.jpg)*",
+    "*[I'm Prince Vegeta I Hope Your Planets](https://telegra.ph/file/9aed3b24431552db6d87d.jpg)*",
+    "*[Dont Teach my Family 🔥](https://telegra.ph/file/bd5f26483bae7d400ec7e.jpg)*",
+    "*[kaaaameeeee kaaaameee boommmm!!!!](https://telegra.ph/file/adfffdc36ff4303eb7523.jpg)*", )
 
 buttons = [
     [
@@ -692,7 +692,7 @@ def main():
 
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
-            dispatcher.bot.sendMessage(f"@VegetaSupport","[Back Online (:](https://telegra.ph/file/d3db0babad0d1729c5f59.jpg)", parse_mode=ParseMode.MARKDOWN) 
+            dispatcher.bot.sendMessage(f"{SUPPORT_CHAT}","[SUPER SAIYAN VEGETA IS BACK](https://telegra.ph/file/d3db0babad0d1729c5f59.jpg)", parse_mode=ParseMode.MARKDOWN) 
         except Unauthorized:
             LOGGER.warning(
                 "Bot isnt able to send message to support_chat, go and check!",
