@@ -247,8 +247,9 @@ def start(update: Update, context: CallbackContext):
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
             )
+            first_name = update.effective_user.first_name
             update.effective_message.reply_photo(
-               random.choice(PM_IMG),PM_START_TEXT,
+               random.choice(PM_IMG),PM_START_TEXT.for
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
