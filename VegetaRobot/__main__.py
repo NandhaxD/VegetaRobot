@@ -85,15 +85,10 @@ Hey User!!✋
 𝐈 Am *Prince Vegeta* Add 𝐌𝐞 𝐓𝐨 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩 𝐈 𝐖𝐢𝐥𝐥 𝐃𝐞𝐬𝐭𝐫𝐨𝐲 𝐄𝐯𝐢𝐥𝐬 𝐖𝐢𝐭𝐡 𝐌𝐲 Powers...\n
 *JOIN OFFICIAL* -
 [CHANNEL](t.me/pegasusUpdates) - [SUPPORT](t.me/pegasusSupportChat)\n
-*SEE POWER HIT - /help*
+
 
 ──『*ᴛʜᴀɴᴋs  ғᴏʀ  ᴜsɪɴɢ*』
 """
-PMSTART_CHAT = (
-    "[ I defect you friza.... Haaa haaa!!!](https://telegra.ph/file/e3562d9105926983715d9.mp4)",
-    "[I'm Prince Vegeta I Hope Your Planets](https://telegra.ph/file/9aed3b24431552db6d87d.jpg)",
-    "[Dont Teach My Family 🔥](https://telegra.ph/file/bd5f26483bae7d400ec7e.jpg)",
-    "[kaaaameeeee kaaaameee boommmm!!!!](https://telegra.ph/file/adfffdc36ff4303eb7523.jpg)", )
 
 buttons = [
     [
@@ -111,7 +106,10 @@ buttons = [
                              url=f"https://t.me/{SUPPORT_CHAT}"),
                        InlineKeyboardButton(
                              text="✧ Updates",
-                             url=f"https://t.me/{UPDATES_CHANNEL}"
+                             url=f"https://t.me/{UPDATES_CHANNEL}"),
+                        ],
+                       [
+                           InlineKeyboardButton(text="✧ POWERS ✧", callback_data="help_back"
          ),
     ],
 ] 
@@ -136,12 +134,11 @@ DONATE_STRING = """Contact to **@PegasusXrobot**"""
 HELP_IMG= "https://telegra.ph/file/9d2c6e3b28afe7619856e.jpg"
 GROUPSTART_IMG= "https://telegra.ph/file/aac824153c53d30e7abb4.mp4"
 
-PM_IMG = ( "https://telegra.ph/file/9d2c6e3b28afe7619856e.jpg",
-           "https://telegra.ph/file/9aed3b24431552db6d87d.jpg",
-           "https://telegra.ph/file/0f8643d86be3f82dc21be.jpg",
-           "https://telegra.ph/file/b191b0482d7a058dc0141.jpg",
-           "https://telegra.ph/file/5c24e42b677e7e8ec46b2.jpg", )
-
+STICKERS = ( "CAACAgUAAx0CXss_8QABAjzEYaXnOPwfLA22Dea6kU6EvrELQWgAAmoEAAIYaChVcBl8nrGetAIiBA",
+           "CAACAgUAAx0CXss_8QABAjzFYaXnObthrCpGkPRRNr471UrxAxsAAgEEAAKqVjBVdLdGaDAs3noiBA",
+           "CAACAgUAAx0CXss_8QABAjzGYaXnOosVqi4RBeMSLVvty53Q_UgAAhMEAAJqlClV9scsuWjjA60iBA",
+           "CAACAgUAAx0CXss_8QABAjzHYaXnOlfNEo15FunXUy0O9RuSc_AAAs4EAALPrzFV_rrVm8aMDyYiBA", )
+           
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -242,14 +239,12 @@ def start(update: Update, context: CallbackContext):
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
 
         else:
-            update.effective_message.reply_text(
-                random.choice(PMSTART_CHAT),
-                parse_mode=ParseMode.MARKDOWN,
+            update.effective_message.reply_sticker(
+                random.choice(STICKERS),
                 timeout=60,
             )
-            first_name = update.effective_user.first_name
-            update.effective_message.reply_photo(
-               random.choice(PM_IMG),PM_START_TEXT,
+            update.effective_message.reply_text(
+               PM_START_TEXT,
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
