@@ -130,7 +130,7 @@ List of all the Modules:
 HELP_MSG = "Click the button below to get help manu in your pm."
 DONATE_STRING = """Contact to **@PegasusXrobot**"""
 HELP_IMG= "https://telegra.ph/file/9d2c6e3b28afe7619856e.jpg"
-GROUPSTART_IMG= "https://telegra.ph/file/aac824153c53d30e7abb4.mp4"
+GROUPSTART_IMG= "https://telegra.ph/file/1cbafa58dda18528f9e0c.mp4"
 
 STICKERS = ( "CAACAgUAAx0CXss_8QABAjzEYaXnOPwfLA22Dea6kU6EvrELQWgAAmoEAAIYaChVcBl8nrGetAIiBA",
            "CAACAgUAAx0CXss_8QABAjzFYaXnObthrCpGkPRRNr471UrxAxsAAgEEAAKqVjBVdLdGaDAs3noiBA",
