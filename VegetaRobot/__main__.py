@@ -79,7 +79,7 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
- ──『[SAIYAN VEGETA](https://telegra.ph/file/5c24e42b677e7e8ec46b2.jpg)』
+ ──『[SAIYAN VEGETA](https://telegra.ph/file/561fa547f3c4940c95ddf.jpg)』
 
 Hey User!!✋
 𝐈 Am *Prince Vegeta* Add 𝐌𝐞 𝐓𝐨 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩 𝐈 𝐖𝐢𝐥𝐥 𝐃𝐞𝐬𝐭𝐫𝐨𝐲 𝐄𝐯𝐢𝐥𝐬 𝐖𝐢𝐭𝐡 𝐌𝐲 Powers...\n
@@ -123,8 +123,8 @@ Helpful commands:
 - /start: Starts me! You've probably already used this.
 - /help: Sends this message; I'll tell you more about myself!
 - /donate: Gives you info on how to support me and my creator.
-If you want to report bugs or have any questions on how to use me then feel free to reach out: @VegetaSupport.
-All commands can be used with the following: [(/),(!),(?),(.),(~)](https://telegra.ph/file/561fa547f3c4940c95ddf.jpg)
+If you want to report bugs or have any questions on how to use me then feel free to reach out: *@VegetaSupport.*
+All commands can be used with the following: *(/),(!),(?),(.),(~)*
 List of all the Modules:
 """.format(
     dispatcher.bot.first_name,
