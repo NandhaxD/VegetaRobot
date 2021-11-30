@@ -32,7 +32,7 @@ GM_IMG= "https://telegra.ph/file/e3b27f1b746344c8fdb28.jpg"
 def goodmorning(update, context):
     message = update.effective_message
     first_name = update.effective_user.first_name
-    reply = f"Hey {escape_markdown(first_name)} \n Good Morning!☀"
+    reply = f"*Hey {escape_markdown(first_name)} \n Good Morning!☀*"
     message.reply_photo(GM_IMG,reply, parse_mode=ParseMode.MARKDOWN)
 
     
