@@ -25,7 +25,7 @@ def goodnight(update, context):
     first_name = update.effective_user.first_name
     file = {IMG}
     reply = f"Good Night! {escape_markdown(first_name)}"
-    message.reply_text(file,reply, parse_mode=ParseMode.MARKDOWN)
+    message.reply_photo(file,reply, parse_mode=ParseMode.MARKDOWN)
 
 
 @run_async
