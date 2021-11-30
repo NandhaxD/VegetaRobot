@@ -16,14 +16,14 @@ from VegetaRobot.modules.disable import DisableAbleCommandHandler, DisableAbleMe
 from VegetaRobot.modules.helper_funcs.alternate import typing_action
 from VegetaRobot.modules.helper_funcs.extraction import extract_user
 
-IMG= "https://telegra.ph/file/2ff77057fa98ae2191576.mp4"
+IMG= "https://telegra.ph/file/6b67b1f44a669a634cab8.jpg"
 
 @run_async
 @typing_action
 def goodnight(update, context):
     message = update.effective_message
     first_name = update.effective_user.first_name
-    reply = f"Good Night! {escape_markdown(first_name)}"
+    reply = f"*Hey{escape_markdown(first_name)} Good Night! 😴*"
     message.reply_photo(IMG,reply, parse_mode=ParseMode.MARKDOWN)
 
 
