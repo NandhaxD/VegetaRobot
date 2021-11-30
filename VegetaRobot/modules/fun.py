@@ -23,9 +23,8 @@ IMG= "https://telegra.ph/file/2ff77057fa98ae2191576.mp4"
 def goodnight(update, context):
     message = update.effective_message
     first_name = update.effective_user.first_name
-    file = {IMG}
     reply = f"Good Night! {escape_markdown(first_name)}"
-    message.reply_photo(file,reply, parse_mode=ParseMode.MARKDOWN)
+    message.reply_photo(IMG,reply, parse_mode=ParseMode.MARKDOWN)
 
 
 @run_async
