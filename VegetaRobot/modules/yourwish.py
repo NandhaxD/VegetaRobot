@@ -1,4 +1,4 @@
-/eval import random
+import random
 from VegetaRobot import telethn as asst
 from telethon import events
 @asst.on(events.NewMessage(pattern="/wish"))
