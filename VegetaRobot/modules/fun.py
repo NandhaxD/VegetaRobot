@@ -26,14 +26,14 @@ def goodnight(update, context):
     reply = f"*Hey {escape_markdown(first_name)} \nGood Night! 😴*"
     message.reply_photo(GN_IMG,reply, parse_mode=ParseMode.MARKDOWN)
 
-
+GM_IMG= "https://telegra.ph/file/e3b27f1b746344c8fdb28.jpg"
 @run_async
 @typing_action
 def goodmorning(update, context):
     message = update.effective_message
     first_name = update.effective_user.first_name
-    reply = f"Good Morning! {escape_markdown(first_name)}"
-    message.reply_text(reply, parse_mode=ParseMode.MARKDOWN)
+    reply = f"Hey {escape_markdown(first_name)} \n Good Morning!☀"
+    message.reply_photo(GM_IMG,reply, parse_mode=ParseMode.MARKDOWN)
 
     
 @run_async
