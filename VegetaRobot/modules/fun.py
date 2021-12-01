@@ -80,6 +80,12 @@ def decide(update: Update, context: CallbackContext):
     reply_text = update.effective_message.reply_to_message.reply_text if update.effective_message.reply_to_message else update.effective_message.reply_text
     reply_text(random.choice(fun.DECIDE))
     
+@run_async
+def wish(update: Update, context: CallbackContext):
+    first_name = update.effective_user.first_name
+    reply_text = update.effective_message.reply_to_message.reply_text if update.effective_message.reply_to_message else update.effective_message.reply_text
+    reply_text(random.choice(fun.WISH))
+    
 
 @run_async
 @typing_action
@@ -156,13 +162,6 @@ def pat(update: Update, context: CallbackContext):
         reply = temp.format(user1=user1, user2=user2)
         reply_to.reply_text(reply, parse_mode=ParseMode.HTML)
                                                                          
-    
-@run_async
-@typing_action
-def wish(update, context):
-    message = update.effective_message
-    first_name = update.effective_user.first_name
-    message.reply_text(random.choice(fun.WISH, parse_mode=ParseMode.MARKDOWN)
     
                
 GOODMORNING_HANDLER = DisableAbleMessageHandler(Filters.regex(r"(?i)(goodmorning|good morning)"), goodmorning, friendly="goodmorning")
