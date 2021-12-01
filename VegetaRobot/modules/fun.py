@@ -157,7 +157,7 @@ def pat(update: Update, context: CallbackContext):
         reply_to.reply_text(reply, parse_mode=ParseMode.HTML)
                                                                          
     
-    @run_async
+@run_async
 @typing_action
 def wish(update, context):
     message = update.effective_message
