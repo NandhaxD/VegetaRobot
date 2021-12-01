@@ -17,6 +17,8 @@ from VegetaRobot.modules.helper_funcs.alternate import typing_action
 from VegetaRobot.modules.helper_funcs.extraction import extract_user
 
 GN_IMG= "https://telegra.ph/file/6b67b1f44a669a634cab8.jpg"
+GM_IMG= "https://telegra.ph/file/e3b27f1b746344c8fdb28.jpg"
+
 
 @run_async
 @typing_action
@@ -33,7 +35,6 @@ def wish(update, context):
     update.effective_message.reply_text(random.choice(fun.WISH,parse_mode=ParseMode.MARKDOWN)
 
     
-GM_IMG= "https://telegra.ph/file/e3b27f1b746344c8fdb28.jpg"
                                         
 @run_async
 @typing_action
