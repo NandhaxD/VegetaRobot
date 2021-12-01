@@ -35,7 +35,7 @@ GBAM_REASON = (
 
 DECIDE = ("Yes.", "Maybe.", "No.")
 
-WISH = (
+WIhSH = (
     "*hey! (first)*\n*your Wish Possible to 25%😟*",
     "*hey! (first)*\n*your Wish Possible to 50%🤔*",
     "*hey! (first)*\n*your Wish Possible to 75%😉*",
@@ -257,6 +257,7 @@ SFW_STRINGS = (
     
   
 REPO = "github.com/Ctzfamily/VegetaRobot"
+WISH = "YOUR WISH GOING TO TEST"
 
   
   
