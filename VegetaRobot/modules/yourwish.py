@@ -11,7 +11,7 @@ async def wish(event):
    if not event.is_reply:
          mm = random.randint(1,100)
          VEGETA = "https://telegra.ph/file/68be46bb292a9230a584b.jpg"
-         await tbot.send_file(event.chat_id, VEGETA, f"**Your wish has been cast.✨**\n\n__chance of success {mm}%__", reply_to=e)
+         await tbot.send_file(event.chat_id, f"**Your wish has been cast.✨**\n\n__chance of success {mm}%__", reply_to=e, file=VEGETA)
         
    
         #thanks to AASF for image
