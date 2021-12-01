@@ -34,6 +34,7 @@ def wish(update, context):
 
     
 GM_IMG= "https://telegra.ph/file/e3b27f1b746344c8fdb28.jpg"
+                                        
 @run_async
 @typing_action
 def goodmorning(update, context):
