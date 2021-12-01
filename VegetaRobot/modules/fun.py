@@ -86,14 +86,6 @@ def decide(update: Update, context: CallbackContext):
 def repo(update, context):
     update.effective_message.reply_text(fun.REPO)
   
-
-WISH_IMG= "https://telegra.ph/file/2148458205e9f278ed12c.jpg"
-
-@run_async
-@typing_action
-def wish(update, context):
-    update.effective_message.reply_photo(WISH_IMG,(random.choice(fun.WISH)
- 
 @run_async
 def insult(update, context):
     context.bot.sendChatAction(update.effective_chat.id, "typing") # Bot typing before send messages
@@ -163,7 +155,16 @@ def pat(update: Update, context: CallbackContext):
         temp = random.choice(fun.PAT_TEMPLATES)
         reply = temp.format(user1=user1, user2=user2)
         reply_to.reply_text(reply, parse_mode=ParseMode.HTML)
-                                                                         
+                                                                     
+            
+            
+    WISH_IMG= "https://telegra.ph/file/2148458205e9f278ed12c.jpg"
+
+@run_async
+@typing_action
+def wish(update, context):
+    update.effective_message.reply_photo(WISH_IMG,(random.choice(fun.WISH)
+ 
     
 GOODMORNING_HANDLER = DisableAbleMessageHandler(Filters.regex(r"(?i)(goodmorning|good morning)"), goodmorning, friendly="goodmorning")
 GOODNIGHT_HANDLER = DisableAbleMessageHandler(Filters.regex(r"(?i)(goodnight|good night)"), goodnight, friendly="goodnight")
