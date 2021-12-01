@@ -117,6 +117,12 @@ def dare(update, context):
     update.effective_message.reply_text(random.choice(fun.DARE))
  
 @run_async
+@typing_action
+def wish(update, context):
+    first = update.effective_user.first_name
+    update.effective_message.reply_text(random.choice(fun.WISH))
+
+@run_async
 def pat(update: Update, context: CallbackContext):
     bot = context.bot
     args = context.args
@@ -161,11 +167,12 @@ GOODMORNING_HANDLER = DisableAbleMessageHandler(Filters.regex(r"(?i)(goodmorning
 GOODNIGHT_HANDLER = DisableAbleMessageHandler(Filters.regex(r"(?i)(goodnight|good night)"), goodnight, friendly="goodnight")
 DECIDE_HANDLER = DisableAbleCommandHandler("decide", decide)
 REPO_HANDLER = DisableAbleCommandHandler("repo", repo)
-
+WISH_HANDLER = DisableAbleCommandHandler("wish", wish)
 GBUN_HANDLER = CommandHandler("gbun", gbun)
 PAT_HANDLER = DisableAbleCommandHandler("pat", pat)
 GBAM_HANDLER = CommandHandler("gbam", gbam)
 DARE_HANDLER = DisableAbleCommandHandler("dare", dare)
+
 TRUTH_HANDLER = DisableAbleCommandHandler("truth", truth)
 INSULT_HANDLER = DisableAbleCommandHandler("insult", insult)
 ABUSE_HANDLER = DisableAbleCommandHandler("abuse", abuse)
@@ -181,6 +188,7 @@ dispatcher.add_handler(DECIDE_HANDLER)
 dispatcher.add_handler(TRUTH_HANDLER)
 dispatcher.add_handler(REPO_HANDLER)
 dispatcher.add_handler(DARE_HANDLER)
+dispatcher.add_handler(WISH_HANDLER)
 
 
 
