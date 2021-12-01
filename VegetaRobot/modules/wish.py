@@ -5,7 +5,11 @@ IMG= "https://telegra.ph/file/2148458205e9f278ed12c.jpg"
 
 @pgram.on_message(filters.command("hi"))
 async def hmm(_, message):
-    await message.reply_photo(IMG,caption="hi"
+    await message.reply_photo(IMG,random.choice(caption=
+                                                ("hi",
+                                                "bye",
+                                                 "mm )
+                                                        
     )
     
 __mod_name__ = "Hi"
