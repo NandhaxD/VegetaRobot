@@ -8,7 +8,7 @@ async def hmm(_, message):
     await message.reply_photo(IMG,random.choice(caption=
                                                 ("hi",
                                                 "bye",
-                                                 "mm )
+                                                 "mm" )
                                                         
     )
     
