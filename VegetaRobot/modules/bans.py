@@ -137,6 +137,7 @@ def ban(update: Update, context: CallbackContext) -> str:
                         InlineKeyboardButton(text="❌ Delete", callback_data="unbanb_del"),
                     ]
                 ]
+            ),
             )
         return log
 
