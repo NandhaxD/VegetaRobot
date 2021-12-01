@@ -86,10 +86,13 @@ def decide(update: Update, context: CallbackContext):
 def repo(update, context):
     update.effective_message.reply_text(fun.REPO)
   
+
+WISH_IMG= "https://telegra.ph/file/2148458205e9f278ed12c.jpg"
+
 @run_async
 @typing_action
 def wish(update, context):
-    update.effective_message.reply_text(fun.WISH)
+    update.effective_message.reply_photo(WISH_IMG,(random.choice(fun.WISH)
  
 @run_async
 def insult(update, context):
