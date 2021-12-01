@@ -32,7 +32,7 @@ def goodnight(update, context):
 @typing_action
 def wish(update, context):
     first_name = update.effective_user.first_name
-    update.effective_message.reply_text(random.choice(fun.WISH,parse_mode=ParseMode.MARKDOWN)
+    update.effective_message.reply_text(random.choice(fun.WISH,parse_mode=ParseMode.MARKDOWN))
 
     
                                         
