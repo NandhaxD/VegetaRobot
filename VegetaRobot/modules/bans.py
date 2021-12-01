@@ -137,9 +137,7 @@ def ban(update: Update, context: CallbackContext) -> str:
                         InlineKeyboardButton(text="❌ Delete", callback_data="unbanb_del"),
                     ]
                 ]
-            ),
-            parse_mode=ParseMode.HTML,
-        )
+            )
         return log
 
     except BadRequest as excp:
