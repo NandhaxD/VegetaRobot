@@ -11,13 +11,13 @@ async def wish(vegeta):
    if not vegeta.is_reply:
          mm = random.randint(1,100)
          VEGETA = "https://telegra.ph/file/68be46bb292a9230a584b.jpg"
-         await tbot.send_file(vegeta.chat_id, VEGETA,caption=f"**Your wish has been cast.✨**\n\n__chance of success {mm}%__", reply_to=vegeta)
+         await tbot.send_file(vegeta.chat_id, VEGETA,caption=f"**Your wish has been cast.✨**\n__chance of success {mm}%__", reply_to=vegeta)
          lol = await event.get_reply_message()
-         await tbot.send_file(event.chat_id, f"**Your wish has been cast.✨**\n\n__chance of success {mm}%__", reply_to=lol)
+         await tbot.send_file(event.chat_id, f"**Your wish has been cast.✨**\n__chance of success {mm}%__", reply_to=lol)
    if not event.is_reply:
          mm = random.randint(1,100)
          VEGETA = "https://telegra.ph/file/68be46bb292a9230a584b.jpg"
-         await tbot.send_file(event.chat_id,f"**Your wish has been cast.✨**\n\n__chance of success {mm}%__", reply_to=lol,file=VEGETA)
+         await tbot.send_file(vegeta.chat_id, VEGETA,caption=f"**Your wish has been cast.✨**\n__chance of success {mm}%__", reply_to=lol,file=VEGETA)
 
         
    
