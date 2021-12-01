@@ -34,15 +34,7 @@ def goodnight(update, context):
     first_name = update.effective_user.first_name
     reply = f"*Hey {escape_markdown(first_name)} \nGood Night! 😴*"
     message.reply_photo(GN_IMG,reply, parse_mode=ParseMode.MARKDOWN)
-    
-@run_async
-@typing_action
-def wish(update, context):
-    message = update.effective_message
-    first_name = update.effective_user.first_name
-    message.reply_text(random.choice(fun.WISH, parse_mode=ParseMode.MARKDOWN)
-    
-                                        
+                             
     
  @run_async
  def gbun(update, context):
@@ -165,6 +157,14 @@ def pat(update: Update, context: CallbackContext):
         reply_to.reply_text(reply, parse_mode=ParseMode.HTML)
                                                                          
     
+    @run_async
+@typing_action
+def wish(update, context):
+    message = update.effective_message
+    first_name = update.effective_user.first_name
+    message.reply_text(random.choice(fun.WISH, parse_mode=ParseMode.MARKDOWN)
+    
+               
 GOODMORNING_HANDLER = DisableAbleMessageHandler(Filters.regex(r"(?i)(goodmorning|good morning)"), goodmorning, friendly="goodmorning")
 GOODNIGHT_HANDLER = DisableAbleMessageHandler(Filters.regex(r"(?i)(goodnight|good night)"), goodnight, friendly="goodnight")
 DECIDE_HANDLER = DisableAbleCommandHandler("decide", decide)
