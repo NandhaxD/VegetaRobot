@@ -158,18 +158,11 @@ def pat(update: Update, context: CallbackContext):
                                                                      
             
             
-    WISH_IMG= "https://telegra.ph/file/2148458205e9f278ed12c.jpg"
 
-@run_async
-@typing_action
-def wish(update, context):
-    update.effective_message.reply_photo(WISH_IMG,(random.choice(fun.WISH)
- 
     
 GOODMORNING_HANDLER = DisableAbleMessageHandler(Filters.regex(r"(?i)(goodmorning|good morning)"), goodmorning, friendly="goodmorning")
 GOODNIGHT_HANDLER = DisableAbleMessageHandler(Filters.regex(r"(?i)(goodnight|good night)"), goodnight, friendly="goodnight")
 DECIDE_HANDLER = DisableAbleCommandHandler("decide", decide)
-WISH_HANDLER = DisableAbleCommandHandler("wish", wish)
 
 REPO_HANDLER = DisableAbleCommandHandler("repo", repo)
 
@@ -189,7 +182,7 @@ dispatcher.add_handler(GBAM_HANDLER)
 dispatcher.add_handler(GBUN_HANDLER)
 dispatcher.add_handler(PAT_HANDLER)
 dispatcher.add_handler(DECIDE_HANDLER)
-dispatcher.add_handler(WISH_HANDLER)
+
 dispatcher.add_handler(TRUTH_HANDLER)
 dispatcher.add_handler(REPO_HANDLER)
 dispatcher.add_handler(DARE_HANDLER)
