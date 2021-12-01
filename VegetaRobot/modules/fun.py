@@ -26,6 +26,13 @@ def goodnight(update, context):
     reply = f"*Hey {escape_markdown(first_name)} \nGood Night! 😴*"
     message.reply_photo(GN_IMG,reply, parse_mode=ParseMode.MARKDOWN)
 
+@run_async
+@typing_action
+def wish(update, context):
+    first_name = update.effective_user.first_name
+    update.effective_message.reply_text(random.choice(fun.WISH,parse_mode=ParseMode.MARKDOWN)
+
+    
 GM_IMG= "https://telegra.ph/file/e3b27f1b746344c8fdb28.jpg"
 @run_async
 @typing_action
@@ -116,12 +123,6 @@ def truth(update, context):
 def dare(update, context):
     update.effective_message.reply_text(random.choice(fun.DARE))
  
-@run_async
-@typing_action
-def wish(update, context):
-    first = update.effective_user.first_name
-    update.effective_message.reply_text(random.choice(fun.WISH))
-
 @run_async
 def pat(update: Update, context: CallbackContext):
     bot = context.bot
