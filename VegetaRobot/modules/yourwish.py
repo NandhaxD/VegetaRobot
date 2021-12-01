@@ -2,7 +2,7 @@ import random
 from VegetaRobot import telethn as tbot
 from telethon import events
 
-@tbor.on(events.NewMessage(pattern="/wish"))
+@tbot.on(events.NewMessage(pattern="/wish"))
 async def wish(event):
    if event.is_reply:
          mm = random.randint(1,100)
