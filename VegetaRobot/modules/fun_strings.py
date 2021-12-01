@@ -36,10 +36,10 @@ GBAM_REASON = (
 DECIDE = ("Yes.", "Maybe.", "No.")
 
 WISH = (
-    "**hey! {first}**\n** your Wish Possible to 25%😟**",
-    "**hey! {first}** \n**your Wish Possible to 50%🤔**",
-    "**hey! {first}** \n**your Wish Possible to 75%😉**",
-    "**hey! {first}** \n**your Wish Possible to 100%😍**" )
+    "*hey! (first)*\n*your Wish Possible to 25%😟*",
+    "*hey! (first)*\n*your Wish Possible to 50%🤔*",
+    "*hey! (first)*\n*your Wish Possible to 75%😉*",
+    "*hey! (first)*\n*your Wish Possible to 100%😍*" )
 
 ABUSE_STRINGS = (
     "Fuck off",
