@@ -44,8 +44,8 @@ def wish(update, context):
     
                                         
     
-@run_async
-def gbun(update, context):
+ @run_async
+ def gbun(update, context):
     user = update.effective_user
     chat = update.effective_chat
 
