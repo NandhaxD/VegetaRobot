@@ -6,9 +6,9 @@ import VegetaRobot.modules.fun_strings as fun
 
 IMG= "https://telegra.ph/file/2148458205e9f278ed12c.jpg"
 
-@pgram.on_message(filters.command("hi"))
+@pgram.on_message(filters.command("wish"))
 async def hmm(_, message):
-    await message.reply_photo(random.choice(IMG,fun.WISH)
+    await message.reply_photo(random.choice(IMG,caption=fun.WISH)
                                                         
    ) 
     
