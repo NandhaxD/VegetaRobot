@@ -39,6 +39,7 @@ from VegetaRobot.modules.helper_funcs.extraction import extract_user_and_text
 from VegetaRobot.modules.helper_funcs.string_handling import extract_time
 from VegetaRobot.modules.log_channel import gloggable, loggable
 
+BAN_IMG= "https://telegra.ph/file/f5e5a31be9ba7ea30f9d0.jpg"
 
 @run_async
 @connection_status
@@ -124,7 +125,8 @@ def ban(update: Update, context: CallbackContext) -> str:
         if reason:
             reply += f"\n<code> </code><b>• Reason:</b> \n{html.escape(reason)}"
 
-        bot.sendMessage(
+        bot.send_file(
+            file=BAN_IMG
             chat.id,
             reply,
             reply_markup=InlineKeyboardMarkup(
