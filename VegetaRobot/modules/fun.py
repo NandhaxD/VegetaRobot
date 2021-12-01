@@ -19,6 +19,13 @@ from VegetaRobot.modules.helper_funcs.extraction import extract_user
 GN_IMG= "https://telegra.ph/file/6b67b1f44a669a634cab8.jpg"
 GM_IMG= "https://telegra.ph/file/e3b27f1b746344c8fdb28.jpg"
 
+@run_async
+@typing_action
+def goodmorning(update, context):
+    message = update.effective_message
+    first_name = update.effective_user.first_name
+    reply = f"*Hey {escape_markdown(first_name)} \n Good Morning!☀*"
+    message.reply_photo(GM_IMG,reply, parse_mode=ParseMode.MARKDOWN)
 
 @run_async
 @typing_action
@@ -36,14 +43,6 @@ def wish(update, context):
     message.reply_text(random.choice(fun.WISH, parse_mode=ParseMode.MARKDOWN)
     
                                         
-@run_async
-@typing_action
-def goodmorning(update, context):
-    message = update.effective_message
-    first_name = update.effective_user.first_name
-    reply = f"*Hey {escape_markdown(first_name)} \n Good Morning!☀*"
-    message.reply_photo(GM_IMG,reply, parse_mode=ParseMode.MARKDOWN)
-
     
 @run_async
 def gbun(update, context):
