@@ -1,4 +1,5 @@
 from pyrogram import filters
+import random
 from VegetaRobot import pgram
 
 import VegetaRobot.modules.fun_strings as fun
@@ -11,8 +12,7 @@ async def hmm(_, message):
                                                         
    ) 
     
-__mod_name__ = "Hi"
+__mod_name__ = "Wish🎊"
 __help__ = """
-*Hi*
-- /hi: Namaste
+- /Wish: your wish
 """
