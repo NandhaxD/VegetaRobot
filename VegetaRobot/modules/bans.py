@@ -129,7 +129,7 @@ def ban(update: Update, context: CallbackContext) -> str:
             chat.id,
             reply,
             update.effective_message.reply_photo(
-            BAN_IMG, caption= "Hey baka Your Banned",
+            BAN_IMG, caption= "Hey baka Your Banned",parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
