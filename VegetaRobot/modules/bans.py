@@ -125,10 +125,8 @@ def ban(update: Update, context: CallbackContext) -> str:
         if reason:
             reply += f"\n<code> </code><b>• Reason:</b> \n{html.escape(reason)}"
 
-        bot.send_file(
-            chat.id,
-            file.BAN_IMG,
-            reply,
+        bot.sendMessage(
+            chat.id,BAN_IMG,caption=reply,
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
