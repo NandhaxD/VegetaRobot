@@ -39,7 +39,7 @@ from VegetaRobot.modules.helper_funcs.extraction import extract_user_and_text
 from VegetaRobot.modules.helper_funcs.string_handling import extract_time
 from VegetaRobot.modules.log_channel import gloggable, loggable
 
-BAN_STICKER= "https://telegra.ph/file/a66feecabba9fe79d01c2.jpg"
+BAN_IMG= "https://telegra.ph/file/a66feecabba9fe79d01c2.jpg"
 
 @run_async
 @connection_status
@@ -126,15 +126,13 @@ def ban(update: Update, context: CallbackContext) -> str:
             reply += f"\n<code> </code><b>• Reason:</b> \n{html.escape(reason)}"
 
         bot.send_photo(
-            chat.id, BAN_STICKER,
+            chat.id, BAN_IMG,
              reply,
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton(
-                            text="❕Unban", callback_data=f"unbanb_unban={user_id}"
-                        ),
-                        InlineKeyboardButton(text="❌ Delete", callback_data="unbanb_del"),
+       InlineKeyboardButton(text="❕Unban", callback_data=f"unbanb_unban={user_id}"),
+       InlineKeyboardButton(text="❌ Delete", callback_data="unbanb_del"),
                     ]
                 ]
             ),
