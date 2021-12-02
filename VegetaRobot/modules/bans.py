@@ -126,7 +126,7 @@ def ban(update: Update, context: CallbackContext) -> str:
             reply += f"\n<code> </code><b>• Reason:</b> \n{html.escape(reason)}"
 
         bot.sendMessage(
-            chat.id,BAN_IMG,caption=f"{reply},
+            chat.id,BAN_IMG,caption=f"{reply}",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
