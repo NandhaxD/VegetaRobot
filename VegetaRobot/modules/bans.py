@@ -128,6 +128,8 @@ def ban(update: Update, context: CallbackContext) -> str:
         bot.sendMessage(
             chat.id,
             reply,
+            update.effective_message.reply_photo(
+            BAN_IMG, caption= "Hey baka Your Banned",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
