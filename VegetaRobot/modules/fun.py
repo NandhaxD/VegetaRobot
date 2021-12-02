@@ -17,6 +17,10 @@ from VegetaRobot.modules.helper_funcs.alternate import typing_action
 from VegetaRobot.modules.helper_funcs.extraction import extract_user
 
 GN_IMG= "https://telegra.ph/file/6b67b1f44a669a634cab8.jpg"
+DECIDE_IMG= ( 
+     "https://telegra.ph/file/6b67b1f44a669a634cab8.jpg",
+     "https://telegra.ph/file/6b67b1f44a669a634cab8.jpg",
+     "https://telegra.ph/file/6b67b1f44a669a634cab8.jpg" )
 
 @run_async
 @typing_action
@@ -78,7 +82,7 @@ def gbam(update, context):
 @run_async
 def decide(update: Update, context: CallbackContext):
     reply_text = update.effective_message.reply_to_message.reply_text if update.effective_message.reply_to_message else update.effective_message.reply_text
-    reply_text(random.choice(GN_IMG,fun.DECIDE))
+    reply_text(random.choice(DECIDE_IMG,fun.DECIDE))
     
 
 @run_async
