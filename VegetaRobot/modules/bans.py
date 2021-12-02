@@ -127,7 +127,8 @@ def ban(update: Update, context: CallbackContext) -> str:
 
         bot.sendMessage(
             chat.id,
-            reply_photo,BAN_IMG,
+            BAN_IMG,
+            reply,
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
