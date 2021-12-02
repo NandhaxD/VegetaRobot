@@ -39,6 +39,8 @@ from VegetaRobot.modules.helper_funcs.extraction import extract_user_and_text
 from VegetaRobot.modules.helper_funcs.string_handling import extract_time
 from VegetaRobot.modules.log_channel import gloggable, loggable
 
+BAN_STICKER= "https://telegra.ph/file/a66feecabba9fe79d01c2.jpg"
+
 @run_async
 @connection_status
 @bot_admin
@@ -123,7 +125,8 @@ def ban(update: Update, context: CallbackContext) -> str:
         if reason:
             reply += f"\n<code> </code><b>• Reason:</b> \n{html.escape(reason)}"
 
-        bot.send_sticker(chat.id, BAN_IMG,
+        bot.send_sticker(
+            chat.id, BAN_STICKER,
              reply,
             reply_markup=InlineKeyboardMarkup(
                 [
