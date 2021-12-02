@@ -125,7 +125,7 @@ def ban(update: Update, context: CallbackContext) -> str:
         if reason:
             reply += f"\n<code> </code><b>• Reason:</b> \n{html.escape(reason)}"
 
-        bot.send_sticker(
+        bot.send_photo(
             chat.id, BAN_STICKER,
              reply,
             reply_markup=InlineKeyboardMarkup(
