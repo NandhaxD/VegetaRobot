@@ -81,8 +81,8 @@ def gbam(update, context):
         
 @run_async
 def decide(update: Update, context: CallbackContext):
-    reply_text = update.effective_message.reply_to_message.reply_text if update.effective_message.reply_to_message else update.effective_message.reply_text
-    reply_text(GN_IMG,caption=random.choice(fun.DECIDE))
+     message = update.effective_message
+   message.reply_photo(GN_IMG,random.choice(fun.DECIDE))
     
 
 @run_async
