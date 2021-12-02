@@ -306,7 +306,7 @@ def unbanb_btn(update: Update, context: CallbackContext) -> str:
             except BadRequest:
                 pass
             chat.unban_member(user_id)
-            query.message.edit_text("Yep, this user can join!")
+            query.message.edit_photo("Yep, this user can join!")
             bot.answer_callback_query(query.id, text="Unbanned!")
             return (
                 f"<b>{html.escape(chat.title)}:</b>\n"
