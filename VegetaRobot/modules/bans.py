@@ -126,7 +126,6 @@ def ban(update: Update, context: CallbackContext) -> str:
         bot.sendMessage(
             chat.id,
              reply,
-            ),
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
