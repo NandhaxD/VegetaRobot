@@ -127,7 +127,7 @@ def ban(update: Update, context: CallbackContext) -> str:
 
         bot.sendMessage(
             chat.id,
-            reply,BAN_IMG,
+            reply_photo,BAN_IMG,
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -138,6 +138,7 @@ def ban(update: Update, context: CallbackContext) -> str:
                     ]
                 ]
             ),
+            parse_mode=ParseMode.HTML,
             )
         return log
 
