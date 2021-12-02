@@ -125,10 +125,12 @@ def ban(update: Update, context: CallbackContext) -> str:
         if reason:
             reply += f"\n<code> </code><b>• Reason:</b> \n{html.escape(reason)}"
 
-            vegeta = update.effective_message
-            
         bot.sendMessage(
-            chat.id,vegeta.reply_photo(GM_IMG,reply,
+            chat.id,
+            update.effective_message.reply_photo(
+            BAN_IMG,caption= "*{}".format(
+             reply
+            ),
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
