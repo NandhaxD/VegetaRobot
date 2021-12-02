@@ -128,8 +128,6 @@ def ban(update: Update, context: CallbackContext) -> str:
         bot.sendMessage(
             chat.id,
             reply,
-            update.effective_message.reply_photo(
-            BAN_IMG, caption= "Hey baka Your Banned",parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -149,7 +147,7 @@ def ban(update: Update, context: CallbackContext) -> str:
             # Do not reply
             if silent:
                 return log
-            message.reply_text("Banned!", quote=False)
+            message.reply_text("Baka is Banned!", quote=False)
             return log
         else:
             LOGGER.warning(update)
