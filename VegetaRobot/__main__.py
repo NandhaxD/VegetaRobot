@@ -95,19 +95,19 @@ buttons = [
                             url="t.me/VegetaRobot?startgroup=true"),
                     ],
                    [
-                       InlineKeyboardButton(text="✧ Network", url="t.me/pegasusXteam"),
-                       InlineKeyboardButton(text="✧ Logs", url="t.me/pegasusLogs"),
+                       InlineKeyboardButton(text="🌐 Network", url="t.me/pegasusXteam"),
+                       InlineKeyboardButton(text="🔔 Logs", url="t.me/pegasusLogs"),
                      ],
                     [                  
                        InlineKeyboardButton(
-                             text="✧ Support",
+                             text="💬 Support",
                              url=f"https://t.me/{SUPPORT_CHAT}"),
                        InlineKeyboardButton(
-                             text="✧ Updates",
+                             text="📢 Updates",
                              url=f"https://t.me/{UPDATES_CHANNEL}"),
                         ],
                        [
-                           InlineKeyboardButton(text="✧ MY POWERS ✧", callback_data="help_back"
+                           InlineKeyboardButton(text="🔐OPEN CMD🔐", callback_data="help_back"
          ),
     ],
 ] 
