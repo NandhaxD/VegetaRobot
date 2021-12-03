@@ -23,4 +23,4 @@ async def apakah(event):
     if not quew:
         await event.reply('Berikan saya pertanyaan 😐')
         return
-    await event.reply(IDK_IMG,caption=random.choice(APAKAH_STRING))
+    await event.send_photo(IDK_IMG,caption=random.choice(APAKAH_STRING))
