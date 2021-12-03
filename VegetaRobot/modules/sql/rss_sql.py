@@ -1,6 +1,6 @@
 import threading
 
-from KURUMIBOT.modules.sql import BASE, SESSION
+from VegetaRobot.modules.sql import BASE, SESSION
 from sqlalchemy import Column, Integer, UnicodeText
 
 
