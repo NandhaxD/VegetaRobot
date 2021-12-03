@@ -195,8 +195,8 @@ HOLO_HANDLER = CommandHandler("holo", holo)
 SMUG_HANDLER = CommandHandler("smug", smug)
 BAKA_HANDLER = CommandHandler("baka", baka)
 
-POKE_HANDLER = CommandHandler("kisd", kiss)
-HOLO_HANDLER = CommandHandler("classic", holo)
+POKE_HANDLER = CommandHandler("kiss", kiss)
+HOLO_HANDLER = CommandHandler("classic", classic)
 
 
 dispatcher.add_handler(ADD_NSFW_HANDLER)
@@ -235,10 +235,9 @@ __handlers__ = [
 
 __help__ = """
 Module credits: [VegetaRobot](https://github.com/Ctzfamily/VegetaRobot/edit/Vegeta/VegetaRobot/modules/nsfw.py) ,
-Also thanks to [EverythingSuckz](https://t.me/EverythingSuckz) for NSFW filter. and full sucks removed by [CT_PRO](t.me/ctzfamily)
-    
+Also thanks to [EverythingSuckz](https://t.me/EverythingSuckz) for NSFW filter.
 Usage:
-    
+   
 /addnsfw : Enable NSFW mode
 /rmnsfw : Disable NSFW mode
  
