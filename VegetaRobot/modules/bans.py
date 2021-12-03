@@ -40,7 +40,7 @@ from VegetaRobot.modules.helper_funcs.string_handling import extract_time
 from VegetaRobot.modules.log_channel import gloggable, loggable
 
 UNBAN_IMG= "https://telegra.ph/file/0ac714f6c537a2570cfd3.mp4"
-BAN_IMG= "https://telegra.ph/file/d389225a69d222b92ef01.mp4"
+BAN_IMG= "https://telegra.ph/file/f080a5362e11ff3b02262.mp4"
 
 @run_async
 @connection_status
