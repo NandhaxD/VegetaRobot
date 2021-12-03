@@ -293,5 +293,5 @@ __help__ = """
   
 *Telegraph Uploader only upload 3 to 5 mb files*
  ❍ /tm: upload image or GIFs telegraph.
-   
+ ❍ /txt: reply to text, text upload in telegraph.
 """
