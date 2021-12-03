@@ -230,7 +230,7 @@ __handlers__ = [
     SMUG_HANDLER,
     BAKA_HANDLER,
     KISS_HANDLER,
-    CLASSIC,HANDLER,
+    CLASSIC_HANDLER,
 ]
 
 __help__ = """
