@@ -107,7 +107,7 @@ buttons = [
                              url=f"https://t.me/{UPDATES_CHANNEL}"),
                         ],
                        [
-                           InlineKeyboardButton(text="🔐OPEN CMD🔐", callback_data="help_back"
+                           InlineKeyboardButton(text="🔐HELP COMMADS🔐", callback_data="help_back"
          ),
     ],
 ] 
