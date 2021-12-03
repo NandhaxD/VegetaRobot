@@ -77,3 +77,6 @@ async def whois(client, message):
                 last_online=LastOnline(user),
                 bio=desc if desc else "`No bio set up.`"),
             disable_web_page_preview=True)
+
+    #hey! your going to kang this module?
+    #dont forget to give a star repo 
