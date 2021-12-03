@@ -195,8 +195,8 @@ HOLO_HANDLER = CommandHandler("holo", holo)
 SMUG_HANDLER = CommandHandler("smug", smug)
 BAKA_HANDLER = CommandHandler("baka", baka)
 
-POKE_HANDLER = CommandHandler("kiss", kiss)
-HOLO_HANDLER = CommandHandler("classic", classic)
+KISS_HANDLER = CommandHandler("kiss", kiss)
+CLASSIC_HANDLER = CommandHandler("classic", classic)
 
 
 dispatcher.add_handler(ADD_NSFW_HANDLER)
