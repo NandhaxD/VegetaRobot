@@ -157,6 +157,27 @@ def baka(update, context):
     msg = update.effective_message
     target = "baka"
     msg.reply_video(nekos.img(target))
+    
+    #kiss is 16+ for single boys
+@run_async
+def kiss(update, context):
+    msg = update.effective_message
+    target = "kiss"
+    msg.reply_video(nekos.img(target))
+    
+    #this 18+ for playboys
+@run_async
+def classic(update, context):
+    chat_id = update.effective_chat.id
+    if not update.effective_message.chat.type == "private":
+        is_nsfw = sql.is_nsfw(chat_id)
+        if not is_nsfw:
+            return
+    msg = update.effective_message
+    target = "classic"
+    msg.reply_video(nekos.img(target))
+
+
 
 
 ADD_NSFW_HANDLER = CommandHandler("addnsfw", add_nsfw)
@@ -174,6 +195,9 @@ HOLO_HANDLER = CommandHandler("holo", holo)
 SMUG_HANDLER = CommandHandler("smug", smug)
 BAKA_HANDLER = CommandHandler("baka", baka)
 
+POKE_HANDLER = CommandHandler("kisd", kiss)
+HOLO_HANDLER = CommandHandler("classic", holo)
+
 
 dispatcher.add_handler(ADD_NSFW_HANDLER)
 dispatcher.add_handler(REMOVE_NSFW_HANDLER)
@@ -188,6 +212,8 @@ dispatcher.add_handler(POKE_HANDLER)
 dispatcher.add_handler(HOLO_HANDLER)
 dispatcher.add_handler(SMUG_HANDLER)
 dispatcher.add_handler(BAKA_HANDLER)
+dispatcher.add_handler(KISS_HANDLER)
+dispatcher.add_handler(CLASSIC_HANDLER)
 
 __handlers__ = [
     ADD_NSFW_HANDLER,
@@ -203,6 +229,8 @@ __handlers__ = [
     HOLO_HANDLER,
     SMUG_HANDLER,
     BAKA_HANDLER,
+    KISS_HANDLER,
+    CLASSIC,HANDLER,
 ]
 
 __help__ = """
@@ -224,6 +252,11 @@ Commands :
  - /poke: Sends Random Poke GIFs.
  - /holo: Sends Random Holo source Images.
  - /baka: Sends Random Baka Shout GIFs.
+ 
+ 🔞 for 2 cmds only for play boys.
+ - /classic - sends random anime pucks gif.
+ - /kiss - sends random anime boy girl kiss gif
+ 
 """
 
 __mod_name__ = "🐰AnimePG"
