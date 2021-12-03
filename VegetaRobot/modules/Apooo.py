@@ -2,6 +2,7 @@ import random
 from VegetaRobot.events import register
 from VegetaRobot import telethn
 
+IDK_IMG="https://telegra.ph/file/561fa547f3c4940c95ddf.jpg"
 APAKAH_STRING = ["Iya", 
                  "Tidak", 
                  "Mungkin", 
@@ -22,4 +23,4 @@ async def apakah(event):
     if not quew:
         await event.reply('Berikan saya pertanyaan 😐')
         return
-    await event.reply(random.choice(APAKAH_STRING))
+    await event.reply_photo(IDK_IMG,random.choice(APAKAH_STRING))
