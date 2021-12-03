@@ -34,6 +34,7 @@ from telegram.error import BadRequest
 from telegram.ext import CallbackContext, CommandHandler, run_async, CallbackQueryHandler
 from telegram.utils.helpers import mention_html
 
+MUTE_IMG= "https://telegra.ph/file/f459f3d1fb58d0ad4745c.mp4"
 
 def check_user(user_id: int, bot: Bot, chat: Chat) -> Optional[str]:
     if not user_id:
@@ -105,9 +106,9 @@ def mute(update: Update, context: CallbackContext) -> str:
             InlineKeyboardButton(
                 "🗣Unmute", callback_data="unmute_({})".format(member.user.id))
         ]])
-        bot.sendMessage(
+        bot.send_video(
             chat.id,
-            msg,
+            MUTE_IMG,caption=msg,
             reply_markup=keyboard,
             parse_mode=ParseMode.HTML,
         )
