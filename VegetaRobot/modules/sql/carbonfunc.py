@@ -1,4 +1,4 @@
-import codecs
+import codecs #vegetaRobot
 import pickle
 from asyncio import gather, get_running_loop
 from io import BytesIO
