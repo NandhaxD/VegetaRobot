@@ -39,8 +39,9 @@ from VegetaRobot.modules.helper_funcs.extraction import extract_user_and_text
 from VegetaRobot.modules.helper_funcs.string_handling import extract_time
 from VegetaRobot.modules.log_channel import gloggable, loggable
 
-BAN_IMG= "https://telegra.ph/file/861e179890af17c50dbc6.mp4"
-UNBAN_IMG= "https://telegra.ph/file/ce1e9ddedf0f4fea040f1.jpg"
+UNBAN_IMG= "https://telegra.ph/file/0ac714f6c537a2570cfd3.mp4"
+BAN_IMG= "https://telegra.ph/file/d389225a69d222b92ef01.mp4"
+
 @run_async
 @connection_status
 @bot_admin
@@ -304,7 +305,7 @@ def unbanb_btn(update: Update, context: CallbackContext) -> str:
             except BadRequest:
                 pass
             chat.unban_member(user_id)
-            bot.send_photo(chat.id, UNBAN_IMG, caption="Yep, Baka Join again!")
+            bot.send_video(chat.id, UNBAN_IMG, caption="Yep, Baka Join again!")
             bot.answer_callback_query(query.id, text="Unbanned!")
             return (
                 f"<b>{html.escape(chat.title)}:</b>\n"
