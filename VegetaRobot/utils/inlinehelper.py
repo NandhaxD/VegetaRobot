@@ -75,8 +75,8 @@ async def alive_function(answers):
         InlineKeyboardButton("🔐 Main Bot", url="https://t.me/VegetaRobot?start=help"),
         InlineKeyboardButton("🔄 Go Inline", switch_inline_query_current_chat=""),
     )
-
-    VEGETA_IMG,caption=msg = f"""
+send_file = VEGETA_IMG,
+msg = f"""
 **[Vegeta⚡](https://github.com/Ctzfamily/VegetaRobot):**
 **MainBot:** `{bot_state}`
 **Python:** `3.9`
@@ -90,7 +90,7 @@ async def alive_function(answers):
             description="Check Bot's Stats",
             thumb_url="https://telegra.ph/file/6d5d79218c5a49b6238e9.jpg",
             input_message_content=InputTextMessageContent(
-                msg, disable_web_page_preview=True
+                send_file, msg, disable_web_page_preview=True
             ),
             reply_markup=buttons,
         )
