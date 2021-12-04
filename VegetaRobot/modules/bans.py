@@ -305,7 +305,6 @@ def unbanb_btn(update: Update, context: CallbackContext) -> str:
             except BadRequest:
                 pass
             chat.unban_member(user_id)
-            chat.unban_member(user_id)
             query.message.delete()
             bot.send_animation(
             chat.id,
