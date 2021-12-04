@@ -24,7 +24,7 @@ from VegetaRobot.utils.pluginhelpers import convert_seconds_to_minutes as time_c
 from VegetaRobot.utils.pluginhelpers import fetch
 
 SUDOERS = OWNER_ID
-app = pgram
+app = pgram # as pbot
 
 
 async def _netcat(host, port, content):
