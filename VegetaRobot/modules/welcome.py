@@ -37,6 +37,8 @@ from telegram.ext import (
 )
 from telegram.utils.helpers import escape_markdown, mention_html, mention_markdown
 
+OWNER_IMG= "https://telegra.ph/file/c05d10b9508e92e9560ec.jpg"
+
 VALID_WELCOME_FORMATTERS = [
     "first",
     "last",
@@ -176,12 +178,12 @@ def new_member(update: Update, context: CallbackContext):
 
             # Give the owner a special welcome
             if new_mem.id == OWNER_ID:
-                update.effective_message.reply_text(
-                    "Oh, Genos? Let's get this moving.",
+                update.effective_message.reply_photo(
+                    OWNER_IMG,caption="Huh! My master join here!\n hello! Legend ✋",
                     reply_to_message_id=reply)
                 welcome_log = (f"{html.escape(chat.title)}\n"
                                f"#USER_JOINED\n"
-                               f"*Legend* just joined the chat hi #ctzfamily Master!")
+                               f"*Legend* JOINED!")
                 continue
 
             # Welcome Devs
@@ -366,7 +368,7 @@ def new_member(update: Update, context: CallbackContext):
                         f"{new_join_mem}, click the button below to prove you're human.\nYou have 120 seconds.",
                         reply_markup=InlineKeyboardMarkup([{
                             InlineKeyboardButton(
-                                text="Yes, I'm human.",
+                                text="Yes, I'm human👤",
                                 callback_data=f"user_join_({new_mem.id})",
                             )
                         }]),
