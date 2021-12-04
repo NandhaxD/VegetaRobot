@@ -85,7 +85,7 @@ async def lego(event):
     draw.text((x, y), text, font=font, fill="white", stroke_width=1, stroke_fill="black")
     fname = "logo.png"
     img.save(fname, "png")
-    button = [[custom.Button.inline("information",url=f"{UPDATES_CHANNEL}")]]
+    button = [[custom.Button.inline("information",url=f"t.me/{UPDATES_CHANNEL}")]]
     await telethn.send_file(event.chat_id, file=fname, caption = "**Made by @VegetaRobot**", buttons=button)
     
     await pesan.delete()
