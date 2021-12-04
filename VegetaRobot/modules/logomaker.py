@@ -91,8 +91,10 @@ async def lego(event):
                 [
                     [
        InlineKeyboardButton(text="📢 Updates", url=f"@{UPDATES_CHANNEL}"),
-    ],
-] 
+                  ]
+                ]
+            ),
+        )
 
     await pesan.delete()
     if os.path.exists(fname):
