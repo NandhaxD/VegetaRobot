@@ -6,13 +6,11 @@ import random
 import re
 import glob
 import time
-from telegram import (
-    InlineKeyboardButton,
-    InlineKeyboardMarkup,
-)
+
 from io import BytesIO
 from requests import get
 from telethon.tl.types import InputMessagesFilterPhotos
+from telethon import events, Button, custom, version
 
 from VegetaRobot import OWNER_ID, SUPPORT_CHAT, UPDATES_CHANNEL
 from VegetaRobot.events import register
@@ -87,16 +85,9 @@ async def lego(event):
     draw.text((x, y), text, font=font, fill="white", stroke_width=1, stroke_fill="black")
     fname = "logo.png"
     img.save(fname, "png")
-    await telethn.send_file(event.chat_id, file=fname, caption = "**Made by @VegetaRobot**",reply_markup=InlineKeyboardMarkup(
-                [
-                  [
-                  InlineKeyboardButton(text="✧ Support ", url=f"https://t.me/{SUPPORT_CHAT}"),
-                  InlineKeyboardButton(text="✧ Updates ", url=f"t.me/{UPDATES_CHANNEL}"),
-                  ]
-                ]
-            ),
-        )
-
+    button = [[custom.Button.inline("information",url=f"{UPDATES_CHANNEL}")]]
+    await telethn.send_file(event.chat_id, file=fname, caption = "**Made by @VegetaRobot**", buttons=button)
+    
     await pesan.delete()
     if os.path.exists(fname):
             os.remove(fname)
