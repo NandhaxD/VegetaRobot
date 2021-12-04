@@ -91,10 +91,11 @@ async def lego(event):
                             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-       InlineKeyboardButton(text="📢 Updates", url=f"@{UPDATES_CHANNEL}"),
+       InlineKeyboardButton(text="📢 Updates", url=f"@{UPDATES_CHANNEL}")
                     ]
                 ]
             ),
+           )
     await pesan.delete()
     if os.path.exists(fname):
             os.remove(fname)
