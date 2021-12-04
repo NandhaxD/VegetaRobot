@@ -89,8 +89,9 @@ async def lego(event):
     img.save(fname, "png")
     await telethn.send_file(event.chat_id, file=fname, caption = "**Made by @VegetaRobot**",reply_markup=InlineKeyboardMarkup(
                 [
-                    [
-       InlineKeyboardButton(text="📢 Updates", url=f"@{UPDATES_CHANNEL}"),
+                  [
+                  InlineKeyboardButton(text="✧ Support ", url=f"https://t.me/{SUPPORT_CHAT}"),
+                  InlineKeyboardButton(text="✧ Updates ", url=f"t.me/{UPDATES_CHANNEL}"),
                   ]
                 ]
             ),
