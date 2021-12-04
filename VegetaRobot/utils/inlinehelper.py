@@ -75,7 +75,7 @@ async def alive_function(answers):
         InlineKeyboardButton("🔄 Go Inline", switch_inline_query_current_chat=""),
     )
      
-  send_file = "https://telegra.ph/file/349e4fbadcc85920b43d8.jpg",
+  send_file = "https://telegra.ph/file/349e4fbadcc85920b43d8.jpg"
     msg = f"""
 **[Vegeta⚡](https://github.com/Ctzfamily/VegetaRobot):**
 **MainBot:** `{bot_state}`
