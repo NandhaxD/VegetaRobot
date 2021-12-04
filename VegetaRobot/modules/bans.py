@@ -305,7 +305,13 @@ def unbanb_btn(update: Update, context: CallbackContext) -> str:
             except BadRequest:
                 pass
             chat.unban_member(user_id)
-            bot.send_video(chat.id, UNBAN_IMG, caption="Yep, Baka Join again!")
+            chat.unban_member(user_id)
+            query.message.delete()
+            bot.send_animation(
+            chat.id,
+            UNBAN_IMG, caption= f"Admin {mention_html(user.id, user.first_name)} Unbanned {mention_html(member.user.id, member.user.first_name)}!",
+        	    parse_mode=ParseMode.HTML,
+        	)
             bot.answer_callback_query(query.id, text="Unbanned!")
             return (
                 f"<b>{html.escape(chat.title)}:</b>\n"
