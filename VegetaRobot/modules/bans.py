@@ -40,7 +40,7 @@ from VegetaRobot.modules.helper_funcs.string_handling import extract_time
 from VegetaRobot.modules.log_channel import gloggable, loggable
 
 UNBAN_IMG= "https://telegra.ph/file/0ac714f6c537a2570cfd3.mp4"
-BAN_IMG= "https://telegra.ph/file/f080a5362e11ff3b02262.mp4"
+BAN_IMG= "https://telegra.ph/file/35ae9ea0ae57d53b98c0f.mp4"
 
 @run_async
 @connection_status
@@ -308,7 +308,7 @@ def unbanb_btn(update: Update, context: CallbackContext) -> str:
             query.message.delete()
             bot.send_video(
             chat.id,
-            UNBAN_IMG, caption= f"❕UnBan Event• /n👮Admin: {mention_html(user.id, user.first_name)} /n👥UnbanUser: {mention_html(member.user.id, member.user.first_name)}!",
+            UNBAN_IMG, caption= f"❕UnBan Event• \n👮Admin: {mention_html(user.id, user.first_name)} \n👥UnbanUser: {mention_html(member.user.id, member.user.first_name)}!",
         	    parse_mode=ParseMode.HTML,
         	)
             bot.answer_callback_query(query.id, text="Unbanned!")
