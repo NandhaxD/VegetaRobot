@@ -26,6 +26,8 @@ from VegetaRobot.utils.pluginhelpers import fetch
 SUDOERS = OWNER_ID
 app = pgram
 
+VEGETA_IMG= "https://telegra.ph/file/ef81a28257db0fd19ddb8.mp4"
+
 
 async def _netcat(host, port, content):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -74,7 +76,7 @@ async def alive_function(answers):
         InlineKeyboardButton("🔄 Go Inline", switch_inline_query_current_chat=""),
     )
 
-    msg = f"""
+    VEGETA_IMG,caption=msg = f"""
 **[Vegeta⚡](https://github.com/Ctzfamily/VegetaRobot):**
 **MainBot:** `{bot_state}`
 **Python:** `3.9`
