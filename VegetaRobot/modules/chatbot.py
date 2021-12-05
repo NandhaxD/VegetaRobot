@@ -16,7 +16,7 @@ from telegram.error import BadRequest, RetryAfter, Unauthorized
 from telegram.utils.helpers import mention_html, mention_markdown, escape_markdown
 
 from VegetaRobot.modules.helper_funcs.filters import CustomFilters
-from VegetaRobot.modules.helper_funcs.chat import user_admin, user_admin_no_reply
+from VegetaRobot.modules.helper_funcs.chat_status import user_admin, user_admin_no_reply
 from VegetaRobot import dispatcher, updater, SUPPORT_CHAT
 from VegetaRobot.modules.log_channel import gloggable
 
@@ -145,14 +145,14 @@ __help__ = """
 __mod_name__ = "ChatBot"
 
 
-CHATBOTK_HANDLER = CommandHandler("chatbot", kuki)
-ADD_CHAT_HANDLER = CallbackQueryHandler(kukiadd, pattern=r"add_chat")
-RM_CHAT_HANDLER = CallbackQueryHandler(kukirm, pattern=r"rm_chat")
+CHATBOTK_HANDLER = CommandHandler("chatbot", kuki, run_async=True)
+ADD_CHAT_HANDLER = CallbackQueryHandler(kukiadd, pattern=r"add_chat", run_async=True)
+RM_CHAT_HANDLER = CallbackQueryHandler(kukirm, pattern=r"rm_chat", run_async=True)
 CHATBOT_HANDLER = MessageHandler(
     Filters.text & (~Filters.regex(r"^#[^\s]+") & ~Filters.regex(r"^!")
-                    & ~Filters.regex(r"^\/")), chatbot)
+                    & ~Filters.regex(r"^\/")), chatbot, run_async=True)
 LIST_ALL_CHATS_HANDLER = CommandHandler(
-    "allchats", list_all_chats, filters=CustomFilters.dev_filter)
+    "allchats", list_all_chats, filters=CustomFilters.dev_filter, run_async=True)
 
 dispatcher.add_handler(ADD_CHAT_HANDLER)
 dispatcher.add_handler(CHATBOTK_HANDLER)
