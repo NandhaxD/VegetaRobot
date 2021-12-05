@@ -1,5 +1,7 @@
 import html
 
+# this module ban type's and kick type make by @ctzfamily and some friends
+
 from telegram import (
     ParseMode,
     Update,
@@ -404,7 +406,9 @@ def punchme(update: Update, context: CallbackContext):
 
     res = update.effective_chat.unban_member(user_id)  # unban on current user = kick
     if res:
-        update.effective_message.reply_video(SELF_KICK,caption="*Nice try baka!*")
+        update.effective_message.reply_video(SELF_KICK,caption=f"Nice try {mention_html(member.user.id, member.user.first_name)}Baka!",
+        	    parse_mode=ParseMode.HTML,
+        	)
     else:
         update.effective_message.reply_text("Huh? I can't :/")
 
