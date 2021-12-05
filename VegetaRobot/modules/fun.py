@@ -77,12 +77,11 @@ def gbam(update, context):
         gbam = gbamm.format(user1=user1, user2=user2, chatid=chat.id, reason=reason)
         context.bot.sendMessage(chat.id, gbam, parse_mode=ParseMode.HTML)
         
-        
-@run_async
+ @run_async
 @typing_action
-def decide(update: Update, context: CallbackContext):
-    reply_photo = update.effective_message.reply_to_message.reply_text if update.effective_message.reply_to_message else update.effective_message.reply_text
-    reply_photo(random.choice(DECIDE_IMG))
+def decide(update, context):
+    update.effective_message.reply_photo(random.choice(DECIDE_IMG)
+         
 
 @run_async
 @typing_action
