@@ -309,7 +309,7 @@ def unbanb_btn(update: Update, context: CallbackContext) -> str:
             query.message.delete()
             bot.send_video(
             chat.id,
-            UNBAN_IMG, caption= f"❕UnBan Event• \n👮Admin: {mention_html(user.id, user.first_name)} \n👥UnbanUser: {mention_html(member.user.id, member.user.first_name)}!",
+            UNBAN_IMG, caption= f"*👮Admin:* {mention_html(user.id, user.first_name)} *👥UnbanUser:* {mention_html(member.user.id, member.user.first_name)}!",
         	    parse_mode=ParseMode.HTML,
         	)
             bot.answer_callback_query(query.id, text="Unbanned!")
