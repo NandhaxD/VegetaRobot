@@ -82,7 +82,7 @@ def gbam(update, context):
 @typing_action
 def decide(update: Update, context: CallbackContext):
     reply_photo = update.effective_message.reply_to_message.reply_text if update.effective_message.reply_to_message else update.effective_message.reply_text
-    reply_photo(random.choice(DECIDE_IMG,caption="Your decide react!",parse_mode=ParseMode.MARKDOWN))
+    reply_photo(random.choice(DECIDE_IMG)
 
 @run_async
 @typing_action
