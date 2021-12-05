@@ -274,13 +274,13 @@ def info(update: Update, context: CallbackContext):
         text += "\n\n[BOT OWNER]"
         disaster_level_present = True
     elif user.id in DEV_USERS:
-        text += "\n\n[S-Ranks] OF BOT"
+        text += "\n\n[S-Ranks] - OF BOT"
         disaster_level_present = True
     elif user.id in DRAGONS:
-        text += "\n\n[A-Ranks] OF BOT"
+        text += "\n\n[A-Ranks] - OF BOT"
         disaster_level_present = True
     elif user.id in DEMONS:
-        text += "\n\n[B-Ranks] OF BOT"
+        text += "\n\n[B-Ranks] - OF BOT"
         disaster_level_present = True
     elif user.id in TIGERS:
         text += "\n\nThe Power level of this person is 'tigers of vegeta'."
@@ -290,7 +290,7 @@ def info(update: Update, context: CallbackContext):
         disaster_level_present = True
 
     if disaster_level_present:
-        text += ' \n[<a href="https://t.me/pegasusxteam/36">What is Ranks</a>]'.format(
+        text += ' \n[<a href="https://t.me/pegasusxteam/36">WHAT IS RANKS</a>]'.format(
             bot.username)
 
     try:
@@ -410,11 +410,11 @@ def stats(update: Update, context: CallbackContext):
                 [
                   [                  
                        InlineKeyboardButton(
-                             text="Support",
+                             text="💭Support",
                              url=f"https://t.me/VegetaSupport"),
                        InlineKeyboardButton(
-                             text="Updates",
-                             url="https://t.me/VegetaUpdatea")
+                             text="📢Updates",
+                             url="https://t.me/VegetaUpdates")
                      ] 
                 ]
             ),
@@ -530,7 +530,6 @@ Examples:
 
 *Overall Information about you:*
  • `/info` or `/status`*:* get information about a user.
- • `/myinfo`: shows your info in inline button
  
 
 """
