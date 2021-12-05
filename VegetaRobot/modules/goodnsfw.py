@@ -165,18 +165,6 @@ def kiss(update, context):
     target = "kiss"
     msg.reply_video(nekos.img(target))
     
-    #this 18+ for playboys
-@run_async
-def classic(update, context):
-    chat_id = update.effective_chat.id
-    if not update.effective_message.chat.type == "private":
-        is_nsfw = sql.is_nsfw(chat_id)
-        if not is_nsfw:
-            return
-    msg = update.effective_message
-    target = "classic"
-    msg.reply_video(nekos.img(target))
-
 
 
 
@@ -194,9 +182,7 @@ POKE_HANDLER = CommandHandler("poke", poke)
 HOLO_HANDLER = CommandHandler("holo", holo)
 SMUG_HANDLER = CommandHandler("smug", smug)
 BAKA_HANDLER = CommandHandler("baka", baka)
-
 KISS_HANDLER = CommandHandler("kiss", kiss)
-CLASSIC_HANDLER = CommandHandler("classic", classic)
 
 
 dispatcher.add_handler(ADD_NSFW_HANDLER)
@@ -213,7 +199,6 @@ dispatcher.add_handler(HOLO_HANDLER)
 dispatcher.add_handler(SMUG_HANDLER)
 dispatcher.add_handler(BAKA_HANDLER)
 dispatcher.add_handler(KISS_HANDLER)
-dispatcher.add_handler(CLASSIC_HANDLER)
 
 __handlers__ = [
     ADD_NSFW_HANDLER,
@@ -230,12 +215,11 @@ __handlers__ = [
     SMUG_HANDLER,
     BAKA_HANDLER,
     KISS_HANDLER,
-    CLASSIC_HANDLER,
 ]
 
 __help__ = """
-Module credits: [VegetaRobot](https://github.com/Ctzfamily/VegetaRobot/edit/Vegeta/VegetaRobot/modules/nsfw.py) ,
-Also thanks to [EverythingSuckz](https://t.me/EverythingSuckz) for NSFW filter.
+Module credits: [VegetaRobot](https://github.com/Ctzfamily/VegetaRobot/Vegeta/VegetaRobot/modules/goodnsfw.py) ,
+
 Usage:
    
 /addnsfw : Enable NSFW mode
@@ -251,9 +235,6 @@ Commands :
  - /poke: Sends Random Poke GIFs.
  - /holo: Sends Random Holo source Images.
  - /baka: Sends Random Baka Shout GIFs.
- 
- 🔞 for 2 cmds only for play boys.
- - /classic - sends random anime pucks gif.
  - /kiss - sends random anime boy girl kiss gif
  
 """
