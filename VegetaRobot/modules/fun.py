@@ -80,7 +80,7 @@ def gbam(update, context):
  @run_async
 @typing_action
 def decide(update, context):
-    update.effective_message.reply_photo(random.choice(DECIDE_IMG)
+    update.effective_message.reply_photo(random.choice(DECIDE_IMG)))
          
 
 @run_async
