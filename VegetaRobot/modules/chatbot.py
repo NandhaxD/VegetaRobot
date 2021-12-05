@@ -40,7 +40,7 @@ def kukirm(update: Update, context: CallbackContext) -> str:
             )
         else:
             update.effective_message.edit_text(
-                "Vegeta Chatbot disable by {}.".format(mention_html(user.id, user.first_name)),
+                "super saiyan Vegeta Chatbot disable by {}.".format(mention_html(user.id, user.first_name)),
                 parse_mode=ParseMode.HTML,
             )
 
@@ -65,7 +65,7 @@ def kukiadd(update: Update, context: CallbackContext) -> str:
             )
         else:
             update.effective_message.edit_text(
-                "Vegeta Chatbot enable by {}.".format(mention_html(user.id, user.first_name)),
+                "super saiyan Vegeta Chatbot enable by {}.".format(mention_html(user.id, user.first_name)),
                 parse_mode=ParseMode.HTML,
             )
 
