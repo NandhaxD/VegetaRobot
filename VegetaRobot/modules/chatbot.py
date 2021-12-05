@@ -20,7 +20,7 @@ from VegetaRobot.modules.helper_funcs.chat_status import user_admin, user_admin_
 from VegetaRobot import dispatcher, updater, SUPPORT_CHAT
 from VegetaRobot.modules.log_channel import gloggable
 
- 
+@run_async
 @user_admin_no_reply
 @gloggable
 def kukirm(update: Update, context: CallbackContext) -> str:
@@ -46,6 +46,7 @@ def kukirm(update: Update, context: CallbackContext) -> str:
 
     return ""
 
+@run_async
 @user_admin_no_reply
 @gloggable
 def kukiadd(update: Update, context: CallbackContext) -> str:
@@ -71,6 +72,7 @@ def kukiadd(update: Update, context: CallbackContext) -> str:
 
     return ""
 
+@run_async
 @user_admin
 @gloggable
 def kuki(update: Update, context: CallbackContext):
@@ -145,14 +147,14 @@ __help__ = """
 __mod_name__ = "ChatBot"
 
 
-CHATBOTK_HANDLER = CommandHandler("chatbot", kuki, run_async=True)
-ADD_CHAT_HANDLER = CallbackQueryHandler(kukiadd, pattern=r"add_chat", run_async=True)
-RM_CHAT_HANDLER = CallbackQueryHandler(kukirm, pattern=r"rm_chat", run_async=True)
+CHATBOTK_HANDLER = CommandHandler("chatbot", kuki )
+ADD_CHAT_HANDLER = CallbackQueryHandler(kukiadd, pattern=r"add_chat" )
+RM_CHAT_HANDLER = CallbackQueryHandler(kukirm, pattern=r"rm_chat" )
 CHATBOT_HANDLER = MessageHandler(
     Filters.text & (~Filters.regex(r"^#[^\s]+") & ~Filters.regex(r"^!")
-                    & ~Filters.regex(r"^\/")), chatbot, run_async=True)
+                    & ~Filters.regex(r"^\/")), chatbot, )
 LIST_ALL_CHATS_HANDLER = CommandHandler(
-    "allchats", list_all_chats, filters=CustomFilters.dev_filter, run_async=True)
+    "allchats", list_all_chats, filters=CustomFilters.dev_filter, )
 
 dispatcher.add_handler(ADD_CHAT_HANDLER)
 dispatcher.add_handler(CHATBOTK_HANDLER)
