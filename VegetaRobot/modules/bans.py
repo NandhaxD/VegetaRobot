@@ -41,6 +41,7 @@ from VegetaRobot.modules.log_channel import gloggable, loggable
 
 UNBAN_IMG= "https://telegra.ph/file/0ac714f6c537a2570cfd3.mp4"
 BAN_IMG= "https://telegra.ph/file/35ae9ea0ae57d53b98c0f.mp4"
+KICK_IMG= "https://telegra.ph/file/87899333687870f2f95b3.mp4"
 
 @run_async
 @connection_status
@@ -369,9 +370,9 @@ def punch(update: Update, context: CallbackContext) -> str:
     res = chat.unban_member(user_id)  # unban on current user = kick
     if res:
         # bot.send_sticker(chat.id, BAN_STICKER)  # banhammer marie sticker
-        bot.sendMessage(
+        bot.send_video(
             chat.id,
-            f"Removed! {mention_html(member.user.id, html.escape(member.user.first_name))}.",
+            KICK_IMG,caption=f"Removed! {mention_html(member.user.id, html.escape(member.user.first_name))}.",
             parse_mode=ParseMode.HTML,
         )
         log = (
