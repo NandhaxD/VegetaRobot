@@ -406,7 +406,7 @@ def punchme(update: Update, context: CallbackContext):
 
     res = update.effective_chat.unban_member(user_id)  # unban on current user = kick
     if res:
-        update.effective_message.reply_video(SELF_KICK,caption=f"Nice try {mention_html(user.id, html.escape(user.first_name)} Baka!",
+        update.effective_message.reply_video(SELF_KICK,caption="**Nice try Baka!**",
         	    parse_mode=ParseMode.HTML,
         	)
     else:
