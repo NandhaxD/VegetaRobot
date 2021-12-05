@@ -41,7 +41,7 @@ from VegetaRobot.modules.log_channel import gloggable, loggable
 
 UNBAN_IMG= "https://telegra.ph/file/0ac714f6c537a2570cfd3.mp4"
 BAN_IMG= "https://telegra.ph/file/35ae9ea0ae57d53b98c0f.mp4"
-KICK_IMG= "https://telegra.ph/file/87899333687870f2f95b3.mp4"
+KICK_IMG= "https://telegra.ph/file/34462049fc4f176297132.mp4"
 
 @run_async
 @connection_status
@@ -232,9 +232,9 @@ def temp_ban(update: Update, context: CallbackContext) -> str:
         if reason:
             reply_msg += f"\n<code> </code><b>• Reason:</b> {html.escape(reason)}"
 
-        bot.sendMessage(
+        bot.send_video(
             chat.id,
-            reply_msg,
+            BAN_IMG,caption=reply_msg,
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
