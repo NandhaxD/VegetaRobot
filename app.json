@@ -42,11 +42,11 @@
       "OWNER_ID": {
          "description": "Your user ID as an integer.",
          "required": true,
-         "value": "875506783"
+         "value": ""
       },
       "OWNER_USERNAME": {
          "description": "Your username without the @",
-         "value": "CtzFamily"
+         "value": ""
       },
       "INFOPIC": {
          "description": "userinfo picture Show In Info.",
@@ -55,7 +55,12 @@
       "SUPPORT_CHAT": {
          "description": "Your Telegram support group chat username where your users will go and bother you with shit But be like: MyGroupChatUsernameBlah. If this ever points to saitama support than consider you made an enemy.",
          "required": true,
-         "value": "PegasusSupportOfficial"
+         "value": "VegetaSupport"
+      },
+      "UPDATES_CHANNEL": {
+         "description": "Your Telegram support group chat username where your users will go and bother you with shit But be like: MyGroupChatUsernameBlah. If this ever points to saitama support than consider you made an enemy.",
+         "required": true,
+         "value": "VegetaUpdates"
       },
       "EVENT_LOGS": {
          "description": "Event logs channel to note down important bot level events, recommend to make this public. ex: '-123456'",
