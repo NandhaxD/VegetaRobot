@@ -29,7 +29,7 @@ from telegram.utils.helpers import mention_html
 WARN_HANDLER_GROUP = 9
 CURRENT_WARNING_FILTER_STRING = "<b>Current warning filters in this chat:</b>\n"
 
-WARN_IMG= "https://telegra.ph/file/9fe99265fccb924ad3c70.mp4"
+WARN_IMG= "https://telegra.ph/file/709ca73d4f5313c0321c8.mp4"
 
 
 # Not async
