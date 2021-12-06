@@ -29,6 +29,8 @@ from telegram.utils.helpers import mention_html
 WARN_HANDLER_GROUP = 9
 CURRENT_WARNING_FILTER_STRING = "<b>Current warning filters in this chat:</b>\n"
 
+WARN_IMG= "https://telegra.ph/file/9fe99265fccb924ad3c70.mp4"
+
 
 # Not async
 def warn(user: User,
@@ -114,8 +116,8 @@ def warn(user: User,
                       f"<b>Counts:</b> <code>{num_warns}/{limit}</code>")
 
     try:
-        message.reply_text(
-            reply, reply_markup=keyboard, parse_mode=ParseMode.HTML)
+        message.reply_video(
+            WARN_IMG,caption=reply, reply_markup=keyboard, parse_mode=ParseMode.HTML)
     except BadRequest as excp:
         if excp.message == "Reply message not found":
             # Do not reply
