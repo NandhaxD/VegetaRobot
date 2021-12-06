@@ -33,8 +33,15 @@ GBAM_REASON = (
     "mater girls",
 )
 
-DECIDE = ("Yes.", "Maybe.", "No.")
-
+DECIDE = ( 
+"https://telegra.ph/file/6ee75eb3d89d74229e604.mp4",
+"https://telegra.ph/file/3b30e06cad3aaa9b652f6.mp4",
+"https://telegra.ph/file/74c694c1d19a0968e40f3.mp4",
+"https://telegra.ph/file/343d98b98aabf94807513.mp4",
+"https://telegra.ph/file/8c2bec4c6547f05d78abc.mp4",
+"https://telegra.ph/file/6dca3366ec500662995ce.mp4" )
+    
+    
 WISH = (
     "*hey! (first)*\n*your Wish Possible to 25%😟*",
     "*hey! (first)*\n*your Wish Possible to 50%🤔*",
