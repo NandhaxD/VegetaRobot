@@ -100,14 +100,14 @@ buttons = [
                      ],
                     [                  
                        InlineKeyboardButton(
-                             text="💬 Support",
+                             text="👥 Support",
                              url=f"https://t.me/{SUPPORT_CHAT}"),
                        InlineKeyboardButton(
                              text="📢 Updates",
                              url=f"https://t.me/{UPDATES_CHANNEL}"),
                         ],
                        [
-                           InlineKeyboardButton(text="🔐HELP COMMADS🔐", callback_data="help_back"
+                           InlineKeyboardButton(text="🔐 HELP COMMADS 🔐", callback_data="help_back"
          ),
     ],
 ] 
@@ -337,7 +337,7 @@ def help_button(update, context):
         if mod_match:
             module = mod_match.group(1)
             text = (
-                "Powered by @UnitedSupport\nHere is the help for the *{}* module:\n".format(
+                f"Powered by @{UPDATES_CHANNEL}\nHere is the help for the *{}* module:\n".format(
                     HELPABLE[module].__mod_name__
                 )
                 + HELPABLE[module].__help__
