@@ -171,12 +171,9 @@ def pat(update: Update, context: CallbackContext):
     
 GOODMORNING_HANDLER = DisableAbleMessageHandler(Filters.regex(r"(?i)(goodmorning|good morning)"), goodmorning, friendly="goodmorning")
 GOODNIGHT_HANDLER = DisableAbleMessageHandler(Filters.regex(r"(?i)(goodnight|good night)"), goodnight, friendly="goodnight")
-
 REPO_HANDLER = DisableAbleCommandHandler("repo", repo)
-YESNOWTF_HANDLER = CommandHandler("decide", yesnowtf)
-
-
-    GBUN_HANDLER = CommandHandler("gbun", gbun)
+YESNOWTF_HANDLER = DisableAbleCommandHandler("decide", yesnowtf)
+GBUN_HANDLER = CommandHandler("gbun", gbun)
 PAT_HANDLER = DisableAbleCommandHandler("pat", pat)
 GBAM_HANDLER = CommandHandler("gbam", gbam)
 DARE_HANDLER = DisableAbleCommandHandler("dare", dare)
@@ -192,7 +189,6 @@ dispatcher.add_handler(GBAM_HANDLER)
 dispatcher.add_handler(GBUN_HANDLER)
 dispatcher.add_handler(PAT_HANDLER)
 dispatcher.add_handler(YESNOWTF_HANDLER)
-
 dispatcher.add_handler(TRUTH_HANDLER)
 dispatcher.add_handler(REPO_HANDLER)
 dispatcher.add_handler(DARE_HANDLER)
