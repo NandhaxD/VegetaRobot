@@ -312,7 +312,7 @@ def unbanb_btn(update: Update, context: CallbackContext) -> str:
             query.message.delete()
             bot.send_video(
             chat.id, #this code made by @ctzfamily & @h0daka
-            UNBAN_IMG, caption= f"<b>👮Admin:</b> {mention_html(user.id, user.first_name)} \n <b>👥User: </b> {mention_html(member.user.id, member.user.first_name)}!",
+            UNBAN_IMG, caption= f"<b>👮Admin:</b> {mention_html(user.id, user.first_name)} \n <b>•User: </b> {mention_html(member.user.id, member.user.first_name)}!",
         	    parse_mode=ParseMode.HTML,
         	)
             bot.answer_callback_query(query.id, text="Unbanned!")
@@ -447,7 +447,7 @@ def unban(update: Update, context: CallbackContext) -> str:
         return log_message
 
     chat.unban_member(user_id)
-    message.reply_photo(UNBAN_IMG,caption=f"*UNBANNED!*:{mention_html(member.user.id, html.escape(member.user.first_name)}",parse_mode=ParseMode.MARKDOWN,)
+    message.reply_photo(UNBAN_IMG,caption=f"*UNBANNED!*:{mention_html(member.user.id, html.escape(member.user.first_name)}",parse_mode=ParseMode.HTML,)
 
     log = (
         f"<b>{html.escape(chat.title)}:</b>\n"
