@@ -406,8 +406,8 @@ def punchme(update: Update, context: CallbackContext):
 
     res = update.effective_chat.unban_member(user_id)  # unban on current user = kick
     if res:
-        update.effective_message.reply_video(SELF_KICK_IMG,caption="*Nice try Baka!*",
-                                              parse_mode=ParseMode.MARKDOWN,)
+        update.effective_message.reply_video(SELF_KICK_IMG,caption=f"<b>❕REMOVED</b>:\n {mention_html(member.user.id, html.escape(member.user.first_name))}!",parse_mode=ParseMode.HTML,)
+
     else:
         update.effective_message.reply_text("Huh? I can't :/")
 
@@ -447,7 +447,7 @@ def unban(update: Update, context: CallbackContext) -> str:
         return log_message
 
     chat.unban_member(user_id)
-    message.reply_video(UNBAN_IMG,caption=f"<b>❕UNBANNED</b>:{mention_html(member.user.id, html.escape(member.user.first_name))}!",parse_mode=ParseMode.HTML,)
+    message.reply_video(UNBAN_IMG,caption=f"<b>❕UNBANNED</b>:\n {mention_html(member.user.id, html.escape(member.user.first_name))}!",parse_mode=ParseMode.HTML,)
 
     log = (
         f"<b>{html.escape(chat.title)}:</b>\n"
