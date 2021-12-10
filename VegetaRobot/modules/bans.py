@@ -44,7 +44,7 @@ from VegetaRobot.modules.log_channel import gloggable, loggable
 UNBAN_IMG= "https://telegra.ph/file/0ac714f6c537a2570cfd3.mp4"
 BAN_IMG= "https://telegra.ph/file/35ae9ea0ae57d53b98c0f.mp4"
 KICK_IMG= "https://telegra.ph/file/34462049fc4f176297132.mp4"
-SELF_KICK= "https://telegra.ph/file/f1d4f976d2e90fa40740c.mp4"
+SELF_KICK_IMG= "https://telegra.ph/file/f1d4f976d2e90fa40740c.mp4"
 
 @run_async
 @connection_status
@@ -406,7 +406,7 @@ def punchme(update: Update, context: CallbackContext):
 
     res = update.effective_chat.unban_member(user_id)  # unban on current user = kick
     if res:
-        update.effective_message.reply_video(SELF_KICK,caption="*Nice try Baka!*",
+        update.effective_message.reply_video(SELF_KICK_IMG,caption="*Nice try Baka!*",
                                               parse_mode=ParseMode.MARKDOWN,)
     else:
         update.effective_message.reply_text("Huh? I can't :/")
@@ -447,7 +447,7 @@ def unban(update: Update, context: CallbackContext) -> str:
         return log_message
 
     chat.unban_member(user_id)
-    message.reply_text("Yep, this user can join!")
+    message.reply_photo(UNBAN_IMG,caption=f"*UNBANNED!*:{mention_html(member.user.id, html.escape(member.user.first_name)}",parse_mode=ParseMode.MARKDOWN,)
 
     log = (
         f"<b>{html.escape(chat.title)}:</b>\n"
