@@ -447,7 +447,7 @@ def unban(update: Update, context: CallbackContext) -> str:
         return log_message
 
     chat.unban_member(user_id)
-    message.reply_video(UNBAN_IMG,caption=f"<b>❕UNBANNED</b>:{mention_html(member.user.id, html.escape(member.user.first_name)}!",parse_mode=ParseMode.HTML,)
+    message.reply_video(UNBAN_IMG,caption=f"<b>❕UNBANNED</b>:{mention_html(member.user.id, html.escape(member.user.first_name))}!",parse_mode=ParseMode.HTML,)
 
     log = (
         f"<b>{html.escape(chat.title)}:</b>\n"
