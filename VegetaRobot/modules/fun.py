@@ -75,11 +75,21 @@ def gbam(update, context):
         context.bot.sendMessage(chat.id, gbam, parse_mode=ParseMode.HTML)
         
 @run_async
-@typing_action
-def decide(update, context):
-    update.effective_message.reply_video(random.choice(fun.DECIDE))
-         
-
+def yesnowtf(update, context):
+    msg = update.effective_message
+    chat = update.effective_chat
+    res = r.get("https://yesno.wtf/api")
+    if res.status_code != 200:
+        return msg.reply_text(random.choice(fun.DECIDE))
+    else:
+        res = res.json()
+    try:
+        context.bot.send_animation(
+            chat.id, animation=res["image"], caption=str(res["answer"]).upper()
+        )
+    except BadRequest:
+        return
+        
 @run_async
 @typing_action
 def repo(update, context):
@@ -161,11 +171,12 @@ def pat(update: Update, context: CallbackContext):
     
 GOODMORNING_HANDLER = DisableAbleMessageHandler(Filters.regex(r"(?i)(goodmorning|good morning)"), goodmorning, friendly="goodmorning")
 GOODNIGHT_HANDLER = DisableAbleMessageHandler(Filters.regex(r"(?i)(goodnight|good night)"), goodnight, friendly="goodnight")
-DECIDE_HANDLER = DisableAbleCommandHandler("decide", decide)
 
 REPO_HANDLER = DisableAbleCommandHandler("repo", repo)
+YESNOWTF_HANDLER = CommandHandler("yesnowtf", decide)
 
-GBUN_HANDLER = CommandHandler("gbun", gbun)
+
+    GBUN_HANDLER = CommandHandler("gbun", gbun)
 PAT_HANDLER = DisableAbleCommandHandler("pat", pat)
 GBAM_HANDLER = CommandHandler("gbam", gbam)
 DARE_HANDLER = DisableAbleCommandHandler("dare", dare)
@@ -180,7 +191,7 @@ dispatcher.add_handler(ABUSE_HANDLER)
 dispatcher.add_handler(GBAM_HANDLER)
 dispatcher.add_handler(GBUN_HANDLER)
 dispatcher.add_handler(PAT_HANDLER)
-dispatcher.add_handler(DECIDE_HANDLER)
+dispatcher.add_handler(YESNOWTF_HANDLER)
 
 dispatcher.add_handler(TRUTH_HANDLER)
 dispatcher.add_handler(REPO_HANDLER)
