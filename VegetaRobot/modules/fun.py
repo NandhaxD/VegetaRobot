@@ -173,7 +173,7 @@ GOODMORNING_HANDLER = DisableAbleMessageHandler(Filters.regex(r"(?i)(goodmorning
 GOODNIGHT_HANDLER = DisableAbleMessageHandler(Filters.regex(r"(?i)(goodnight|good night)"), goodnight, friendly="goodnight")
 
 REPO_HANDLER = DisableAbleCommandHandler("repo", repo)
-YESNOWTF_HANDLER = CommandHandler("yesnowtf", decide)
+YESNOWTF_HANDLER = CommandHandler("decide", yesnowtf)
 
 
     GBUN_HANDLER = CommandHandler("gbun", gbun)
