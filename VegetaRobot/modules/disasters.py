@@ -497,12 +497,12 @@ SRANK_IMG= "https://telegra.ph/file/10c8c5db724a7f7c004b0.jpg"
 def sudolist(update: Update, context: CallbackContext):
     bot = context.bot
     true_sudo = list(set(DRAGONS) - set(DEV_USERS))
-    reply = SRANK_IMG,caption="<b>Known A Rank Hunters 🐉:</b>\n"
+    SRANK_IMG,caption="<b>Known A Rank Hunters 🐉:</b>\n"
     for each_user in true_sudo:
         user_id = int(each_user)
         try:
             user = bot.get_chat(user_id)
-            reply += f"• {mention_html(user_id, html.escape(user.first_name))}\n"
+            SRANK_IMG,caption += f"• {mention_html(user_id, html.escape(user.first_name))}\n"
         except TelegramError:
             pass
     update.effective_message.reply_text(reply, parse_mode=ParseMode.HTML)
