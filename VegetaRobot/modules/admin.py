@@ -587,7 +587,7 @@ __help__ = """
  - /purge <integer X>: deletes the replied message, and X messages following it if replied to a message.
 """
 
-ADMINLIST_HANDLER = DisableAbleCommandHandler("admins,adminlist", adminlist)
+ADMINLIST_HANDLER = DisableAbleCommandHandler("admins", adminlist)
 
 PIN_HANDLER = CommandHandler("pin", pin, filters=Filters.group)
 SET_DESC_HANDLER = CommandHandler("setdesc", set_desc, filters=Filters.group)
