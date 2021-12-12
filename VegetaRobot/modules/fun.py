@@ -166,8 +166,16 @@ def pat(update: Update, context: CallbackContext):
         reply_to.reply_text(reply, parse_mode=ParseMode.HTML)
                                                                      
             
-            
+__help__ = """ 
+*`Goodnight`|`goodmorning`bot send GM or GN image,
+you dont link you can disable in your chat!
 
+• /decide - bot send radom decides.
+• /pat - reply to user.
+• /truth or /dare - bot send funny messages.
+"""
+
+__mod_name_= "😁fun"
     
 GOODMORNING_HANDLER = DisableAbleMessageHandler(Filters.regex(r"(?i)(goodmorning|good morning)"), goodmorning, friendly="goodmorning")
 GOODNIGHT_HANDLER = DisableAbleMessageHandler(Filters.regex(r"(?i)(goodnight|good night)"), goodnight, friendly="goodnight")
