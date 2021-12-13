@@ -196,15 +196,11 @@ __help__ = f"""
 This Module credits by @VegetaRobot
 *`Goodnight`|`goodmorning`
 bot send GM or GN image,*
-• /decide - 
-bot send radom decides.
+• /decide - bot send radom decides.
 • /pat - reply to user.
-• /truth or /dare - 
-bot send funny messages.
-• /insult - 
-bot send insult message.
-• /abuse -
-bot send abuse message.
+• /truth or /dare - bot send funny messages.
+• /insult - bot send insult message.
+• /abuse - bot send abuse message.
 report bug - 
 @{SUPPORT_CHAT}`
 """
