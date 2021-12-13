@@ -167,16 +167,23 @@ def pat(update: Update, context: CallbackContext):
                                                                      
             
 __help__ = f""" 
-*`Goodnight`|`goodmorning`bot send GM or GN image,
-you dont link you can disable in your chat!
+*`Goodnight`|`goodmorning`
+bot send GM or GN image,
+*you dont like?*
+you can disable in your chat!
 
-• /decide - bot send radom decides.
+• /decide - 
+bot send radom decides.
 • /pat - reply to user.
-• /truth or /dare - bot send funny messages.
-• /insult - bot send insult message.
-• /abuse - bot send abuse message.
+• /truth or /dare - 
+bot send funny messages.
+• /insult - 
+bot send insult message.
+• /abuse -
+bot send abuse message.
 
-report bug - @{SUPPORT_CHAT}
+report bug - 
+@{SUPPORT_CHAT}
 """
 
     
