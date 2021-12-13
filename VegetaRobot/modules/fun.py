@@ -166,25 +166,6 @@ def pat(update: Update, context: CallbackContext):
         reply_to.reply_text(reply, parse_mode=ParseMode.HTML)
                                                                      
             
-__help__ = f""" 
-*`Goodnight`|`goodmorning`
-bot send GM or GN image,*
-*you dont like?*
-you can disable in your chat!
-
-• /decide - 
-bot send radom decides.
-• /pat - reply to user.
-• /truth or /dare - 
-bot send funny messages.
-• /insult - 
-bot send insult message.
-• /abuse -
-bot send abuse message.
-report bug - 
-@{SUPPORT_CHAT}
-"""
-
     
 GOODMORNING_HANDLER = DisableAbleMessageHandler(Filters.regex(r"(?i)(goodmorning|good morning)"), goodmorning, friendly="goodmorning")
 GOODNIGHT_HANDLER = DisableAbleMessageHandler(Filters.regex(r"(?i)(goodnight|good night)"), goodnight, friendly="goodnight")
@@ -209,6 +190,24 @@ dispatcher.add_handler(YESNOWTF_HANDLER)
 dispatcher.add_handler(TRUTH_HANDLER)
 dispatcher.add_handler(REPO_HANDLER)
 dispatcher.add_handler(DARE_HANDLER)
+
+__help__ = f"""
+*⚠️ Notice:* 
+This Module credits by @VegetaRobot
+*`Goodnight`|`goodmorning`
+bot send GM or GN image,*
+• /decide - 
+bot send radom decides.
+• /pat - reply to user.
+• /truth or /dare - 
+bot send funny messages.
+• /insult - 
+bot send insult message.
+• /abuse -
+bot send abuse message.
+report bug - 
+@{SUPPORT_CHAT}`
+"""
 
 __mod_name__ = "😁Fun"
 
