@@ -181,7 +181,6 @@ bot send funny messages.
 bot send insult message.
 • /abuse -
 bot send abuse message.
-
 report bug - 
 @{SUPPORT_CHAT}
 """
