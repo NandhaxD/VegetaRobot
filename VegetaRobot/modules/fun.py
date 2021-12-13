@@ -11,7 +11,7 @@ from telegram.ext import CallbackContext, CommandHandler, Filters, run_async
 from telegram.utils.helpers import escape_markdown
 
 import VegetaRobot.modules.fun_strings as fun
-from VegetaRobot import DEMONS, DRAGONS, dispatcher
+from VegetaRobot import DEMONS, DRAGONS, dispatcher, SUPPORT_CHAT
 from VegetaRobot.modules.disable import DisableAbleCommandHandler, DisableAbleMessageHandler
 from VegetaRobot.modules.helper_funcs.alternate import typing_action
 from VegetaRobot.modules.helper_funcs.extraction import extract_user
@@ -166,16 +166,19 @@ def pat(update: Update, context: CallbackContext):
         reply_to.reply_text(reply, parse_mode=ParseMode.HTML)
                                                                      
             
-__help__ = """ 
+__help__ = f""" 
 *`Goodnight`|`goodmorning`bot send GM or GN image,
 you dont link you can disable in your chat!
 
 • /decide - bot send radom decides.
 • /pat - reply to user.
 • /truth or /dare - bot send funny messages.
+• /insult - bot send insult message.
+• /abuse - bot send abuse message.
+
+report bug - @{SUPPORT_CHAT}
 """
 
-__mod_name_= "😁fun"
     
 GOODMORNING_HANDLER = DisableAbleMessageHandler(Filters.regex(r"(?i)(goodmorning|good morning)"), goodmorning, friendly="goodmorning")
 GOODNIGHT_HANDLER = DisableAbleMessageHandler(Filters.regex(r"(?i)(goodnight|good night)"), goodnight, friendly="goodnight")
@@ -201,7 +204,7 @@ dispatcher.add_handler(TRUTH_HANDLER)
 dispatcher.add_handler(REPO_HANDLER)
 dispatcher.add_handler(DARE_HANDLER)
 
-
+__mod_name__ = "😁Fun"
 
 
 #guys this it you like pegasusXteam ask join @pegasusSupportofficial
