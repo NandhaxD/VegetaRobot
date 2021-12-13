@@ -168,7 +168,7 @@ def pat(update: Update, context: CallbackContext):
             
 __help__ = f""" 
 *`Goodnight`|`goodmorning`
-bot send GM or GN image,
+bot send GM or GN image,*
 *you dont like?*
 you can disable in your chat!
 
