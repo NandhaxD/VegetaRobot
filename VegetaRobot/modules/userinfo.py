@@ -28,14 +28,7 @@ from VegetaRobot import telethn as vegetaTelethonClient, TIGERS, DRAGONS, DEMONS
 
 buttons = [
     [
-        InlineKeyboardButton(
-                            text="📢UPDATES",
-                            url=f"t.me/@{UPDATES_CHANNEL}")
-                        ],
-                       [
-                           InlineKeyboardButton(
-                             text="👥SUPPORT",
-                             url=f"t.me/{SUPPORT_CHAT}"
+      InlineKeyboardButton(text="❌ Delete ❌", callback_data="unbanb_del"
          ),
     ],
 ] 
