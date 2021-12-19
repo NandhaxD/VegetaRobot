@@ -145,8 +145,9 @@ def button(update: Update, context: CallbackContext) -> str:
         chat: Optional[Chat] = update.effective_chat
         res = sql.remove_warn(user_id, chat.id)
         if res:
-            update.effective_message.edit_text(
-                "Warn removed by {}.".format(
+          query.message.delete()
+            bot.send_video(
+            chat.id,WARN_IMG,caption="Warn removed by {}.".format(
                     mention_html(user.id, user.first_name)),
                 parse_mode=ParseMode.HTML)
             user_member = chat.get_member(user_id)
