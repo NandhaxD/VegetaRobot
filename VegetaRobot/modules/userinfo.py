@@ -26,6 +26,20 @@ from VegetaRobot.modules.helper_funcs.chat_status import sudo_plus
 from VegetaRobot.modules.helper_funcs.extraction import extract_user
 from VegetaRobot import telethn as vegetaTelethonClient, TIGERS, DRAGONS, DEMONS
 
+buttons = [
+    [
+        InlineKeyboardButton(
+                            text="📢UPDATES",
+                            url=f"t.me/@{UPDATES_CHANNEL}")
+                        ],
+                       [
+                           InlineKeyboardButton(
+                             text="👥SUPPORT",
+                             url=f"t.me/{SUPPORT_CHAT}"
+         ),
+    ],
+] 
+
 
 def no_by_per(totalhp, percentage):
     """
@@ -321,7 +335,7 @@ def info(update: Update, context: CallbackContext):
             context.bot.send_photo(
             chat.id,
             photo=profile,
-            caption=(text),
+            caption=(text),reply_markup=InlineKeyboardMarkup(buttons),
             parse_mode=ParseMode.HTML,
             disable_web_page_preview=True,
         )
