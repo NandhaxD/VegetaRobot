@@ -29,8 +29,6 @@ from telegram.utils.helpers import mention_html
 WARN_HANDLER_GROUP = 9
 CURRENT_WARNING_FILTER_STRING = "<b>Current warning filters in this chat:</b>\n"
 
-WARN_IMG= "https://telegra.ph/file/709ca73d4f5313c0321c8.mp4"
-
 
 # Not async
 def warn(user: User,
@@ -97,9 +95,9 @@ def warn(user: User,
 
     else:
         keyboard = InlineKeyboardMarkup([[
-            InlineKeyboardButton(text="❌ Delete", callback_data="unbanb_del"),
             InlineKeyboardButton(
-                "🔘 Remove warn", callback_data="rm_warn({})".format(user.id))
+                "🔘 Remove warn", callback_data="rm_warn({})".format(user.id),
+             InlineKeyboardButton(text="❌ Delete ❌", callback_data="unbanb_del"))
         ]])
 
         reply = (
@@ -117,8 +115,8 @@ def warn(user: User,
                       f"<b>Counts:</b> <code>{num_warns}/{limit}</code>")
 
     try:
-        message.reply_video(
-            WARN_IMG,caption=reply, reply_markup=keyboard, parse_mode=ParseMode.HTML)
+        message.reply_text(
+            reply, reply_markup=keyboard, parse_mode=ParseMode.HTML)
     except BadRequest as excp:
         if excp.message == "Reply message not found":
             # Do not reply
@@ -145,8 +143,8 @@ def button(update: Update, context: CallbackContext) -> str:
         chat: Optional[Chat] = update.effective_chat
         res = sql.remove_warn(user_id, chat.id)
         if res:
-            bot.send_video(
-            chat.id,WARN_IMG,caption="Warn removed by {}.".format(
+            update.effective_message.edit_text(
+                "Warn removed by {}.".format(
                     mention_html(user.id, user.first_name)),
                 parse_mode=ParseMode.HTML)
             user_member = chat.get_member(user_id)
