@@ -26,7 +26,6 @@ from VegetaRobot.utils.pluginhelpers import fetch
 SUDOERS = OWNER_ID
 app = pgram # as pbot
 
-VEGETA_IMG= "https://telegra.ph/file/349e4fbadcc85920b43d8.jpg"
 
 async def _netcat(host, port, content):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -88,7 +87,7 @@ async def alive_function(answers):
             title="Alive",
             description="Check Bot's Stats",
             thumb_url="https://telegra.ph/file/6d5d79218c5a49b6238e9.jpg",
-            photo="https://telegra.ph/file/561fa547f3c4940c95ddf.jpg",
+            photo_url="https://telegra.ph/file/561fa547f3c4940c95ddf.jpg",
             input_message_content=InputTextMessageContent(
               caption=msg, disable_web_page_preview=True
             ),
