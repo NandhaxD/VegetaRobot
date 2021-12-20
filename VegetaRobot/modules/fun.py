@@ -119,6 +119,11 @@ def abuse(update, context):
 def truth(update, context):
     update.effective_message.reply_text(random.choice(fun.TRUTH))
 
+@run_async
+@typing_action
+def tamilmeme(update, context):
+    update.effective_message.reply_photo(random.choice(fun.TAMIL_MEME))
+
 
 @run_async
 @typing_action
@@ -175,6 +180,7 @@ GBUN_HANDLER = CommandHandler("gbun", gbun)
 PAT_HANDLER = DisableAbleCommandHandler("pat", pat)
 GBAM_HANDLER = CommandHandler("gbam", gbam)
 DARE_HANDLER = DisableAbleCommandHandler("dare", dare)
+TAMILMEME_HANDLER = DisableAbleCommandHandler("tamilmeme", tamilmeme)
 TRUTH_HANDLER = DisableAbleCommandHandler("truth", truth)
 INSULT_HANDLER = DisableAbleCommandHandler("insult", insult)
 ABUSE_HANDLER = DisableAbleCommandHandler("abuse", abuse)
@@ -190,17 +196,18 @@ dispatcher.add_handler(YESNOWTF_HANDLER)
 dispatcher.add_handler(TRUTH_HANDLER)
 dispatcher.add_handler(REPO_HANDLER)
 dispatcher.add_handler(DARE_HANDLER)
+dispatcher.add_handler(TAMILMEME_HANDLER)
 
 __help__ = f"""
-*⚠️ Notice:* 
 This Module credits by @VegetaRobot
 *`Goodnight`|`goodmorning`
 bot send GM or GN image,*
-• /decide - bot send radom decides.
-• /pat - reply to user.
-• /truth or /dare - bot send funny messages.
-• /insult - bot send insult message.
-• /abuse - bot send abuse message.
+/decide - bot send radom decides.
+/pat - reply to user.
+/truth or /dare - bot send funny messages.
+/insult - bot send insult message.
+/abuse - bot send abuse message.
+/tamilmeme - get meme for tami language.
 report bug - 
 @{SUPPORT_CHAT}`
 """
