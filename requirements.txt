@@ -73,5 +73,5 @@ secureme #encrypt
 aiofiles
 wget
 pendulum #whatanime.py
-img2pdf #img_pdf.py
+img2pdf
 
