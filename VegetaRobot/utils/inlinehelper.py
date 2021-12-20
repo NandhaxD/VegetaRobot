@@ -83,7 +83,7 @@ async def alive_function(answers):
 **💫 Profiles:** [BOT](t.me/VegetaRobot) | [REPO](https://github.com/Ctzfamily/VegetaRobot)
 """
     answers.append(
-        InlineQueryResultphoto(
+        InlineQueryResultPhoto(
             title="Alive",
             description="Check Bot's Stats",
             thumb_url="https://telegra.ph/file/6d5d79218c5a49b6238e9.jpg",
