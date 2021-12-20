@@ -72,4 +72,5 @@ countryinfo==0.1.2
 secureme #encrypt
 aiofiles
 wget
+pendulum #whatanime.py
 
