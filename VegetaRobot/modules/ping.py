@@ -79,12 +79,11 @@ def ping(update: Update, context: CallbackContext):
     telegram_ping = str(round((end_time - start_time) * 1000, 3)) + " ms"
     uptime = get_readable_time((time.time() - StartTime))
 
-    message.edit_text(
-        "PONG!!\n"
-        "<b>Time Taken:</b> <code>{}</code>\n"
-        "<b>Service uptime:</b> <code>{}</code>".format(telegram_ping, uptime),
+    message.edit_photo(
+        PING_IMG,caption="PONG!!\n<b>Time Taken:</b> <code>{}</code>\n<b>Service uptime:</b> <code>{}</code>".format(telegram_ping, uptime),
         parse_mode=ParseMode.HTML)
 
+PING_IMG= "https://telegra.ph/file/eee3e10fe4ec8a71e2ce4.jpg"
 
 @run_async
 @sudo_plus
