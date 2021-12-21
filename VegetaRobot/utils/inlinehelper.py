@@ -88,7 +88,7 @@ async def alive_function(answers):
             description="Check Bot's Stats",
             thumb_url="https://telegra.ph/file/6d5d79218c5a49b6238e9.jpg",
             photo_url="https://telegra.ph/file/561fa547f3c4940c95ddf.jpg",
-              caption=msg),
+              caption=msg, ),
             reply_markup=buttons,
         )
     )
