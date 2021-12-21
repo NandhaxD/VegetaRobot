@@ -83,13 +83,12 @@ async def alive_function(answers):
 **💫 Profiles:** [BOT](t.me/VegetaRobot) | [REPO](https://github.com/Ctzfamily/VegetaRobot)
 """
     answers.append(
-        InlineQueryResultArticle(
+        InlineQueryResultPhoto(
             title="Alive",
             description="Check Bot's Stats",
-            thumb_url="https://telegra.ph/file/6d5d79218c5a49b6238e9.jpg",
-            input_message_content=InputTextMessageContent(
-              msg, disable_web_page_preview=True
-            ),
+            thumb_url="https://telegra.ph/file/99d8f926d6b99c6cb826c.jpg",
+            photo_url="https://telegra.ph/file/6d7a17cf864332601df94.jpg",
+            caption=msg,
             reply_markup=buttons,
         )
     )
