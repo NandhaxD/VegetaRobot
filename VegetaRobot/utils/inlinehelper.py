@@ -1,3 +1,4 @@
+# inline alive photo made by @h0daka 
 import socket
 import json
 import sys
@@ -86,10 +87,9 @@ async def alive_function(answers):
         InlineQueryResultPhoto(
             title="Alive",
             description="Check Bot's Stats",
-            thumb_url="https://telegra.ph/file/6d5d79218c5a49b6238e9.jpg",
-            photo_url="https://telegra.ph/file/561fa547f3c4940c95ddf.jpg",
-            input_message_content=InputTextMessageContent(
-              caption="hi"),
+            thumb_url="https://telegra.ph/file/99d8f926d6b99c6cb826c.jpg",
+            photo_url="https://telegra.ph/file/3b7cb2432881c6e3b16cc.jpg",
+            caption=msg,
             reply_markup=buttons,
         )
     )
@@ -453,5 +453,3 @@ async def pokedexinfo(answers, pokemon):
         )
     )
     return answers
-
-#Zeus
