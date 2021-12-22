@@ -67,14 +67,13 @@ def ping_func(to_ping: List[str]) -> List[str]:
 
     return ping_result
 
-PING_IMG="https://telegra.ph/file/8da96e3a1a076ff93447a.jpg"
 
 @run_async
 def ping(update: Update, context: CallbackContext):
     msg = update.effective_message
 
     start_time = time.time()
-    message = msg.reply_photo(PING_IMG,caption="Pinging...")
+    message = msg.reply_text("Pinging...")
     end_time = time.time()
     telegram_ping = str(round((end_time - start_time) * 1000, 3)) + " ms"
     uptime = get_readable_time((time.time() - StartTime))
