@@ -67,6 +67,7 @@ def ping_func(to_ping: List[str]) -> List[str]:
 
     return ping_result
 
+PING_IMG="https://telegra.ph/file/8da96e3a1a076ff93447a.jpg"
 
 @run_async
 def ping(update: Update, context: CallbackContext):
