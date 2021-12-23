@@ -69,6 +69,7 @@ def ping_func(to_ping: List[str]) -> List[str]:
 
 
 @run_async
+@sudo_plus
 def ping(update: Update, context: CallbackContext):
     msg = update.effective_message
 
