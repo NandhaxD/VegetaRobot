@@ -82,8 +82,8 @@ def addsudo(update: Update, context: CallbackContext) -> str:
     with open(ELEVATED_USERS_FILE, 'w') as outfile:
         json.dump(data, outfile, indent=4)
 
-    update.effective_message.reply_text(
-        rt + "\nSuccessfully set Power Level {} to A Rank Hunter!".format(
+    update.effective_message.reply_photo(
+        rt + ARANK_IMG,caption="\nSuccessfully set Power Level {} to A Rank Hunter!".format(
             user_member.first_name))
 
     log_message = (
