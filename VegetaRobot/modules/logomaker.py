@@ -85,8 +85,10 @@ async def lego(event):
     draw.text((x, y), text, font=font, fill="white", stroke_width=1, stroke_fill="black")
     fname = "logo.png"
     img.save(fname, "png")
-    await telethn.send_file(event.chat_id, file=fname, caption ="**Made by @VegetaRobot**")
-    
+    button = InlineKeyboard(row_width=2)
+    await telethn.send_file(event.chat_id, file=fname, caption ="**Made by @VegetaRobot**", button.add(
+      InlineKeyboardButton(text="👥Support", url="t.me/VegetaSupport"),InlineKeyboardButton(text="📢Updates", url="t.me/vegetaUpdates"))
+                                                                                                  
     await pesan.delete()
     if os.path.exists(fname):
             os.remove(fname)
