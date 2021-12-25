@@ -528,7 +528,7 @@ def adminlist(update, context):
                                 (user.last_name or ""))))
         #if user.username:
         #    name = escape_markdown("@" + user.username)
-        if status == "👮 administrator":
+        if status == "administrator":
             if custom_title:
                 try:
                     custom_admin_list[custom_title].append(name)
