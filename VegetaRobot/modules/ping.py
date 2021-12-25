@@ -9,6 +9,8 @@ from VegetaRobot import StartTime, dispatcher
 from VegetaRobot.modules.helper_funcs.chat_status import sudo_plus
 from VegetaRobot.modules.disable import DisableAbleCommandHandler
 
+PING_IMG="https://telegra.ph/file/7f09ce39158cf595779b1.jpg"
+
 sites_list = {
     "Telegram": "https://api.telegram.org",
     "Kaizoku": "https://animekaizoku.com",
@@ -78,11 +80,13 @@ def ping(update: Update, context: CallbackContext):
     telegram_ping = str(round((end_time - start_time) * 1000, 3)) + " ms"
     uptime = get_readable_time((time.time() - StartTime))
 
-    message.edit_text(
-        "PONG!!\n"
+    update.effective_message.reply_photo(
+        caption="PONG!!\n"
         "<b>Time Taken:</b> <code>{}</code>\n"
         "<b>Service uptime:</b> <code>{}</code>".format(telegram_ping, uptime),
         parse_mode=ParseMode.HTML)
+    
+    message.delete.()
 
 
 @run_async
