@@ -503,7 +503,7 @@ def adminlist(update, context):
         #    name = escape_markdown("@" + user.username)
         if status == "creator":
             text += "\n 👑 Owner:"
-            text += "\n<code> 👿 </code>{}\n".format(name)
+            text += "\n<code> • </code>{}\n".format(name)
 
             if custom_title:
                 text += f"<code> ┗━ {html.escape(custom_title)}</code>\n"
@@ -570,7 +570,7 @@ __help__ = """
  •`/tagall` or `@all` for tag all group members.
  • `/pin`*:* silently pins the message replied to - add `'loud'` or `'notify'` to give notifs to users
  • `/unpin`*:* unpins the currently pinned message
- • `/invitelink`*:* gets invitelink
+ • `/invitelink` or `/grouplink`*:* gets invitelink
  • `/promote`*:* promotes the user replied to
  • `/demote`*:* demotes the user replied to
  • `/title <title here>`*:* sets a custom title for an admin that the bot promoted
@@ -590,17 +590,13 @@ __help__ = """
 
 
 ADMINLIST_HANDLER = DisableAbleCommandHandler(["adminlist", "staff"], adminlist, filters=Filters.group)
-
+INVITE_HANDLER = DisableAbleCommandHandler(["grouplink", "invitelink"], invite, filters=Filters.group)
 PIN_HANDLER = CommandHandler("pin", pin, filters=Filters.group)
 SET_DESC_HANDLER = CommandHandler("setdesc", set_desc, filters=Filters.group)
 UNPIN_HANDLER = CommandHandler("unpin", unpin, filters=Filters.group)
 SETCHATPIC_HANDLER = CommandHandler("setgpic", setchatpic, filters=Filters.group)
 RMCHATPIC_HANDLER = CommandHandler("delgpic", rmchatpic, filters=Filters.group)
 SETCHAT_TITLE_HANDLER = CommandHandler("setgtitle", setchat_title, filters=Filters.group)
-
-
-INVITE_HANDLER = DisableAbleCommandHandler("invitelink", invite)
-
 PROMOTE_HANDLER = DisableAbleCommandHandler("promote", promote)
 
 DEMOTE_HANDLER = DisableAbleCommandHandler("demote", demote)
