@@ -4,14 +4,14 @@ import asyncio
 import os
 import re
 
-import aiofiles
+import aiofiles #module given by @H0daka
 from pykeyboard import InlineKeyboard
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton
 
-from KURUMIBOT import pgram, aiohttpsession
-from KURUMIBOT.utils.errors import capture_err
-from KURUMIBOT.utils.pastebin import paste
+from VegetaRobot import pgram, aiohttpsession
+from VegetaRobot.utils.errors import capture_err
+from VegetaRobot.utils.pastebin import paste
 
 pattern = re.compile(
     r"^text/|json$|yaml$|xml$|toml$|x-sh$|x-shellscript$"
