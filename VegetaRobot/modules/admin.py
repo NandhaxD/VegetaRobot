@@ -564,7 +564,7 @@ def adminlist(update, context):
 
 
 __help__ = """
- • `/admins` or `/adminlist` *:* list of admins in the chat
+ • `/staff` or `/adminlist` *:* list of admins in the chat
 
 *Admins only:*
  •`/tagall` or `@all` for tag all group members.
@@ -588,7 +588,8 @@ __help__ = """
  - /purge <integer X>: deletes the replied message, and X messages following it if replied to a message.
 """
 
-ADMINLIST_HANDLER = DisableAbleCommandHandler("admins", adminlist)
+
+ADMINLIST_HANDLER = DisableAbleCommandHandler(["adminlist", "staff"], adminlist, filters=Filters.group)
 
 PIN_HANDLER = CommandHandler("pin", pin, filters=Filters.group)
 SET_DESC_HANDLER = CommandHandler("setdesc", set_desc, filters=Filters.group)
