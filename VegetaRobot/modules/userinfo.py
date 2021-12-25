@@ -231,7 +231,7 @@ def info(update: Update, context: CallbackContext):
     else:
         return
 
-    rep = bot.send_photo(chat_id,
+    rep = bot.send_photo(chat.id,
         INFO_IMG,caption="<b>🔄 Connecting to Server<b/> /n <b>📤 YOUR INFO UPLOADING....<b/>", parse_mode=ParseMode.HTML)
 
     text = (f"╒═══「<b> Pegasus DB Userinfo:</b> 」\n"
