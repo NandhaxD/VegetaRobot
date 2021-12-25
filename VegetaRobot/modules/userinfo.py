@@ -230,7 +230,7 @@ def info(update: Update, context: CallbackContext):
         return
 
     rep = message.reply_text(
-        "* <b> 🔄 CONNECTING TO SERVER 🔄 <b/> \n <b> 📤 YOUR INFO UPLOADING...<b/>", parse_mode=ParseMode.HTML)
+        "* 🔄 CONNECTING TO SERVER 🔄 * \n * 📤 YOUR INFO UPLOADING...*", parse_mode=ParseMode.MARKDOWN)
 
     text = (f"╒═══「<b> Pegasus DB Userinfo:</b> 」\n"
             f"ID: <code>{user.id}</code>\n"
