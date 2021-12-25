@@ -58,7 +58,7 @@ async def paste_func(_, message):
     link = await paste(content)
     preview = link + "/preview.png"
     button = InlineKeyboard(row_width=2)
-    button.add(InlineKeyboardButton(text="Paste Link 📥", url=link),InlineKeyboardButton(text="❌ Delete ❌", callback_data="unbanb_del"))
+    button.add(InlineKeyboardButton(text="Paste Link 📥", url=link),InlineKeyboardButton(text="Delete ❌", callback_data="unbanb_del"))
 
     if await isPreviewUp(preview):
         try:
