@@ -38,7 +38,7 @@ async def isPreviewUp(preview: str) -> bool:
 async def paste_func(_, message):
     if not message.reply_to_message:
         return await message.reply_text(
-            "**Reply To Message With /paste**"
+            "**Reply To Message Or File **\n**With /paste**"
         )
     m = await message.reply_text("**Pasting...Now...**")
     if message.reply_to_message.text:
@@ -58,7 +58,7 @@ async def paste_func(_, message):
     link = await paste(content)
     preview = link + "/preview.png"
     button = InlineKeyboard(row_width=1)
-    button.add(InlineKeyboardButton(text="Paste Link📥", url=link))
+    button.add(InlineKeyboardButton(text="Paste Link📥", url=link),InlineKeyboardButton(text="❌ Delete", callback_data="unbanb_del"))
 
     if await isPreviewUp(preview):
         try:
