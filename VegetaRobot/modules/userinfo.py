@@ -28,7 +28,7 @@ from VegetaRobot import telethn as vegetaTelethonClient, TIGERS, DRAGONS, DEMONS
 
 buttons = [
     [
-      InlineKeyboardButton(text="🔒 close 🔒", callback_data="unbanb_del"
+      InlineKeyboardButton(text="🔒 Close 🔒", callback_data="unbanb_del"
          ),
     ],
 ] 
@@ -234,16 +234,16 @@ def info(update: Update, context: CallbackContext):
         "<code>Connecting to pegasus</code>", parse_mode=ParseMode.HTML)
 
     text = (f"╒═══「<b> Pegasus DB Userinfo:</b> 」\n"
-            f"**ID:** <code>{user.id}</code>\n"
-            f"**First Name:** {html.escape(user.first_name)}")
+            f"ID: <code>{user.id}</code>\n"
+            f" <b> First Name: <b/> {html.escape(user.first_name)}")
 
     if user.last_name:
-        text += f"\n**Last Name:** {html.escape(user.last_name)}"
+        text += f"\n <b> Last Name: <b/> {html.escape(user.last_name)}"
 
     if user.username:
-        text += f"\n**Username:** @{html.escape(user.username)}"
+        text += f"\n <b> Username: <b/> @{html.escape(user.username)}"
 
-    text += f"\n**Userlink:** {mention_html(user.id, 'link')}"
+    text += f"\n <b> Userlink: <b/> {mention_html(user.id, 'link')}"
 
     if chat.type != "private" and user_id != bot.id:
         _stext = "\nPresence: <code>{}</code>"
