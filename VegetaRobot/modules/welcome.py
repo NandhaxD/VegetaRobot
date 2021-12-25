@@ -38,6 +38,7 @@ from telegram.ext import (
 from telegram.utils.helpers import escape_markdown, mention_html, mention_markdown
 
 OWNER_IMG= "https://telegra.ph/file/c05d10b9508e92e9560ec.jpg"
+VEGETA_ADD_IMG="https://telegra.ph/file/a8f7994a0722515648e15.jpg"
 
 VALID_WELCOME_FORMATTERS = [
     "first",
@@ -231,8 +232,6 @@ def new_member(update: Update, context: CallbackContext):
                   parse_mode=ParseMode.MARKDOWN,
                   reply_to_message_id=reply,)
                 
-VEGETA_ADD_IMG="https://telegra.ph/file/a8f7994a0722515648e15.jpg"
-
             # Welcome yourself
             elif new_mem.id == bot.id:
                 creator = None
