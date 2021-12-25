@@ -1,5 +1,5 @@
 """
-(Copyright to @ZeusXRobot
+(Copyright to @VegetaRobot
 Powered by @pegasusXteam
 """
 import html
@@ -528,7 +528,7 @@ def adminlist(update, context):
                                 (user.last_name or ""))))
         #if user.username:
         #    name = escape_markdown("@" + user.username)
-        if status == "administrator":
+        if status == "👮 administrator":
             if custom_title:
                 try:
                     custom_admin_list[custom_title].append(name)
@@ -538,7 +538,7 @@ def adminlist(update, context):
                 normal_admin_list.append(name)
 
     for admin in normal_admin_list:
-        text += "\n<code> 👮 </code>{}".format(admin)
+        text += "\n<code> • </code>{}".format(admin)
 
     for admin_group in custom_admin_list.copy():
         if len(custom_admin_list[admin_group]) == 1:
@@ -567,6 +567,7 @@ __help__ = """
  • `/admins` or `/adminlist` *:* list of admins in the chat
 
 *Admins only:*
+ •`/tagall` or `@all` for tag all group members.
  • `/pin`*:* silently pins the message replied to - add `'loud'` or `'notify'` to give notifs to users
  • `/unpin`*:* unpins the currently pinned message
  • `/invitelink`*:* gets invitelink
