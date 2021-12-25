@@ -83,7 +83,7 @@ def addsudo(update: Update, context: CallbackContext) -> str:
         json.dump(data, outfile, indent=4)
 
     update.effective_message.reply_photo(
-        rt + ARANK_IMG,caption="\nSuccessfully set Power Level {} to A Rank Hunter!".format(
+        rt + ARANK_IMG,caption="\n Successfully set Power Level {} to A Rank Hunter!".format(
             user_member.first_name))
 
     log_message = (
@@ -141,9 +141,9 @@ def addsupport(
     with open(ELEVATED_USERS_FILE, 'w') as outfile:
         json.dump(data, outfile, indent=4)
 
-    update.effective_message.reply_text(
-        rt + f"\n{user_member.first_name} was added as a B Rank Hunter!")
-
+    update.effective_message.reply_photo(
+        rt + BRANK_IMG,caption="\nSuccessfully set Power Level {} to B-Rank Hunter!".format(
+            user_member.first_name))
     log_message = (
         f"#SUPPORT\n"
         f"<b>Admin:</b> {mention_html(user.id, html.escape(user.first_name))}\n"
