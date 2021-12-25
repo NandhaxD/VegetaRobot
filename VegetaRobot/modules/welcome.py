@@ -227,11 +227,11 @@ def new_member(update: Update, context: CallbackContext):
             # bot add new group Welcome 
             if new_mem.id == bot.id:
                 update.effective_message.reply_photo(
-                    ADD_IMG,caption="*Thanks for adding me!👬*\n*Join My Updates @VegetaUpdates💞*",
+                    VEGETA_ADD_IMG,caption="*Thanks for adding me!👬*\n*Join My Updates @VegetaUpdates💞*",
                   parse_mode=ParseMode.MARKDOWN,
                   reply_to_message_id=reply,
                 )
-Add_IMG="https://telegra.ph/file/a8f7994a0722515648e15.jpg"
+VEGETA_ADD_IMG="https://telegra.ph/file/a8f7994a0722515648e15.jpg"
 
             # Welcome yourself
             elif new_mem.id == bot.id:
