@@ -230,7 +230,7 @@ def new_member(update: Update, context: CallbackContext):
                 first_name = update.effective_user.first_name
                 update.effective_message.reply_photo(
                     VEGETA_ADD_IMG,caption="*Thanks for adding me!👬*\n *Can You See...*\n *My Powers to Use /help.*".format(
-                      first,
+                       first_name ),
                   reply_markup=InlineKeyboardMarkup(
                 [
                     [
