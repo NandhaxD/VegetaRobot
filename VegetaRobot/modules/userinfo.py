@@ -205,6 +205,7 @@ def gifid(update: Update, context: CallbackContext):
         update.effective_message.reply_text(
             "Please reply to a gif to get its ID.")
 
+INFO_IMG="https://telegra.ph/file/edac8037080cbf750f1dd.jpg"
 
 @run_async
 def info(update: Update, context: CallbackContext):
@@ -230,8 +231,8 @@ def info(update: Update, context: CallbackContext):
     else:
         return
 
-    rep = message.reply_text(
-        "<code>Connecting to pegasus</code>", parse_mode=ParseMode.HTML)
+    rep = message.reply_photo(
+        INFO_IMG,caption="<b>🔄 Connecting to Server<b/> /n <b>📤 YOUR INFO UPLOADING....<b/>", parse_mode=ParseMode.HTML)
 
     text = (f"╒═══「<b> Pegasus DB Userinfo:</b> 」\n"
             f"ID: <code>{user.id}</code>\n"
