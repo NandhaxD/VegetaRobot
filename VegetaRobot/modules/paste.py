@@ -70,7 +70,7 @@ async def paste_func(_, message):
             pass
     return await m.edit(link)
 
-__help__"""
+__help__="""
 Reply to Text or file /paste.
 file support maxim 1mb
 """
