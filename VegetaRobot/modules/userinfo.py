@@ -235,15 +235,15 @@ def info(update: Update, context: CallbackContext):
 
     text = (f"╒═══「<b> Pegasus DB Userinfo:</b> 」\n"
             f"ID: <code>{user.id}</code>\n"
-            f" <b> First Name: <b/> {html.escape(user.first_name)}")
+            f"First Name: {html.escape(user.first_name)}")
 
     if user.last_name:
-        text += f"\n <b> Last Name: <b/> {html.escape(user.last_name)}"
+        text += f"\nLast Name: {html.escape(user.last_name)}"
 
     if user.username:
-        text += f"\n <b> Username: <b/> @{html.escape(user.username)}"
+        text += f"\nUsername: @{html.escape(user.username)}"
 
-    text += f"\n <b> Userlink: <b/> {mention_html(user.id, 'link')}"
+    text += f"\nUserlink: {mention_html(user.id, 'link')}"
 
     if chat.type != "private" and user_id != bot.id:
         _stext = "\nPresence: <code>{}</code>"
