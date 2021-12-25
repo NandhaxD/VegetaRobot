@@ -81,12 +81,12 @@ def ping(update: Update, context: CallbackContext):
     uptime = get_readable_time((time.time() - StartTime))
 
     update.effective_message.reply_photo(
-        caption="PONG!!\n"
+        PING_IMG,caption="PONG!!\n"
         "<b>Time Taken:</b> <code>{}</code>\n"
         "<b>Service uptime:</b> <code>{}</code>".format(telegram_ping, uptime),
         parse_mode=ParseMode.HTML)
     
-    message.delete.()
+    message.delete()
 
 
 @run_async
