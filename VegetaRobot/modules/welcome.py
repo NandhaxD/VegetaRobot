@@ -5,7 +5,7 @@ import time
 from functools import partial
 
 import VegetaRobot.modules.sql.welcome_sql as sql
-from VegetaRobot import (DEV_USERS, LOGGER, OWNER_ID, DRAGONS, DEMONS, TIGERS,
+from VegetaRobot import (SUPPORT_CHAT, UPDATES_CHANNEL, DEV_USERS, LOGGER, OWNER_ID, DRAGONS, DEMONS, TIGERS,
                           WOLVES, sw, dispatcher, JOIN_LOGGER)
 from VegetaRobot.modules.helper_funcs.chat_status import (
     is_user_ban_protected,
@@ -228,8 +228,16 @@ def new_member(update: Update, context: CallbackContext):
             # bot add new group Welcome 
             if new_mem.id == bot.id:
                 update.effective_message.reply_photo(
-                    VEGETA_ADD_IMG,caption="*Thanks for adding me!👬*\n*Join My Updates @VegetaUpdates💞*",
-                  parse_mode=ParseMode.MARKDOWN,
+                    VEGETA_ADD_IMG,caption="*Thanks for adding me!👬*\n *Can You See...*\n *My Powers to Use /help.*",
+                  reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+       InlineKeyboardButton(text="👥Support", url=f"t.me/{SUPPORT_CHAT}"),
+       InlineKeyboardButton(text="📢Updates", url=f"t.me/{UPDATES_CHANNEL}"),
+                    ]
+                ]
+            ),
+            parse_mode=ParseMode.MARKDOWN,
                   reply_to_message_id=reply,)
                 
             # Welcome yourself
