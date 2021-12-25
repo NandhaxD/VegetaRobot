@@ -7,6 +7,11 @@ import re
 import glob
 import time
 
+from telegram import (
+    InlineKeyboardButton,
+    InlineKeyboardMarkup,
+)
+
 from io import BytesIO
 from requests import get
 from telethon.tl.types import InputMessagesFilterPhotos
