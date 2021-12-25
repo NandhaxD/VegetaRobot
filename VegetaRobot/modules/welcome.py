@@ -229,8 +229,8 @@ def new_member(update: Update, context: CallbackContext):
                 update.effective_message.reply_photo(
                     VEGETA_ADD_IMG,caption="*Thanks for adding me!👬*\n*Join My Updates @VegetaUpdates💞*",
                   parse_mode=ParseMode.MARKDOWN,
-                  reply_to_message_id=reply,
-                )
+                  reply_to_message_id=reply,)
+                
 VEGETA_ADD_IMG="https://telegra.ph/file/a8f7994a0722515648e15.jpg"
 
             # Welcome yourself
