@@ -1,4 +1,5 @@
 #this module only Created in @VegetaRobot ©pegasusXteam
+#fun.py made by @ctzfamily your kang this don't remove this credits
 
 import html
 import random
@@ -41,7 +42,7 @@ WISH_IMG="https://telegra.ph/file/5c1f2e655a539c7f8b2be.jpg"
 def wish(update, context):
     message = update.effective_message
     first_name = update.effective_user.first_name
-    wishchoice = "1","2","3"
+    wishchoice = f"Hey! {escape_markdown(first_name)}\n Your Wish Possible to 25%😟",f"Hey! {escape_markdown(first_name)}\n Your Wish Possible to 50%🤔",f"Hey! {escape_markdown(first_name)}\n Your Wish Possible to 75%😉",f"Hey! {escape_markdown(first_name)}\n Your Wish Possible to 100%😍"
     message.reply_photo(GN_IMG,random.choice(wishchoice))
 
 @run_async
