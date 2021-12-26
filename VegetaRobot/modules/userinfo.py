@@ -401,6 +401,7 @@ def set_about_me(update: Update, context: CallbackContext):
                 "The info needs to be under {} characters! You have {}.".format(
                     MAX_MESSAGE_LENGTH // 4, len(info[1])))
 
+STATS_IMG="https://telegra.ph//file/eef8f5f7fdd143913d515.jpg"
 
 @run_async
 @sudo_plus
@@ -411,7 +412,7 @@ def stats(update: Update, context: CallbackContext):
     stats = "<b>Current stats:</b>\n" + "\n" + output + "\n".join(
         [mod.__stats__() for mod in STATS])
     result = re.sub(r'(\d+)', r'<code>\1</code>', stats)
-    update.effective_message.reply_text(result, parse_mode=ParseMode.HTML,
+    update.effective_message.reply_photo(STATS_IMG,caption=stats+result, parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
                 [
                   [                  
