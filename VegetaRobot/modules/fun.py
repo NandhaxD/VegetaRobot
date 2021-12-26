@@ -35,7 +35,7 @@ def goodmorning(update, context):
     reply = f"*Hey {escape_markdown(first_name)} \n Good Morning!☀*"
     message.reply_photo(GM_IMG,reply, parse_mode=ParseMode.MARKDOWN)
 
- 
+WISH_IMG="https://telegra.ph/file/5c1f2e655a539c7f8b2be.jpg"
 @run_async
 @typing_action
 def wish(update, context):
