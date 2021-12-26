@@ -68,7 +68,7 @@ async def lego(event):
  if event.sender_id != OWNER_ID and not quew:
   await event.reply('**Please Gimmie A Text For The Logo**.')
   return
- pesan = await event.reply('**ᴍᴀᴋɪɴɢ ʏᴏᴜʀ ʟᴏɢᴏ. ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ!!!**')
+ pesan = await event.reply('**ᴍᴀᴋɪɴɢ ʏᴏᴜʀ ʟᴏɢᴏ.**\n **ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ!!!**')
  try:
     text = event.pattern_match.group(1)
     randc = random.choice(LOGO_LINKS)
@@ -90,6 +90,8 @@ async def lego(event):
     draw.text((x, y), text, font=font, fill="white", stroke_width=1, stroke_fill="black")
     fname = "logo.png"
     img.save(fname, "png")
+    button = InlineKeyboard(row_width=2)
+    button.add(InlineKeyboardButton(text="Paste Link 📥", url=link),InlineKeyboardButton(text="Delete ❌", callback_data="unbanb_del"))
     await telethn.send_file(event.chat_id, file=fname, caption ="**Made by @VegetaRobot**")
     
     await pesan.delete()
