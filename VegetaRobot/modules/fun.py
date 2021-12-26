@@ -42,8 +42,8 @@ WISH_IMG="https://telegra.ph/file/5c1f2e655a539c7f8b2be.jpg"
 def wish(update, context):
     message = update.effective_message
     first_name = update.effective_user.first_name
-    wishchoice = f"Hey! {escape_markdown(first_name)}\n*Your Wish Possible to 25%😟*",f"Hey! {escape_markdown(first_name)}\n*Your Wish Possible to 50%🤔*",f"Hey! {escape_markdown(first_name)}\n*Your Wish Possible to 75%😉*",f"Hey! {escape_markdown(first_name)}\n*Your Wish Possible to 100%😍*"
-    message.reply_photo(WISH_IMG,random.choice(wishchoice,parse_mode=ParseMode.MARKDOWN))
+    wishchoice = f"Hey! {escape_markdown(first_name)}\nYour Wish Possible to 25%😟",f"Hey! {escape_markdown(first_name)}\nYour Wish Possible to 50%🤔",f"Hey! {escape_markdown(first_name)}\nYour Wish Possible to 75%😉",f"Hey! {escape_markdown(first_name)}\nYour Wish Possible to 100%😍"
+    message.reply_photo(WISH_IMG,random.choice(wishchoice))
 
 @run_async
 def gbun(update, context):
