@@ -35,7 +35,16 @@ def goodmorning(update, context):
     reply = f"*Hey {escape_markdown(first_name)} \n Good Morning!☀*"
     message.reply_photo(GM_IMG,reply, parse_mode=ParseMode.MARKDOWN)
 
-    
+ 
+@run_async
+@typing_action
+def wish(update, context):
+    message = update.effective_message
+    first_name = update.effective_user.first_name
+    wishchoice = "1","2","3"
+    message.reply_photo(GN_IMG,random.choice(wishchoise, parse_mode=ParseMode.MARKDOWN)
+
+
 @run_async
 def gbun(update, context):
     user = update.effective_user
@@ -175,6 +184,7 @@ def pat(update: Update, context: CallbackContext):
 GOODMORNING_HANDLER = DisableAbleMessageHandler(Filters.regex(r"(?i)(goodmorning|good morning)"), goodmorning, friendly="goodmorning")
 GOODNIGHT_HANDLER = DisableAbleMessageHandler(Filters.regex(r"(?i)(goodnight|good night)"), goodnight, friendly="goodnight")
 REPO_HANDLER = DisableAbleCommandHandler("repo", repo)
+WISH_HANDLER = DisableAbleCommandHandler("wish", wish)                     
 YESNOWTF_HANDLER = DisableAbleCommandHandler("decide", yesnowtf)
 GBUN_HANDLER = CommandHandler("gbun", gbun)
 PAT_HANDLER = DisableAbleCommandHandler("pat", pat)
@@ -188,6 +198,7 @@ ABUSE_HANDLER = DisableAbleCommandHandler("abuse", abuse)
 dispatcher.add_handler(GOODMORNING_HANDLER)
 dispatcher.add_handler(GOODNIGHT_HANDLER)
 dispatcher.add_handler(INSULT_HANDLER)
+dispatcher.add_handler(WISH_HANDLER)                        
 dispatcher.add_handler(ABUSE_HANDLER)
 dispatcher.add_handler(GBAM_HANDLER)
 dispatcher.add_handler(GBUN_HANDLER)
