@@ -44,7 +44,6 @@ def wish(update, context):
     wishchoice = "1","2","3"
     message.reply_photo(GN_IMG,random.choice(wishchoise, parse_mode=ParseMode.MARKDOWN))
 
-
 @run_async
 def gbun(update, context):
     user = update.effective_user
