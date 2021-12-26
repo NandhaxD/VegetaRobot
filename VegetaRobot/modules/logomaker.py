@@ -91,8 +91,8 @@ async def lego(event):
     fname = "logo.png"
     img.save(fname, "png")
     button = InlineKeyboard(row_width=2)
-    button.add(InlineKeyboardButton(text="Paste Link 📥", url=link),InlineKeyboardButton(text="Delete ❌", callback_data="unbanb_del"))
-    await telethn.send_file(event.chat_id, file=fname, caption ="**Made by @VegetaRobot**")
+    button.add(InlineKeyboardButton(text="Paste Link 📥", url="t.me/motherfucker"),InlineKeyboardButton(text="Delete ❌", callback_data="unbanb_del"))
+    await telethn.send_file(event.chat_id, file=fname, caption ="**Made by @VegetaRobot**",reply_markup=button)
     
     await pesan.delete()
     if os.path.exists(fname):
