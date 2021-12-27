@@ -12,6 +12,7 @@ from telegram import (
 from VegetaRobot import dispatcher, pgram
 from pyrogram import filters
 from VegetaRobot.modules.disable import DisableAbleCommandHandler
+from telegram.ext import run_async
 
 
 __help__ = """ 
@@ -41,7 +42,7 @@ __mod_name__ = "✨Translator"
 
 trans = Translator()
 
-
+@run_async
 @pgram.on_message(filters.command(["tl", "tr"]))
 async def translate(_, message: Message) -> None:
     reply_msg = message.reply_to_message
@@ -89,6 +90,6 @@ def languages(update: Update, context: CallbackContext) -> None:
     )
 
 
-LANG_HANDLER = DisableAbleCommandHandler("langs", languages, run_async=True)
+LANG_HANDLER = DisableAbleCommandHandler("langs", languages)
 
 dispatcher.add_handler(LANG_HANDLER)
