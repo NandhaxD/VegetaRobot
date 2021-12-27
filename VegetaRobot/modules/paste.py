@@ -57,13 +57,14 @@ async def paste_func(_, message):
         os.remove(doc)
     link = await paste(content)
     preview = link + "/preview.png"
+    msg = "**Made by @VegetaRobot"
     button = InlineKeyboard(row_width=2)
     button.add(InlineKeyboardButton(text="Paste Link 📥", url=link),InlineKeyboardButton(text="Delete ❌", callback_data="unbanb_del"))
 
     if await isPreviewUp(preview):
         try:
             await message.reply_photo(
-                photo=preview, quote=False, reply_markup=button
+                photo=preview, quote=False, caption=msg, reply_markup=button
             )
             return await m.delete()
         except Exception:
