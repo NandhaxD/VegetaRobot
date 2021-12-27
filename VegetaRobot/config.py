@@ -52,6 +52,7 @@ class Config(object):
     ALLOW_EXCL = True  # Allow ! commands as well as / (Leave this to true so that blacklist can work)
     CASH_API_KEY = 'awoo'  # Get your API key from https://www.alphavantage.co/support/#api-key
     TIME_API_KEY = 'awoo'  # Get your API key from https://timezonedb.com/api
+    OPENWEATHERMAP_ID = 'awoo'
     WALL_API = 'awoo'  #For wallpapers, get one from https://wall.alphacoders.com/api.php
     AI_API_KEY = 'awoo'  #For chatbot, get one from https://coffeehouse.intellivoid.net/dashboard
     BL_CHATS = []  # List of groups that you want blacklisted.
