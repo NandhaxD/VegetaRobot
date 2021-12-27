@@ -75,4 +75,5 @@ aiofiles
 wget
 pendulum #whatanime.py
 img2pdf
+gpytranslate
 
