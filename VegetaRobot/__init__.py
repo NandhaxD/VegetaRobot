@@ -222,6 +222,10 @@ pgram.start()
 
 print("Aquiring BOT Client Info")
 
+#install aiohttp session
+print("[VegetaRobot]: Initializing AIOHTTP Session")
+aiohttpsession = ClientSession() 
+
 bottie = pgram.get_me()
 
 BOT_ID = bottie.id
