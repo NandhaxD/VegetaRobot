@@ -3,7 +3,7 @@ import os
 from VegetaRobot.events import register
 import secureme
 
-@register(pattern="^/encrypt ?(.*)")
+@register(pattern="^/hide ?(.*)")
 async def hmm(event):
     if event.reply_to_msg_id:
           lel = await event.get_reply_message()
@@ -14,7 +14,7 @@ async def hmm(event):
     k = secureme.encrypt(Text)
     await event.reply(k)
 
-@register(pattern="^/decrypt ?(.*)")
+@register(pattern="^/show ?(.*)")
 async def hmm(event):
     if event.reply_to_msg_id:
           lel = await event.get_reply_message()
