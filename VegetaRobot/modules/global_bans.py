@@ -3,7 +3,7 @@ import time
 from datetime import datetime
 from io import BytesIO
 
-from telegram import ParseMode, Update
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
 from telegram.error import BadRequest, TelegramError, Unauthorized
 from telegram.ext import (CallbackContext, CommandHandler, Filters,
                           MessageHandler, run_async)
@@ -21,7 +21,10 @@ from VegetaRobot.modules.helper_funcs.extraction import (extract_user,
                                                           extract_user_and_text)
 from VegetaRobot.modules.helper_funcs.misc import send_to_list
 
+GBAN_IMG="https://telegra.ph/file/8bcbc19e1a0605f9e2339.jpg"
+
 GBAN_ENFORCE_GROUP = 6
+
  
 GBAN_ERRORS = {
     "User is an administrator of the chat",
@@ -404,12 +407,14 @@ def check_and_ban(update, user_id, should_message=True):
         if should_message:
             text = f"<b>Alert</b>: this user is globally banned.\n" \
                    f"<code>*bans them from here*</code>.\n" \
-                   f"<b>Appeal chat</b>: @{SUPPORT_CHAT}\n" \
                    f"<b>User ID</b>: <code>{user_id}</code>"
             user = sql.get_gbanned_user(user_id)
             if user.reason:
                 text += f"\n<b>Ban Reason:</b> <code>{html.escape(user.reason)}</code>"
-            update.effective_message.reply_text(text, parse_mode=ParseMode.HTML)
+            update.effective_message.reply_photo(caption=text, reply_markup=InlineKeyboardMarkup(
+                [
+                  [
+                  InlineKeyboardButton(text="Appeal Chat", url=f"https://t.me/{SUPPORT_CHAT}")]],parse_mode=ParseMode.HTML)
 
 
 @run_async
