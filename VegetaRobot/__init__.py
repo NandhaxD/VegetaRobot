@@ -66,7 +66,7 @@ if ENV:
         raise Exception(
             "Your tiger users list does not contain valid integers.")
         
-    TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TEMP_DOWNLOAD_DIRECTORY", "./")
+   
     INFOPIC = bool(os.environ.get('INFOPIC', False))
     EVENT_LOGS = os.environ.get('EVENT_LOGS', None)
     WEBHOOK = bool(os.environ.get('WEBHOOK', False))
@@ -100,6 +100,7 @@ if ENV:
     REDIS_URL = os.environ.get("REDIS_URL")
     IBM_WATSON_CRED_URL = os.environ.get("IBM_WATSON_CRED_URL", None)
     IBM_WATSON_CRED_PASSWORD = os.environ.get("IBM_WATSON_CRED_PASSWORD", None)
+    TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TEMP_DOWNLOAD_DIRECTORY", "./")
     TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TEMP_DOWNLOAD_DIRECTORY", "./")
     HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
     TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TEMP_DOWNLOAD_DIRECTORY", "./")
