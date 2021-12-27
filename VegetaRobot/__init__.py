@@ -3,7 +3,6 @@ import os
 import sys
 import time
 import spamwatch
-from aiohttp import ClientSession
 from Python_ARQ import ARQ
 import telegram.ext as tg
 from redis import StrictRedis
@@ -172,7 +171,6 @@ else:
     ALLOW_EXCL = Config.ALLOW_EXCL
     CASH_API_KEY = Config.CASH_API_KEY
     TIME_API_KEY = Config.TIME_API_KEY
-    ARQ_API_KEY = Config.ARQ_API_KEY
     AI_API_KEY = Config.AI_API_KEY
     WALL_API = Config.WALL_API
     SUPPORT_CHAT = Config.SUPPORT_CHAT
@@ -195,10 +193,6 @@ if not SPAMWATCH_API:
 else:
     sw = spamwatch.Client(SPAMWATCH_API)
     
-#install aiohttp session
-print("[VegetaRobot]: Initializing AIOHTTP Session")
-aiohttpsession = ClientSession() 
-arq = ARQ("https://thearq.tech", "YIECCC-NAJARO-OLLREW-SJSRIP-ARQ", aiohttpsession)
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
 telethn = TelegramClient("Vegeta", API_ID, API_HASH)
 pgram = Client("VegetaRobot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
