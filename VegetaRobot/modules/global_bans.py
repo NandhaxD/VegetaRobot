@@ -414,7 +414,7 @@ def check_and_ban(update, user_id, should_message=True):
             update.effective_message.reply_photo(caption=text, reply_markup=InlineKeyboardMarkup(
                 [
                   [
-                  InlineKeyboardButton(text="Appeal Chat", url=f"https://t.me/{SUPPORT_CHAT}")]],parse_mode=ParseMode.HTML)
+                  InlineKeyboardButton(text="Appeal Chat", url=f"https://t.me/{SUPPORT_CHAT}")]],parse_mode=ParseMode.HTML))
 
 
 @run_async
