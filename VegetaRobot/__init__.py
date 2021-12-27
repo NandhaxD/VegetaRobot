@@ -66,7 +66,7 @@ if ENV:
         raise Exception(
             "Your tiger users list does not contain valid integers.")
         
-    TEMP_DOWNLOAD_DIRECTORY = os.environ.get('TEMP_DOWNLOAD_DIRECTORY', None)
+    TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TEMP_DOWNLOAD_DIRECTORY", "./")
     INFOPIC = bool(os.environ.get('INFOPIC', False))
     EVENT_LOGS = os.environ.get('EVENT_LOGS', None)
     WEBHOOK = bool(os.environ.get('WEBHOOK', False))
@@ -164,7 +164,6 @@ else:
     INFOPIC = Config.INFOPIC
     NO_LOAD = Config.NO_LOAD
     OPENWEATHERMAP_ID = Config.OPENWEATHERMAP_ID
-    TEMP_DOWNLOAD_DIRECTORY = Config.TEMP_DOWNLOAD_DIRECTORY
     DEL_CMDS = Config.DEL_CMDS
     STRICT_GBAN = Config.STRICT_GBAN
     STRICT_GMUTE = Config.STRICT_GMUTE
