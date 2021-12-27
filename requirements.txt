@@ -30,7 +30,6 @@ fontTools
 gtts
 tswift
 pytz
-youtube_dl
 PyYAML>=5.3.1
 redis
 html2text
