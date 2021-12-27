@@ -72,7 +72,6 @@ opencv-python-headless
 countryinfo==0.1.2
 secureme #encrypt
 aiofiles
-aiohttpsession
 wget
 pendulum #whatanime.py
 img2pdf
