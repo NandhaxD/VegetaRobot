@@ -76,4 +76,5 @@ wget
 pendulum #whatanime.py
 img2pdf
 gpytranslate
+pretty_errors
 
