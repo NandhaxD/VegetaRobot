@@ -91,7 +91,7 @@ async def lego(event):
     fname = "logo.png"
     img.save(fname, "png")
     vegeta = [[Button.url("MADE BY VEGETA", "t.me/vegetaRobot")]])
-    await telethn.send_file(event.chat_id, file=fname, caption ="**Made by @VegetaRobot**",vegeta)
+    await telethn.send_file(event.chat_id, file=fname, caption ="**Made by @VegetaRobot**",buttons=vegeta)
     
     await pesan.delete()
     if os.path.exists(fname):
