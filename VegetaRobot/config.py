@@ -23,6 +23,7 @@ class Config(object):
     SUPPORT_CHAT = 'vegetasupport'  #Your own group for support, do not add the @
     UPDATES_CHANNEL = 'vegetaUpdates' #Your own channel for Updates of bot, Do not add @
     JOIN_LOGGER = -1001739802989  #Prints any new group the bot is added to, prints just the name and ID.
+    REM_BG_API_KEY = "http://removebg.com"
     EVENT_LOGS = -1001739802989  #Prints information like gbans, sudo promotes, AI enabled disable states that may help in debugging and shit
     SQLALCHEMY_DATABASE_URI = 'postgres://yjbklqzqytefhl:4a729e337257be81fdc359cd856e34a0b5a261419d5138f25b81193bb27774e8@ec2-52-54-38-229.compute-1.amazonaws.com:5432/d8pnbft2italbv'#'postgres://vagszglpwcqjuv:7ac64f23996ef264ec3b67c65f3a6eaa1ac41a77588553e09623558127ff6d1f@ec2-52-202-198-60.compute-1.amazonaws.com:5432/d7pmn914up6sq4'
     LOAD = []
