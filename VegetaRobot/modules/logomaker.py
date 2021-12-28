@@ -19,7 +19,7 @@ from telethon import events, Button, custom, version
 
 from VegetaRobot import OWNER_ID, SUPPORT_CHAT, UPDATES_CHANNEL
 from VegetaRobot.events import register
-from VegetaRobot import telethn
+from VegetaRobot import telethn as tbot
 from PIL import Image, ImageDraw, ImageFont
 
 
@@ -91,7 +91,7 @@ async def lego(event):
     fname = "logo.png"
     img.save(fname, "png")
     vegeta = [[Button.url("MADE BY VEGETA", "t.me/vegetaRobot")]]
-    await telethn.send_photo(event.chat_id, fname,caption ="**Made by @VegetaRobot**",buttons=vegeta)
+    await tbot.send_file(event.chat_id, file=fname,buttons=vegeta)
     
     await pesan.delete()
     if os.path.exists(fname):
