@@ -43,7 +43,7 @@ async def _(event):
                 button = [[Button.url("Telegraph 📤", f"http://telegr.ph/{media_urls[0]}")]]
                 link = f"telegr.ph/{mdia_urls[0]}"
                 os.remove(downloaded_file_name)
-                h.message.delete()
+                h.delete()
                 await tbot.send_file(file=link,caption="**UPLOADED TO T-GRAPH**", buttons=button)
         elif input_str == "xt":
             user_object = await tbot.get_entity(r_message.sender_id)
