@@ -43,8 +43,7 @@ async def _(event):
                 button = [[Button.url("Telegraph 📤", f"{link}")]]
                 link = f"telegr.ph/{media_urls[0]}"
                 os.remove(downloaded_file_name)
-                h.delete()
-                await h.edit(f"[peview]({link})",buttons=button)
+                await h.edit(f"[Link Preview]({link})",buttons=button)
         elif input_str == "xt":
             user_object = await tbot.get_entity(r_message.sender_id)
             title_of_page = user_object.first_name # + " " + user_object.last_name
