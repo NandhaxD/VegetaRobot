@@ -16,6 +16,6 @@ async def carbon_func(_, message):
     carbon = await make_carbon(message.reply_to_message.text)
     await m.edit("**⬆Uploading...**")
     msg = "**Made by @VegetaRobot**"
-    await pbot.send_photo(message.chat.id, caption=msg, carbon)
+    await pbot.send_photo(message.chat.id, carbon,caption=msg)
     await m.delete()
     carbon.close()
