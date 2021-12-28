@@ -14,13 +14,14 @@ from telegram.ext import CallbackContext
 from telegram.utils.helpers import mention_html
 
 import VegetaRobot.modules.sql.users_sql as sql
+
+from VegetaRobot import DRAGONS as SUDO_USERS
+from VegetaRobot import SUPPORT_USERS as DEMONS
+from VegetaRobot import WOLVES as WHITELIST_USERS
+from VegetaRobot import TIGERS as SARDEGNA_USERS
 from VegetaRobot import (
     OWNER_ID,
-    SUDO_USERS as DRAGONS,
-    SUPPORT_USERS as DEMONS,
     DEV_USERS,
-    SARDEGNA_USERS,
-    WHITELIST_USERS,
     sw, log
 )
 from VegetaRobot.modules.helper_funcs.misc import article
