@@ -65,6 +65,7 @@ urllib3
 heroku3
 telegraph
 youtube_search
+search_engine_parser
 glitch_this
 NumPy
 opencv-python-headless
