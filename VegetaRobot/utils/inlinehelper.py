@@ -20,7 +20,7 @@ from pyrogram.types import (
 )
 from search_engine_parser import GoogleSearch
 
-from VegetaRobot import OWNER_ID, pgram
+from VegetaRobot import OWNER_ID, pgram, arq
 from VegetaRobot.utils.pluginhelpers import convert_seconds_to_minutes as time_convert
 from VegetaRobot.utils.pluginhelpers import fetch
 
