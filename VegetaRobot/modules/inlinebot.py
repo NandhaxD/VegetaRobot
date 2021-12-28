@@ -17,8 +17,8 @@ import VegetaRobot.modules.sql.users_sql as sql
 
 from VegetaRobot import DRAGONS as SUDO_USERS
 from VegetaRobot import SUPPORT_USERS as DEMONS
-from VegetaRobot import WOLVES as WHITELIST_USERS
-from VegetaRobot import TIGERS as SARDEGNA_USERS
+from VegetaRobot import WOLVES as SARDEGNA_USERS
+from VegetaRobot import TIGERS as WHITELIST_USERS
 from VegetaRobot import (
     OWNER_ID,
     DEV_USERS,
