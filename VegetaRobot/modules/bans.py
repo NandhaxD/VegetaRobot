@@ -313,7 +313,7 @@ def unbanb_btn(update: Update, context: CallbackContext) -> str:
             chat_name = "<b>• {}</b>\n".format(html.escape(chat.title))
             bot.send_video(
             chat.id, #this code made by @ctzfamily & @h0daka
-            UNBAN_IMG, caption= f" {chatname} <b>👮Admin:</b>\n {mention_html(user.id, user.first_name)} \n <b>👤User: </b>\n {mention_html(member.user.id, member.user.first_name)}!",
+            UNBAN_IMG, caption= f" {chat_name} <b>👮Admin:</b>\n {mention_html(user.id, user.first_name)} \n <b>👤User: </b>\n {mention_html(member.user.id, member.user.first_name)}!",
         	    parse_mode=ParseMode.HTML,
         	)
             bot.answer_callback_query(query.id, text="Unbanned!")
