@@ -1,8 +1,7 @@
-*Stdout*
-`from KURUMIBOT.modules.disable import DisableAbleCommandHandler, DisableAbleMessageHandler
+from VegetaRobot.modules.disable import DisableAbleCommandHandler, DisableAbleMessageHandler
 from telegram.ext import CommandHandler, MessageHandler, CallbackQueryHandler, InlineQueryHandler
 from telegram.ext.filters import BaseFilter
-from KURUMIBOT import dispatcher as d, LOGGER
+from VegetaRobot import dispatcher as d, LOGGER
 from typing import Optional, Union, List
 
 
@@ -86,7 +85,3 @@ kigcmd = KigyoTelegramHandler(d).command
 kigmsg = KigyoTelegramHandler(d).message
 kigcallback = KigyoTelegramHandler(d).callbackquery
 kiginline = KigyoTelegramHandler(d).inlinequery
-`
-*Stderr*
-`cat: ls: No such file or directory
-`
