@@ -1,6 +1,7 @@
 from VegetaRobot.modules.disable import DisableAbleCommandHandler, DisableAbleMessageHandler
 from telegram.ext import CommandHandler, MessageHandler, CallbackQueryHandler, InlineQueryHandler
 from telegram.ext.filters import BaseFilter
+from telegram.ext.dispatcher import run_async
 from VegetaRobot import dispatcher as d, LOGGER as log
 from typing import Optional, Union, List
 
