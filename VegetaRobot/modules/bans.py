@@ -310,10 +310,10 @@ def unbanb_btn(update: Update, context: CallbackContext) -> str:
                 pass
             chat.unban_member(user_id)
             query.message.delete()
-            chat_name = "<b>• {}</b>\n".format(html.escape(chat.title))
+            chat_name = "<b>• {}</b>".format(html.escape(chat.title))
             bot.send_video(
             chat.id, #this code made by @ctzfamily & @h0daka
-            UNBAN_IMG, caption= f" {chat_name} <b>👮Admin:</b>\n {mention_html(user.id, user.first_name)} \n <b>👤User: </b>\n {mention_html(member.user.id, member.user.first_name)}!",
+            UNBAN_IMG, caption= f" {chat_name} <b>👮Admin:</b>{mention_html(user.id, user.first_name)} <b>👤User: </b> {mention_html(member.user.id, member.user.first_name)}!",
         	    parse_mode=ParseMode.HTML,
         	)
             bot.answer_callback_query(query.id, text="Unbanned!")
@@ -424,6 +424,7 @@ def unban(update: Update, context: CallbackContext) -> str:
     message = update.effective_message
     user = update.effective_user
     chat = update.effective_chat
+    chat_name = "<b>• {}</b>".format(html.escape(chat.title))
     log_message = ""
     bot, args = context.bot, context.args
     user_id, reason = extract_user_and_text(message, args)
@@ -448,7 +449,7 @@ def unban(update: Update, context: CallbackContext) -> str:
         return log_message
 
     chat.unban_member(user_id)
-    message.reply_video(UNBAN_IMG,caption=f"<b>❕UNBANNED</b>:\n {mention_html(member.user.id, html.escape(member.user.first_name))}",parse_mode=ParseMode.HTML,)
+    message.reply_video(UNBAN_IMG,caption=f"{chat_name}\n<b>❕UNBANNED</b>: {mention_html(member.user.id, html.escape(member.user.first_name))}",parse_mode=ParseMode.HTML,)
 
     log = (
         f"<b>{html.escape(chat.title)}:</b>\n"
