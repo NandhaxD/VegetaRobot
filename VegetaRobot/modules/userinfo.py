@@ -24,7 +24,7 @@ from VegetaRobot.modules.sql.afk_sql import is_afk, check_afk_status
 from VegetaRobot.modules.sql.users_sql import get_user_num_chats
 from VegetaRobot.modules.helper_funcs.chat_status import sudo_plus
 from VegetaRobot.modules.helper_funcs.extraction import extract_user
-from VegetaRobot import telethn as vegetaTelethonClient, TIGERS, DRAGONS, DEMONS
+from VegetaRobot import telethn as VegetaTelethonClient, TIGERS, DRAGONS, DEMONS
 
 buttons = [
     [
@@ -158,7 +158,7 @@ def get_id(update: Update, context: CallbackContext):
                 parse_mode=ParseMode.HTML)
 
 
-@vegetaTelethonClient.on(
+@VegetaTelethonClient.on(
     events.NewMessage(
         pattern='/ginfo ',
         from_users=(TIGERS or []) + (DRAGONS or []) + (DEMONS or [])))
@@ -230,7 +230,7 @@ def info(update: Update, context: CallbackContext):
         return
 
     rep = message.reply_text(
-        "* 🔄 CONNECTING TO SERVER 🔄 *", parse_mode=ParseMode.MARKDOWN)
+        "*🌐 Conneting...*", parse_mode=ParseMode.MARKDOWN)
 
     text = (f"╒═══「<b> Pegasus DB Userinfo:</b> 」\n"
             f"ID: <code>{user.id}</code>\n"
@@ -417,11 +417,11 @@ def stats(update: Update, context: CallbackContext):
                 [
                   [                  
                        InlineKeyboardButton(
-                             text="💭Support",
-                             url=f"https://t.me/VegetaSupport"),
+                             text="👥Support",
+                             url=f"https://t.me/{SUPPORT_CHAT}"),
                        InlineKeyboardButton(
                              text="📢Updates",
-                             url="https://t.me/VegetaUpdates")
+                             url=f"https://t.me/{UPDATES_CHANNEL}")
                      ] 
                 ]
             ),
