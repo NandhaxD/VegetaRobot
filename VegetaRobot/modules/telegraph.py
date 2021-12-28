@@ -1,7 +1,7 @@
 from VegetaRobot.events import register
 from VegetaRobot import telethn as tbot
 TMP_DOWNLOAD_DIRECTORY = "./"
-from telethon import events
+from telethon import events, button
 import os
 from PIL import Image
 from datetime import datetime
