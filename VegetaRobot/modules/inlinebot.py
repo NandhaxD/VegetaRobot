@@ -14,8 +14,8 @@ from telegram.error import BadRequest
 from telegram.ext import CallbackContext
 from telegram.utils.helpers import mention_html
 
-import KURUMIBOT.modules.sql.users_sql as sql
-from KURUMIBOT import (
+import VegetaRobot.modules.sql.users_sql as sql
+from VegetaRobot import (
     OWNER_ID,
     DRAGONS,
     DEMONS,
@@ -24,8 +24,8 @@ from KURUMIBOT import (
     WOLVES,
     sw, LOGGER
 )
-from KURUMIBOT.modules.helper_funcs.misc import article
-from KURUMIBOT.modules.helper_funcs.decorators import kiginline
+from VegetaRobot.modules.helper_funcs.misc import article
+from VegetaRobot.modules.helper_funcs.decorators import kiginline
 
 
 def remove_prefix(text, prefix):
