@@ -2,7 +2,7 @@
 from pyrogram import filters
 from VegetaRobot import pgram as pbot
 from VegetaRobot.utils.errors import capture_err
-from VegetaRobot.utils.functions import make_carbon
+from VegetaRobot.utils.make_carbon import make_carbon
 
 
 @pbot.on_message(filters.command("carbon"))
