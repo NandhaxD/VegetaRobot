@@ -1,9 +1,8 @@
 from VegetaRobot.modules.disable import DisableAbleCommandHandler, DisableAbleMessageHandler
-from telegram.ext import CommandHandler, MessageHandler, CallbackQueryHandler, InlineQueryHandler
+from telegram.ext import CommandHandler, MessageHandler, CallbackQueryHandler, InlineQueryHandler, run_async
 from telegram.ext.filters import BaseFilter
 from VegetaRobot import dispatcher as d, LOGGER
 from typing import Optional, Union, List
-
 
 
 class KigyoTelegramHandler:
