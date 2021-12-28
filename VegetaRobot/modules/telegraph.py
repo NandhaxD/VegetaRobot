@@ -41,7 +41,7 @@ async def _(event):
                 end = datetime.now()
                 ms_two = (end - start).seconds
                 button = [[Button.url("Telegraph 📤", f"http://telegr.ph/{media_urls[0]}")]]
-                link = f"telegr.ph/{mdia_urls[0]}"
+                link = f"telegr.ph/{media_urls[0]}"
                 os.remove(downloaded_file_name)
                 h.delete()
                 await tbot.send_file(file=link,caption="**UPLOADED TO T-GRAPH**", buttons=button)
