@@ -41,7 +41,6 @@ async def _(event):
                 end = datetime.now()
                 ms_two = (end - start).seconds
                 button = [[Button.url("T-GRAPH Link 📤", f"http://telegr.ph/{media_urls[0]}")]]
-                T_LINK = f""
                 os.remove(downloaded_file_name)
                 await h.edit(f"[Link Preview](http://telegr.ph/{media_urls[0]})",link_perview=True,buttons=button)
         elif input_str == "xt":
