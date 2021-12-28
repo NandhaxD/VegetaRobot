@@ -40,9 +40,11 @@ async def _(event):
             else:
                 end = datetime.now()
                 ms_two = (end - start).seconds
-                vegeta = [[Button.url("Telegraph 📤", f"http://telegr.ph/{media_urls[0]}")]]
+                button = [[Button.url("Telegraph 📤", f"http://telegr.ph/{media_urls[0]}")]]
+                link = f"telegr.ph/{mdia_urls[0]}"
                 os.remove(downloaded_file_name)
-                await h.edit("**UPLOADED TO T-GRAPH**", buttons=vegeta)
+                h.message.delete()
+                await tbot.send_file(file=link,caption="**UPLOADED TO T-GRAPH**", buttons=button)
         elif input_str == "xt":
             user_object = await tbot.get_entity(r_message.sender_id)
             title_of_page = user_object.first_name # + " " + user_object.last_name
