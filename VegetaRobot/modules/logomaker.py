@@ -23,7 +23,18 @@ from VegetaRobot import telethn as tbot
 from PIL import Image, ImageDraw, ImageFont
 
 
-LOGO_LINKS            = ["https://telegra.ph/file/df1331d378ea9f38a0090.jpg",
+LOGO_LINKS            = ["https://telegra.ph/file/eca03ceddb387b38fdc73.jpg",
+"https://telegra.ph/file/e65e246fb1db004649e97.jpg",
+"https://telegra.ph/file/8b46a80e5750577cdde73.jpg",
+"https://telegra.ph/file/c3537ea071fe34df1c4ea.jpg",
+"https://telegra.ph/file/ceb490e6106dfccae5016.jpg",
+"https://telegra.ph/file/1c1eff19da3421fbe728b.jpg",
+"https://telegra.ph/file/176d00e7e85333cc79fed.jpg",
+"https://telegra.ph/file/ee66f1c74bcb768882032.jpg",
+"https://telegra.ph/file/bdb3693cba96acc7dfa03.jpg",
+"https://telegra.ph/file/0e4d1738f5fb1d54fcdd7.jpg",
+"https://telegra.ph/file/77c42b7382fb99797642e.jpg",
+    "https://telegra.ph/file/df1331d378ea9f38a0090.jpg",
                          "https://telegra.ph/file/735c44767dda2b00442ca.jpg",
                          "https://telegra.ph/file/5503b1017a1f398090baa.jpg",
                          "https://telegra.ph/file/4e0ed6862df9f988b9f30.jpg",
