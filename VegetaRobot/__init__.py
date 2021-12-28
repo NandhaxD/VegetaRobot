@@ -8,7 +8,6 @@ from Python_ARQ import ARQ
 import telegram.ext as tg
 from redis import StrictRedis
 from pyrogram import Client, errors
-from logging.config import fileConfig
 from telethon import TelegramClient
 
 StartTime = time.time()
@@ -228,18 +227,6 @@ print("Starting Pyrogram Client")
 pgram.start()
 
 print("Aquiring BOT Client Info")
-
-# enable logging
-
-fileConfig('logging.ini')
-
-#print(flag)
-log = logging.getLogger('[Enterprise]')
-logging.getLogger('ptbcontrib.postgres_persistence.postgrespersistence').setLevel(logging.WARNING)
-log.info("[Vegeta] Vegeta is starting. | An Eagle Union Project. | Licensed under GPLv3.")
-log.info("[KIGYO] Not affiliated to Azur Lane or Yostar in any way whatsoever.")
-log.info("[KIGYO] Project maintained by: github.com/ctzfamily (t.me/ctzfamily)")
-
 
 bottie = pgram.get_me()
 
