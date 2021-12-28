@@ -14,8 +14,8 @@ from telegram.ext import CallbackContext
 from telegram.utils.helpers import mention_html
 
 import VegetaRobot.modules.sql.users_sql as sql
-
-from VegetaRobot import (DEV_USERS, OWNER_ID, DRAGONS, DEMONS, TIGERS, WOLVES, sw, log)
+from VegetaRobot import LOGGER as log
+from VegetaRobot import (DEV_USERS, OWNER_ID, DRAGONS, DEMONS, TIGERS, WOLVES, sw)
 from VegetaRobot.modules.helper_funcs.misc import article
 from VegetaRobot.modules.helper_funcs.decorators import kiginline
 
