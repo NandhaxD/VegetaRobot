@@ -329,6 +329,7 @@ def clearall_btn(update: Update, context: CallbackContext):
 def list_notes(update: Update, context: CallbackContext):
     chattitle = " <b> {} <b/>".format(html.escape(chat.title))
     chat_id = update.effective_chat.id
+    chat = update.effective_chat
     note_list = sql.get_all_chat_notes(chat_id)
     notes = len(note_list) + 1
     msg = f"notes in {chattitle}\nGet note by `/notenumber` or `#notename` \n\n  *ID*    *Note* \n"
