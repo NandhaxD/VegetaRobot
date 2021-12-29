@@ -25,7 +25,7 @@ Click to Deploy Screen Of Heroku fill A Vars Now bot Runs Heroku!
 
 ## ✨Deploy to Railway✨
 
-#Edit A VegetaRobot/Config.py in 
+<b> Edit A VegetaRobot/Config.py in <b/>
 - `OWNER_ID`|`OWNER_USERNAME`
 - `API_ID`| `API_HARISH`|
 - `TOKEN`| `SQLALCHEMY_DATABASE_URI`| most use old db
