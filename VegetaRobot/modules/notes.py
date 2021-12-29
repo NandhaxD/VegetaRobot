@@ -332,7 +332,7 @@ def list_notes(update: Update, context: CallbackContext):
     note_list = sql.get_all_chat_notes(chat_id)
     chattitle = (html.escape(chat.title))
     notes = len(note_list) + 1
-    msg = f"notes in {chattitle}\nGet note by `/notenumber` or `#notename` \n\n  *ID*    *Note* \n"
+    msg = f"Notes in *{chattitle}*\nGet note by `/notenumber` or `#notename` \n\n  *ID*    *Note* \n"
     for note_id, note in zip(range(1, notes), note_list):
         if note_id < 10:
             note_name = f"`{note_id:2}.`  `#{(note.name.lower())}`\n"
@@ -352,7 +352,7 @@ def list_notes(update: Update, context: CallbackContext):
                 "No notes in this chat!", quote=False)
 
     elif len(msg) != 0:
-        update.effective_message.reply_text(msg, parse_mode=ParseMode.MARDOWN)
+        update.effective_message.reply_text(msg, parse_mode=ParseMode.MARKDOWN)
 
 
 def __import_data__(chat_id, data):
