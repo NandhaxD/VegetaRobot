@@ -6,7 +6,7 @@
   <a href="https://github.com/W2HGalaxy-OP/SuzieRoBot/graphs/commit-activity" alt="Maintenance"> <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=flat-square" /> </a>
 </p>
 
-<p align="center"><a href="https://t.me/VegetaRobot"><img src="https://telegra.ph/file/561fa547f3c4940c95ddf.jpg" width="50"></a></p>
+<p align="center"><a href="https://t.me/VegetaRobot"><img src="https://telegra.ph/file/561fa547f3c4940c95ddf.jpg" width="600"></a></p>
 
 <p align="center">
     <a href="https://github.com/Ctzfamily/VegetaRobot"> <img src="https://img.shields.io/github/repo-size/Ctzfamily/VegetaRobot?color=red&logo=github&logoColor=green&style=for-the-badge" /></a>
@@ -15,8 +15,7 @@
     <a href="https://pypi.org/project/Telethon/"> <img src="https://img.shields.io/pypi/v/telethon?color=yellow&label=telethon&logo=python&logoColor=green&style=for-the-badge" /></a>
 </p>
 
-> Your star's my motivation 😞 Going to fork hit a star 😊 <p align="center"><a href="https://github.com/ctzfamily/VegetaRobot"><img src="https://telegra.ph//file/a347d11ee86a150a2abf4.jpg" width="45"></a></p>
-
+> Your star's my motivation 😞 Going to fork hit a star 😊 
 ## Available on Telegram as [@VegetaRobot](https://t.me/VegetaRobot)
 
 ## ✨Deploy to Heroku ✨
