@@ -6,7 +6,7 @@
   <a href="https://github.com/W2HGalaxy-OP/SuzieRoBot/graphs/commit-activity" alt="Maintenance"> <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=flat-square" /> </a>
 </p>
 
-<p align="center"><a href="https://t.me/VegetaRobot"><img src="https://telegra.ph/file/561fa547f3c4940c95ddf.jpg" width="400"></a></p>
+<p align="center"><a href="https://t.me/VegetaRobot"><img src="https://telegra.ph/file/561fa547f3c4940c95ddf.jpg" width="50"></a></p>
 
 <p align="center">
     <a href="https://github.com/Ctzfamily/VegetaRobot"> <img src="https://img.shields.io/github/repo-size/Ctzfamily/VegetaRobot?color=red&logo=github&logoColor=green&style=for-the-badge" /></a>
@@ -15,7 +15,7 @@
     <a href="https://pypi.org/project/Telethon/"> <img src="https://img.shields.io/pypi/v/telethon?color=yellow&label=telethon&logo=python&logoColor=green&style=for-the-badge" /></a>
 </p>
 
-> If You're Going To Fork This Repo Then Don't Forget To Hit a Star ✯ Your star's my motivation😞
+> Your star's my motivation 😞 Going to fork hit a star 😁
 ## Available on Telegram as [@VegetaRobot](https://t.me/VegetaRobot)
 
 ## ✨Deploy to Heroku ✨
@@ -25,7 +25,7 @@ Click to Deploy Screen Of Heroku fill A Vars Now bot Runs Heroku!
 
 ## ✨Deploy to Railway✨
 
-<b> Edit A VegetaRobot/Config.py in <b/>
+## Edit A VegetaRobot/Config.py in
 - `OWNER_ID`|`OWNER_USERNAME`
 - `API_ID`| `API_HARISH`|
 - `TOKEN`| `SQLALCHEMY_DATABASE_URI`| most use old db
