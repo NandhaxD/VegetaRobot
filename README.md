@@ -28,17 +28,22 @@
 ## Edit A VegetaRobot/Config.py in
 - `OWNER_ID`|`OWNER_USERNAME`
 - `API_ID`| `API_HARISH`|
-- `TOKEN`| `SQLALCHEMY_DATABASE_URI`| ᴍᴏsᴛ ᴜsᴇ ᴏʟᴅ `ᴅʙ_ᴜʀʟ` ɴᴏᴡ ʙᴏᴛ ʀᴜɴs ʀᴀɪʟᴡᴀʏ!
+- `TOKEN`| ɴᴏᴡ ʙᴏᴛ ʀᴜɴs ʀᴀɪʟᴡᴀʏ!
 
    [![Deploy To Railway](https://railway.app/button.svg)](https://railway.app)
 
 
-## Special Credits
+## | `SQLALCHEMY_DATABASE_URI`| ᴍᴏsᴛ ᴜsᴇ ᴏʟᴅ `ᴅʙ_ᴜʀʟ`
 
+
+## Special Credits
 - Kurumibot - base
 - Image-Editorbot - module
 
 
-# 🗡️ Support
+## REPO MADE BY [Nandha (:](t.me/ctzfamily) | `OWNER`
+
+
+# 🗡️ Join our Support & Updates
 <a href="https://t.me/PegasusSupportchat"><img src="https://img.shields.io/badge/Support 🎉-Telegram%20Group-blue.svg?logo=telegram"></a>
 <a href="https://t.me/PegasusUpdates"><img src="https://img.shields.io/badge/Updates 💥-Telegram%20Group-blue.svg?logo=telegram"></a>
