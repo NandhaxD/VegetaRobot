@@ -327,10 +327,10 @@ def clearall_btn(update: Update, context: CallbackContext):
 @run_async
 @connection_status
 def list_notes(update: Update, context: CallbackContext):
-    chattitle = " <b> {} <b/>".format(html.escape(chat.title))
     chat_id = update.effective_chat.id
     chat = update.effective_chat
     note_list = sql.get_all_chat_notes(chat_id)
+    chattitle = " <b> {} <b/>".format(html.escape(chat.title))
     notes = len(note_list) + 1
     msg = f"notes in {chattitle}\nGet note by `/notenumber` or `#notename` \n\n  *ID*    *Note* \n"
     for note_id, note in zip(range(1, notes), note_list):
