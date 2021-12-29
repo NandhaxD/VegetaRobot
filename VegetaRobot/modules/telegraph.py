@@ -42,7 +42,7 @@ async def _(event):
                 ms_two = (end - start).seconds
                 button = [[Button.url("T-GRAPH Link 📤", f"http://telegr.ph/{media_urls[0]}")]]
                 os.remove(downloaded_file_name)
-                await h.edit(f"[Link Preview](http://telegr.ph/{})".farmat( media_urls[0]), link_perview=True, buttons=button)
+                await h.edit(f"[Link Preview](http://telegr.ph/{})".format(media_urls[0]), link_perview=True, buttons=button)
         elif input_str == "xt":
             user_object = await tbot.get_entity(r_message.sender_id)
             title_of_page = user_object.first_name # + " " + user_object.last_name
