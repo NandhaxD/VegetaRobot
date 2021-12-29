@@ -40,7 +40,7 @@ async def _(event):
             else:
                 end = datetime.now()
                 ms_two = (end - start).seconds
-                vegeta = [[Button.url("T-GRAPH Link 📤", f"http://telegr.ph/{media_urls[0]}")]]
+                vegeta = [[Button.url("Link 📤", f"http://telegr.ph/{media_urls[0]}")]]
                 os.remove(downloaded_file_name)
                 await h.edit("perview [link](https://telegra.ph{})".format(media_urls[0]), link_preview=True, buttons=vegeta)
         elif input_str == "xt":
