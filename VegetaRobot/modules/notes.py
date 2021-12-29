@@ -352,7 +352,7 @@ def list_notes(update: Update, context: CallbackContext):
                 "No notes in this chat!", quote=False)
 
     elif len(msg) != 0:
-        update.effective_message.reply_text(msg, parse_mode=ParseMode.HTML)
+        update.effective_message.reply_text(msg, parse_mode=ParseMode.MARDOWN)
 
 
 def __import_data__(chat_id, data):
