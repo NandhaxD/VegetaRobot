@@ -25,8 +25,11 @@ Click to Deploy Screen Of Heroku fill A Vars Now bot Runs Heroku!
 
 ## ✨Deploy to Railway✨
 
-
-Edit A Config.py in `API_ID`|`API_HARISH`|`TOKEN`|`SQL_DATABASE_URL`|
+Edit A Config.py in 
+`API_ID`|
+`API_HARISH`|
+`TOKEN`|
+`SQL_DATABASE_URL`| most use old db
 Now Bot Runs Railway!
 [![Deploy To Railway](https://railway.app/button.svg)](https://railway.app)
 
@@ -38,5 +41,5 @@ Now Bot Runs Railway!
 
 
 # 🗡️ Support
-<a href="https://t.me/PigasusSupport"><img src="https://img.shields.io/badge/Support 🎉-Telegram%20Group-blue.svg?logo=telegram"></a>
-<a href="https://t.me/PigasusUpdates"><img src="https://img.shields.io/badge/Updates 💥-Telegram%20Group-blue.svg?logo=telegram"></a>
+<a href="https://t.me/PegasusSupportchat"><img src="https://img.shields.io/badge/Support 🎉-Telegram%20Group-blue.svg?logo=telegram"></a>
+<a href="https://t.me/PegasusUpdates"><img src="https://img.shields.io/badge/Updates 💥-Telegram%20Group-blue.svg?logo=telegram"></a>
