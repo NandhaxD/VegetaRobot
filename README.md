@@ -33,7 +33,7 @@
    [![Deploy To Railway](https://railway.app/button.svg)](https://railway.app)
 
 
-## | `SQLALCHEMY_DATABASE_URI` | ᴍᴏsᴛ ᴜsᴇ ᴏʟᴅ `ᴅʙ_ᴜʀʟ`
+## `SQLALCHEMY_DATABASE_URI` | ᴍᴏsᴛ ᴜsᴇ ᴏʟᴅ `ᴅʙ_ᴜʀʟ`
 
 
 ## Special Credits
