@@ -15,7 +15,7 @@
     <a href="https://pypi.org/project/Telethon/"> <img src="https://img.shields.io/pypi/v/telethon?color=yellow&label=telethon&logo=python&logoColor=green&style=for-the-badge" /></a>
 </p>
 
-> If You're Going To Fork This Repo Then Don't Forget To Hit a Star ✯
+> If You're Going To Fork This Repo Then Don't Forget To Hit a Star ✯ Your star's my motivation😞
 ## Available on Telegram as [@VegetaRobot](https://t.me/VegetaRobot)
 
 ## ✨Deploy to Heroku ✨
