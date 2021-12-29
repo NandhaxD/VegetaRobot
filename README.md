@@ -16,7 +16,7 @@
 </p>
 
 ``` 
-Your star's my motivation 😞 Going to fork hit a star 😊 📝Your fork Your errors
+Your star's my motivation 😞 Going to fork hit a star 😊 | ⚠ Your fork Your bot Your errors
 ```
 ## Available on Telegram as [@VegetaRobot](https://t.me/VegetaRobot)
 
