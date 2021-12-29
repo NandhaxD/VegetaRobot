@@ -32,7 +32,7 @@ Your star's my motivation 😞 Going to fork hit a star 😊 | thanks for suppor
 - `API_ID`| `API_HARISH`|
 - `TOKEN`| ɴᴏᴡ ʙᴏᴛ ʀᴜɴs ʀᴀɪʟᴡᴀʏ!
 
-   [![Deploy To Railway](https://railway.app/button.svg)](https://railway.app)
+   [![Deploy To Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/Ctzfamily/VegetaRobot)
 
 
 ## `SQLALCHEMY_DATABASE_URI` | ᴍᴏsᴛ ᴜsᴇ ᴏʟᴅ `ᴅʙ_ᴜʀʟ`
