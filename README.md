@@ -20,20 +20,21 @@
 
 ## ✨Deploy to Heroku ✨
 
-Click to deploy screen of heroku fill a Vars Now bot Runs Heroku!
+Click to Deploy Screen Of Heroku fill A Vars Now bot Runs Heroku!
 <p align="center"><a href="https://heroku.com/deploy?template=https://github.com/Ctzfamily/VegetaRobot"> <img src="https://img.shields.io/badge/Deploy%20To%20Heroku-black?style=for-the-badge&logo=heroku" width="220" height="38.45"/></a></p>
 
 ## ✨Deploy to Railway✨
 
-put your own Config.py in API_ID|API_HARISH|TOKEN|SQL_DATABASE_URL
+
+Edit A Config.py in `API_ID`|`API_HARISH`|`TOKEN`|`SQL_DATABASE_URL`|
 Now Bot Runs Railway!
 [![Deploy To Railway](https://railway.app/button.svg)](https://railway.app)
 
 
 ## Special Credits
 
-- Kurumibot
-- Image-Editorbot
+- Kurumibot - base
+- Image-Editorbot - module
 
 
 # 🗡️ Support
