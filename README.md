@@ -15,7 +15,9 @@
     <a href="https://pypi.org/project/Telethon/"> <img src="https://img.shields.io/pypi/v/telethon?color=yellow&label=telethon&logo=python&logoColor=green&style=for-the-badge" /></a>
 </p>
 
-`` Your star's my motivation 😞 Going to fork hit a star 😊 ``
+``` 
+Your star's my motivation 😞 Going to fork hit a star 😊 📝Your fork Your errors
+```
 ## Available on Telegram as [@VegetaRobot](https://t.me/VegetaRobot)
 
 ## ✨ Deploy to Heroku ✨
