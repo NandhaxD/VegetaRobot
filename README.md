@@ -1,4 +1,4 @@
-<h1 align="center"><b>Saiyan Vegeta</b></h1>
+<h1 align="center"><b>Prince Vegeta</b></h1>
 
 <h4 align="center">A Advanced Powerful, Smart And Intelligent Group Management Bot With New And Powerful Features <br> ... Written with Pyrogram and Telethon...</h4>
 <p align='center'>
