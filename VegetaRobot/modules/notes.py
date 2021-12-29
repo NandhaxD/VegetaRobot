@@ -1,5 +1,6 @@
 import re, ast
 from io import BytesIO
+import html
 import random
 from typing import Optional
 
