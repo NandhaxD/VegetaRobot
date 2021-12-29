@@ -15,7 +15,7 @@
     <a href="https://pypi.org/project/Telethon/"> <img src="https://img.shields.io/pypi/v/telethon?color=yellow&label=telethon&logo=python&logoColor=green&style=for-the-badge" /></a>
 </p>
 
-> Your star's my motivation 😞 Going to fork hit a star 😊 <p align="center"><a href="https://github.com/ctzfamily/VegetaRobot"><img src="https://telegra.ph//file/a347d11ee86a150a2abf4.jpg" width="30"></a></p>
+> Your star's my motivation 😞 Going to fork hit a star 😊 <p align="center"><a href="https://github.com/ctzfamily/VegetaRobot"><img src="https://telegra.ph//file/a347d11ee86a150a2abf4.jpg" width="45"></a></p>
 
 ## Available on Telegram as [@VegetaRobot](https://t.me/VegetaRobot)
 
