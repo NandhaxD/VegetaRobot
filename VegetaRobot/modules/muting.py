@@ -34,6 +34,7 @@ from telegram.error import BadRequest
 from telegram.ext import CallbackContext, CommandHandler, run_async, CallbackQueryHandler
 from telegram.utils.helpers import mention_html
 
+#mute upcoming
 
 def check_user(user_id: int, bot: Bot, chat: Chat) -> Optional[str]:
     if not user_id:
