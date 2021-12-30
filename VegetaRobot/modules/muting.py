@@ -109,8 +109,7 @@ def mute(update: Update, context: CallbackContext) -> str:
             InlineKeyboardButton(
                 "❕Unmute", callback_data="unmute_({})".format(member.user.id))
         ]])
-        bot.send_video(
-            chat.id,
+        bot.send_video(chat.id,
             MUTE_IMG,caption=msg,
             reply_markup=keyboard,
             parse_mode=ParseMode.HTML,
