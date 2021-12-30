@@ -287,7 +287,7 @@ def button(update: Update, context: CallbackContext) -> str:
         )                
         unmuted = bot.restrict_chat_member(chat.id, int(user_id), chat_permissions)
         if unmuted:
-          msg.delete()
+          query.message.delete()
         	bot.sendMessage(chat.id,
         	    f"<b>ChatName:</b>{html.escape(chat.title)}\nAdmin {mention_html(user.id, user.first_name)} Unmuted {mention_html(member.user.id, member.user.first_name)}!",
         	    parse_mode=ParseMode.HTML,
