@@ -1,7 +1,4 @@
-"""
-module Creat my @VegetaRobot
-Copyrights to @PegasusXteam [•_•]
-"""
+
 
 import html
 import re
