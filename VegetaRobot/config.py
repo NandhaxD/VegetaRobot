@@ -15,18 +15,18 @@ class Config(object):
     # REQUIRED
     #Login to https://my.telegram.org and fill in these slots with the details given by it
 
-    API_ID = 7126006  # integer value, dont use ""
-    API_HASH = "f92b05be529835381859ead64a195fa2"
-    TOKEN = "2128359921:AAFo-u0Y0e3ZNh2JScMGYoe9oy2UBQuur_4"  #This var used to be API_KEY but it is now TOKEN, adjust accordingly.
+    API_ID = 7126106  # integer value, dont use ""
+    API_HASH = "f92b081859ead64a195fa2"
+    TOKEN = "2128359921:AAFo-u0Y0Yoe9oy2UBQuur_4"  #This var used to be API_KEY but it is now TOKEN, adjust accordingly.
     OWNER_ID = 1491497760  # If you dont know, run the bot and do /id in your private chat with it, also an integer
     OWNER_USERNAME = "ctzfamily"
     SUPPORT_CHAT = 'vegetasupport'  #Your own group for support, do not add the @
     UPDATES_CHANNEL = 'vegetaUpdates' #Your own channel for Updates of bot, Do not add @
     JOIN_LOGGER = -1001574034400  #Prints any new group the bot is added to, prints just the name and ID.
-    REM_BG_API_KEY = "http://removebg.com"
+    REM_BG_API_KEY = "" # for this image editor get your own api in here - http://removebg.com
     TEMP_DOWNLOAD_DIRECTORY = ""
     EVENT_LOGS = -1001574034400  #Prints information like gbans, sudo promotes, AI enabled disable states that may help in debugging and shit
-    SQLALCHEMY_DATABASE_URI = 'postgres://yjbklqzqytefhl:4a729e337257be81fdc359cd856e34a0b5a261419d5138f25b81193bb27774e8@ec2-52-54-38-229.compute-1.amazonaws.com:5432/d8pnbft2italbv'#'postgres://vagszglpwcqjuv:7ac64f23996ef264ec3b67c65f3a6eaa1ac41a77588553e09623558127ff6d1f@ec2-52-202-198-60.compute-1.amazonaws.com:5432/d7pmn914up6sq4'
+    SQLALCHEMY_DATABASE_URI = 'postgres://yjbklqzqytefhl:4dc359cd856e34a0b5a261419d138f25b81193bb27774e8@ec2-52-54-38-229.compute-1.amazonaws.com:5432/d8pnbft2italbv'#'postgres://vagszglpwcqjuv:7ac64f23996ef264ec3b67c65f3a6eaa1ac41a77588553e09623558127ff6d1f@ec2-52-202-198-60.compute-1.amazonaws.com:5432/d7pmn914up6sq4'
     LOAD = []
     NO_LOAD = ['rss', 'cleaner', 'connection', 'math']
     WEBHOOK = None
