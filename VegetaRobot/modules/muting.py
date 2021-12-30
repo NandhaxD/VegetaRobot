@@ -109,9 +109,9 @@ def mute(update: Update, context: CallbackContext) -> str:
             InlineKeyboardButton(
                 "❕Unmute", callback_data="unmute_({})".format(member.user.id))
         ]])
-        bot.send_video(
+        bot.sendMessage(
             chat.id,
-            MUTE_IMG,caption=msg,
+            msg,
             reply_markup=keyboard,
             parse_mode=ParseMode.HTML,
         )
@@ -241,7 +241,7 @@ def temp_mute(update: Update, context: CallbackContext) -> str:
                 InlineKeyboardButton(
                     "🗣Unmute", callback_data="unmute_({})".format(member.user.id))
             ]])
-            bot.send_video(chat.id, MUTE_IMG,caption=msg, reply_markup=keyboard, parse_mode=ParseMode.HTML)
+            bot.send_video(chat.id, msg, reply_markup=keyboard, parse_mode=ParseMode.HTML)
 
             return log
         message.reply_text("This user is already muted.")
