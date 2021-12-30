@@ -313,7 +313,7 @@ def unbanb_btn(update: Update, context: CallbackContext) -> str:
             chat_name = "<b>• {}</b>".format(html.escape(chat.title))
             bot.send_video(
             chat.id, #this code made by @ctzfamily & @h0daka
-            UNBAN_IMG, caption= f" {chat_name}\n<b>👮Admin:</b>{mention_html(user.id, user.first_name)}\n<b>👤User: </b> {mention_html(member.user.id, member.user.first_name)}!",
+            UNBAN_IMG, caption= f" {chat_name}\n<b>👮Admin:</b>{mention_html(user.id, user.first_name)}\n<b>User:</b>{mention_html(member.user.id, member.user.first_name)}!",
         	    parse_mode=ParseMode.HTML,
         	)
             bot.answer_callback_query(query.id, text="Unbanned!")
@@ -376,7 +376,7 @@ def punch(update: Update, context: CallbackContext) -> str:
         # bot.send_sticker(chat.id, BAN_STICKER)  # banhammer marie sticker
         bot.send_video(
             chat.id,
-            KICK_IMG,caption=f"Removed! {mention_html(member.user.id, html.escape(member.user.first_name))}.",
+            KICK_IMG,caption=f"• <b>{html.escape(chat.title)}</b>\nRemoved! {mention_html(member.user.id, html.escape(member.user.first_name))}.",
             parse_mode=ParseMode.HTML,
         )
         log = (
