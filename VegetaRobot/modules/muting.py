@@ -95,7 +95,7 @@ def mute(update: Update, context: CallbackContext) -> str:
         chat_permissions = ChatPermissions(can_send_messages=False)
         bot.restrict_chat_member(chat.id, user_id, chat_permissions)
         msg = (
-            f"<b>Chatname:<b/> <code>{html.escape(chat.title)}<code>\n"
+            f"<b>Chatname:<b/> <code>{html.escape(chat.title)}</code>\n"
             f"<code>🗣️</code><b>Mute Event</b>\n"
             f"<code> </code><b>• Muted User:</b> {mention_html(member.user.id, member.user.first_name)}"
             )
@@ -228,7 +228,7 @@ def temp_mute(update: Update, context: CallbackContext) -> str:
               chat.id, user_id, chat_permissions, until_date=mutetime,
             )     
             msg = (
-                f"<b>Chatname</b>: <code>{html.escape(chat.title}<code>\n"
+                f"<b>Chatname</b>: <code>{html.escape(chat.title)}</code>\n"
                 f"<code>🗣️</code><b>Time Mute Event</b>\n"
                 f"<code> </code><b>• Muted User:</b> {mention_html(member.user.id, member.user.first_name)}\n"
                 f"<code> </code><b>• time Muted for:</b> {time_val}\n"
