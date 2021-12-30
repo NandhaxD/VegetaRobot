@@ -13,7 +13,7 @@ from datetime import datetime
 water = './VegetaRobot/resources/IMG_20211227_141907_345.jpg'
 client = tbot
 
-@register(pattern=r"^/upload ?(.*)")
+@register(pattern=r"^/pyupload ?(.*)")
 async def Prof(event):
     if event.sender_id == OWNER_ID or event.sender_id == DEV_USERS:
         pass
