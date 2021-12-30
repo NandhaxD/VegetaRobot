@@ -26,7 +26,7 @@ class Config(object):
     REM_BG_API_KEY = "http://removebg.com"
     TEMP_DOWNLOAD_DIRECTORY = ""
     EVENT_LOGS = -1001574034400  #Prints information like gbans, sudo promotes, AI enabled disable states that may help in debugging and shit
-    SQLALCHEMY_DATABASE_URI = 'postgres://vagszglpwcqjuv:7ac64f23996ef264ec3b67c65f3a6eaa1ac41a77588553e09623558127ff6d1f@ec2-52-202-198-60.compute-1.amazonaws.com:5432/d7pmn914up6sq4' #'postgres://yjbklqzqytefhl:4a729e337257be81fdc359cd856e34a0b5a261419d5138f25b81193bb27774e8@ec2-52-54-38-229.compute-1.amazonaws.com:5432/d8pnbft2italbv'#'postgres://vagszglpwcqjuv:7ac64f23996ef264ec3b67c65f3a6eaa1ac41a77588553e09623558127ff6d1f@ec2-52-202-198-60.compute-1.amazonaws.com:5432/d7pmn914up6sq4'
+    SQLALCHEMY_DATABASE_URI = 'postgres://yjbklqzqytefhl:4a729e337257be81fdc359cd856e34a0b5a261419d5138f25b81193bb27774e8@ec2-52-54-38-229.compute-1.amazonaws.com:5432/d8pnbft2italbv'#'postgres://vagszglpwcqjuv:7ac64f23996ef264ec3b67c65f3a6eaa1ac41a77588553e09623558127ff6d1f@ec2-52-202-198-60.compute-1.amazonaws.com:5432/d7pmn914up6sq4'
     LOAD = []
     NO_LOAD = ['rss', 'cleaner', 'connection', 'math']
     WEBHOOK = None
