@@ -40,9 +40,9 @@ async def _(event):
             else:
                 end = datetime.now()
                 ms_two = (end - start).seconds
-                vegeta = [[Button.url("T-GRAPH Link 📤", f"http://telegr.ph/{media_urls[0]}")]]
+                vegeta = [[Button.url("T-GRAPH Link 📤", f"http://telegra.ph{media_urls[0]}")]]
                 os.remove(downloaded_file_name)
-                await h.edit("perview[!](https://telegra.ph{})".format(media_urls[0]), link_preview=True, buttons=vegeta)
+                await h.edit("Perview[!](https://telegra.ph{})".format(media_urls[0]), link_preview=True, buttons=vegeta)
         elif input_str == "xt":
             user_object = await tbot.get_entity(r_message.sender_id)
             title_of_page = user_object.first_name # + " " + user_object.last_name
