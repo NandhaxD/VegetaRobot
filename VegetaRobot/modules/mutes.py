@@ -291,7 +291,7 @@ def button(update: Update, context: CallbackContext) -> str:
         	  UNMUTE_IMG, caption= f"<b>ChatName</b>:\n<code>{html.escape(chat.title)}</code>\nAdmin {mention_html(user.id, user.first_name)} User {mention_html(member.user.id, member.user.first_name)}!",
         	    parse_mode=ParseMode.HTML,
         	)
-        	query.answer("Unmuted!")
+        	bot.query.answer("Unmuted!")
         	return (
                     f"<b>{html.escape(chat.title)}:</b>\n" 
                     f"#UNMUTE\n" 
