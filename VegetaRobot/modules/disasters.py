@@ -63,16 +63,16 @@ def addsudo(update: Update, context: CallbackContext) -> str:
         data = json.load(infile)
 
     if user_id in DRAGONS:
-        message.reply_text("This member is already a A Rank Hunter")
+        message.reply_text("This member is already a heros")
         return ""
 
     if user_id in DEMONS:
-        rt += "Requested HA to promote a B Rank Hunter to A Rank Hunter."
+        rt += "Requested HA to promote a Saiyans user to Heros user."
         data['supports'].remove(user_id)
         DEMONS.remove(user_id)
 
     if user_id in WOLVES:
-        rt += "Requested HA to promote a D Rank Hunter to A Rank Hunter."
+        rt += "Requested HA to promote a D Rank Hunter to Heros user."
         data['whitelists'].remove(user_id)
         WOLVES.remove(user_id)
 
@@ -83,7 +83,7 @@ def addsudo(update: Update, context: CallbackContext) -> str:
         json.dump(data, outfile, indent=4)
 
     update.effective_message.reply_photo(
-        rt + ARANK_IMG,caption="\n Successfully set Power Level {} to A Rank Hunter!".format(
+        rt + ARANK_IMG,caption="\n Successfully set Power Level {} Heros User!".format(
             user_member.first_name))
 
     log_message = (
@@ -127,11 +127,11 @@ def addsupport(
         DRAGONS.remove(user_id)
 
     if user_id in DEMONS:
-        message.reply_text("This user is already a B Rank Hunter.")
+        message.reply_text("This user is already a saiyans user.")
         return ""
 
     if user_id in WOLVES:
-        rt += "Requested HA to promote this D Rank Hunter to B Rank Hunter"
+        rt += "Requested HA to promote this D Rank Hunter to Saiyans user."
         data['whitelists'].remove(user_id)
         WOLVES.remove(user_id)
 
@@ -142,7 +142,7 @@ def addsupport(
         json.dump(data, outfile, indent=4)
 
     update.effective_message.reply_photo(
-        rt + BRANK_IMG,caption="\nSuccessfully set Power Level {} to B-Rank Hunter!".format(
+        rt + BRANK_IMG,caption="\nSuccessfully set Power Level {} to Saiyans user!".format(
             user_member.first_name))
     log_message = (
         f"#SUPPORT\n"
@@ -531,13 +531,13 @@ Commands listed here only work for users with special access are mainly used for
 Group admins/group owners do not need these commands. 
 
  ╔ *List all special users:*
- ╠ `/aranks`*:* Lists all A Rank Hunters
- ╠ `/branks`*:* Lists all B Rank Hunters
+ ╠ `/heros`*:* Lists all heros users
+ ╠ `/saiyans`*:* Lists all saiyans users
  ╠ `/cranks`*:* Lists all C Rank Hunters
  ╠ `/dranks`*:* Lists all D Rank Hunters
  ╠ `/sranks`*:* Lists all S Rank Hunters
- ╠ `/addarank`*:* Adds a user to A Rank Hunter
- ╠ `/addbrank`*:* Adds a user to B Rank Hunter
+ ╠ `/addhero`*:* Adds a user to heros users
+ ╠ `/addsaiyan`*:* Adds a user to saiyans users
  ╠ `/addcrank`*:* Adds a user to C Rank Hunter
  ╠ `/adddrank`*:* Adds a user to D Rank Hunter
  ╚ `Add dev doesnt exist, devs should know how to add themselves`
@@ -616,12 +616,12 @@ Group admins/group owners do not need these commands.
 Visit @{SUPPORT_CHAT} for more information.
 """
 
-SUDO_HANDLER = CommandHandler(("addsudo", "addarank"), addsudo)
-SUPPORT_HANDLER = CommandHandler(("addsupport", "addbrank"), addsupport)
+SUDO_HANDLER = CommandHandler(("addsudo", "addhero"), addsudo)
+SUPPORT_HANDLER = CommandHandler(("addsupport", "addsaiyan"), addsupport)
 TIGER_HANDLER = CommandHandler(("addtiger" , "addcrank"), addtiger)
 WHITELIST_HANDLER = CommandHandler(("addwhitelist", "adddrank"), addwhitelist)
-UNSUDO_HANDLER = CommandHandler(("removesudo", "removearank"), removesudo)
-UNSUPPORT_HANDLER = CommandHandler(("removesupport", "removebrank"),
+UNSUDO_HANDLER = CommandHandler(("removesudo", "removehero"), removesudo)
+UNSUPPORT_HANDLER = CommandHandler(("removesupport", "removesaiyan"),
                                    removesupport)
 UNTIGER_HANDLER = CommandHandler(("removetiger" , "removecrank"), removetiger)
 UNWHITELIST_HANDLER = CommandHandler(("removewhitelist", "removedrank"),
@@ -630,8 +630,8 @@ UNWHITELIST_HANDLER = CommandHandler(("removewhitelist", "removedrank"),
 WHITELISTLIST_HANDLER = CommandHandler(["whitelistlist", "dranks"],
                                        whitelistlist)
 TIGERLIST_HANDLER = CommandHandler(["tigers" , "cranks"], tigerlist)
-SUPPORTLIST_HANDLER = CommandHandler(["supportlist", "branks"], supportlist)
-SUDOLIST_HANDLER = CommandHandler(["sudolist", "aranks"], sudolist)
+SUPPORTLIST_HANDLER = CommandHandler(["supportlist", "saiyans"], supportlist)
+SUDOLIST_HANDLER = CommandHandler(["sudolist", "heros"], sudolist)
 DEVLIST_HANDLER = CommandHandler(["devlist", "sranks"], devlist)
 
 dispatcher.add_handler(SUDO_HANDLER)
