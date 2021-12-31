@@ -285,10 +285,8 @@ def button(update: Update, context: CallbackContext) -> str:
         )                
         unmuted = bot.restrict_chat_member(chat.id, int(user_id), chat_permissions)
         if unmuted:
-          
           query.message.delete()
-          
-        	bot.send_video(
+          bot.send_video(
             chat.id,
         	  UNMUTE_IMG, caption= f"<b>ChatName</b>:\n<code>{html.escape(chat.title)}</code>\nAdmin {mention_html(user.id, user.first_name)} User {mention_html(member.user.id, member.user.first_name)}!",
         	    parse_mode=ParseMode.HTML,
