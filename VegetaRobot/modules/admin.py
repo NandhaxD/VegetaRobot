@@ -370,6 +370,15 @@ def pin(update: Update, context: CallbackContext) -> str:
 
     user = update.effective_user
     chat = update.effective_chat
+    
+        if message.chat.username:
+        # If chat has a username, use this format
+        link_chat_id = message.chat.username
+        message_link = f"https://t.me/{link_chat_id}/{msg_id}"
+    elif (str(message.chat.id)).startswith("-100"):
+        # If chat does not have a username, use this
+        link_chat_id = (str(message.chat.id)).replace("-100", "")
+        message_link = f"https://t.me/c/{link_chat_id}/{msg_id}"
 
     is_group = chat.type != "private" and chat.type != "channel"
     prev_message = update.effective_message.reply_to_message
@@ -385,6 +394,19 @@ def pin(update: Update, context: CallbackContext) -> str:
                 chat.id,
                 prev_message.message_id,
                 disable_notification=is_silent)
+            message.reply_text(
+                f"I have pinned a message.",
+                reply_markup=InlineKeyboardMarkup(
+                    [
+                        [
+                            InlineKeyboardButton(
+                                "👉 Go PIN Message", url=f"{message_link}")
+                        ]
+                    ]
+                ), 
+                parse_mode=ParseMode.HTML,
+                disable_web_page_preview=True,
+            )
         except BadRequest as excp:
             if excp.message == "Chat_not_modified":
                 pass
