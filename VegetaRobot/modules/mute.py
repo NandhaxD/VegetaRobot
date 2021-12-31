@@ -31,7 +31,7 @@ from telegram.error import BadRequest
 from telegram.ext import CallbackContext, CommandHandler, run_async, CallbackQueryHandler
 from telegram.utils.helpers import mention_html
 
-MUTE_IMG="http://telegr.ph//file/4113407b28c5593e1e332.mp4"
+MUTE_IMG="http://telegra.ph/file/4113407b28c5593e1e332.mp4"
 
 #mute upcoming
 
