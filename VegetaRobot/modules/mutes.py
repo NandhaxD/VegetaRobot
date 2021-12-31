@@ -32,6 +32,8 @@ from telegram.ext import CallbackContext, CommandHandler, run_async, CallbackQue
 from telegram.utils.helpers import mention_html
 
 MUTE_IMG="https://telegra.ph//file/149e102a0718bdfa86300.mp4"
+UNMUTE_IMG="http://telegra.ph/file/42b3746b1736ebb917ea3.mp4"
+
 #mute upcoming
 
 def check_user(user_id: int, bot: Bot, chat: Chat) -> Optional[str]:
@@ -284,8 +286,8 @@ def button(update: Update, context: CallbackContext) -> str:
         unmuted = bot.restrict_chat_member(chat.id, int(user_id), chat_permissions)
         if unmuted:
           query.message.delete()
-        	bot.send_text(chat.id,
-        	  f"<b>ChatName</b>:<code>\n{html.escape(chat.title)}</code>\nAdmin {mention_html(user.id, user.first_name)} Unmuted {mention_html(member.user.id, member.user.first_name)}!",
+        	bot.send_video(chat.id,
+        	  UNMUTE_IMG,caption=f"<b>ChatName</b>:<code>\n{html.escape(chat.title)}</code>\nAdmin {mention_html(user.id, user.first_name)} Unmuted {mention_html(member.user.id, member.user.first_name)}!",
         	    parse_mode=ParseMode.HTML,
         	)
         	query.answer("Unmuted!")
