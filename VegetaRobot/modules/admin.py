@@ -364,14 +364,14 @@ def set_title(update: Update, context: CallbackContext):
 @can_pin
 @user_admin
 @loggable
-def pin(update: Update, context: CallbackContext) -> str:
-    bot = context.bot
-    args = context.args
-
+def pin(update, context):
+    bot, args = context.bot, context.args
     user = update.effective_user
     chat = update.effective_chat
-    
-        if message.chat.username:
+    message = update.effective_message
+    msg_id = message.reply_to_message.message_id if message.reply_to_message else message.message_id
+
+    if message.chat.username:
         # If chat has a username, use this format
         link_chat_id = message.chat.username
         message_link = f"https://t.me/{link_chat_id}/{msg_id}"
@@ -380,27 +380,37 @@ def pin(update: Update, context: CallbackContext) -> str:
         link_chat_id = (str(message.chat.id)).replace("-100", "")
         message_link = f"https://t.me/c/{link_chat_id}/{msg_id}"
 
-    is_group = chat.type != "private" and chat.type != "channel"
+    is_group = chat.type not in ("private", "channel")
     prev_message = update.effective_message.reply_to_message
+
+    if user_can_pin(chat, user, bot.id) is False:
+        message.reply_text("You are missing rights to pin a message!")
+        return ""
+
+    if not prev_message:
+        message.reply_text("Reply to the message you want to pin!")
+        return
 
     is_silent = True
     if len(args) >= 1:
-        is_silent = not (args[0].lower() == 'notify' or args[0].lower()
-                         == 'loud' or args[0].lower() == 'violent')
+        is_silent = (
+            args[0].lower() != "notify"
+            or args[0].lower() == "loud"
+            or args[0].lower() == "violent"
+        )
 
     if prev_message and is_group:
         try:
             bot.pinChatMessage(
-                chat.id,
-                prev_message.message_id,
-                disable_notification=is_silent)
+                chat.id, prev_message.message_id, disable_notification=is_silent
+            )
             message.reply_text(
                 f"I have pinned a message.",
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
                             InlineKeyboardButton(
-                                "👉 Go PIN Message", url=f"{message_link}")
+                                "👉 PINNED Message", url=f"{message_link}")
                         ]
                     ]
                 ), 
@@ -408,19 +418,18 @@ def pin(update: Update, context: CallbackContext) -> str:
                 disable_web_page_preview=True,
             )
         except BadRequest as excp:
-            if excp.message == "Chat_not_modified":
-                pass
-            else:
+            if excp.message != "Chat_not_modified":
                 raise
-        log_message = (
-            f"<b>{html.escape(chat.title)}:</b>\n"
-            f"#PINNED\n"
-            f"<b>Admin:</b> {mention_html(user.id, html.escape(user.first_name))}"
+        return (
+            "<b>{}:</b>"
+            "\n#PINNED"
+            "\n<b>Admin:</b> {}".format(
+                html.escape(chat.title), mention_html(user.id, user.first_name)
+            )
         )
 
-        return log_message
-
-
+    return ""
+    
 @run_async
 @bot_admin
 @can_pin
