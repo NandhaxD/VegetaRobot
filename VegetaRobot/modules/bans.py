@@ -43,7 +43,7 @@ from VegetaRobot.modules.log_channel import gloggable, loggable
 
 UNBAN_IMG= "https://telegra.ph/file/0ac714f6c537a2570cfd3.mp4"
 BAN_IMG= "https://telegra.ph/file/35ae9ea0ae57d53b98c0f.mp4"
-KICK_IMG= "https://telegra.ph/file/34462049fc4f176297132.mp4"
+KICK_IMG= "https://telegra.ph/file/aa86c93c3fa07135dce2f.mp4"
 SELF_KICK_IMG= "https://telegra.ph/file/f1d4f976d2e90fa40740c.mp4"
 
 @run_async
