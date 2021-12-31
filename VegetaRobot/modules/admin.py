@@ -13,6 +13,7 @@ from VegetaRobot import DRAGONS, dispatcher
 from VegetaRobot.modules.disable import DisableAbleCommandHandler
 from VegetaRobot.modules.helper_funcs.chat_status import (bot_admin, can_pin,
                                                            can_promote,
+                                                          user_can_pin,
                                                           user_can_changeinfo,
                                                            connection_status,
                                                            user_admin,
