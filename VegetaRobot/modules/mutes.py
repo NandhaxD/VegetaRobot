@@ -288,7 +288,7 @@ def button(update: Update, context: CallbackContext) -> str:
           
           query.message.delete()
           
-        	bot.send_video(chat.id,
+        	bot.send_animation(chat.id,
         	  UNMUTE_IMG, caption= f"<b>ChatName</b>:\n<code>{html.escape(chat.title)}</code>\nAdmin {mention_html(user.id, user.first_name)} User {mention_html(member.user.id, member.user.first_name)}!",
         	    parse_mode=ParseMode.HTML,
         	)
