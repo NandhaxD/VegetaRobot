@@ -728,7 +728,7 @@ dispatcher.add_handler(SET_DESC_HANDLER)
 dispatcher.add_handler(RMCHATPIC_HANDLER)
 dispatcher.add_handler(INVITE_HANDLER)
 dispatcher.add_handler(PROMOTE_HANDLER)
-dispatcher.add_handler(FUULPROMOTE_HANDLER)
+dispatcher.add_handler(FULLPROMOTE_HANDLER)
 
 dispatcher.add_handler(DEMOTE_HANDLER)
 dispatcher.add_handler(SET_TITLE_HANDLER)
