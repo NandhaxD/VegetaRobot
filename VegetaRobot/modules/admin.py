@@ -29,6 +29,35 @@ from VegetaRobot.modules.helper_funcs.alternate import send_message
 
 @bot_admin
 @user_admin
+def set_sticker(update: Update, context: CallbackContext):
+    msg = update.effective_message
+    chat = update.effective_chat
+    user = update.effective_user
+
+    if user_can_changeinfo(chat, user, context.bot.id) is False:
+        return msg.reply_text("You're missing rights to change chat info!")
+
+    if msg.reply_to_message:
+        if not msg.reply_to_message.sticker:
+            return msg.reply_text(
+                "You need to reply to some sticker to set chat sticker set!"
+            )
+        stkr = msg.reply_to_message.sticker.set_name
+        try:
+            context.bot.set_chat_sticker_set(chat.id, stkr)
+            msg.reply_text(f"Successfully set new group stickers in {chat.title}!")
+        except BadRequest as excp:
+            if excp.message == "Participants_too_few":
+                return msg.reply_text(
+                    "Sorry, due to telegram restrictions chat needs to have minimum 100 members before they can have group stickers!"
+                )
+            msg.reply_text(f"Error! {excp.message}.")
+    else:
+        msg.reply_text("You need to reply to some sticker to set chat sticker set!")
+       
+      
+@bot_admin
+@user_admin
 def set_desc(update: Update, context: CallbackContext):
     msg = update.effective_message
     chat = update.effective_chat
@@ -710,15 +739,17 @@ SET_DESC_HANDLER = CommandHandler("setdesc", set_desc, filters=Filters.group)
 UNPIN_HANDLER = CommandHandler("unpin", unpin, filters=Filters.group)
 SETCHATPIC_HANDLER = CommandHandler("setgpic", setchatpic, filters=Filters.group)
 RMCHATPIC_HANDLER = CommandHandler("delgpic", rmchatpic, filters=Filters.group)
+SET_STICKER_HANDLER = CommandHandler("setgpack", set_sticker, filters=Filters.group)
 SETCHAT_TITLE_HANDLER = CommandHandler("setgtitle", setchat_title, filters=Filters.group)
 PROMOTE_HANDLER = DisableAbleCommandHandler(["promote","promo"], promote)                          
 DEMOTE_HANDLER = DisableAbleCommandHandler(["demote","demo"], demote)
-FULLPROMOTE_HANDLER = DisableAbleCommandHandler(["fullpromote","fullpromo"], promote)                          
+FULLPROMOTE_HANDLER = DisableAbleCommandHandler(["fullpromote","fullpromo"], fullpromote)                          
 
 SET_TITLE_HANDLER = CommandHandler("title", set_title)
 ADMIN_REFRESH_HANDLER = CommandHandler(
     "admincache", refresh_admin, filters=Filters.group)
 
+dispatcher.add_handler(SET_STICKER_HANDLER)
 dispatcher.add_handler(ADMINLIST_HANDLER)
 dispatcher.add_handler(PIN_HANDLER)
 dispatcher.add_handler(UNPIN_HANDLER)
@@ -736,10 +767,10 @@ dispatcher.add_handler(ADMIN_REFRESH_HANDLER)
 
 __mod_name__ = "👮Admins"
 __command_list__ = [
-    "adminlist", "admins", "invitelink", "promote", "fullpromote", "demote", "admincache", "setgpic", "delgpic", "setgtitle", "setdesc"
+    "adminlist", "admins", "setgpack", "invitelink", "promote", "fullpromote", "demote", "admincache", "setgpic", "delgpic", "setgtitle", "setdesc"
 ]
 __handlers__ = [
-    ADMINLIST_HANDLER, PIN_HANDLER, UNPIN_HANDLER, INVITE_HANDLER,
+    ADMINLIST_HANDLER, SET_STICKER, PIN_HANDLER, UNPIN_HANDLER, INVITE_HANDLER,
     PROMOTE_HANDLER, FULLPROMOTE_HANDLER, DEMOTE_HANDLER, SET_TITLE_HANDLER, SETCHAT_TITLE_HANDLER, ADMIN_REFRESH_HANDLER, SETCHATPIC_HANDLER,
     RMCHATPIC_HANDLER, SET_DESC_HANDLER
 ]
