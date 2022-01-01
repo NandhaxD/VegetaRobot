@@ -629,9 +629,9 @@ UNPIN_HANDLER = CommandHandler("unpin", unpin, filters=Filters.group)
 SETCHATPIC_HANDLER = CommandHandler("setgpic", setchatpic, filters=Filters.group)
 RMCHATPIC_HANDLER = CommandHandler("delgpic", rmchatpic, filters=Filters.group)
 SETCHAT_TITLE_HANDLER = CommandHandler("setgtitle", setchat_title, filters=Filters.group)
-PROMOTE_HANDLER = DisableAbleCommandHandler("promote", promote)
-
-DEMOTE_HANDLER = DisableAbleCommandHandler("demote", demote)
+PROMOTE_HANDLER = DisableAbleCommandHandler(["promote","promo"], promote)
+                              
+DEMOTE_HANDLER = DisableAbleCommandHandler(["demote","demo"] demote)
 
 SET_TITLE_HANDLER = CommandHandler("title", set_title)
 ADMIN_REFRESH_HANDLER = CommandHandler(
