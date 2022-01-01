@@ -770,7 +770,7 @@ __command_list__ = [
     "adminlist", "admins", "setgpack", "invitelink", "promote", "fullpromote", "demote", "admincache", "setgpic", "delgpic", "setgtitle", "setdesc"
 ]
 __handlers__ = [
-    ADMINLIST_HANDLER, SET_STICKER, PIN_HANDLER, UNPIN_HANDLER, INVITE_HANDLER,
+    ADMINLIST_HANDLER, SET_STICKER_HANDLER, PIN_HANDLER, UNPIN_HANDLER, INVITE_HANDLER,
     PROMOTE_HANDLER, FULLPROMOTE_HANDLER, DEMOTE_HANDLER, SET_TITLE_HANDLER, SETCHAT_TITLE_HANDLER, ADMIN_REFRESH_HANDLER, SETCHATPIC_HANDLER,
     RMCHATPIC_HANDLER, SET_DESC_HANDLER
 ]
