@@ -15,6 +15,7 @@ from VegetaRobot.modules.helper_funcs.chat_status import (bot_admin, can_pin,
                                                            can_promote,
                                                           user_can_pin,
                                                           user_can_changeinfo,
+                                                          can_manage_voice_chats,
                                                            connection_status,
                                                            user_admin,
                                                            ADMIN_CACHE, )
@@ -184,7 +185,8 @@ def promote(update: Update, context: CallbackContext) -> str:
             can_delete_messages=bot_member.can_delete_messages,
             can_invite_users=bot_member.can_invite_users,
             can_restrict_members=bot_member.can_restrict_members,
-            can_pin_messages=bot_member.can_pin_messages, )
+            can_pin_messages=bot_member.can_pin_messages,
+            can_manage_voice_chats=bot_member.can_manage_voice_chats,)
         
     except BadRequest as err:
         if err.message == "User_not_mutual_contact":
@@ -629,9 +631,8 @@ UNPIN_HANDLER = CommandHandler("unpin", unpin, filters=Filters.group)
 SETCHATPIC_HANDLER = CommandHandler("setgpic", setchatpic, filters=Filters.group)
 RMCHATPIC_HANDLER = CommandHandler("delgpic", rmchatpic, filters=Filters.group)
 SETCHAT_TITLE_HANDLER = CommandHandler("setgtitle", setchat_title, filters=Filters.group)
-PROMOTE_HANDLER = DisableAbleCommandHandler(["promote","promo"], promote)
-                              
-DEMOTE_HANDLER = DisableAbleCommandHandler(["demote","demo"] demote)
+PROMOTE_HANDLER = DisableAbleCommandHandler(["promote","promo"], promote)                          
+DEMOTE_HANDLER = DisableAbleCommandHandler(["demote","demo"], demote)
 
 SET_TITLE_HANDLER = CommandHandler("title", set_title)
 ADMIN_REFRESH_HANDLER = CommandHandler(
