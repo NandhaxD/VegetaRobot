@@ -38,6 +38,9 @@ def user_can_changeinfo(chat: Chat, user: User, bot_id: int) -> bool:
 def user_can_pin(chat: Chat, user: User, bot_id: int) -> bool:
     return chat.get_member(user.id).can_pin_messages
 
+def can_manage_voice_chats(chat: Chat, user: User, bot_id: int) -> bool: 
+    return chat.get_member(user.id).can_manage_voicechats
+
 
 def is_user_admin(chat: Chat, user_id: int, member: ChatMember = None) -> bool:
     if (
