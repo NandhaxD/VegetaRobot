@@ -661,7 +661,6 @@ SET_STICKER_HANDLER = CommandHandler(["setgpack","setgsticker"], set_sticker, fi
 SETCHAT_TITLE_HANDLER = CommandHandler("setgtitle", setchat_title, filters=Filters.group)
 PROMOTE_HANDLER = DisableAbleCommandHandler(["promote","promo"], promote)                          
 DEMOTE_HANDLER = DisableAbleCommandHandler(["demote","demo"], demote)
-FULLPROMOTE_HANDLER = DisableAbleCommandHandler(["fullpromote","fullpromo"], fullpromote)                          
 
 SET_TITLE_HANDLER = CommandHandler("title", set_title)
 ADMIN_REFRESH_HANDLER = CommandHandler(
@@ -677,18 +676,16 @@ dispatcher.add_handler(SET_DESC_HANDLER)
 dispatcher.add_handler(RMCHATPIC_HANDLER)
 dispatcher.add_handler(INVITE_HANDLER)
 dispatcher.add_handler(PROMOTE_HANDLER)
-dispatcher.add_handler(FULLPROMOTE_HANDLER)
-
 dispatcher.add_handler(DEMOTE_HANDLER)
 dispatcher.add_handler(SET_TITLE_HANDLER)
 dispatcher.add_handler(ADMIN_REFRESH_HANDLER)
 
 __mod_name__ = "👮Admins"
 __command_list__ = [
-    "adminlist", "admins", "setgpack", "invitelink", "promote", "fullpromote", "demote", "admincache", "setgpic", "delgpic", "setgtitle", "setdesc"
+    "adminlist", "admins", "setgpack", "invitelink", "promote", "demote", "admincache", "setgpic", "delgpic", "setgtitle", "setdesc"
 ]
 __handlers__ = [
     ADMINLIST_HANDLER, SET_STICKER_HANDLER, PIN_HANDLER, UNPIN_HANDLER, INVITE_HANDLER,
-    PROMOTE_HANDLER, FULLPROMOTE_HANDLER, DEMOTE_HANDLER, SET_TITLE_HANDLER, SETCHAT_TITLE_HANDLER, ADMIN_REFRESH_HANDLER, SETCHATPIC_HANDLER,
+    PROMOTE_HANDLER, DEMOTE_HANDLER, SET_TITLE_HANDLER, SETCHAT_TITLE_HANDLER, ADMIN_REFRESH_HANDLER, SETCHATPIC_HANDLER,
     RMCHATPIC_HANDLER, SET_DESC_HANDLER
 ]
