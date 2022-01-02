@@ -138,6 +138,26 @@ def build_keyboard_parser(bot, chat_id, buttons):
 
     return keyb
 
+def article(
+    title: str = "",
+    description: str = "",
+    message_text: str = "",
+    thumb_url: str = None,
+    reply_markup: InlineKeyboardMarkup = None,
+    disable_web_page_preview: bool = False,
+) -> InlineQueryResultArticle:
+
+    return InlineQueryResultArticle(
+        id=uuid4(),
+        title=title,
+        description=description,
+        thumb_url=thumb_url,
+        input_message_content=InputTextMessageContent(
+            message_text=message_text,
+            disable_web_page_preview=disable_web_page_preview,
+        ),
+        
+
 
 def is_module_loaded(name):
     return name not in NO_LOAD
