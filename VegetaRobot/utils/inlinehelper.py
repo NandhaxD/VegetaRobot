@@ -84,7 +84,7 @@ async def alive_function(answers):
 **👤Pʀᴏғɪʟᴇs:** [BOT](t.me/{BOT_USERNAME})
 """
     answers.append(
-        InlineQueryResultPhoto(
+        InlineQueryResultArticle(
             title="Alive",
             description="Check Bot's Stats",
             thumb_url="https://telegra.ph/file/eda728f134b85488d7fff.jpg.",
