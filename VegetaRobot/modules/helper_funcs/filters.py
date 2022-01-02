@@ -1,6 +1,6 @@
 from VegetaRobot import DEV_USERS, DRAGONS, DEMONS
 from telegram import Message
-from telegram.ext import BaseFilter
+from telegram.ext import MessageFilter
 
 
 class CustomFilters(object):
