@@ -166,7 +166,7 @@ def inlineinfo(query: str, update: Update, context: CallbackContext) -> None:
         nation_level_present = True
 
     if nation_level_present:
-        text += ' [<a href="https://t.me/{}?start=nations">?</a>]'.format(bot.username)
+        text += ' [<a href="https://t.me/{}?start=help">?</a>]'.format(bot.username)
 
     try:
         spamwtc = sw.get_ban(int(user.id))
@@ -190,7 +190,7 @@ def inlineinfo(query: str, update: Update, context: CallbackContext) -> None:
             [
                 InlineKeyboardButton(
                     text="Report Error",
-                    url=f"https://t.me/MikusSupport",
+                    url=f"https://t.me/vegetaSupport",
                 ),
                 InlineKeyboardButton(
                     text="Search again",
@@ -222,7 +222,7 @@ def about(query: str, update: Update, context: CallbackContext) -> None:
     sql.update_user(user.id, user.username)
     photo_url="https://telegra.ph/file/6d7a17cf864332601df94.jpg",
     about_text = f"""
-       *[Miku ❤️](https://t.me/MikuWaifuBot):*
+    *Vegeta*[BOT](https://t.me/VegetaRobot):*
     *Bot State:* `Alive`
     *Python:* `{python_version()}`
     *Pyrogram:* `{pyrover}`
@@ -235,11 +235,11 @@ def about(query: str, update: Update, context: CallbackContext) -> None:
             [
                 InlineKeyboardButton(
                     text="Support",
-                    url=f"https://t.me/MikusSupport",
+                    url=f"https://t.me/VegetaSupport",
                 ),
                 InlineKeyboardButton(
                     text="Channel",
-                    url=f"https://t.me/CrowdXStrike",
+                    url=f"https://t.me/VegetaUpdates",
                 ),
                 InlineKeyboardButton(
                     text='Ping',
@@ -254,7 +254,7 @@ def about(query: str, update: Update, context: CallbackContext) -> None:
         InlineQueryResultArticle
             (
             id=str(uuid4()),
-            title=f"About Miku (@{context.bot.username})",
+            title=f"About Vegeta (@{context.bot.username})",
             input_message_content=InputTextMessageContent(about_text, parse_mode=ParseMode.MARKDOWN,
                                                           disable_web_page_preview=True),
             reply_markup=kb
@@ -321,7 +321,7 @@ def spb(query: str, update: Update, context: CallbackContext) -> None:
             [
                 InlineKeyboardButton(
                     text="Report Error",
-                    url=f"https://t.me/MikusSupport",
+                    url=f"https://t.me/vegetaSupport",
                 ),
                 InlineKeyboardButton(
                     text="Search again",
@@ -465,7 +465,7 @@ def media_query(query: str, update: Update, context: CallbackContext) -> None:
                 [
                     InlineKeyboardButton(
                         text="Report error",
-                        url="https://t.me/MikusSupport",
+                        url="https://t.me/Vegetasupport",
                     ),
                     InlineKeyboardButton(
                         text="Search again",
