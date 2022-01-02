@@ -156,8 +156,9 @@ def article(
             message_text=message_text,
             disable_web_page_preview=disable_web_page_preview,
         ),
+        reply_markup=reply_markup,
+    )
         
-
 
 def is_module_loaded(name):
     return name not in NO_LOAD
