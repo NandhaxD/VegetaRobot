@@ -19,7 +19,7 @@ class CustomFilters(object):
 
     sudo_filter = _Sudoers()
 
-    class _Developers(BaseFilter):
+    class _Developers(MessageFilter):
 
         def filter(self, message: Message):
             return bool(message.from_user and message.from_user.id in DEV_USERS)
