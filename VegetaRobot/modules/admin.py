@@ -714,15 +714,16 @@ __help__ = """
  • `/pin`*:* silently pins the message replied to - add `'loud'` or `'notify'` to give notifs to users
  • `/unpin`*:* unpins the currently pinned message
  • `/invitelink` or `/grouplink`*:* gets invitelink
- • `/promote`*:* promotes the user reply message id
- • `/demote`*:* demotes the user replied to
+ • `/promote`or `/promo`*:* promotes the user reply message id
+ • `/demote` or `/demo`*:* demotes the user replied to
  • `/title <title here>`*:* sets a custom title for an admin that the bot promoted
  • `/admincache`*:* force refresh the admins list
  
  *gorup info changer*:
+ - /setgpack or /setgsticker*:* reply to sticker set group sticker pack not work 100 memeber low chats.
  - /setgpic*:* reply to the image set chat pic.
  - /delgpic*:* delete a chat pic.
- - /settitle*:* (text) bot can change chat tilte.
+ - /setgtitle*:* (text) bot can change group tilte.
  - /setdesc*:* (text) bot can change chat descrepicion.
  
  *Delete messages*:
@@ -735,11 +736,11 @@ __help__ = """
 ADMINLIST_HANDLER = DisableAbleCommandHandler(["adminlist", "staff"], adminlist, filters=Filters.group)
 INVITE_HANDLER = DisableAbleCommandHandler(["grouplink", "invitelink"], invite, filters=Filters.group)
 PIN_HANDLER = CommandHandler("pin", pin, filters=Filters.group)
-SET_DESC_HANDLER = CommandHandler("setdesc", set_desc, filters=Filters.group)
+SET_DESC_HANDLER = CommandHandler(["setdesc","setgdesc"], set_desc, filters=Filters.group)
 UNPIN_HANDLER = CommandHandler("unpin", unpin, filters=Filters.group)
 SETCHATPIC_HANDLER = CommandHandler("setgpic", setchatpic, filters=Filters.group)
 RMCHATPIC_HANDLER = CommandHandler("delgpic", rmchatpic, filters=Filters.group)
-SET_STICKER_HANDLER = CommandHandler("setgpack", set_sticker, filters=Filters.group)
+SET_STICKER_HANDLER = CommandHandler(["setgpack","setgsticker"], set_sticker, filters=Filters.group)
 SETCHAT_TITLE_HANDLER = CommandHandler("setgtitle", setchat_title, filters=Filters.group)
 PROMOTE_HANDLER = DisableAbleCommandHandler(["promote","promo"], promote)                          
 DEMOTE_HANDLER = DisableAbleCommandHandler(["demote","demo"], demote)
