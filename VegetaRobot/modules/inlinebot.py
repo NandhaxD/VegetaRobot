@@ -44,7 +44,7 @@ async def alive_function(answers):
             input_message_content=InputTextMessageContent(
                 msg, disable_web_page_preview=True
             ),
-            reply_markup=buttons)
+            reply_markup=buttons))
 
 @pgram.on_inline_query()
 async def inline_query_handler(client, query):
