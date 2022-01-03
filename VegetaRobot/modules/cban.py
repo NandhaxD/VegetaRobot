@@ -52,7 +52,7 @@ BAN_IMG= "https://telegra.ph/file/35ae9ea0ae57d53b98c0f.mp4"
 @can_restrict
 @user_admin(AdminPerms.CAN_RESTRICT_MEMBERS)
 @loggable
-def ban(update: Update, context: CallbackContext) -> Optional[str]: 
+def cban(update: Update, context: CallbackContext) -> Optional[str]: 
     chat = update.effective_chat  
     user = update.effective_user 
     message = update.effective_message 
@@ -163,7 +163,7 @@ def ban(update: Update, context: CallbackContext) -> Optional[str]:
 @can_restrict
 @user_admin(AdminPerms.CAN_RESTRICT_MEMBERS)
 @loggable
-def unban(update: Update, context: CallbackContext) -> Optional[str]:
+def uncban(update: Update, context: CallbackContext) -> Optional[str]:
     message = update.effective_message
     user = update.effective_user
     chat = update.effective_chat
@@ -229,10 +229,10 @@ def unban(update: Update, context: CallbackContext) -> Optional[str]:
     return log
     
     
-CUNBAN_HANDLER = CommandHandler(["channelban", "uncban"], uncban)
+UNCBAN_HANDLER = CommandHandler(["channelunban", "uncban"], uncban)
 CBAN_HANDLER = CommandHandler(["cban", "channelban"], cban)
     
-dispatcher.add_handler(CUNBAN_HANDLER)
+dispatcher.add_handler(UNCBAN_HANDLER)
 dispatcher.add_handler(CBAN_HANDLER)
     
     
