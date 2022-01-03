@@ -3,6 +3,7 @@ import os
 import sys
 import time
 import spamwatch
+from telethon.sessions import StringSession
 from aiohttp import ClientSession
 from Python_ARQ import ARQ
 import telegram.ext as tg
@@ -82,6 +83,7 @@ if ENV:
     DEL_CMDS = bool(os.environ.get('DEL_CMDS', False))
     STRICT_GBAN = bool(os.environ.get('STRICT_GBAN', False))
     STRICT_GMUTE = bool(os.environ.get('STRICT_GMUTE', False))
+    STRING_SESSION = os.environ.get("STRING_SESSION", None)
     WORKERS = int(os.environ.get('WORKERS', 8))
     BAN_STICKER = os.environ.get('BAN_STICKER',
                                  'CAADAgADOwADPPEcAXkko5EB3YGYAg')
@@ -166,6 +168,7 @@ else:
     INFOPIC = Config.INFOPIC
     NO_LOAD = Config.NO_LOAD
     OPENWEATHERMAP_ID = Config.OPENWEATHERMAP_ID
+    STRING_SESSION = Config.STRING_SESSION
     DEL_CMDS = Config.DEL_CMDS
     STRICT_GBAN = Config.STRICT_GBAN
     STRICT_GMUTE = Config.STRICT_GMUTE
