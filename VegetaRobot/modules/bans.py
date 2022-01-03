@@ -1,5 +1,5 @@
 import html
-
+from typing import Optional
 # this module ban type's and kick type make by @ctzfamily and some friends
 
 from telegram import (
@@ -54,10 +54,10 @@ SELF_KICK_IMG= "https://telegra.ph/file/f1d4f976d2e90fa40740c.mp4"
 @can_restrict
 @user_admin(AdminPerms.CAN_RESTRICT_MEMBERS)
 @loggable
-def ban(update: Update, context: CallbackContext) -> Optional[str]:  # sourcery no-metrics
-    chat = update.effective_chat  # type: Optional[Chat]
-    user = update.effective_user  # type: Optional[User]
-    message = update.effective_message  # type: Optional[Message]
+def ban(update: Update, context: CallbackContext) -> Optional[str]: 
+    chat = update.effective_chat  
+    user = update.effective_user 
+    message = update.effective_message 
     args = context.args
     bot = context.bot
     log_message = ""
@@ -77,7 +77,7 @@ def ban(update: Update, context: CallbackContext) -> Optional[str]:  # sourcery 
             )
             return (
                 f"<b>{html.escape(chat.title)}:</b>\n"
-                f"#CBANNED\n"
+                f"#BANNED\n"
                 f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n"
                 f"<b>Channel:</b> {mention_html(channel.id, html.escape(chat.title))} ({message.reply_to_message.sender_chat.id})"
             )
