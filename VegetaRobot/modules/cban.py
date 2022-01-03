@@ -427,11 +427,4 @@ def selfunban(context: CallbackContext, update: Update) -> Optional[str]:
     return log
 
 
-from VegetaRobot.modules.language import gs
-
-
-def get_help(chat):
-    return gs(chat, "bans_help")
-
-
 __mod_name__ = "Bans"
