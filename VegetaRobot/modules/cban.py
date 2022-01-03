@@ -67,7 +67,7 @@ def cban(update: Update, context: CallbackContext) -> Optional[str]:
         },
                               )
         if r:
-            message.reply_photo(BAN_IMG,caption="Channel {} was banned successfully from {}".format(
+            message.reply_video(BAN_IMG,caption="Channel {} was banned successfully from {}".format(
                 html.escape(message.reply_to_message.sender_chat.title),
                 html.escape(chat.title)
             ),
@@ -172,7 +172,7 @@ def uncban(update: Update, context: CallbackContext) -> Optional[str]:
     if message.reply_to_message and message.reply_to_message.sender_chat:
         r = bot.unban_chat_sender_chat(chat_id=chat.id, sender_chat_id=message.reply_to_message.sender_chat.id)
         if r:
-            message.reply_photo(UNBAN_IMG,caption="Channel {} was unbanned successfully from {}".format(
+            message.reply_video(UNBAN_IMG,caption="Channel {} was unbanned successfully from {}".format(
                 html.escape(message.reply_to_message.sender_chat.title),
                 html.escape(chat.title)
             ),
