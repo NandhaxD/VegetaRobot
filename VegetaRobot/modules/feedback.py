@@ -28,7 +28,9 @@ def feedback(bot: Bot, update: Update):
                                                
   
 
-  
+FEEDBACK_HANDLER = DisableAbleCommandHandler("feedback", feedback)
+
+dispatcher.add_handler(FEEDBACK_HANDLER)
 
 
 
@@ -39,6 +41,4 @@ __help__ = """
 
 __mod_name__ = "FEEDBACK🗣️"
 
-feed_handle = DisableAbleCommandHandler("feedback", feedback)
 
-dispatcher.add_handler(feed_handle)
