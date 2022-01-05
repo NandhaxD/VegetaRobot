@@ -213,14 +213,14 @@ __help__ = f"""
 This Module credits by @VegetaRobot
 *`Goodnight`|`goodmorning`
 bot send GM or GN image,*
-/decide - bot send radom decides.
-/pat - reply to user.
-/truth or /dare - bot send funny messages.
-/insult - bot send insult message.
-/abuse - bot send abuse message.
-/tamilmeme - get meme for tami language.
-report bug - 
-@{SUPPORT_CHAT}`
+ • /decide - bot send radom decides.
+ • /pat - reply to user.
+ • /wish your wish possible chance random.
+ • /truth or /dare - bot send funny messages.
+ • /insult - bot send insult message.
+ • /abuse - bot send abuse message.
+ • /tamilmeme - get meme for tami language.
+report bug - @{SUPPORT_CHAT}`
 """
 
 __mod_name__ = "😁Fun"
