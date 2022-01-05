@@ -1,5 +1,10 @@
 from geopy.geocoders import Nominatim
-from telegram import Location, ParseMode
+from telegram import (
+    ParseMode,
+    Location,
+    InlineKeyboardButton,
+    InlineKeyboardMarkup,
+)
 from telegram.ext import CommandHandler, run_async
 
 from VegetaRobot import dispatcher
@@ -33,7 +38,7 @@ def gps(update, context, *args, **kwargs):
                 [
                  [
                     InlineKeyboardButton(
-              text="Location",url="{}".format(gm)]]
+              text="Location",url=f"{}".format(gm)]]
                 
         update.message.reply_text(
             "🌎[Google Maps location]({})".format(gm),
