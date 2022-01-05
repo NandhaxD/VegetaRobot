@@ -6,7 +6,7 @@ from VegetaRobot import dispatcher, SUPPORT_CHAT
 from requests import get
 from telegram import ParseMode, InlineKeyboardMarkup, InlineKeyboardButton
 
-
+VEGETA="http://telegra.ph/file/7e408ba028c7f758585ff.jpg"
 
 @run_async
 def feedback(bot: Bot, update: Update):
@@ -19,7 +19,7 @@ def feedback(bot: Bot, update: Update):
   feed_text = f"Vegeta *New* feedback from [{name}](tg://user?id={userid})\n\nfeed: {text}"
   
 
-  bot.sendMessage(-1001690512977, feed_text, parse_mode=ParseMode.MARKDOWN)
+  bot.send_photo(f"@{SUPPORT_CHAT}", VEGETA,caption=feed_text, parse_mode=ParseMode.MARKDOWN)
   
                                          
   
