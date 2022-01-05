@@ -24,7 +24,7 @@ def feedback(bot: Bot, update: Update):
 
 text = html.escape(text)
 reply_text="Thank you for giving us your feedback."
-message.reply_text(reply_text))  
+message.reply_text(reply_text)
                                                
   
 
