@@ -40,9 +40,6 @@ def gps(update, context, *args, **kwargs):
                     InlineKeyboardButton(
               text="Location",url=f"{gm}")]]
      
-    except AttributeError:
-        update.message.reply_text("I can't find that")
-
 
     
 GPS_HANDLER = CommandHandler("gps", gps)
