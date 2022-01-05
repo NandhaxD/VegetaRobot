@@ -27,7 +27,7 @@ def gps(update, context, *args, **kwargs):
         lat = geoloc.latitude
         the_loc = Location(lon, lat)
         gm = "https://www.google.com/maps/search/{},{}".format(lat, lon)
-        dispatcher.bot.send_location(chat_id, location=the_loc, caption="Click here for Location".format(gm),parse_mode=ParseMode.MARKDOWN )
+        dispatcher.bot.send_location(chat_id, location=the_loc,"Click here for Location".format(gm),parse_mode=ParseMode.MARKDOWN )
         update.message.reply_text(
             "Cʟɪᴄᴋ ʜᴇʀᴇ:🌎[ɢᴏᴏɢʟᴇ ᴍᴀᴘs]({})".format(gm),
             parse_mode=ParseMode.MARKDOWN,
