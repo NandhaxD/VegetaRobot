@@ -38,7 +38,7 @@ def gps(update, context, *args, **kwargs):
                 [
                  [
                     InlineKeyboardButton(
-              text="Location",url=f"{}".format(gm)]]
+              text="Location",url=f"{}".format(gm),)]]
                 
         update.message.reply_text(
             "🌎[Google Maps location]({})".format(gm),
