@@ -13,7 +13,7 @@ from pyrogram.types import (
 from VegetaRobot import pgram as Client
 from VegetaRobot import (
     OWNER_ID as owner,
-    SUPPORT_CHAT as log,
+   EVENT_LOGS as log,
 )
 from VegetaRobot.utils.errors import capture_err
 
@@ -50,13 +50,13 @@ async def bug(_, msg: Message):
     thumb = "http://telegra.ph/file/c90fc8eea17d8d6245649.jpg"
     
     bug_report = f"""
-**#BUG**
+**#BUGREPORT**
 
 **From User : ** **{mention}**
-**User ID : ** **{user_id}**
+**User ID : ** `{user_id}`
 **Group : ** **{chat_username}**
 
-**Bug Report : ** **{bugs}**
+**Report : ** **{bugs}**
 
 **Event Stamp : ** **{datetimes}**"""
 
