@@ -23,7 +23,7 @@ class Config(object):
     SUPPORT_CHAT = 'vegetasupport'  #Your own group for support, do not add the @
     UPDATES_CHANNEL = 'vegetaUpdates' #Your own channel for Updates of bot, Do not add @
     JOIN_LOGGER = -1001574034400  #Prints any new group the bot is added to, prints just the name and ID.
-    REM_BG_API_KEY = "2d21cd9a4d7e1056b3da89b88f7cfb95"
+    REM_BG_API_KEY = "dxsh728mZMDmj4ijSZCNPZig"
     STRING_SESSION = "1BVtsOIgBu2dMF7FyBJZOig7ITZDtkaJQ-9y2i_kNIP_zTcUQ5-QG-yl04x5jbZgsnIF1n8mVg8WVQbMZB8Hi5edGcQUy8NM9QXj5IILEeIHtEBs_dFMcZ0z-wKEZ4iL2tvbNyQOIqWAYGjnsR3c_-qmZCn3gnEjOWWN9HxLe3_6C7JVw2rhuVQVAR4dWWtVEjxWmnvUL32Dlp45STq92rBbzHyHhEUOMb6CJUKh7-b-1yS8vi7Yc_7KkL2ls8QFGg1s7i-paDZqZFnJrN0IyLj5WK01ZirX62Mqw7z9Ii58CETCQutPBU29Kwyp28vtvNjegZcANwgqZZN38vJ0G9TzwJTSX920="
     TEMP_DOWNLOAD_DIRECTORY = ""
     EVENT_LOGS = -1001574034400  #Prints information like gbans, sudo promotes, AI enabled disable states that may help in debugging and shit
