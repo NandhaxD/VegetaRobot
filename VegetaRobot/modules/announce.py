@@ -10,6 +10,7 @@ from VegetaRobot.modules.helper_funcs.decorators import kigcmd
 import VegetaRobot.modules.sql.logger_sql as sql
 from VegetaRobot.modules.helper_funcs.anonymous import user_admin as u_admin, AdminPerms
 
+#not working 
 
 @kigcmd(command="announce", pass_args=True)
 @u_admin(AdminPerms.CAN_CHANGE_INFO)
