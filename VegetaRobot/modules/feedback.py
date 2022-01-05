@@ -21,17 +21,10 @@ def feedback(bot: Bot, update: Update):
 
   bot.sendMessage(-1001690512977, feed_text, parse_mode=ParseMode.MARKDOWN)
   
-buttons = [
-    [
-      InlineKeyboardButton(text="🔒 Close 🔒", url="t.me/vegetaSupport"
-         ),
-    ],
-] 
 
-  text = html.escape(text)
-  reply_text="Thank you for giving us your feedback."
-  message.reply_text(reply_text, reply_markup=InlineKeyboardMarkup(buttons))
-                                                
+text = html.escape(text)
+reply_text="Thank you for giving us your feedback."
+message.reply_text(reply_text))  
                                                
   
 
