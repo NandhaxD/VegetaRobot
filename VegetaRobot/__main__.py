@@ -250,7 +250,7 @@ def start(update: Update, context: CallbackContext):
     else:
         first_name = update.effective_user.first_name
         update.effective_message.reply_video(
-            GROUPSTART_IMG, caption= "*hello!\n ┗►{}◄┛,*\n*Super Saiyan here*\n*Power lavel time* : {} ".format(
+            GROUPSTART_IMG, caption= "*hello!\n ┗► {} ◄┛,*\n*Super Saiyan here*\n*Power lavel time* : {} ".format(
              first_name,uptime
             ),
             parse_mode=ParseMode.MARKDOWN,
@@ -338,7 +338,7 @@ def help_button(update, context):
             module = mod_match.group(1)
             message = update.effective_message
             text = (
-                "Powered by @VegetaRpbot\nHere is the help for the *{}* module:\n".format(
+                "\nModule name - *{}*\n".format(
                     HELPABLE[module].__mod_name__
                 )
                 + HELPABLE[module].__help__
