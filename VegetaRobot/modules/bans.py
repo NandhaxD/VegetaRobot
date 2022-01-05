@@ -526,6 +526,10 @@ __help__ = """
  • `/unban <userhandle>`*:* unbans a user. (via handle, or reply)
  • `/kick <userhandle>`*:* Kicks a user out of the group, (via handle, or reply)
  • `/punch <userhandle>`*:* Punches a user out of the group, (via handle, or reply)
+ 
+ *ban channel commands:*
+  • `/cban` or `/channelban` ban a channel. 
+  • `/uncban` or `/channelunban`unban channel. 
 """
 
 BAN_HANDLER = CommandHandler(["ban", "sban"], ban)
