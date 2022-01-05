@@ -19,14 +19,19 @@ def feedback(bot: Bot, update: Update):
   feed_text = f"Buddy's *New* feedback from [{name}](tg://user?id={userid})\n\nfeed: {text}"
   
 
-  bot.send_message(-1001690512977, feed_text, parse_mode=ParseMode.MARKDOWN)
- 
-  text = html.escape(text)
-  reply_text="Thank you for giving us your feedback."
-  message.reply_text(reply_text, reply_markup=InlineKeyboardMarkup(
-                                                [[InlineKeyboardButton(text="You can see your feedback here",url=f"https://t.me{SUPPORT_CHAT}),
+  bot.sendMessage(-1001690512977, feed_text, parse_mode=ParseMode.MARKDOWN)
+  
+buttons = [
+    [
+      InlineKeyboardButton(text="🔒 Close 🔒", callback_data="unbanb_del"
+         ),
     ],
 ] 
+
+  text = html.escape(text)
+  reply_text="Thank you for giving us your feedback."
+  message.reply_text(reply_text, reply_markup(InlineKeyboardMarkup(buttons))
+                                                
                                                
   
 
