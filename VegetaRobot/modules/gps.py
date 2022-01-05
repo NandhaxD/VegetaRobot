@@ -39,12 +39,7 @@ def gps(update, context, *args, **kwargs):
                  [
                     InlineKeyboardButton(
               text="Location",url=f"{gm}")]]
-                
-        update.message.reply_text(
-            "🌎[Google Maps location]({})".format(gm),
-            parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,
-        )
+     
     except AttributeError:
         update.message.reply_text("I can't find that")
 
