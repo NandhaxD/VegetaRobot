@@ -19,7 +19,7 @@ def feedback(bot: Bot, update: Update):
   feed_text = f"Vegeta *New* feedback from [{name}](tg://user?id={userid})\n\nfeed: {text}"
   
 
-  bot.send_photo(f"@{SUPPORT_CHAT}", VEGETA,caption=feed_text, parse_mode=ParseMode.MARKDOWN)
+ dispatcher.bot.send_photo(f"@{SUPPORT_CHAT}", VEGETA,caption=feed_text, parse_mode=ParseMode.MARKDOWN)
   
                                          
   
