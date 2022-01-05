@@ -23,14 +23,14 @@ def feedback(bot: Bot, update: Update):
   
 buttons = [
     [
-      InlineKeyboardButton(text="🔒 Close 🔒", callback_data="unbanb_del"
+      InlineKeyboardButton(text="🔒 Close 🔒", url="t.me/vegetaSupport"
          ),
     ],
 ] 
 
   text = html.escape(text)
   reply_text="Thank you for giving us your feedback."
-  message.reply_text(reply_text, reply_markup(InlineKeyboardMarkup(buttons))
+  message.reply_text(reply_text, reply_markup=InlineKeyboardMarkup(buttons))
                                                 
                                                
   
