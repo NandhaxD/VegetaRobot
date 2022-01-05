@@ -27,8 +27,8 @@ class Config(object):
     STRING_SESSION = "1BVtsOIgBu2dMF7FyBJZOig7ITZDtkaJQ-9y2i_kNIP_zTcUQ5-QG-yl04x5jbZgsnIF1n8mVg8WVQbMZB8Hi5edGcQUy8NM9QXj5IILEeIHtEBs_dFMcZ0z-wKEZ4iL2tvbNyQOIqWAYGjnsR3c_-qmZCn3gnEjOWWN9HxLe3_6C7JVw2rhuVQVAR4dWWtVEjxWmnvUL32Dlp45STq92rBbzHyHhEUOMb6CJUKh7-b-1yS8vi7Yc_7KkL2ls8QFGg1s7i-paDZqZFnJrN0IyLj5WK01ZirX62Mqw7z9Ii58CETCQutPBU29Kwyp28vtvNjegZcANwgqZZN38vJ0G9TzwJTSX920="
     TEMP_DOWNLOAD_DIRECTORY = ""
     EVENT_LOGS = -1001543354286  #Prints information like gbans, sudo promotes, AI enabled disable states that may help in debugging and shit
-    SQLALCHEMY_DATABASE_URI = 'postgres://yjbklqzqytefhl:4a729e337257be81fdc359cd856e34a0b5a261419d5138f25b81193bb27774e8@ec2-52-54-38-229.compute-1.amazonaws.com:5432/d8pnbft2italbv'
-    #'postgresql://postgres:F5m2YTn38DWCu9HBfc6i@containers-us-west-23.railway.app:5884/railway'
+    SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:F5m2YTn38DWCu9HBfc6i@containers-us-west-23.railway.app:5884/railway'
+    #'postgres://yjbklqzqytefhl:4a729e337257be81fdc359cd856e34a0b5a261419d5138f25b81193bb27774e8@ec2-52-54-38-229.compute-1.amazonaws.com:5432/d8pnbft2italbv'
     #'postgres://vagszglpwcqjuv:7ac64f23996ef264ec3b67c65f3a6eaa1ac41a77588553e09623558127ff6d1f@ec2-52-202-198-60.compute-1.amazonaws.com:5432/d7pmn914up6sq4'
     LOAD = []
     NO_LOAD = ['rss', 'cleaner', 'connection', 'math']
