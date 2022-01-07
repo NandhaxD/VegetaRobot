@@ -231,7 +231,11 @@ pgram.start()
 
 print("Aquiring BOT Client Info")
 
-
+musicbot = Client(
+    PYRO_SESSION,
+    api_id=os.environ.get('API_ID'),
+    api_hash=os.environ['API_HASH'],
+)
 
 bottie = pgram.get_me()
 
