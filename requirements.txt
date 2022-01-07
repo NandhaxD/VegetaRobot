@@ -73,8 +73,7 @@ countryinfo==0.1.2
 secureme #encrypt
 aiofiles
 wget
-tracemoepy
-pendulum #whatanime.py
+tracemoepy #whatanime.py
 img2pdf
 gpytranslate
 pretty_errors
