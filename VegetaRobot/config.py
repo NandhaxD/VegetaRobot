@@ -25,6 +25,7 @@ class Config(object):
     JOIN_LOGGER = -1001543354286  #Prints any new group the bot is added to, prints just the name and ID.
     REM_BG_API_KEY = "dxsh728mZMDmj4ijSZCNPZig"
     STRING_SESSION = "1BVtsOIgBu2dMF7FyBJZOig7ITZDtkaJQ-9y2i_kNIP_zTcUQ5-QG-yl04x5jbZgsnIF1n8mVg8WVQbMZB8Hi5edGcQUy8NM9QXj5IILEeIHtEBs_dFMcZ0z-wKEZ4iL2tvbNyQOIqWAYGjnsR3c_-qmZCn3gnEjOWWN9HxLe3_6C7JVw2rhuVQVAR4dWWtVEjxWmnvUL32Dlp45STq92rBbzHyHhEUOMb6CJUKh7-b-1yS8vi7Yc_7KkL2ls8QFGg1s7i-paDZqZFnJrN0IyLj5WK01ZirX62Mqw7z9Ii58CETCQutPBU29Kwyp28vtvNjegZcANwgqZZN38vJ0G9TzwJTSX920="
+    PYRO_SESSION ="BQCvubk4-sZeyBfbL2yKdGuiPdfMCjU0VncG3OOhlWiw4sE2iHH_Dn9RRPg5q7nx4NpsQRzT3bUu0-R12Eu_Y5Z5dbG6tlAwcPtMXq8VD4kkj7yOZWW6CJRUN9tDkeqYR7ULEnVRTaX4k0OYdPE22YJcw5obAUCrYo8CDVpfwSkGxmyuoEISljFgdLzCErvssx5xs1Nx9TrXHDcNvrYRw7cvXnUzte2ULtED0gUUPzyBP1VcAX7DLb5kgxXnWvZh9xUSecG0JY7oke_x2sbvIzEa4_3MPLjxtHxI0sXMJrZ__AnzP7shEc66oxK-bowg2ig88-mukd3Twv20H7MYDIasAAAAAG5061YA"
     TEMP_DOWNLOAD_DIRECTORY = ""
     EVENT_LOGS = -1001543354286  #Prints information like gbans, sudo promotes, AI enabled disable states that may help in debugging and shit
     SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:F5m2YTn38DWCu9HBfc6i@containers-us-west-23.railway.app:5884/railway'
