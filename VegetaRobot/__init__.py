@@ -76,6 +76,7 @@ if ENV:
     CERT_PATH = os.environ.get("CERT_PATH")
     API_ID = os.environ.get('API_ID', None)
     API_HASH = os.environ.get('API_HASH', None)
+    PYRO_SESSION = os.environ.get('PYRO_SESSION', None) 
     DB_URI = os.environ.get('DATABASE_URL')
     DONATION_LINK = os.environ.get('DONATION_LINK')
     LOAD = os.environ.get("LOAD", "").split()
@@ -173,6 +174,7 @@ else:
     STRICT_GBAN = Config.STRICT_GBAN
     STRICT_GMUTE = Config.STRICT_GMUTE
     WORKERS = Config.WORKERS
+    PYRO_SESSION = Config.PYRO_SESSION
     BAN_STICKER = Config.BAN_STICKER
     ALLOW_EXCL = Config.ALLOW_EXCL
     ARQ_API_URL = Config.ARQ_API_URL
@@ -234,7 +236,7 @@ print("Aquiring BOT Client Info")
 musicbot = Client(
     PYRO_SESSION,
     api_id=os.environ.get('API_ID'),
-    api_hash=os.environ['API_HASH'],
+    api_hash=os.environ.get('API_HASH'),
 )
 
 bottie = pgram.get_me()
