@@ -78,4 +78,5 @@ img2pdf
 gpytranslate
 pretty_errors
 psutil
+pytgcalls==3.0.0.dev19
 
