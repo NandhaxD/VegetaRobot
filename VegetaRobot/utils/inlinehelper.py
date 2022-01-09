@@ -20,7 +20,7 @@ from pyrogram.types import (
 )
 from search_engine_parser import GoogleSearch
 
-from VegetaRobot import OWNER_ID, pgram, arq
+from VegetaRobot import OWNER_ID, pgram, arq, BOT_USERNAME
 from VegetaRobot.utils.pluginhelpers import convert_seconds_to_minutes as time_convert
 from VegetaRobot.utils.pluginhelpers import fetch
 
@@ -49,8 +49,11 @@ async def paste(content):
 async def inline_help_func(__HELP__):
     buttons = InlineKeyboard(row_width=2)
     buttons.add(
-        InlineKeyboardButton("🔐 More Help.", url=f"t.me/VegetaRobot?start=help"),
-        InlineKeyboardButton("🔄 Go Inline", switch_inline_query_current_chat=""),
+        InlineKeyboardButton("🤖 ADD ME", furl=f"t.me/{BOT_USERNAME}?start=help"),
+       ],
+       [
+        InlineKeyboardButton("🤖 BOT", url=f"t.me/{BOT_USERNAME}"),
+        InlineKeyboardButton("🔄 Inline", switch_inline_query_current_chat=""),
     )
     answerss = [
         InlineQueryResultArticle(
@@ -81,7 +84,7 @@ async def alive_function(answers):
 **✨ Python:** `3.9`
 **🌟 Pyrogram:** `{pyrover}`
 **🔷 Platform:** `{sys.platform}`
-**💫 Profiles:** [BOT](t.me/VegetaRobot) | [REPO](https://github.com/Ctzfamily/VegetaRobot)
+**💫 Profiles:** [BOT](t.me/{BOT_USERNAME}) | [REPO](https://github.com/Ctzfamily/VegetaRobot)
 """
     answers.append(
         InlineQueryResultPhoto(
