@@ -258,7 +258,7 @@ def start(update: Update, context: CallbackContext):
                 [
                   [
                   InlineKeyboardButton(text="Support", url=f"https://telegram.dog/{SUPPORT_CHAT}"),
-                  InlineKeyboardButton(text="Commands", callback_data="help_back"),
+                  InlineKeyboardButton(text="Updates", url=f"t.me/{UPDATES_CHANNEL}"),
                   ]
                 ]
             ),
