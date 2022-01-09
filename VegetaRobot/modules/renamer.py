@@ -1,6 +1,5 @@
-from VegetaRobot import pgram as bot
+from VegetaRobot import pgram as bot , SUPPORT_CHAT
 import os
-from nksama.utils.sendlog import send_log
 from pyrogram import filters
 
 
@@ -10,8 +9,8 @@ def rename(_, message):
     try:
         filename = message.text.replace(message.text.split(" ")[0], "")
 
-    except Exception as e:
-        send_log(e)
+    except AttributeError:
+        update.message.reply_text(f"pls report @{SUPPORT_CHAT}")
 
     reply = message.reply_to_message
     if reply:
