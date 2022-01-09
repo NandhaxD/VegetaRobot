@@ -7,7 +7,7 @@ from telegram.inline.inlinekeyboardbutton import InlineKeyboardButton
 from telegram.inline.inlinekeyboardmarkup import InlineKeyboardMarkup
 
 from VegetaRobot import DEV_USERS, DRAGONS, dispatcher
-from VegetaRobot.modules.helper_funcs.decorators import kigcallback
+from VegetaRobot.modules.helper_funcs.decorators import vegetacallback as kigcallback
 
 
 class AdminPerms(Enum):
