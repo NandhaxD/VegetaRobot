@@ -49,7 +49,7 @@ async def paste(content):
 async def inline_help_func(__HELP__):
     buttons = InlineKeyboard(row_width=3)
     buttons.add(
-        InlineKeyboardButton("🤖 ADD ME", furl=f"t.me/{BOT_USERNAME}?start=help"),
+        InlineKeyboardButton("🤖 ADD ME", furl=f"t.me/{BOT_USERNAME}?startgroup=True"),
         InlineKeyboardButton("🤖 BOT", url=f"t.me/{BOT_USERNAME}"),
         InlineKeyboardButton("🔄 Inline", switch_inline_query_current_chat=""),
     )
