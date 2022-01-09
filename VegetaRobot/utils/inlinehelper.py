@@ -47,7 +47,7 @@ async def paste(content):
 
 
 async def inline_help_func(__HELP__):
-    buttons = InlineKeyboard(row_width=3)
+    buttons = InlineKeyboard(row_width=2)
     buttons.add(
         InlineKeyboardButton("🤖 BOT", url=f"t.me/{BOT_USERNAME}"),
         InlineKeyboardButton("🔄 Inline", switch_inline_query_current_chat=""),
@@ -67,7 +67,7 @@ async def inline_help_func(__HELP__):
 
 
 async def alive_function(answers):
-    buttons = InlineKeyboard(row_width=3)
+    buttons = InlineKeyboard(row_width=2)
     bot_state = "Dead" if not await app.get_me() else "Alive"
     # ubot_state = 'Dead' if not await app2.get_me() else 'Alive'
     buttons.add(
