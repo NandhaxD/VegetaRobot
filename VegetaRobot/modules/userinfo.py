@@ -26,12 +26,6 @@ from VegetaRobot.modules.helper_funcs.chat_status import sudo_plus
 from VegetaRobot.modules.helper_funcs.extraction import extract_user
 from VegetaRobot import telethn as VegetaTelethonClient, TIGERS, DRAGONS, DEMONS
 
-buttons = [
-    [
-      InlineKeyboardButton(text="🔒 Close 🔒", callback_data="unbanb_del"
-         ),
-    ],
-] 
 
 
 def no_by_per(totalhp, percentage):
@@ -323,13 +317,14 @@ def info(update: Update, context: CallbackContext):
     if INFOPIC:
         try:
             profile = context.bot.get_user_profile_photos(user.id).photos[0][-1]
-            context.bot.sendChatAction(chat.id, "upload_photo")
-            context.bot.send_photo(
-            chat.id,
-            photo=profile,
-            caption=(text),reply_markup=InlineKeyboardMarkup(buttons),
-            parse_mode=ParseMode.HTML,
-            disable_web_page_preview=True,
+            _file = bot.get_file(profile["file_id"])
+            _file.download(f"{user.id}.png")
+
+            message.reply_document(
+                document=open(f"{user.id}.png", "rb"),
+                caption=(text),
+                parse_mode=ParseMode.HTML,
+                disable_web_page_preview=True,
         )
         # Incase user don't have profile pic, send normal text
         except IndexError:
