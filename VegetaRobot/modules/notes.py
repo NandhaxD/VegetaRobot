@@ -3,7 +3,7 @@ from io import BytesIO
 from typing import Optional
 
 import VegetaRobot.modules.sql.notes_sql as sql
-from VegetaRobot import LOGGER as log, dispatcher, DRAGONS as SUDO_USERS
+from VegetaRobot import LOGGER as log, dispatcher, DRAGONS
 from VegetaRobot.modules.helper_funcs.chat_status import connection_status
 from VegetaRobot.modules.helper_funcs.misc import build_keyboard, revert_buttons
 from VegetaRobot.modules.helper_funcs.msg_types import get_note_type
@@ -312,7 +312,7 @@ def clearall(update: Update, context: CallbackContext):
     chat = update.effective_chat
     user = update.effective_user
     member = chat.get_member(user.id)
-    if member.status != "creator" and user.id not in SUDO_USERS:
+    if member.status != "creator" and user.id not in DRAGONS:
         update.effective_message.reply_text(
             "Only the chat owner can clear all notes at once."
         )
