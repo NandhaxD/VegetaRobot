@@ -49,7 +49,6 @@ async def paste(content):
 async def inline_help_func(__HELP__):
     buttons = InlineKeyboard(row_width=3)
     buttons.add(
-        InlineKeyboardButton("🤖 ADD ME", furl=f"t.me/{BOT_USERNAME}?startgroup=True"),
         InlineKeyboardButton("🤖 BOT", url=f"t.me/{BOT_USERNAME}"),
         InlineKeyboardButton("🔄 Inline", switch_inline_query_current_chat=""),
     )
@@ -68,10 +67,11 @@ async def inline_help_func(__HELP__):
 
 
 async def alive_function(answers):
-    buttons = InlineKeyboard(row_width=2)
+    buttons = InlineKeyboard(row_width=3)
     bot_state = "Dead" if not await app.get_me() else "Alive"
     # ubot_state = 'Dead' if not await app2.get_me() else 'Alive'
     buttons.add(
+        InlineKeyboardButton("🤖 ADD ME", url=f"t.me/{BOT_USERNAME}?startgroup=True"),
         InlineKeyboardButton("🔐 Main Bot", url="https://t.me/VegetaRobot?start=help"),
         InlineKeyboardButton("🔄 Go Inline", switch_inline_query_current_chat=""),
     )
