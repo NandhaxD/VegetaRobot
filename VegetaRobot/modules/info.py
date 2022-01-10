@@ -88,7 +88,7 @@ async def info_func(_, message: Message):
     os.remove(photo)
 
 
-@app.on_message(filters.command("chat_info"))
+@app.on_message(filters.command("chatinfo"))
 async def chat_info_func(_, message: Message):
     try:
         if len(message.command) > 2:
