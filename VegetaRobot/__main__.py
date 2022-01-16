@@ -234,24 +234,7 @@ def start(update: Update, context: CallbackContext):
                     send_settings(match.group(1), update.effective_user.id, True)
 
             elif args[0][1:].isdigit() and "rules" in IMPORTED:
-                IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
-
-    else:
-        first_name = update.effective_user.first_name
-        update.effective_message.reply_video(
-            GROUPSTART_IMG, caption= "*hello!\n ┗► {} ◄┛,*\n*Super Saiyan here*\n*Power lavel time* : {} ".format(
-             first_name,uptime
-            ),
-            parse_mode=ParseMode.MARKDOWN,
-        reply_markup=InlineKeyboardMarkup(
-                [
-                  [
-                  InlineKeyboardButton(text="Support", url=f"https://telegram.dog/{SUPPORT_CHAT}"),
-                  InlineKeyboardButton(text="Updates", url=f"t.me/{UPDATES_CHANNEL}"),
-                  ]
-                ]
-            ),
-        )
+  IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
 
 
 def error_handler(update, context):
