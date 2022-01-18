@@ -222,8 +222,32 @@ def gifid(update: Update, context: CallbackContext):
         )
     else:
         update.effective_message.reply_text("Please reply to a gif to get its ID.")
+        
 
+def get_username(update: Update, context: CallbackContext): 
+    bot, args = context.bot, context.args 
+    message = update.effective_message 
+    chat = update.effective_chat 
+    msg = update.effective_message 
+    user_id = extract_user(msg, args)
+    
+    if user_id: if msg.reply_to_message and msg.reply_to_message.forward_from: 
+            user1 = message.reply_to_message.from_user 
+            user2 = message.reply_to_message.forward_from msg.reply_text( f"<b>Telegram Username:</b>\n" f"• {html.escape(user2.first_name)} - @{user2.username}\n" f"• {html.escape(user1.first_name)} - @{user1.username}", parse_mode=ParseMode.HTML, ) 
+            
+            else: 
+                user = bot.get_chat(user_id) 
+                
+                msg.reply_text( f"{html.escape(user.first_name)}'s username is @{user.username}", parse_mode=ParseMode.HTML, )
+                
+                elif chat.type == "private": 
+                    
+                msg.reply_text( f"Your username is @{chat.username}.", parse_mode=ParseMode.HTML, ) 
+                
+                else: 
+                    msg.reply_text( f"<b>{message.chat.title}</b>'s username is @{chat.username}", parse_mode=ParseMode.HTML, )
 
+                        
 def info(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
     message = update.effective_message
@@ -575,7 +599,7 @@ STATS_HANDLER = CommandHandler(["stats", "statistics"], stats, run_async=True)
 ID_HANDLER = DisableAbleCommandHandler("id", get_id, run_async=True)
 GIFID_HANDLER = DisableAbleCommandHandler("gifid", gifid, run_async=True)
 INFO_HANDLER = DisableAbleCommandHandler("info", info, run_async=True)
-
+GET_USERNAME_HANDLER = DisableAbleCommandHandler("username", get_username, run_async=True)
 SET_ABOUT_HANDLER = DisableAbleCommandHandler("setme", set_about_me, run_async=True)
 GET_ABOUT_HANDLER = DisableAbleCommandHandler("me", about_me, run_async=True)
 
@@ -583,16 +607,18 @@ dispatcher.add_handler(STATS_HANDLER)
 dispatcher.add_handler(ID_HANDLER)
 dispatcher.add_handler(GIFID_HANDLER)
 dispatcher.add_handler(INFO_HANDLER)
+dispatcher.add_handler(USERNAME_HANDLER)
 dispatcher.add_handler(SET_BIO_HANDLER)
 dispatcher.add_handler(GET_BIO_HANDLER)
 dispatcher.add_handler(SET_ABOUT_HANDLER)
 dispatcher.add_handler(GET_ABOUT_HANDLER)
 
 __mod_name__ = "Info & AFK"
-__command_list__ = ["setbio", "bio", "setme", "me", "info"]
+__command_list__ = ["setbio", "username", "bio", "setme", "me", "info"]
 __handlers__ = [
     ID_HANDLER,
     GIFID_HANDLER,
+    USERNAME_HANDLER,
     INFO_HANDLER,
     SET_BIO_HANDLER,
     GET_BIO_HANDLER,
