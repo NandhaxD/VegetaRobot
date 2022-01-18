@@ -228,10 +228,9 @@ def get_username(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args 
     message = update.effective_message 
     chat = update.effective_chat 
-    msg = update.effective_message 
     user_id = extract_user(msg, args)
-    
-    if user_id: if msg.reply_to_message and msg.reply_to_message.forward_from: 
+    msg = update.effective_message 
+     if user_id: if msg.reply_to_message and msg.reply_to_message.forward_from: 
             user1 = message.reply_to_message.from_user 
             user2 = message.reply_to_message.forward_from msg.reply_text( f"<b>Telegram Username:</b>\n" f"• {html.escape(user2.first_name)} - @{user2.username}\n" f"• {html.escape(user1.first_name)} - @{user1.username}", parse_mode=ParseMode.HTML, ) 
             
