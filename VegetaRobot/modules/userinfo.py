@@ -223,29 +223,6 @@ def gifid(update: Update, context: CallbackContext):
     else:
         update.effective_message.reply_text("Please reply to a gif to get its ID.")
         
-
-def get_username(update: Update, context: CallbackContext): 
-    bot, args = context.bot, context.args 
-    message = update.effective_message 
-    chat = update.effective_chat 
-    user_id = extract_user(msg, args)
-    msg = update.effective_message 
-     if user_id: if msg.reply_to_message and msg.reply_to_message.forward_from: 
-            user1 = message.reply_to_message.from_user 
-            user2 = message.reply_to_message.forward_from msg.reply_text( f"<b>Telegram Username:</b>\n" f"• {html.escape(user2.first_name)} - @{user2.username}\n" f"• {html.escape(user1.first_name)} - @{user1.username}", parse_mode=ParseMode.HTML, ) 
-            
-            else: 
-                user = bot.get_chat(user_id) 
-                
-                msg.reply_text( f"{html.escape(user.first_name)}'s username is @{user.username}", parse_mode=ParseMode.HTML, )
-                
-                elif chat.type == "private": 
-                    
-                msg.reply_text( f"Your username is @{chat.username}.", parse_mode=ParseMode.HTML, ) 
-                
-                else: 
-                    msg.reply_text( f"<b>{message.chat.title}</b>'s username is @{chat.username}", parse_mode=ParseMode.HTML, )
-
                         
 def info(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
@@ -321,16 +298,16 @@ def info(update: Update, context: CallbackContext):
     disaster_level_present = False
 
     if user.id == OWNER_ID:
-        text += "\n\nThe Disaster level of this person is 'King'."
+        text += "\n\nBOT-OWNER"
         disaster_level_present = True
     elif user.id in DEV_USERS:
-        text += "\n\nThis user is member of 'Prince'."
+        text += "\n\nThis user is 'S-Rank'."
         disaster_level_present = True
     elif user.id in DRAGONS:
-        text += "\n\nThe Disaster level of this person is 'Emperor'."
+        text += "\n\nThis person is 'A-Rank'."
         disaster_level_present = True
     elif user.id in DEMONS:
-        text += "\n\nThe Disaster level of this person is 'Governor'."
+        text += "\n\nThis person is 'B-Rank'."
         disaster_level_present = True
     elif user.id in TIGERS:
         text += "\n\nThe Disaster level of this person is 'Captain'."
