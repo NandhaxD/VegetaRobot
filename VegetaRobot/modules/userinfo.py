@@ -35,7 +35,7 @@ from VegetaRobot.__main__ import STATS, TOKEN, USER_INFO
 from VegetaRobot.modules.sql import SESSION
 import VegetaRobot.modules.sql.userinfo_sql as sql
 from VegetaRobot.modules.disable import DisableAbleCommandHandler
-from EmikoRobot.modules.sql.global_bans_sql import is_user_gbanned
+from VegetaRobot.modules.sql.global_bans_sql import is_user_gbanned
 from VegetaRobot.modules.sql.afk_sql import is_afk, set_afk
 from VegetaRobot.modules.sql.users_sql import get_user_num_chats
 from VegetaRobot.modules.helper_funcs.chat_status import sudo_plus
