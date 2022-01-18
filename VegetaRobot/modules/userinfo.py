@@ -18,7 +18,7 @@ from telegram.ext.dispatcher import run_async
 from telegram.error import BadRequest
 from telegram.utils.helpers import escape_markdown, mention_html
     
-from EmikoRobot import (
+from VegetaRobot import (
     DEV_USERS,
     OWNER_ID,
     DRAGONS,
@@ -31,16 +31,16 @@ from EmikoRobot import (
     StartTime,
     SUPPORT_CHAT,
 )
-from EmikoRobot.__main__ import STATS, TOKEN, USER_INFO
-from EmikoRobot.modules.sql import SESSION
-import EmikoRobot.modules.sql.userinfo_sql as sql
-from EmikoRobot.modules.disable import DisableAbleCommandHandler
+from VegetaRobot.__main__ import STATS, TOKEN, USER_INFO
+from VegetaRobot.modules.sql import SESSION
+import VegetaRobot.modules.sql.userinfo_sql as sql
+from VegetaRobot.modules.disable import DisableAbleCommandHandler
 from EmikoRobot.modules.sql.global_bans_sql import is_user_gbanned
-from EmikoRobot.modules.sql.afk_sql import is_afk, set_afk
-from EmikoRobot.modules.sql.users_sql import get_user_num_chats
-from EmikoRobot.modules.helper_funcs.chat_status import sudo_plus
-from EmikoRobot.modules.helper_funcs.extraction import extract_user
-from EmikoRobot import telethn
+from VegetaRobot.modules.sql.afk_sql import is_afk, set_afk
+from VegetaRobot.modules.sql.users_sql import get_user_num_chats
+from VegetaRobot.modules.helper_funcs.chat_status import sudo_plus
+from VegetaRobot.modules.helper_funcs.extraction import extract_user
+from VegetaRobot import telethn
 
 def no_by_per(totalhp, percentage):
     """
@@ -315,9 +315,6 @@ def info(update: Update, context: CallbackContext):
     elif user.id in WOLVES:
         text += "\n\nThe Disaster level of this person is 'Soldier'."
         disaster_level_present = True
-    elif user.id == 1829047705:
-         text += "\n\nOwner Of A Bot. Queen Of @excrybaby. Bot Name Inspired From 'JoJo'."
-         disaster_level_present = True
 
     try:
         user_member = chat.get_member(user.id)
@@ -353,9 +350,9 @@ def info(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                "Health", url="https://t.me/KennedyProject/44"),
+                                "Health", url="https://t.me/vegetaUpdates/44"),
                             InlineKeyboardButton(
-                                "Disaster", url="https://t.me/KennedyProject/43")
+                                "Disaster", url="https://t.me/vegetaupdates/43")
                         ],
                     ]
                 ),
@@ -371,9 +368,9 @@ def info(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                "Health", url="https://t.me/KennedyProject/44"),
+                                "Health", url="https://t.me/vegetaUpdates/44"),
                             InlineKeyboardButton(
-                                "Disaster", url="https://t.me/KennedyProject/43")
+                                "Disaster", url="https://t.me/vegetaUpdates/43")
                         ],
                     ]
                 ),
