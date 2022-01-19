@@ -384,7 +384,7 @@ def vegeta_about_callback(update, context):
     query = update.callback_query
     if query.data == "vegeta_":
         query.message.edit_text(
-            text="๏ I'm *Emiko*, a powerful group management bot built to help you manage your group easily."
+            text="๏ I'm *Vegeta*, a powerful group management bot built to help you manage your group easily."
             "\n• I can restrict users."
             "\n• I can greet users with customizable welcome messages and even set a group's rules."
             "\n• I have an advanced anti-flood system."
@@ -402,7 +402,7 @@ def vegeta_about_callback(update, context):
                     InlineKeyboardButton(text="📓 Notes", callback_data="vegeta_notes"),
                  ],
                  [
-                    InlineKeyboardButton(text="🌐 Network", callback_data="vegetasupport"),
+                    InlineKeyboardButton(text="💕 Support", callback_data="vegeta_support"),
                     InlineKeyboardButton(text="💕 Stats", callback_data="bot_sys_stats"),
                  ],
                  [
