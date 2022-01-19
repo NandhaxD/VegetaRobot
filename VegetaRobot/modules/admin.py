@@ -159,7 +159,6 @@ def rmchatpic(update: Update, context: CallbackContext):
         msg.reply_text(f"Error! {excp.message}.")
         return
   
-@run_async
 @connection_status
 @bot_admin
 @can_promote
@@ -240,7 +239,6 @@ def promote(update: Update, context: CallbackContext) -> str:
 
 
   
-@run_async
 @connection_status
 @bot_admin
 @can_promote
@@ -439,7 +437,7 @@ def pin(update, context):
                     [
                         [
                             InlineKeyboardButton(
-                                "👉 PINNED Message", url=f"{message_link}")
+                                "👉 View Mesaage", url=f"{message_link}")
                         ]
                     ]
                 ), 
@@ -659,8 +657,8 @@ SETCHATPIC_HANDLER = CommandHandler("setgpic", setchatpic, filters=Filters.group
 RMCHATPIC_HANDLER = CommandHandler("delgpic", rmchatpic, filters=Filters.group)
 SET_STICKER_HANDLER = CommandHandler(["setgpack","setgsticker"], set_sticker, filters=Filters.group)
 SETCHAT_TITLE_HANDLER = CommandHandler("setgtitle", setchat_title, filters=Filters.group)
-PROMOTE_HANDLER = DisableAbleCommandHandler(["promote","promo"], promote)                          
-DEMOTE_HANDLER = DisableAbleCommandHandler(["demote","demo"], demote)
+PROMOTE_HANDLER = DisableAbleCommandHandler(["promote","promo"], promote, run_async=True)                          
+DEMOTE_HANDLER = DisableAbleCommandHandler(["demote","demo"], demote, run_async=True)
 
 SET_TITLE_HANDLER = CommandHandler("title", set_title)
 ADMIN_REFRESH_HANDLER = CommandHandler(
