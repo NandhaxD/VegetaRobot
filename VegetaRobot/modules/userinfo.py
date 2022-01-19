@@ -355,34 +355,19 @@ def info(update: Update, context: CallbackContext):
                         ],
                     ]
                 ),
-                parse_mode=ParseMode.HTML,disable_web_page_preview=True,
+                parse_mode=ParseMode.HTML,
             )
         # Incase user don't have profile pic, send normal text
         except IndexError:
             message.reply_text(
-                text, 
-                reply_markup=InlineKeyboardMarkup(
-                    [
-                        [
-                            InlineKeyboardButton(
-                                "Health", url="https://t.me/vegetaUpdates/166"),
-                            InlineKeyboardButton(
-                                "Disaster", url="https://t.me/vegetaUpdates/5")
-                        ],
-                    ]
-                ),
-                parse_mode=ParseMode.HTML,
-                disable_web_page_preview=True
-            )
+                text, parse_mode=ParseMode.HTML, disable_web_page_preview=True)
 
     else:
         message.reply_text(
-            text, parse_mode=ParseMode.HTML,
-        )
+            text, parse_mode=ParseMode.HTML, disable_web_page_preview=True)
 
     rep.delete()
-
-
+    
 def about_me(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
     message = update.effective_message
