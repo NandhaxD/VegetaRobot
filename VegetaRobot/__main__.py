@@ -91,23 +91,12 @@ Hey User!!✋
 buttons = [
     [
         InlineKeyboardButton(
-                            text="☑ Add Vegeta to Group ☑",
+                            text="☑ ADD VEGETA GROUP ☑",
                             url="t.me/VegetaRobot?startgroup=true"),
                     ],
                    [
-                       InlineKeyboardButton(text="🌐 Network", url="t.me/pegasusXteam"),
-                       InlineKeyboardButton(text="🔔 Logs", url="t.me/pegasusLogs"),
-                     ],
-                    [                  
-                       InlineKeyboardButton(
-                             text="👥 Support",
-                             url=f"https://t.me/{SUPPORT_CHAT}"),
-                       InlineKeyboardButton(
-                             text="📢 Updates",
-                             url=f"https://t.me/{UPDATES_CHANNEL}"),
-                        ],
-                       [
-                           InlineKeyboardButton(text="🔐 HELP COMMADS 🔐", callback_data="help_back"
+                       InlineKeyboardButton(text="🔐 help", callback_data="help_back"),
+                       InlineKeyboardButton(text="💕 About", callback_data="vegeta_"
          ),
     ],
 ] 
@@ -391,31 +380,103 @@ def help_button(update, context):
 
 
 
-def vegeta_data_callback(update, context):
+def emiko_about_callback(update, context):
     query = update.callback_query
     if query.data == "vegeta_":
         query.message.edit_text(
-            text="""CallBackQueriesData Here""",
+            text="๏ I'm *Emiko*, a powerful group management bot built to help you manage your group easily."
+            "\n• I can restrict users."
+            "\n• I can greet users with customizable welcome messages and even set a group's rules."
+            "\n• I have an advanced anti-flood system."
+            "\n• I can warn users until they reach max warns, with each predefined actions such as ban, mute, kick, etc."
+            "\n• I have a note keeping system, blacklists, and even predetermined replies on certain keywords."
+            "\n• I check for admins' permissions before executing any command and more stuffs"
+            "\n\n_Vegeta's licensed under the GNU General Public License v3.0_"
+            "\n\n Click on button bellow to get basic help for @VegetaRobot.",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Back", callback_data="vegeta_back")
+                    InlineKeyboardButton(text="👮 Admins", callback_data="vegeta_admin"),
+                    InlineKeyboardButton(text="📓 Notes", callback_data="vegeta_notes"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="🌐 Network", callback_data="vegetasupport"),
+                    InlineKeyboardButton(text="💕 Stats", callback_data="bot_sys_stats"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="Go Back", callback_data="vegeta_back"),
                  ]
                 ]
             ),
         )
     elif query.data == "vegeta_back":
+        first_name = update.effective_user.first_name
+        uptime = get_readable_time((time.time() - StartTime))
         query.message.edit_text(
-                PM_START_TEXT,
+                PM_START_TEXT.format(
+                    escape_markdown(first_name),
+                    escape_markdown(uptime),
+                    sql.num_users(),
+                    sql.num_chats()),
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
                 disable_web_page_preview=False,
         )
 
+    elif query.data == "vegeta_admin":
+        query.message.edit_text(
+            text=f"*๏ Let's make your group bit effective now*"
+            "\nCongragulations, EmikoRobot now ready to manage your group."
+            "\n\n*Admin Tools*"
+            "\nBasic Admin tools help you to protect and powerup your group."
+            "\nYou can ban members, Kick members, Promote someone as admin through commands of bot."
+            "\n\n*Greetings*"
+            "\nLets set a welcome message to welcome new users coming to your group."
+            "\nsend `/setwelcome [message]` to set a welcome message!",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton(text="Go Back", callback_data="vegeta_")]]
+            ),
+        )
 
+    elif query.data == "vegeta_notes":
+        query.message.edit_text(
+            text=f"<b>๏ Setting up notes</b>"
+            f"\nYou can save message/media/audio or anything as notes"
+            f"\nto get a note simply use # at the beginning of a word"
+            f"\n\nYou can also set buttons for notes and filters (refer help menu)",
+            parse_mode=ParseMode.HTML,
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton(text="Go Back", callback_data="vegeta_")]]
+            ),
+        )
+    elif query.data == "vegeta_support":
+        query.message.edit_text(
+            text="*๏ Vegeta support chats*"
+            "\nJoin My Support Group/Channel for see or report a problem on Vegeta.",
+            parse_mode=ParseMode.MARKDOWN,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                 [
+                    InlineKeyboardButton(text="👥 Support", url="t.me/Vegetasupport"),
+                    InlineKeyboardButton(text="📢 Updates", url="https://t.me/vegetaupdates"),
+                 ],
+                 [
+                       InlineKeyboardButton(text="🌐 Network", url="t.me/pegasusXteam"),
+                       InlineKeyboardButton(text="🔔 Logs", url="t.me/pegasusLogs"),
+                   
+                   ],
+                    [
+                     InlineKeyboardButton(text="Go Back", callback_data="vegeta_"),
+                 
+                 ]
+                ]
+            ),
+        )
 
 
 def get_help(update: Update, context: CallbackContext):
