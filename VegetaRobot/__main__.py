@@ -772,14 +772,17 @@ def main():
     settings_handler = CommandHandler("settings", get_settings)
     settings_callback_handler = CallbackQueryHandler(settings_button, pattern=r"stngs_")
 
-    data_callback_handler = CallbackQueryHandler(vegeta_data_callback, pattern=r"vegeta_")
+    about_callback_handler = CallbackQueryHandler(
+        vegeta_about_callback, pattern=r"vegeta_", run_async=True
+    )
+    
     donate_handler = CommandHandler("donate", donate)
     migrate_handler = MessageHandler(Filters.status_update.migrate, migrate_chats)
 
     # dispatcher.add_handler(test_handler)
     dispatcher.add_handler(start_handler)
     dispatcher.add_handler(help_handler)
-    dispatcher.add_handler(data_callback_handler)
+    dispatcher.add_handler(vegeta_about_callback)
     dispatcher.add_handler(settings_handler)
     dispatcher.add_handler(help_callback_handler)
     dispatcher.add_handler(settings_callback_handler)
