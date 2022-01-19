@@ -410,8 +410,8 @@ def vegeta_about_callback(update, context):
                  ]
                 ]
             ),
-        )
-      elif query.data == "vegeta_back":
+       )
+    elif query.data == "zeus_back":
         query.message.edit_text(
                 PM_START_TEXT,
                 reply_markup=InlineKeyboardMarkup(buttons),
