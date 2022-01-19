@@ -224,7 +224,17 @@ def promote(update: Update, context: CallbackContext) -> str:
     bot.sendMessage(
         chat.id,
         f"Sucessfully promoted <b>{user_member.user.first_name or user_id}</b>!",
-        parse_mode=ParseMode.HTML)
+      reply_markup=InlineKeyboardMarkup(
+                    [
+                        [
+                          InlineKeyboardButton( text="⏬ Demote", callback_data="demote_({})".format(user_member.user.id),
+                            InlineKeyboardButton(
+                                "❎Delete", callback_data="dele_")
+                        ]
+                    ]
+                ), 
+                parse_mode=ParseMode.HTML,
+   )
 
     log_message = (
         f"<b>{html.escape(chat.title)}:</b>\n"
@@ -619,6 +629,66 @@ def adminlist(update, context):
         msg.edit_text(text, parse_mode=ParseMode.HTML)
     except BadRequest:  # if original message is deleted
         return
+      
+@bot_admin
+@can_promote
+@user_admin
+@loggable
+def button(update: Update, context: CallbackContext) -> str:
+    query: Optional[CallbackQuery] = update.callback_query
+    user: Optional[User] = update.effective_user
+    bot: Optional[Bot] = context.bot
+    match = re.match(r"demote_\((.+?)\)", query.data)
+    if match:
+        user_id = match.group(1)
+        chat: Optional[Chat] = update.effective_chat
+        member = chat.get_member(user_id)
+        bot_member = chat.get_member(bot.id)
+        bot_permissions = promoteChatMember(
+            chat.id,
+            user_id,
+            can_change_info=bot_member.can_change_info,
+            can_post_messages=bot_member.can_post_messages,
+            can_edit_messages=bot_member.can_edit_messages,
+            can_delete_messages=bot_member.can_delete_messages,
+            can_invite_users=bot_member.can_invite_users,
+            can_promote_members=bot_member.can_promote_members,
+            can_restrict_members=bot_member.can_restrict_members,
+            can_pin_messages=bot_member.can_pin_messages,
+            can_manage_voice_chats=bot_member.can_manage_voice_chats,
+        )
+        demoted = bot.promoteChatMember(
+            chat.id,
+            user_id,
+            can_change_info=False,
+            can_post_messages=False,
+            can_edit_messages=False,
+            can_delete_messages=False,
+            can_invite_users=False,
+            can_restrict_members=False,
+            can_pin_messages=False,
+            can_promote_members=False,
+            can_manage_voice_chats=False,
+        )
+        if demoted:
+            update.effective_message.edit_text(
+                f"Yep! {mention_html(user_member.user.id, user_member.user.first_name)} has been demoted in {chat.title}!"
+                f"By {mention_html(user.id, user.first_name)}",
+                parse_mode=ParseMode.HTML,
+            )
+            query.answer("Demoted!")
+            return (
+                f"<b>{html.escape(chat.title)}:</b>\n"
+                f"#DEMOTE\n"
+                f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n"
+                f"<b>User:</b> {mention_html(member.user.id, member.user.first_name)}"
+            )
+    else:
+        update.effective_message.edit_text(
+            "This user is not promoted or has left the group!"
+        )
+        return ""
+
 
 
 __help__ = """
