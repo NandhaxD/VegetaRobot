@@ -327,7 +327,7 @@ def help_button(update, context):
             module = mod_match.group(1)
             message = update.effective_message
             text = (
-                "\nModule name - *{}*\n".format(
+                "\nModule Name - *{}*\n".format(
                     HELPABLE[module].__mod_name__
                 )
                 + HELPABLE[module].__help__
@@ -411,7 +411,7 @@ def vegeta_about_callback(update, context):
                 ]
             ),
        )
-    elif query.data == "zeus_back":
+    elif query.data == "vegeta_back":
         query.message.edit_text(
                 PM_START_TEXT,
                 reply_markup=InlineKeyboardMarkup(buttons),
