@@ -402,7 +402,7 @@ def vegeta_about_callback(update, context):
                     InlineKeyboardButton(text="📓 Notes", callback_data="vegeta_notes"),
                  ],
                  [
-                    InlineKeyboardButton(text="💕 Support", callback_data="vegeta_support"),
+                    InlineKeyboardButton(text="💕 Channel", callback_data="vegeta_support"),
                     InlineKeyboardButton(text="💕 Stats", callback_data="bot_sys_stats"),
                  ],
                  [
@@ -422,7 +422,7 @@ def vegeta_about_callback(update, context):
     elif query.data == "vegeta_admin":
         query.message.edit_text(
             text=f"*๏ Let's make your group bit effective now*"
-            "\nCongragulations, EmikoRobot now ready to manage your group."
+            "\nCongragulations, VegetaRobot now ready to manage your group."
             "\n\n*Admin Tools*"
             "\nBasic Admin tools help you to protect and powerup your group."
             "\nYou can ban members, Kick members, Promote someone as admin through commands of bot."
@@ -460,7 +460,7 @@ def vegeta_about_callback(update, context):
                  ],
                  [
                        InlineKeyboardButton(text="🌐 Network", url="t.me/pegasusXteam"),
-                       InlineKeyboardButton(text="🔔 Logs", url="t.me/pegasusLogs"),
+                       InlineKeyboardButton(text="🔔 Logs", url="t.me/VegetaLogs"),
                    
                    ],
                     [
