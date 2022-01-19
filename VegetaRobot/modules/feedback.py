@@ -32,7 +32,7 @@ def content(msg: Message) -> [None, str]:
         return None
 
 
-@Client.on_message(filters.command("bug"))
+@Client.on_message(filters.command("feedback"))
 @capture_err
 async def bug(_, msg: Message):
     if msg.chat.username:
@@ -50,13 +50,13 @@ async def bug(_, msg: Message):
     thumb = "http://telegra.ph/file/c90fc8eea17d8d6245649.jpg"
     
     bug_report = f"""
-**#BUGREPORT**
+**#NEW #FEEDBACK**
 
 **From User : ** **{mention}**
 **User ID : ** `{user_id}`
 **Group : ** **{chat_username}**
 
-**Report : ** **{bugs}**
+**Feedback : ** **{bugs}**
 
 **Event Stamp : ** **{datetimes}**"""
 
@@ -64,18 +64,18 @@ async def bug(_, msg: Message):
     if user_id == owner:
         if bugs:
             await msg.reply_text(
-                f"❎ <b>How can be owner bot reporting bug idiot??</b>",
+                f"❎ <b>How can be owner bot Feedback idiot??</b>",
             )
             return
         else:
             await msg.reply_text(
-                f"❎ <b>Owner noob!</b>",
+                f"❎ <b>Owner brain loss!</b>",
             )
     elif user_id != owner:
         if bugs:
             await msg.reply_text(
-                f"<b>Bug's Report : {bugs}</b>\n\n"
-                "✅ <b>The bug was successfully reported to the support group!</b>",
+                f"<b>FeedBack : {bugs}</b>\n\n"
+                "✅ <b>The Feedback was successfully sended to the support group!</b>",
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
@@ -93,7 +93,7 @@ async def bug(_, msg: Message):
                     [
                         [
                             InlineKeyboardButton(
-                                "➡ View Bug", url=f"{msg.link}")
+                                "➡ View Feedback", url=f"{msg.link}")
                         ],
                         [
                             InlineKeyboardButton(
@@ -118,4 +118,4 @@ async def close_send_photo(Client, CallbackQuery):
     await CallbackQuery.message.delete()
 
 
-__mod_name__ = "Bug"
+__mod_name__ = "feedback"
