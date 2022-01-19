@@ -229,7 +229,7 @@ def promote(update: Update, context: CallbackContext) -> str:
                         [
                           InlineKeyboardButton( text="⏬ Demote", callback_data="demote_({})".format(user_member.user.id),
                             InlineKeyboardButton(
-                                "❎Delete", callback_data="dele_")
+                                "❎Delete", callback_data="unbanb_del")
                         ]
                     ]
                 ), 
