@@ -224,16 +224,18 @@ def promote(update: Update, context: CallbackContext) -> str:
     bot.sendMessage(
         chat.id,
         f"Sucessfully promoted <b>{user_member.user.first_name or user_id}</b>!",
-      reply_markup=InlineKeyboardMarkup(
+          reply_markup=InlineKeyboardMarkup(
                     [
                         [
-                          InlineKeyboardButton( text="⏬ Demote", callback_data="demote_({})".format(user_member.user.id),
-                            InlineKeyboardButton( text="❎ Delete", callback_data="unbanb_del"),
-                        ]
+                            InlineKeyboardButton(
+                                "Delete", callback_data="unbanb_del"),
+                            InlineKeyboardButton(
+                                "Demote", callback_data="demote_({})".format(user_member.user.id)
+                        ],
                     ]
-                ), 
+                ),
                 parse_mode=ParseMode.HTML,
-   )
+            )
 
     log_message = (
         f"<b>{html.escape(chat.title)}:</b>\n"
