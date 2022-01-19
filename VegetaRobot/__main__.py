@@ -380,7 +380,7 @@ def help_button(update, context):
 
 
 
-def emiko_about_callback(update, context):
+def vegeta_about_callback(update, context):
     query = update.callback_query
     if query.data == "vegeta_":
         query.message.edit_text(
