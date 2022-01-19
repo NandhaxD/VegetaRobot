@@ -350,7 +350,7 @@ def info(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                "Health", url="https://t.me/vegetaUpdates/44"),
+                                "Health", url="https://t.me/vegetaUpdates/166"),
                             InlineKeyboardButton(
                                 "Disaster", url="https://t.me/vegetaupdates/43")
                         ],
@@ -368,9 +368,9 @@ def info(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                "Health", url="https://t.me/vegetaUpdates/44"),
+                                "Health", url="https://t.me/vegetaUpdates/166"),
                             InlineKeyboardButton(
-                                "Disaster", url="https://t.me/vegetaUpdates/43")
+                                "Disaster", url="https://t.me/vegetaUpdates/5")
                         ],
                     ]
                 ),
@@ -565,7 +565,7 @@ When marked as AFK, any mentions will be replied to with a message stating that 
   - brb <reason>: Same as the afk command, but not a command. 
   
 *What is that health thingy?*
- Come and see [HP System explained](https://t.me/VegetaUpdates/44)
+ Come and see [HP System explained](https://t.me/vegetaUpdates/166)
 """
 
 SET_BIO_HANDLER = DisableAbleCommandHandler("setbio", set_about_bio, run_async=True)
@@ -587,7 +587,7 @@ dispatcher.add_handler(GET_BIO_HANDLER)
 dispatcher.add_handler(SET_ABOUT_HANDLER)
 dispatcher.add_handler(GET_ABOUT_HANDLER)
 
-__mod_name__ = "Info & AFK"
+__mod_name__ = "Info&afk"
 __command_list__ = ["setbio", "bio", "setme", "me", "info"]
 __handlers__ = [
     ID_HANDLER,
