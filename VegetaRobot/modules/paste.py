@@ -1,12 +1,12 @@
 import requests
-from MashaRoBot import dispatcher
-from MashaRoBot.modules.disable import DisableAbleCommandHandler
+from VegetaRobot import dispatcher
+from VegetaRobot.modules.disable import DisableAbleCommandHandler
 from telegram import ParseMode, Update
 from telegram.ext import CallbackContext, run_async
 
 
-@run_async
-def paster(update: Update, context: CallbackContext):
+
+def paste(update: Update, context: CallbackContext):
     args = context.args
     message = update.effective_message
 
@@ -36,7 +36,7 @@ def paster(update: Update, context: CallbackContext):
     )
 
 
-PASTE_HANDLER = DisableAbleCommandHandler("paster", paster)
+PASTE_HANDLER = DisableAbleCommandHandler("paster", paster, run_async=True)
 dispatcher.add_handler(PASTE_HANDLER)
 
 __command_list__ = ["paste"]
