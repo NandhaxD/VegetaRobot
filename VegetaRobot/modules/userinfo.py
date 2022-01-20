@@ -42,6 +42,8 @@ from VegetaRobot.modules.helper_funcs.chat_status import sudo_plus
 from VegetaRobot.modules.helper_funcs.extraction import extract_user
 from VegetaRobot import telethn
 
+VEGETA ="http://telegra.ph/file/a1c938cf6e2b271e81a9a.jpg"
+
 def no_by_per(totalhp, percentage):
     """
     rtype: num of `percentage` from total
@@ -424,10 +426,10 @@ def set_about_me(update: Update, context: CallbackContext):
 
 @sudo_plus
 def stats(update: Update, context: CallbackContext):
-    stats = "🔥 <b>Stats For <a href='https://telegra.ph//file/a61ed1fede38b8e451c60.jpg'>Scorbunny Robot</a>:</b>\n" + "\n".join([mod.__stats__() for mod in STATS])
+    stats = "🌐 <b> System Status :</b>\n" + "\n".join([mod.__stats__() for mod in STATS])
     result = re.sub(r"(\d+)", r"<code>\1</code>", stats)
-    update.effective_message.reply_text(
-        result,
+    update.effective_message.reply_photo(
+        VEGETA,caption=result,
         parse_mode=ParseMode.HTML, 
         disable_web_page_preview=True
    )
