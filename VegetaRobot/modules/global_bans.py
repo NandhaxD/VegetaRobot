@@ -143,7 +143,11 @@ def gban(update: Update, context: CallbackContext):
 
         return
 
-    message.reply_text("Gban Done!")
+    message.reply_text("*GBAN DONE*",reply_markup=InlineKeyboardMarkup(
+                [
+                  [
+                  InlineKeyboardButton(text="View ✨", url=f"https://t.me/vegetalogs")]],parse_mode=ParseMode.MARKDOWN)
+)
 
     start_time = time.time()
     datetime_fmt = "%Y-%m-%dT%H:%M"
