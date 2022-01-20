@@ -36,7 +36,7 @@ def paste(update: Update, context: CallbackContext):
     )
 
 
-PASTE_HANDLER = DisableAbleCommandHandler("paster", paster, run_async=True)
+PASTE_HANDLER = DisableAbleCommandHandler("paste", paste, run_async=True)
 dispatcher.add_handler(PASTE_HANDLER)
 
 __command_list__ = ["paste"]
