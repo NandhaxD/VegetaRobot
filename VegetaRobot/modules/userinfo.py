@@ -431,7 +431,6 @@ def stats(update: Update, context: CallbackContext):
     update.effective_message.reply_photo(
         VEGETA,caption=result,
         parse_mode=ParseMode.HTML, 
-        disable_web_page_preview=True
    )
         
         
