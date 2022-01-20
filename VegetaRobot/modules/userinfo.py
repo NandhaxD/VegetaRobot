@@ -298,10 +298,10 @@ def info(update: Update, context: CallbackContext):
     disaster_level_present = False
 
     if user.id == OWNER_ID:
-        text += "\n\nBOT-OWNER"
+        text += "\n\nThis person is 'MASTER'."
         disaster_level_present = True
     elif user.id in DEV_USERS:
-        text += "\n\nThis user is 'S-Rank'."
+        text += "\n\nThis person is 'S-Rank'."
         disaster_level_present = True
     elif user.id in DRAGONS:
         text += "\n\nThis person is 'A-Rank'."
@@ -310,10 +310,10 @@ def info(update: Update, context: CallbackContext):
         text += "\n\nThis person is 'B-Rank'."
         disaster_level_present = True
     elif user.id in TIGERS:
-        text += "\n\nThe Disaster level of this person is 'Captain'."
+        text += "\n\nThis person is 'C-Rank'."
         disaster_level_present = True
     elif user.id in WOLVES:
-        text += "\n\nThe Disaster level of this person is 'Soldier'."
+        text += "\n\nThis person is 'D-Rank'."
         disaster_level_present = True
 
     try:
@@ -351,7 +351,7 @@ def info(update: Update, context: CallbackContext):
                             InlineKeyboardButton(
                                 "Health", url="https://t.me/vegetaUpdates/166"),
                             InlineKeyboardButton(
-                                "Disaster", url="https://t.me/vegetaupdates/43")
+                                "Disaster", url="https://t.me/vegetaUpdates/167")
                         ],
                     ]
                 ),
