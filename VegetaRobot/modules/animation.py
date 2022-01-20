@@ -1,7 +1,7 @@
 import time
 from typing import List
 
-from telegram import Update
+from telegram import Update #boom
 from telegram.ext import run_async,CallbackContext
 
 from VegetaRobot import dispatcher
