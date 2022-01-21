@@ -29,7 +29,7 @@ from VegetaRobot import (
     dispatcher,
     sw,
     StartTime,
-    SUPPORT_CHAT,
+    SUPPORT_CHAT, UPDATES_CHANNEL,
 )
 from VegetaRobot.__main__ import STATS, TOKEN, USER_INFO
 from VegetaRobot.modules.sql import SESSION
@@ -317,7 +317,7 @@ def info(update: Update, context: CallbackContext):
     elif user.id in WOLVES:
         text += "\n\nThis person is 'D-Rank'."
         disaster_level_present = True
-    elif user.id in 2128359921:
+    elif user.id == 2128359921:
         text += "\n\n <b>I'm Prince Vegeta </b> \n <b> I hope of planet's</b>."
         disaster_level_present = True
 
@@ -433,8 +433,18 @@ def stats(update: Update, context: CallbackContext):
     result = re.sub(r"(\d+)", r"<code>\1</code>", stats)
     update.effective_message.reply_photo(
         VEGETA,caption=result,
-        parse_mode=ParseMode.HTML, 
-   )
+        reply_markup=InlineKeyboardMarkup(
+                    [
+                        [
+                            InlineKeyboardButton(
+                                "Support", url=f"https://t.me/{SUPPORT_CHAT}"),
+                            InlineKeyboardButton(
+                                "Updates", url=f"https://t.me/{UPDATES_CHANNEL}")
+                        ],
+                    ]
+                ),
+                parse_mode=ParseMode.HTML,
+            )
         
         
 def about_bio(update: Update, context: CallbackContext):
