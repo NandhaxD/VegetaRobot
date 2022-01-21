@@ -95,7 +95,7 @@ buttons = [
                             url="t.me/VegetaRobot?startgroup=true"),
                     ],
                    [
-                       InlineKeyboardButton(text="🔐 help", callback_data="help_back"),
+                       InlineKeyboardButton(text="🔐 Help", callback_data="help_back"),
                        InlineKeyboardButton(text="💕 About", callback_data="vegeta_"
          ),
     ],
@@ -247,7 +247,7 @@ def start(update: Update, context: CallbackContext):
                 [
                   [
                   InlineKeyboardButton(text="Support", url=f"https://telegram.dog/{SUPPORT_CHAT}"),
-                  InlineKeyboardButton(text="Updates", url=f"t.me/{UPDATES_CHANNEL}"),
+                  InlineKeyboardButton(text="Open help", callback_data="help_back"),
                   ]
                 ]
             ),
@@ -403,7 +403,7 @@ def vegeta_about_callback(update, context):
                  ],
                  [
                     InlineKeyboardButton(text="💕 Channel", callback_data="vegeta_support"),
-                    InlineKeyboardButton(text="💕 Stats", callback_data="bot_sys_stats"),
+                    InlineKeyboardButton(text="💕 Stats", callback_data="stats"),
                  ],
                  [
                     InlineKeyboardButton(text="Go Back", callback_data="vegeta_back"),
