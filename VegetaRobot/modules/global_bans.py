@@ -22,6 +22,8 @@ from VegetaRobot.modules.helper_funcs.extraction import (extract_user,
 from VegetaRobot.modules.helper_funcs.misc import send_to_list
 
 GBAN_IMG="https://telegra.ph/file/8bcbc19e1a0605f9e2339.jpg"
+VEGETA="http://telegra.ph/file/890bb9006af6a914362a1.jpg"
+
 
 GBAN_ENFORCE_GROUP = 6
 
@@ -143,10 +145,10 @@ def gban(update: Update, context: CallbackContext):
 
         return
 
-    message.reply_text("*GBAN DONE*",reply_markup=InlineKeyboardMarkup(
+    message.reply_photo(VEGETA,caption="<b>GBAN DONE</b>!",reply_markup=InlineKeyboardMarkup(
                 [
                   [
-                  InlineKeyboardButton(text="View ✨", url=f"https://t.me/vegetalogs")]],parse_mode=ParseMode.MARKDOWN)
+                  InlineKeyboardButton(text="View Gban✨", url=f"https://t.me/vegetalogs")]],parse_mode=ParseMode.HTML)
 )
 
     start_time = time.time()
