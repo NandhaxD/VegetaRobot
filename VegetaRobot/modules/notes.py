@@ -1,4 +1,4 @@
-import re, ast
+import re, ast, html
 from io import BytesIO
 import random
 from typing import Optional
