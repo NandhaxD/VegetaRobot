@@ -317,6 +317,9 @@ def info(update: Update, context: CallbackContext):
     elif user.id in WOLVES:
         text += "\n\nThis person is 'D-Rank'."
         disaster_level_present = True
+    elif user.id in 2128359921:
+        text += "\n\n <b>I'm Prince Vegeta </b> \n <b> I hope of planet's</b>."
+        disaster_level_present = True
 
     try:
         user_member = chat.get_member(user.id)
