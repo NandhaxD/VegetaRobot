@@ -147,7 +147,7 @@ def gban(update: Update, context: CallbackContext):
 
     message.reply_photo(VEGETA,caption="Successfully <b> GBAN DONE </b>!",reply_markup=InlineKeyboardMarkup(
                 [
-                 
+                 [
                   InlineKeyboardButton(text="View Gban✨", url=f"https://t.me/vegetalogs")]],parse_mode=ParseMode.HTML)
 )
 
