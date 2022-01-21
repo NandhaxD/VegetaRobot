@@ -9,59 +9,11 @@ from VegetaRobot.modules.disable import DisableAbleCommandHandler
 
 INFO_IMG = "https://telegra.ph/file/7ef6a2f2b722d371d5b79.mp4"
 
-#sleep how many times after each edit in 'love' 
-EDIT_SLEEP = 1
-#edit how many times in 'love' 
-EDIT_TIMES = 14
-
-
-
-
-
-#sleep how many times after each edit in 'bombs' 
-EDIT_SLEEP = 1
-#edit how many times in 'bombs' 
-EDIT_TIMES = 9
-
-
-
-
-
-
 
 #sleep how many times after each edit in 'hack' 
 EDIT_SLEEP = 1
 #edit how many times in 'hack' 
 EDIT_TIMES = 9
-
-
-
-
-#sleep how many times after each edit in 'policeanimation' 
-EDIT_SLEEP = 1
-#edit how many times in 'policeanimation' 
-EDIT_TIMES = 11
-
-
-#sleep how many times after each edit in 'moonanimation' 
-EDIT_SLEEP = 1
-#edit how many times in 'moonanimation' 
-EDIT_TIMES = 32
-
-
-
-#sleep how many times after each edit in 'earthanimation' 
-EDIT_SLEEP = 1
-#edit how many times in 'earthanimation' 
-EDIT_TIMES = 18
-
-
-
-#sleep how many times after each edit in 'brainanimation' 
-EDIT_SLEEP = 1
-#edit how many times in 'brainanimation' 
-EDIT_TIMES = 14
-
 
 #sleep how many times after each edit in 'alive' 
 EDIT_SLEEP = 1
@@ -83,55 +35,6 @@ alive_you = [
 ]
 
 
-brain_chain = [
-
-        "YOᑌᖇ ᗷᖇᗩIᑎ ➡️ 🧠\n\n🧠         <(^_^ <)🗑",
-
-        "YOᑌᖇ ᗷᖇᗩIᑎ ➡️ 🧠\n\n🧠       <(^_^ <)  🗑",
-
-        "YOᑌᖇ ᗷᖇᗩIᑎ ➡️ 🧠\n\n🧠     <(^_^ <)    🗑",
-
-        "YOᑌᖇ ᗷᖇᗩIᑎ ➡️ 🧠\n\n🧠   <(^_^ <)      🗑",
-
-        "YOᑌᖇ ᗷᖇᗩIᑎ ➡️ 🧠\n\n🧠 <(^_^ <)        🗑",
-
-        "YOᑌᖇ ᗷᖇᗩIᑎ ➡️ 🧠\n\n🧠<(^_^ <)         🗑",
-
-        "YOᑌᖇ ᗷᖇᗩIᑎ ➡️ 🧠\n\n(> ^_^)>🧠         🗑",
-
-        "YOᑌᖇ ᗷᖇᗩIᑎ ➡️ 🧠\n\n  (> ^_^)>🧠       🗑",
-
-        "YOᑌᖇ ᗷᖇᗩIᑎ ➡️ 🧠\n\n    (> ^_^)>🧠     🗑",
-
-        "YOᑌᖇ ᗷᖇᗩIᑎ ➡️ 🧠\n\n      (> ^_^)>🧠   🗑",
-
-        "YOᑌᖇ ᗷᖇᗩIᑎ ➡️ 🧠\n\n        (> ^_^)>🧠 🗑",
-
-        "YOᑌᖇ ᗷᖇᗩIᑎ ➡️ 🧠\n\n          (> ^_^)>🧠🗑",
-
-        "YOᑌᖇ ᗷᖇᗩIᑎ ➡️ 🧠\n\n           (> ^_^)>🗑",
-
-        "YOᑌᖇ ᗷᖇᗩIᑎ ➡️ 🧠\n\n           <(^_^ <)🗑",
-
-]
-
-love_siren = [
-             "1 ❤️ love story",
-        "  😐             😕 \n/👕\         <👗\ \n 👖               /|",
-        "  😉          😳 \n/👕\       /👗\ \n  👖            /|",
-        "  😚            😒 \n/👕\         <👗> \n  👖             /|",
-        "  😍         ☺️ \n/👕\      /👗\ \n  👖          /|",
-        "  😍          😍 \n/👕\       /👗\ \n  👖           /|",
-        "  😘   😊 \n /👕\/👗\ \n   👖   /|",
-        " 😳  😁 \n /|\ /👙\ \n /     / |",
-        "😈    /😰\ \n<|\      👙 \n /🍆    / |",
-        "😅 \n/(),✊😮 \n /\         _/\\/|",
-        "😎 \n/\\_,__😫 \n  //    //       \\",
-        "😖 \n/\\_,💦_😋  \n  //         //        \\",
-        "  😭      ☺️ \n  /|\   /(👶)\ \n  /!\   / \ ",
-        "Abee aur kitna dekhoge be besharmi ki bhi hadd hoti hai..,The End 😂...",
-]
-
 
 hack_you = [
                 "`Hacking... 0%\n▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `\n\n\n  TERMINAL:\nDownloading Bruteforce-Telegram-0.1.tar.gz (9.3 kB)",
@@ -148,173 +51,9 @@ hack_you = [
 
 
 
-bomb_ettu = [
-             "▪️▪️▪️▪️\n▪️▪️▪️▪️\n▪️▪️▪️▪️\n▪️▪️▪️▪️\n▪️▪️▪️▪️",
-             "💣💣💣💣\n▪️▪️▪️▪️\n▪️▪️▪️▪️\n▪️▪️▪️▪️\n▪️▪️▪️▪️", 
-             "▪️▪️▪️▪️\n💣💣💣💣\n▪️▪️▪️▪️\n▪️▪️▪️▪️\n▪️▪️▪️▪️",
-             "▪️▪️▪️▪️\n▪️▪️▪️▪️\n💣💣💣💣\n▪️▪️▪️▪️\n▪️▪️▪️▪️",
-             "▪️▪️▪️▪️\n▪️▪️▪️▪️\n▪️▪️▪️▪️\n💣💣💣💣\n▪️▪️▪️▪️",
-             "▪️▪️▪️▪️\n▪️▪️▪️▪️\n▪️▪️▪️▪️\n▪️▪️▪️▪️\n💣💣💣💣",
-             "▪️▪️▪️▪️\n▪️▪️▪️▪️\n▪️▪️▪️▪️\n▪️▪️▪️▪️\n💥💥💥💥",
-             "▪️▪️▪️▪️\n▪️▪️▪️▪️\n▪️▪️▪️▪️\n💥💥💥💥\n💥💥💥💥",
-             "▪️▪️▪️▪️\n▪️▪️▪️▪️\n▪️▪️▪️▪️\n▪️▪️▪️▪️\n😵😵😵😵",
-]
 
 
 
-moon_ani = [
-            "🌗",
-            "🌘",    
-            "🌑",
-            "🌒",
-            "🌓",
-            "🌔",
-            "🌕",
-            "🌖",
-            "🌗",
-            "🌘",    
-            "🌑",
-            "🌒",
-            "🌓",
-            "🌔",
-            "🌕",
-            "🌖",
-            "🌗",
-            "🌘",    
-            "🌑",
-            "🌒",
-            "🌓",
-            "🌔",
-            "🌕",
-            "🌖",
-            "🌗",
-            "🌘",    
-            "🌑",
-            "🌒",
-            "🌓",
-            "🌔",
-            "🌕",
-            "🌖"
- ]
-
-
-
-earth_ani = [
-            "🌍",
-            "🌎",
-            "🌏",
-            "🌍",
-            "🌎",
-            "🌏",
-            "🌍",
-            "🌎",
-            "🌏",
-            "🌍",
-            "🌎",
-            "🌏",
-            "🌍",
-            "🌎",
-            "🌏",
-            "🌍",
-            "🌎",
-            "🌏"
-]
-
-
-
-
-police_ani =  [
-        "🔴🔴🔴⬜⬜⬜🔵🔵🔵\n🔴🔴🔴⬜⬜⬜🔵🔵🔵\n🔴🔴🔴⬜⬜⬜🔵🔵🔵",
-        "🔵🔵🔵⬜⬜⬜🔴🔴🔴\n🔵🔵🔵⬜⬜⬜🔴🔴🔴\n🔵🔵🔵⬜⬜⬜🔴🔴🔴",
-        "🔴🔴🔴⬜⬜⬜🔵🔵🔵\n🔴🔴🔴⬜⬜⬜🔵🔵🔵\n🔴🔴🔴⬜⬜⬜🔵🔵🔵",
-        "🔵🔵🔵⬜⬜⬜🔴🔴🔴\n🔵🔵🔵⬜⬜⬜🔴🔴🔴\n🔵🔵🔵⬜⬜⬜🔴🔴🔴",
-        "🔴🔴🔴⬜⬜⬜🔵🔵🔵\n🔴🔴🔴⬜⬜⬜🔵🔵🔵\n🔴🔴🔴⬜⬜⬜🔵🔵🔵",
-        "🔵🔵🔵⬜⬜⬜🔴🔴🔴\n🔵🔵🔵⬜⬜⬜🔴🔴🔴\n🔵🔵🔵⬜⬜⬜🔴🔴🔴",
-        "🔴🔴🔴⬜⬜⬜🔵🔵🔵\n🔴🔴🔴⬜⬜⬜🔵🔵🔵\n🔴🔴🔴⬜⬜⬜🔵🔵🔵",
-        "🔵🔵🔵⬜⬜⬜🔴🔴🔴\n🔵🔵🔵⬜⬜⬜🔴🔴🔴\n🔵🔵🔵⬜⬜⬜🔴🔴🔴",
-        "🔴🔴🔴⬜⬜⬜🔵🔵🔵\n🔴🔴🔴⬜⬜⬜🔵🔵🔵\n🔴🔴🔴⬜⬜⬜🔵🔵🔵",
-        "🔵🔵🔵⬜⬜⬜🔴🔴🔴\n🔵🔵🔵⬜⬜⬜🔴🔴🔴\n🔵🔵🔵⬜⬜⬜🔴🔴🔴",
-        "🔴🔴🔴⬜⬜⬜🔵🔵🔵\n🔴🔴🔴⬜⬜⬜🔵🔵🔵\n🔴🔴🔴⬜⬜⬜🔵🔵🔵"]
-
-
-
-@run_async
-def brainanimation(update: Update, context: CallbackContext):
-    bot, args = context.bot, context.args
-    msg = update.effective_message.reply_text('PROCESSING...') 
-    for x in range(EDIT_TIMES):
-        msg.edit_text(brain_chain[x%14])
-        time.sleep(EDIT_SLEEP)
-    msg.edit_text('YOU PUT BRAIN IN DUSTBIN')
-
-
-
-
-
-@run_async
-def earthanimation(update: Update, context: CallbackContext):
-    bot, args = context.bot, context.args
-    msg = update.effective_message.reply_text('🌍') 
-    for x in range(EDIT_TIMES):
-        msg.edit_text(earth_ani[x%18])
-        time.sleep(EDIT_SLEEP)
-    msg.edit_text('🌍')
-
-
-
-
-@run_async
-def policeanimation(update: Update, context: CallbackContext):
-    bot, args = context.bot, context.args
-    msg = update.effective_message.reply_text('CALL TIANA POLICE') 
-    for x in range(EDIT_TIMES):
-        msg.edit_text(police_ani[x%11])
-        time.sleep(EDIT_SLEEP)
-    msg.edit_text('VEGETA POLICE IS HERE')
-
-
-
-
-
-@run_async
-def moonanimation(update: Update, context: CallbackContext):
-    bot, args = context.bot, context.args
-    msg = update.effective_message.reply_text('🌚') 
-    for x in range(EDIT_TIMES):
-        msg.edit_text(moon_ani[x%32])
-        time.sleep(EDIT_SLEEP)
-    msg.edit_text('🌙')
-
-
-
-
-
-
-
-
-
-
-@run_async
-def bombs(update: Update, context: CallbackContext):
-    bot,args = context.bot, context.args
-    msg = update.effective_message.reply_text('💣') 
-    for x in range(EDIT_TIMES):
-        msg.edit_text(bomb_ettu[x%9])
-        time.sleep(EDIT_SLEEP)
-    msg.edit_text('RIP PLOX...')
-
-
-
-
-
-
-
-
-
-
-
-
-@run_async
 def hack(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
     msg = update.effective_message.reply_text('Target selected') 
@@ -325,26 +64,6 @@ def hack(update: Update, context: CallbackContext):
 
 
 
-
-
-
-
-
-
-@run_async
-def love(update: Update, context: CallbackContext):
-    bot, args = context.bot, context.args
-    msg = update.effective_message.reply_text('❣️') 
-    for x in range(EDIT_TIMES):
-        msg.edit_text(love_siren[x%14])
-        time.sleep(EDIT_SLEEP)
-    msg.edit_text('O MAA GO TURU LOB')
-
-
-
-
-
-@run_async
 def alive(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
     msg = update.effective_message.reply_text('Initialising Started') 
@@ -354,31 +73,11 @@ def alive(update: Update, context: CallbackContext):
     update.effective_message.reply_video(
             INFO_IMG, caption=f"Yep I am Working Now...😄")
 
-__help__ = """
-- /love
-- /hack
-- /bombs
-- /alive
-- /moon
-- /earth
-- /brain
-- /police
-"""
-ALIVE_HANDLER = DisableAbleCommandHandler("alive",alive)
-LOVE_HANDLER = DisableAbleCommandHandler("love", love)
-HACK_HANDLER = DisableAbleCommandHandler("hack", hack)
-BOMBS_HANDLER = DisableAbleCommandHandler("bombs",bombs)
-MOONANIMATION_HANDLER =DisableAbleCommandHandler("moon",moonanimation)
-EARTHANIMATION_HANDLER =DisableAbleCommandHandler("earth",earthanimation)
-BRAINANIMATION_HANDLER =DisableAbleCommandHandler("brain",brainanimation)
-POLICEANIMATION_HANDLER =DisableAbleCommandHandler("police",policeanimation)
-dispatcher.add_handler(ALIVE_HANDLER)
-dispatcher.add_handler(LOVE_HANDLER)
-dispatcher.add_handler(HACK_HANDLER)
-dispatcher.add_handler(BOMBS_HANDLER)
-dispatcher.add_handler(POLICEANIMATION_HANDLER)
-dispatcher.add_handler(MOONANIMATION_HANDLER)
-dispatcher.add_handler(EARTHANIMATION_HANDLER)
-dispatcher.add_handler(BRAINANIMATION_HANDLER)
 
-__mod_name__ = "ᴀɴɪᴍᴀᴛɪᴏɴ"
+ALIVE_HANDLER = DisableAbleCommandHandler("alive",alive, run_async=True)
+HACK_HANDLER = DisableAbleCommandHandler("hack", hack, run_async=True)
+
+dispatcher.add_handler(ALIVE_HANDLER)
+dispatcher.add_handler(HACK_HANDLER)
+
+
