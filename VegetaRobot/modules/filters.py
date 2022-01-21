@@ -1,5 +1,5 @@
 import re
-import random
+import random #vegeta
 from html import escape
 import telegram
 from telegram import ParseMode, InlineKeyboardMarkup, Message, InlineKeyboardButton
@@ -631,7 +631,7 @@ doin?
 Check /markdownhelp to know more!
 """
 
-__mod_name__ = "Filters✨"
+__mod_name__ = "✨Filters"
 
 FILTER_HANDLER = CommandHandler("filter", filters)
 STOP_HANDLER = CommandHandler("stop", stop_filter)
