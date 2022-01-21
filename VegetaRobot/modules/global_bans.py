@@ -145,10 +145,10 @@ def gban(update: Update, context: CallbackContext):
 
         return
 
-    message.reply_photo(VEGETA,caption="Successfully <b> GBAN DONE </b>!",reply_markup=InlineKeyboardMarkup(
+    message.reply_photo(VEGETA,caption="Successfully **GBAN DONE **!",reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                  InlineKeyboardButton(text="View Gban✨", url=f"https://t.me/vegetalogs")]],parse_mode=ParseMode.HTML)
+                  InlineKeyboardButton(text="View Gban ✨", url=f"https://t.me/vegetalogs")]],parse_mode=ParseMode.HTML)
 )
 
     start_time = time.time()
