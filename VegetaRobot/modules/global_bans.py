@@ -22,7 +22,7 @@ from VegetaRobot.modules.helper_funcs.extraction import (extract_user,
 from VegetaRobot.modules.helper_funcs.misc import send_to_list
 
 GBAN_IMG="http://telegra.ph/file/c2085248c7e5e77589667.jpg"
-GBANDONE="http://telegra.ph/file/890bb9006af6a914362a1.jpg"
+GBAN_DONE="http://telegra.ph/file/890bb9006af6a914362a1.jpg"
 
 
 GBAN_ENFORCE_GROUP = 6
@@ -145,7 +145,7 @@ def gban(update: Update, context: CallbackContext):
 
         return
 
-    message.reply_photo(VEGETADONE,caption="Successfully GBAN DONE!",reply_markup=InlineKeyboardMarkup(
+    message.reply_photo(GBAN_DONE,caption="Successfully GBAN DONE!",reply_markup=InlineKeyboardMarkup(
                 [
                  [
                   InlineKeyboardButton(text="View Gban ✨", url=f"https://t.me/vegetalogs")]],parse_mode=ParseMode.HTML)
