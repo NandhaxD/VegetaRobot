@@ -14,8 +14,9 @@ async def get_user_info(user, already=False):
     if not user.first_name:
         return ["Deleted account", None]
     photo_id = user.photo.big_file_id if user.photo else None
+    first_name = user.first_name
     body = {
-        "user pfp",
+        "profile by", [first_name],
     }
     caption = section("User info", body)
     return [caption, photo_id]
