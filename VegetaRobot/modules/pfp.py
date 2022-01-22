@@ -15,8 +15,10 @@ async def get_user_info(user, already=False):
         return ["Deleted account", None]
     photo_id = user.photo.big_file_id if user.photo else None
     first_name = user.first_name
+    vegeta = "@VegetaRobot"
     body = {
         "profile by", [first_name],
+        "Made by": vegeta,
     }
     caption = section("User info", body)
     return [caption, photo_id]
