@@ -106,12 +106,7 @@ def repo(update, context):
     
  
 
-def pfp(update, context):
-profile = context.bot.get_user_profile_photos(user.id)
-text="made by @vegetaRobot"
-context.bot.sendChatAction(chat.id, "upload_photo")
-context.bot.send_photo(chat.id, photo=profile, caption=(text))
-  
+
 @run_async
 def insult(update, context):
     context.bot.sendChatAction(update.effective_chat.id, "typing") # Bot typing before send messages
@@ -202,7 +197,6 @@ TAMILMEME_HANDLER = DisableAbleCommandHandler("tamilmeme", tamilmeme)
 TRUTH_HANDLER = DisableAbleCommandHandler("truth", truth)
 INSULT_HANDLER = DisableAbleCommandHandler("insult", insult)
 ABUSE_HANDLER = DisableAbleCommandHandler("abuse", abuse)
-PFP_HANDLER = DisableAbleCommandHandler("pfp", pfp, run_async=True)
 
 dispatcher.add_handler(GOODMORNING_HANDLER)
 dispatcher.add_handler(GOODNIGHT_HANDLER)
@@ -217,12 +211,9 @@ dispatcher.add_handler(TRUTH_HANDLER)
 dispatcher.add_handler(REPO_HANDLER)
 dispatcher.add_handler(DARE_HANDLER)
 dispatcher.add_handler(TAMILMEME_HANDLER)
-dispatcher.add_handler(PFP_HANDLER)
 
 __help__ = f"""
-This Module credits by @VegetaRobot
-*`Goodnight`|`goodmorning`
-bot send GM or GN image,*
+*Goodnight*|*goodmorning* bot send GM or GN image,*
  • /decide - bot send radom decides.
  • /pat - reply to user.
  • /wish your wish possible chance random.
@@ -230,7 +221,7 @@ bot send GM or GN image,*
  • /insult - bot send insult message.
  • /abuse - bot send abuse message.
  • /tamilmeme - get meme for tami language.
-report bug - @{SUPPORT_CHAT}`
+report bug - @{SUPPORT_CHAT}
 """
 
 __mod_name__ = "😁Fun"
