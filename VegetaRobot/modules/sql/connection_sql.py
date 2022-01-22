@@ -3,6 +3,8 @@ import time
 from typing import Union
 
 from sqlalchemy import Column, String, Boolean, UnicodeText, Integer
+from sqlalchemy.sql.sqltypes import BigInteger
+
 
 from VegetaRobot.modules.sql import SESSION, BASE
 
@@ -33,10 +35,10 @@ class Connection(BASE):
 
 class ConnectionHistory(BASE):
     __tablename__ = "connection_history"
-    user_id = Column(Integer, primary_key=True)
+    user_id = Column(BigInteger, primary_key=True)
     chat_id = Column(String(14), primary_key=True)
     chat_name = Column(UnicodeText)
-    conn_time = Column(Integer)
+    conn_time = Column(BigInteger)
 
     def __init__(self, user_id, chat_id, chat_name, conn_time):
         self.user_id = user_id
