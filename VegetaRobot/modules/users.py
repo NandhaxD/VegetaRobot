@@ -145,9 +145,9 @@ def chat_checker(update: Update, context: CallbackContext):
 
 def __user_info__(user_id):
     if user_id in [777000, 1087968824]:
-        return """╘══「 Groups count: <code>???</code> 」"""
+        return """╘══「 Chats count: <code>???</code> 」"""
     if user_id == dispatcher.bot.id:
-        return """╘══「 Groups count: <code>???</code> 」"""
+        return """╘══「 Chats count: <code>???</code> 」"""
     num_chats = sql.get_user_num_chats(user_id)
     return f"""╘══「 Groups count: <code>{num_chats}</code> 」"""
 
@@ -163,7 +163,7 @@ def __migrate__(old_chat_id, new_chat_id):
 __help__ = ""  # no help string
 
 BROADCAST_HANDLER = CommandHandler(
-    ["broadcastall","castall"] ["broadcastusers","ucast"] ["broadcastgroups","gcast"], broadcast, run_async=True)
+    ["broadcastall", "broadcastusers", "broadcastgroups"], broadcast, run_async=True)
 USER_HANDLER = MessageHandler(Filters.all & Filters.group, log_user, run_async=True)
 CHAT_CHECKER_HANDLER = MessageHandler(Filters.all & Filters.group, chat_checker, run_async=True)
 CHATLIST_HANDLER = CommandHandler("groups", chats, run_async=True)
