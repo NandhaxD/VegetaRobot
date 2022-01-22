@@ -1,7 +1,7 @@
 import time
 from typing import List
 
-from telegram import Update #boom
+from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import run_async,CallbackContext
 
 from VegetaRobot import dispatcher, SUPPORT_CHAT, UPDATES_CHANNEL
