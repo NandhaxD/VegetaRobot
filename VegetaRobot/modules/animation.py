@@ -4,7 +4,7 @@ from typing import List
 from telegram import Update #boom
 from telegram.ext import run_async,CallbackContext
 
-from VegetaRobot import dispatcher
+from VegetaRobot import dispatcher, SUPPORT_CHAT, UPDATES_CHANNEL
 from VegetaRobot.modules.disable import DisableAbleCommandHandler
 
 INFO_IMG = "https://telegra.ph/file/7ef6a2f2b722d371d5b79.mp4"
@@ -71,7 +71,15 @@ def alive(update: Update, context: CallbackContext):
         msg.edit_text(alive_you[x%7])
         time.sleep(EDIT_SLEEP)
     update.effective_message.reply_video(
-            INFO_IMG, caption=f"Yep I am Working Now...😄")
+            INFO_IMG, caption=f"Yep I am Working Now...😄",reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+       InlineKeyboardButton(text="👥Support", url=f"t.me/{SUPPORT_CHAT}"),
+       InlineKeyboardButton(text="📢Updates", url=f"t.me/{UPDATES_CHANNEL}"),
+                    ]
+                ]
+            ),
+            parse_mode=ParseMode.MARKDOWN,)
 
 
 ALIVE_HANDLER = DisableAbleCommandHandler("alive",alive, run_async=True)
