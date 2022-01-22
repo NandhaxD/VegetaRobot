@@ -403,7 +403,7 @@ def vegeta_about_callback(update, context):
                  ],
                  [
                     InlineKeyboardButton(text="💕 Channel", callback_data="vegeta_support"),
-                    InlineKeyboardButton(text="💕 Stats", callback_data="stats"),
+                    InlineKeyboardButton(text="💕 Stats", callback_data="stats_callback"),
                  ],
                  [
                     InlineKeyboardButton(text="Go Back", callback_data="vegeta_back"),
