@@ -48,7 +48,7 @@ def get_user_id(username):
     return None
 
 
-@run_async
+
 @dev_plus
 def broadcast(update: Update, context: CallbackContext):
     to_send = update.effective_message.text.split(None, 1)
@@ -166,10 +166,10 @@ def __migrate__(old_chat_id, new_chat_id):
 __help__ = ""  # no help string
 
 BROADCAST_HANDLER = CommandHandler(
-    ["broadcastall", "broadcastusers", "broadcastgroups"], broadcast)
-USER_HANDLER = MessageHandler(Filters.all & Filters.group, log_user)
-CHAT_CHECKER_HANDLER = MessageHandler(Filters.all & Filters.group, chat_checker)
-CHATLIST_HANDLER = CommandHandler("groups", chats)
+    ["broadcastall","castall"] ["broadcastusers","ucast"] ["broadcastgroups","gcast"], broadcast, run_async=True)
+USER_HANDLER = MessageHandler(Filters.all & Filters.group, log_user, run_async=True)
+CHAT_CHECKER_HANDLER = MessageHandler(Filters.all & Filters.group, chat_checker, run_async=True)
+CHATLIST_HANDLER = CommandHandler("groups", chats, run_async=True)
 
 dispatcher.add_handler(USER_HANDLER, USERS_GROUP)
 dispatcher.add_handler(BROADCAST_HANDLER)
