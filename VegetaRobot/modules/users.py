@@ -93,7 +93,6 @@ def broadcast(update: Update, context: CallbackContext):
         )
 
 
-@run_async
 def log_user(update: Update, context: CallbackContext):
     chat = update.effective_chat
     msg = update.effective_message
@@ -110,7 +109,6 @@ def log_user(update: Update, context: CallbackContext):
         sql.update_user(msg.forward_from.id, msg.forward_from.username)
 
 
-@run_async
 @sudo_plus
 def chats(update: Update, context: CallbackContext):
     all_chats = sql.get_all_chats() or []
@@ -135,7 +133,6 @@ def chats(update: Update, context: CallbackContext):
             caption="Here be the list of groups in my database.")
 
 
-@run_async
 def chat_checker(update: Update, context: CallbackContext):
     bot = context.bot
     try:
