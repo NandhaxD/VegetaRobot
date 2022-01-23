@@ -74,14 +74,14 @@ def alive(update: Update, context: CallbackContext):
         msg.edit_text(alive_you[x%7])
         time.sleep(EDIT_SLEEP)
     update.effective_message.reply_video(
-            INFO_IMG, caption=f"""*MASTER* - @bakugoNo1\n
-                                  *BOTSTATS* - `Alive`\n
-                                  *python version* - `{python_version}`\n
-                                  *program version* - `{pyrover}`""",reply_markup=InlineKeyboardMarkup(
+            INFO_IMG, caption=f"""\n*MASTER:* @bakugoNo1
+                                  *BOTSTATS:*`Alive`
+                                  *python version:*`{python_version}`
+                                  *program version:*`{pyrover}`""",reply_markup=InlineKeyboardMarkup(
                 [
                     [
-       InlineKeyboardButton(text="👥Support", url=f"t.me/{SUPPORT_CHAT}"),
-       InlineKeyboardButton(text="📢Updates", url=f"t.me/{UPDATES_CHANNEL}"),
+       InlineKeyboardButton(text="👥 Support", url=f"t.me/{SUPPORT_CHAT}"),
+       InlineKeyboardButton(text="📢 Updates", url=f"t.me/{UPDATES_CHANNEL}"),
                     ]
                 ]
             ),
