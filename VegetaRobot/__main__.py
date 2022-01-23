@@ -79,9 +79,8 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
- ──『[SAIYAN VEGETA](https://telegra.ph/file/561fa547f3c4940c95ddf.jpg)』
+ ──『[┗► *{}* ◄┛ 』
 
-Hey ┗► {} ◄┛ ✨
 𝐈 Am *Prince Vegeta* Add 𝐌𝐞 𝐓𝐨 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩 𝐈 𝐖𝐢𝐥𝐥 𝐃𝐞𝐬𝐭𝐫𝐨𝐲 𝐄𝐯𝐢𝐥𝐬 𝐖𝐢𝐭𝐡 𝐌𝐲 Powers...\n
 *JOIN OFFICIAL* -
 [CHANNEL](t.me/pegasusUpdates) - [SUPPORT](t.me/pegasusSupportChat)\n
@@ -119,7 +118,7 @@ List of all the Modules:
 HELP_MSG = "Click the button below to get help manu in your pm."
 DONATE_STRING = """Contact to **@PegasusXrobot**"""
 HELP_IMG= "https://telegra.ph/file/9d2c6e3b28afe7619856e.jpg"
-VEGETA_IMG= "https://telegra.ph/file/9d2c6e3b28afe7619856e.jpg"
+VEGETA_IMG= "https://telegra.ph/file/561fa547f3c4940c95ddf.jpg"
 GROUPSTART_IMG= "https://telegra.ph/file/1cbafa58dda18528f9e0c.mp4"
 
 STICKERS = ( "CAACAgUAAx0CXss_8QABAjzEYaXnOPwfLA22Dea6kU6EvrELQWgAAmoEAAIYaChVcBl8nrGetAIiBA",
@@ -421,7 +420,7 @@ def vegeta_about_callback(update, context):
 
     elif query.data == "vegeta_admin":
         query.message.edit_caption(
-            text=f"*๏ Let's make your group bit effective now*"
+            "*๏ Let's make your group bit effective now*"
             "\nCongragulations, VegetaRobot now ready to manage your group."
             "\n\n*Admin Tools*"
             "\nBasic Admin tools help you to protect and powerup your group."
@@ -437,10 +436,10 @@ def vegeta_about_callback(update, context):
 
     elif query.data == "vegeta_notes":
         query.message.edit_caption(
-            text=f"<b>๏ Setting up notes</b>"
-            f"\nYou can save message/media/audio or anything as notes"
-            f"\nto get a note simply use # at the beginning of a word"
-            f"\n\nYou can also set buttons for notes and filters (refer help menu)",
+            "<b>๏ Setting up notes</b>"
+            "\nYou can save message/media/audio or anything as notes"
+            "\nto get a note simply use # at the beginning of a word"
+            "\n\nYou can also set buttons for notes and filters (refer help menu)",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton(text="Go Back", callback_data="vegeta_")]]
@@ -448,7 +447,7 @@ def vegeta_about_callback(update, context):
         )
     elif query.data == "vegeta_support":
         query.message.edit_caption(
-            text="*๏ Vegeta support chats*"
+            "*๏ Vegeta support chats*"
             "\nJoin My Support Group/Channel for see or report a problem on Vegeta.",
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
