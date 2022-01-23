@@ -327,7 +327,6 @@ def help_button(update, context):
         if mod_match:
             module = mod_match.group(1)
             message = update.effective_message
-            vegeta = "https://telegra.ph/file/9d2c6e3b28afe7619856e.jpg"
             text = (
                 "\nModule Name - *{}*\n".format(
                     HELPABLE[module].__mod_name__
@@ -335,7 +334,7 @@ def help_button(update, context):
                 + HELPABLE[module].__help__
             )
             query.message.edit_caption(
-                text=text,
+                text,
                 parse_mode=ParseMode.MARKDOWN,
                 disable_web_page_preview=False,
                 reply_markup=InlineKeyboardMarkup(
