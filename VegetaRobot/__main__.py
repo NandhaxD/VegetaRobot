@@ -335,7 +335,7 @@ def help_button(update, context):
                 + HELPABLE[module].__help__
             )
             query.message.edit_media(
-                media=vegeta
+                media=vegeta,
                 text=text,
                 parse_mode=ParseMode.MARKDOWN,
                 disable_web_page_preview=True,
