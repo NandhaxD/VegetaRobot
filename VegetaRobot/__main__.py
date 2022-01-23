@@ -336,7 +336,7 @@ def help_button(update, context):
             )
             query.message.edit_media(
                 media=vegeta,
-                text=text,
+                caption=text,
                 parse_mode=ParseMode.MARKDOWN,
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup(
