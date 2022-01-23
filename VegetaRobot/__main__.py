@@ -119,6 +119,7 @@ List of all the Modules:
 HELP_MSG = "Click the button below to get help manu in your pm."
 DONATE_STRING = """Contact to **@PegasusXrobot**"""
 HELP_IMG= "https://telegra.ph/file/9d2c6e3b28afe7619856e.jpg"
+VEGETA_IMG= "https://telegra.ph/file/9d2c6e3b28afe7619856e.jpg"
 GROUPSTART_IMG= "https://telegra.ph/file/1cbafa58dda18528f9e0c.mp4"
 
 STICKERS = ( "CAACAgUAAx0CXss_8QABAjzEYaXnOPwfLA22Dea6kU6EvrELQWgAAmoEAAIYaChVcBl8nrGetAIiBA",
@@ -332,7 +333,8 @@ def help_button(update, context):
                 )
                 + HELPABLE[module].__help__
             )
-            query.message.edit_text(
+            query.message.edit_media(
+                VEGETA_IMG,
                 text=text,
                 parse_mode=ParseMode.MARKDOWN,
                 disable_web_page_preview=True,
