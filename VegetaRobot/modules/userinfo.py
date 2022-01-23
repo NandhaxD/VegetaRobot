@@ -172,7 +172,7 @@ def get_id(update: Update, context: CallbackContext):
 
     else:
         msg.reply_text(
-            f"*{(html.escape(chat.title)}*'s id is `{chat.id}`.", parse_mode=ParseMode.MARKDOWN,
+            f"*{(html.escape(chat.title))}*'s id is `{chat.id}`.", parse_mode=ParseMode.MARKDOWN,
         )
 
 
@@ -300,16 +300,16 @@ def info(update: Update, context: CallbackContext):
     disaster_level_present = False
 
     if user.id == OWNER_ID:
-        text += "\n\nThis person is 'MASTER'."
+        text += "\n\nThis person is '<b>MASTER</b>'."
         disaster_level_present = True
     elif user.id in DEV_USERS:
-        text += "\n\nThis person is 'S-Rank'."
+        text += "\n\nThis person is '<b>S-Rank</b>'."
         disaster_level_present = True
     elif user.id in DRAGONS:
-        text += "\n\nThis person is 'A-Rank'."
+        text += "\n\nThis person is '<b>A-Rank</b>'."
         disaster_level_present = True
     elif user.id in DEMONS:
-        text += "\n\nThis person is 'B-Rank'."
+        text += "\n\nThis person is '<b>B-Rank</b>'."
         disaster_level_present = True
     elif user.id in TIGERS:
         text += "\n\nThis person is 'C-Rank'."
