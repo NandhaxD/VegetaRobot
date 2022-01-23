@@ -502,7 +502,7 @@ def get_help(update: Update, context: CallbackContext):
             )
             return
         update.effective_message.reply_text(
-            HELP_TEXT,
+            HELP_MSG,
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
