@@ -231,8 +231,8 @@ def start(update: Update, context: CallbackContext):
                 random.choice(STICKERS),
                 timeout=60,
             )
-            update.effective_message.reply_text(
-               PM_START_TEXT,
+            update.effective_message.reply_photo(
+               VEGETA_IMG,PM_START_TEXT,
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
@@ -335,7 +335,7 @@ def help_button(update, context):
                 + HELPABLE[module].__help__
             )
             query.message.edit_caption(
-                vegeta,caption=text,
+                text=text,
                 parse_mode=ParseMode.MARKDOWN,
                 disable_web_page_preview=False,
                 reply_markup=InlineKeyboardMarkup(
