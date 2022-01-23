@@ -81,7 +81,7 @@ def get_readable_time(seconds: int) -> str:
 PM_START_TEXT = """
  ──『[SAIYAN VEGETA](https://telegra.ph/file/561fa547f3c4940c95ddf.jpg)』
 
-Hey User!!✋
+Hey ┗► {} ◄┛ ✨
 𝐈 Am *Prince Vegeta* Add 𝐌𝐞 𝐓𝐨 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩 𝐈 𝐖𝐢𝐥𝐥 𝐃𝐞𝐬𝐭𝐫𝐨𝐲 𝐄𝐯𝐢𝐥𝐬 𝐖𝐢𝐭𝐡 𝐌𝐲 Powers...\n
 *JOIN OFFICIAL* -
 [CHANNEL](t.me/pegasusUpdates) - [SUPPORT](t.me/pegasusSupportChat)\n
@@ -231,8 +231,9 @@ def start(update: Update, context: CallbackContext):
                 random.choice(STICKERS),
                 timeout=60,
             )
-            update.effective_message.reply_photo(
-               VEGETA_IMG,PM_START_TEXT,
+            first_name = update.effective_user.first_name
+            update.effective_message.reply_text(
+               PM_START_TEXT.format(first_name),
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
@@ -333,8 +334,8 @@ def help_button(update, context):
                 )
                 + HELPABLE[module].__help__
             )
-            query.message.edit_caption(
-                text,
+            query.message.edit(
+                text=text,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     [[InlineKeyboardButton(text="⬅ Back", callback_data="help_back"),
@@ -344,8 +345,8 @@ def help_button(update, context):
 
         elif prev_match:
             curr_page = int(prev_match.group(1))
-            query.message.edit_caption(
-                HELP_STRINGS,
+            query.message.edit(
+                text=HELP_STRINGS,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(curr_page - 1, HELPABLE, "help")
@@ -354,8 +355,8 @@ def help_button(update, context):
 
         elif next_match:
             next_page = int(next_match.group(1))
-            query.message.edit_caption(
-                HELP_STRINGS,
+            query.message.edit(
+                text=HELP_STRINGS,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(next_page + 1, HELPABLE, "help")
@@ -363,8 +364,8 @@ def help_button(update, context):
             )
 
         elif back_match:
-            query.message.edit_caption(
-                HELP_STRINGS,
+            query.message.edit(
+                text=HELP_STRINGS,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(0, HELPABLE, "help")
