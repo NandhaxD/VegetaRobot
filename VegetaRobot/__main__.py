@@ -395,7 +395,6 @@ def vegeta_about_callback(update, context):
             "\n\n_Vegeta's licensed under the GNU General Public License v3.0_"
             "\n\n Click on button bellow to get basic help for @VegetaRobot.",
             parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
