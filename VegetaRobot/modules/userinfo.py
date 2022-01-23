@@ -567,10 +567,10 @@ When marked as AFK, any mentions will be replied to with a message stating that 
 SET_BIO_HANDLER = DisableAbleCommandHandler("setbio", set_about_bio, run_async=True)
 GET_BIO_HANDLER = DisableAbleCommandHandler("bio", about_bio, run_async=True)
 
-STATS_HANDLER = CommandHandler(["stats", "statistics"], stats, run_async=True)
+STATS_HANDLER = CommandHandler(["stats", "botstats"], stats, run_async=True)
 ID_HANDLER = DisableAbleCommandHandler("id", get_id, run_async=True)
 GIFID_HANDLER = DisableAbleCommandHandler("gifid", gifid, run_async=True)
-INFO_HANDLER = DisableAbleCommandHandler(["info","status"] info, run_async=True)
+INFO_HANDLER = DisableAbleCommandHandler(["info","status"], info, run_async=True)
 SET_ABOUT_HANDLER = DisableAbleCommandHandler("setme", set_about_me, run_async=True)
 GET_ABOUT_HANDLER = DisableAbleCommandHandler("me", about_me, run_async=True)
 
