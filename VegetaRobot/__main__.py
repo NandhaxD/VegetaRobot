@@ -403,7 +403,7 @@ def vegeta_about_callback(update, context):
                     InlineKeyboardButton(text="📓 Notes", callback_data="vegeta_notes"),
                  ],
                  [
-                    InlineKeyboardButton(text="💕 Channel", callback_data="vegeta_support"),
+                    InlineKeyboardButton(text="💕 Channels", callback_data="vegeta_support"),
                     InlineKeyboardButton(text="💕 Stats", callback_data="stats_callback"),
                  ],
                  [
@@ -501,14 +501,14 @@ def get_help(update: Update, context: CallbackContext):
                 ),
             )
             return
-        update.effective_message.reply_photo(
-            HELP_IMG, HELP_MSG,
+        update.effective_message.reply_text(
+            HELP_TEXT,
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            text="Help",
-                            url="t.me/{}?start=help".format(context.bot.username),
+                            text="🔒 Help",
+                            callback_data="help_back"),
                         )
                     ]
                 ]
