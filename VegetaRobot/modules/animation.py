@@ -76,9 +76,10 @@ def alive(update: Update, context: CallbackContext):
         time.sleep(EDIT_SLEEP)
     update.effective_message.reply_video(
             INFO_IMG, caption=f"""\n*MASTER* - @bakugoNo1
-                                  *Bot* - `Alive`
+                                  *Botstats* - `Alive`
+                                  *ptb version - `{ptbver}`
                                   *telethon* - `{telever}`
-                                  *python*   - `{python_version}`
+                                  *python*   - `{python_version()}`
                                   *program* - `{pyrover}`""",reply_markup=InlineKeyboardMarkup(
                 [
                     [
