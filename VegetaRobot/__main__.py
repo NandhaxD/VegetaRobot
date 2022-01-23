@@ -5,6 +5,7 @@ import re
 
 from sys import argv
 from typing import Optional
+from pyrogram import filters
 
 from VegetaRobot import (
     ALLOW_EXCL,
