@@ -109,7 +109,7 @@ Helpful commands:
 - /help: Sends this message; I'll tell you more about myself!
 - /donate: Gives you info on how to support me and my creator.
 If you want to report bugs or have any questions on how to use me then feel free to reach out: *@VegetaSupport.*
-All commands can be used with the following: *[(/),(!),(?),(.),(~)](https://telegra.ph/file/7e03dc908569071078fba.jpg)*
+All commands can be used with the following: (/),(!),(?),(.),(~)
 List of all the Modules:
 """.format(
     dispatcher.bot.first_name,
@@ -327,6 +327,7 @@ def help_button(update, context):
         if mod_match:
             module = mod_match.group(1)
             message = update.effective_message
+            vegeta = "https://telegra.ph/file/9d2c6e3b28afe7619856e.jpg"
             text = (
                 "\nModule Name - *{}*\n".format(
                     HELPABLE[module].__mod_name__
@@ -334,7 +335,7 @@ def help_button(update, context):
                 + HELPABLE[module].__help__
             )
             query.message.edit_media(
-                media=VEGETA_IMG,
+                media=vegeta
                 text=text,
                 parse_mode=ParseMode.MARKDOWN,
                 disable_web_page_preview=True,
