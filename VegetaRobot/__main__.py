@@ -232,15 +232,15 @@ def start(update: Update, context: CallbackContext):
                 timeout=60,
             )
             first_name = update.effective_user.first_name
-            update.effective_message.reply_text(
-               PM_START_TEXT.format(first_name),
+            update.effective_message.reply_photo(
+               VEGETA_IMG,PM_START_TEXT.format(first_name),
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
             )
     else:
         first_name = update.effective_user.first_name
-        update.effective_message.reply_video(
+        update.effective_message.reply_animation(
             GROUPSTART_IMG, caption= "*hello!\n ┗► {} ◄┛,*\n*Super Saiyan here*\n*Power lavel time* : {} ".format(
              first_name,uptime
             ),
@@ -334,10 +334,9 @@ def help_button(update, context):
                 )
                 + HELPABLE[module].__help__
             )
-            query.message.edit_text(
-                text=text,
+            query.message.edit_caption(
+                text,
                 parse_mode=ParseMode.MARKDOWN,
-                disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup(
                     [[InlineKeyboardButton(text="⬅ Back", callback_data="help_back"),
                       InlineKeyboardButton(text="⬅ Home", callback_data="vegeta_back")]]
@@ -346,8 +345,8 @@ def help_button(update, context):
 
         elif prev_match:
             curr_page = int(prev_match.group(1))
-            query.message.edit_text(
-                text=HELP_STRINGS,
+            query.message.edit_caption(
+                HELP_STRINGS,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(curr_page - 1, HELPABLE, "help")
@@ -356,8 +355,8 @@ def help_button(update, context):
 
         elif next_match:
             next_page = int(next_match.group(1))
-            query.message.edit_text(
-                text=HELP_STRINGS,
+            query.message.edit_caption(
+                HELP_STRINGS,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(next_page + 1, HELPABLE, "help")
@@ -365,8 +364,8 @@ def help_button(update, context):
             )
 
         elif back_match:
-            query.message.edit_text(
-                text=HELP_STRINGS,
+            query.message.edit_caption(
+                HELP_STRINGS,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(0, HELPABLE, "help")
@@ -385,7 +384,7 @@ def help_button(update, context):
 def vegeta_about_callback(update, context):
     query = update.callback_query
     if query.data == "vegeta_":
-        query.message.edit_text(
+        query.message.edit_caption(
             text="๏ I'm *Vegeta*, a powerful group management bot built to help you manage your group easily."
             "\n• I can restrict users."
             "\n• I can greet users with customizable welcome messages and even set a group's rules."
@@ -414,7 +413,7 @@ def vegeta_about_callback(update, context):
             ),
         )
     elif query.data == "vegeta_back":
-        query.message.edit_text(
+        query.message.edit_caption(
                 PM_START_TEXT,
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
@@ -422,7 +421,7 @@ def vegeta_about_callback(update, context):
         )
 
     elif query.data == "vegeta_admin":
-        query.message.edit_text(
+        query.message.edit_caption(
             text=f"*๏ Let's make your group bit effective now*"
             "\nCongragulations, VegetaRobot now ready to manage your group."
             "\n\n*Admin Tools*"
@@ -439,7 +438,7 @@ def vegeta_about_callback(update, context):
         )
 
     elif query.data == "vegeta_notes":
-        query.message.edit_text(
+        query.message.edit_caption(
             text=f"<b>๏ Setting up notes</b>"
             f"\nYou can save message/media/audio or anything as notes"
             f"\nto get a note simply use # at the beginning of a word"
@@ -450,7 +449,7 @@ def vegeta_about_callback(update, context):
             ),
         )
     elif query.data == "vegeta_support":
-        query.message.edit_text(
+        query.message.edit_caption(
             text="*๏ Vegeta support chats*"
             "\nJoin My Support Group/Channel for see or report a problem on Vegeta.",
             parse_mode=ParseMode.MARKDOWN,
