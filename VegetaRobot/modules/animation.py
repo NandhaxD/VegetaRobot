@@ -6,6 +6,7 @@ from telegram.ext import run_async, CallbackContext
 
 from pyrogram import __version__ as pyrover
 from platform import python_version
+from telethon import __version__ as telever
 
 from VegetaRobot import dispatcher, SUPPORT_CHAT, UPDATES_CHANNEL
 from VegetaRobot.modules.disable import DisableAbleCommandHandler
@@ -76,6 +77,7 @@ def alive(update: Update, context: CallbackContext):
     update.effective_message.reply_video(
             INFO_IMG, caption=f"""\n*MASTER:* @bakugoNo1
                                   *BOTSTATS:*`Alive`
+                                  *tele version:* `{telever}`
                                   *python version:*`{python_version}`
                                   *program version:*`{pyrover}`""",reply_markup=InlineKeyboardMarkup(
                 [
