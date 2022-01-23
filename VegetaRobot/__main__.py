@@ -430,7 +430,6 @@ def vegeta_about_callback(update, context):
             "\nLets set a welcome message to welcome new users coming to your group."
             "\nsend `/setwelcome [message]` to set a welcome message!",
             parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton(text="Go Back", callback_data="vegeta_")]]
             ),
