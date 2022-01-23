@@ -75,12 +75,8 @@ def alive(update: Update, context: CallbackContext):
         msg.edit_text(alive_you[x%7])
         time.sleep(EDIT_SLEEP)
     update.effective_message.reply_video(
-            INFO_IMG, caption=f"""\n*MASTER* - @bakugoNo1\n*Botstats* - `Alive`\n*ptb version - `{ptbver}`\n*telethon* - `{telever}`\n *python*   - `{python_version()}`\n 
-                                  *Botstats* - `Alive`
-                                  
-                                  
-                                 
-                                  """,reply_markup=InlineKeyboardMarkup(
+            INFO_IMG, caption=f"\n*MASTER* - @bakugoNo1\n*Botstats* - `Alive`\n*ptb version - `{ptbver}`\n*telethon* - `{telever}`\n *python*   - `{python_version()}`\n*program* - `{pyrover}`",
+             reply_markup=InlineKeyboardMarkup(
                 [
                     [
        InlineKeyboardButton(text="👥 Support", url=f"t.me/{SUPPORT_CHAT}"),
