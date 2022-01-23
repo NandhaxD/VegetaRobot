@@ -172,7 +172,7 @@ def get_id(update: Update, context: CallbackContext):
 
     else:
         msg.reply_text(
-            f"This group's id is <code>{chat.id}</code>.", parse_mode=ParseMode.HTML,
+            f"*{(html.escape(chat.title)}*'s id is `{chat.id}`.", parse_mode=ParseMode.MARKDOWN,
         )
 
 
