@@ -1,8 +1,8 @@
 import time
 from typing import List
 
-from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
-from telegram.ext import run_async,CallbackContext
+from telegram import ParseMode, Update, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram.ext import run_async, CallbackContext
 
 from VegetaRobot import dispatcher, SUPPORT_CHAT, UPDATES_CHANNEL
 from VegetaRobot.modules.disable import DisableAbleCommandHandler
@@ -71,7 +71,7 @@ def alive(update: Update, context: CallbackContext):
         msg.edit_text(alive_you[x%7])
         time.sleep(EDIT_SLEEP)
     update.effective_message.reply_video(
-            INFO_IMG, caption=f"Yep I am Working Now...😄",reply_markup=InlineKeyboardMarkup(
+            INFO_IMG, caption=f"MASTER - @bakugoNo1\n BOT IS Alive",reply_markup=InlineKeyboardMarkup(
                 [
                     [
        InlineKeyboardButton(text="👥Support", url=f"t.me/{SUPPORT_CHAT}"),
