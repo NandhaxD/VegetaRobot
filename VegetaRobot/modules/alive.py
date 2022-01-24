@@ -76,7 +76,7 @@ def alive(update: Update, context: CallbackContext):
         time.sleep(EDIT_SLEEP)
     update.effective_message.reply_video(
             INFO_IMG, caption=f"""
-                                  *ᴍᴀsᴛᴇʀ*  - [bakugo](t.me/bakugoNo1)\n*ʙᴏᴛsᴛᴀᴛs* - `Alive`\n*ᴘᴛʙ ᴠᴇʀsɪᴏɴ* - `{ptbver}`\n*ᴛᴇʟᴇᴛʜᴏɴ* - `{telever}`\n*ᴘʀᴏɢʀᴀᴍ* - `{pyrover}`""",reply_markup=InlineKeyboardMarkup(
+                                  *ᴍᴀsᴛᴇʀ*  - [Katsuki Bakugo](t.me/bakugoNo1)\n*ʙᴏᴛsᴛᴀᴛs* - `Alive`\n*ᴘᴛʙ ᴠᴇʀsɪᴏɴ* - `{ptbver}`\n*ᴛᴇʟᴇᴛʜᴏɴ* - `{telever}`\n*ᴘʀᴏɢʀᴀᴍ* - `{pyrover}`""",reply_markup=InlineKeyboardMarkup(
                 [
                     [
        InlineKeyboardButton(text="👥 Support", url=f"t.me/{SUPPORT_CHAT}"),
