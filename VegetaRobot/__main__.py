@@ -96,9 +96,10 @@ buttons = [
         InlineKeyboardButton(
                             text="☑ ADD VEGETA GROUP ☑",
                             url="t.me/VegetaRobot?startgroup=true"),
-               
+                    ],
+                     [
                        InlineKeyboardButton(text="🔄 Inline", switch_inline_query_current_chat="",
-                       InlineKeyboardButton(text="🔒 Close", callback_data="bn_del"
+                       InlineKeyboardButton(text="🔒 Close", callback_data="unbanb_del"),
                     ],
                    [
                        InlineKeyboardButton(text="🔐 Help", callback_data="help_back"),
