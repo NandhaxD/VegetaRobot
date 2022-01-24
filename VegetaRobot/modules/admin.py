@@ -685,21 +685,19 @@ def button(update: Update, context: CallbackContext) -> str:
 __help__ = """
 *Admins only:*
  ✪︎ `/tagall` or `@all` for tag all group members.
- ✪︎ `/pin`*:* silently pins the message replied to - add `'loud'` or `'notify'` to give notifs to users
- ✪︎ `/unpin`*:* unpins the currently pinned message
- ✪︎ `/invitelink` or `/grouplink`*:* gets invitelink
- ✪︎ `/promote`*:* promotes the user reply message id
- ✪ `/demote`*:* demotes the user replied to
- ✪︎ `/title <title here>`*:* sets a custom title for an admin that the bot promoted
+ ✪︎ `/pin` & `/unpin`: pin msg and unpin msg.
+ ✪︎ `/invitelink`*:* gets invitelink
+ ✪︎ `/promote` & `/demote` promote user and demote user.
+ ✪︎ `/title <title here>`*:* set custom title for admin.
  ✪︎ `/admincache`& `/adminlist`:refreshAdminslist and Show list of Admins.\n
  *gorup info changer*:
- ✪︎ `/setgpack`*:* reply to sticker set group sticker pack not work 100 memeber low chats.
+ ✪︎ `/setgpack`*:* reply eany sticker pack.
  ✪︎ `/setgpic`*:* reply to the image set chat pic.
  ✪︎ `/delgpic`*:* delete a chat pic.
- ✪︎ `/setgtitle`*:* (text) bot can change group tilte.
- ✪︎ `/setdesc`*:* (text) bot can change chat descrepicion.\n
+ ✪︎ `/setgtitle`*:* (text) set group tilte.
+ ✪︎ `/setdesc`*:* (text) set chat descrepicion.\n
  *Delete messages*:
- ✪︎ `/del`: deletes the message you replied to
+ ✪︎ `/del`: reply msg got delete.
  ✪︎ `/purge`: deletes all messages between this and the replied to message.
  ✪︎ `/purge <integer X>`: deletes the replied message, and X messages following it if replied to a message.
 """
