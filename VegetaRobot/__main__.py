@@ -103,17 +103,12 @@ buttons = [
 ] 
 
 HELP_STRINGS = """
-Hey there, I'm *Vegeta*!
-To make me functional, make sure that i have enough rights in your group.
-Helpful commands:
-- /start: Starts me! You've probably already used this.
-- /help: Sends this message; I'll tell you more about myself!
-- /donate: Gives you info on how to support me and my creator.
-If you want to report bugs or have any questions on how to use me then feel free to reach out: *@VegetaSupport.*
-All commands can be used with the following: (/),(!),(?),(.),(~)
-List of all the Modules:
+ʜᴇʟʟᴏ! {}
+- /donate | ɪɴғᴏʀᴍᴀᴛɪᴏɴ ᴏɴ ʜᴏᴡ ᴛᴏ ᴅᴏɴᴀᴛᴇ!
+- /settings | BOT PM:  ᴡɪʟʟ sᴇɴᴅ ʏᴏᴜʀ sᴇᴛᴛɪɴɢs ғᴏʀ ᴀʟʟ sᴜᴘᴘᴏʀᴛᴇᴅ ᴍᴏᴅᴜʟᴇs.
+ʜᴇʀᴇ ᴛʜᴇ ʟɪsᴛ ᴄᴏᴍᴍᴇɴᴛs  :
 """.format(
-    dispatcher.bot.first_name,
+    first_name = update.effective_user.first_name,
     "" if not ALLOW_EXCL else "📝All commands can either be used with / or !.",
 )
 
