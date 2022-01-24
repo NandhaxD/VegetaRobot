@@ -549,14 +549,21 @@ def __chat_settings__(chat_id, user_id):
 
 
 __help__ = """
-*Admins Only:*
-✪ /save: <text> | reply_msg | save notes. 
-✪ /clear: <Notename> | notes delete. 
+*Admins Only :*
+✪ /save: <text> & reply to msg save note.
+✪ /clear: <Notename> Notes delete. 
 ✪ /notes: Show list of Notes in chat. 
-✪ /removeallnotes: remove all notes in chat.
-✪ /get <notename>|#<notename>|/<notenumber> get note.
-
-✪ button add in notes for more details : /markdownhelp
+✪ /removeallnotes: remove all notes in chat.\n
+*get notes cmds :*
+✪ /get <notename>:
+✪ /<notenumber>:
+✪ #<notename>:\n
+*Notes things :*
+{id} - userid
+{firstname} - user firstname
+{chatname} - chatname
+{username} - username\n
+Button things more details : /markdownhelp
 """
 
 __mod_name__ = "📓Notes"
