@@ -1,4 +1,4 @@
-import importlib #vegeta special 
+import importlib
 import random
 import time
 import html
@@ -83,7 +83,7 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-    ┗► {} ◄┛
+    ┗► *{}* ◄┛
 
 I Am *Prince Vegeta* Add 𝐌𝐞 𝐓𝐨 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩 𝐈 𝐖𝐢𝐥𝐥 𝐃𝐞𝐬𝐭𝐫𝐨𝐲 𝐄𝐯𝐢𝐥𝐬 𝐖𝐢𝐭𝐡 𝐌𝐲 Powers...\n
 *JOIN OFFICIAL* -
@@ -230,8 +230,7 @@ def start(update: Update, context: CallbackContext):
                 random.choice(STICKERS),
                 timeout=60,
             )
-            user = update.effective_user
-            first_name = mention_html(user.id, html.escape(user.first_name))
+           first_name = update.effective_user.first_name
             update.effective_message.reply_photo(
                VEGETA_IMG,PM_START_TEXT.format(first_name),
                 reply_markup=InlineKeyboardMarkup(buttons),
