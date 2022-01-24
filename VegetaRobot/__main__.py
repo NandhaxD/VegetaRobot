@@ -98,7 +98,7 @@ buttons = [
                             url="t.me/VegetaRobot?startgroup=true"),
                     ],
                      [
-                       InlineKeyboardButton(text="🔄 Inline", switch_inline_query_current_chat="",
+                       InlineKeyboardButton(text="🔄 Inline", switch_inline_query_current_chat=""),
                        InlineKeyboardButton(text="🔒 Close", callback_data="unbanb_del"),
                     ],
                    [
