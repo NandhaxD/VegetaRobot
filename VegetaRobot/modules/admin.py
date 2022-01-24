@@ -683,29 +683,25 @@ def button(update: Update, context: CallbackContext) -> str:
 
 
 __help__ = """
- • `/staff` or `/adminlist` *:* list of admins in the chat
-
 *Admins only:*
- •`/tagall` or `@all` for tag all group members.
- • `/pin`*:* silently pins the message replied to - add `'loud'` or `'notify'` to give notifs to users
- • `/unpin`*:* unpins the currently pinned message
- • `/invitelink` or `/grouplink`*:* gets invitelink
- • `/promote`or `/promo`*:* promotes the user reply message id
- • `/demote` or `/demo`*:* demotes the user replied to
- • `/title <title here>`*:* sets a custom title for an admin that the bot promoted
- • `/admincache`*:* force refresh the admins list
- 
+ ✪︎ `/tagall` or `@all` for tag all group members.
+ ✪︎ `/pin`*:* silently pins the message replied to - add `'loud'` or `'notify'` to give notifs to users
+ ✪︎ `/unpin`*:* unpins the currently pinned message
+ ✪︎ `/invitelink` or `/grouplink`*:* gets invitelink
+ ✪︎ `/promote`*:* promotes the user reply message id
+ ✪ `/demote`*:* demotes the user replied to
+ ✪︎ `/title <title here>`*:* sets a custom title for an admin that the bot promoted
+ ✪︎ `/admincache`& `/adminlist`:refreshAdminslist and Show list of Admins.\n
  *gorup info changer*:
- - /setgpack or /setgsticker*:* reply to sticker set group sticker pack not work 100 memeber low chats.
- - /setgpic*:* reply to the image set chat pic.
- - /delgpic*:* delete a chat pic.
- - /setgtitle*:* (text) bot can change group tilte.
- - /setdesc*:* (text) bot can change chat descrepicion.
- 
+ ✪︎ `/setgpack`*:* reply to sticker set group sticker pack not work 100 memeber low chats.
+ ✪︎ `/setgpic`*:* reply to the image set chat pic.
+ ✪︎ `/delgpic`*:* delete a chat pic.
+ ✪︎ `/setgtitle`*:* (text) bot can change group tilte.
+ ✪︎ `/setdesc`*:* (text) bot can change chat descrepicion.\n
  *Delete messages*:
- - /del: deletes the message you replied to
- - /purge: deletes all messages between this and the replied to message.
- - /purge <integer X>: deletes the replied message, and X messages following it if replied to a message.
+ ✪︎ `/del`: deletes the message you replied to
+ ✪︎ `/purge`: deletes all messages between this and the replied to message.
+ ✪︎ `/purge <integer X>`: deletes the replied message, and X messages following it if replied to a message.
 """
 
 
@@ -739,7 +735,7 @@ dispatcher.add_handler(DEMOTE_HANDLER)
 dispatcher.add_handler(SET_TITLE_HANDLER)
 dispatcher.add_handler(ADMIN_REFRESH_HANDLER)
 
-__mod_name__ = "👮Admins"
+__mod_name__ = "ᴀᴅᴍɪɴs"
 __command_list__ = [
     "adminlist", "admins", "setgpack", "invitelink", "promote", "demote", "admincache", "setgpic", "delgpic", "setgtitle", "setdesc"
 ]
