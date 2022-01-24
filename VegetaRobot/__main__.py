@@ -192,6 +192,7 @@ def test(update: Update, context: CallbackContext):
 
 def start(update: Update, context: CallbackContext):
     args = context.args
+    user = update.effective_user
     uptime = get_readable_time((time.time() - StartTime))
     if update.effective_chat.type == "private":
         if len(args) >= 1:
@@ -323,6 +324,7 @@ def help_button(update, context):
         if mod_match:
             module = mod_match.group(1)
             message = update.effective_message
+            user = update.effective_user
             text = (
                 "\nModule Name - *{}*\n".format(
                     HELPABLE[module].__mod_name__
