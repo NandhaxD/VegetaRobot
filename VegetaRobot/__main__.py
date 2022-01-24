@@ -32,6 +32,7 @@ from VegetaRobot.modules.helper_funcs.chat_status import is_user_admin
 from VegetaRobot.modules.helper_funcs.misc import paginate_modules
 from VegetaRobot.modules.disable import DisableAbleCommandHandler
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
+from telegram.utils.helpers import mention_html
 from telegram.error import (
     BadRequest,
     ChatMigrated,
@@ -191,12 +192,11 @@ def test(update: Update, context: CallbackContext):
 
 def start(update: Update, context: CallbackContext):
     args = context.args
-    first_name = update.effective_user.first_name
     uptime = get_readable_time((time.time() - StartTime))
     if update.effective_chat.type == "private":
         if len(args) >= 1:
             if args[0].lower() == "help":
-                send_help(update.effective_chat.id, HELP_STRINGS.format(first_name))
+                send_help(update.effective_chat.id, HELP_STRINGS)
             elif args[0].lower().startswith("ghelp_"):
                 mod = args[0].lower().split("_", 1)[1]
                 if not HELPABLE.get(mod, False):
