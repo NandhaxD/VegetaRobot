@@ -554,18 +554,7 @@ __help__ = """
 ✪ /clear: <Notename> | notes delete. 
 ✪ /notes: Show list of Notes in chat. 
 ✪ /removeallnotes: remove all notes in chat.
-✪ /save: <text> | reply_msg | save notes. 
-✪ /clear: <Notename> | notes delete. 
-✪ /notes: Show list of Notes in chat. 
-✪ /removeallnotes: remove all notes in chat.
-✪ /get <notename>: get note. 
-✪ /save: <text> | reply_msg | save notes. 
-✪ /clear: <Notename> | notes delete. 
-✪ /notes: Show list of Notes in chat. 
-✪ /removeallnotes: remove all notes in chat.
-✪ /get <notename>: get note.
-✪ /<notenumber>: get note. 
-✪ #<notename>: get note. 
+✪ /get <notename>|#<notename>|/<notenumber> get note.
 
 ✪ button add in notes for more details : /markdownhelp
 """
