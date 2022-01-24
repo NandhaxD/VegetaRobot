@@ -230,7 +230,8 @@ def start(update: Update, context: CallbackContext):
                 random.choice(STICKERS),
                 timeout=60,
             )
-            first_name = update.effective_user.first_name
+            user = update.effective_user
+            first_name = mention_html(user.id, html.escape(user.first_name))
             update.effective_message.reply_photo(
                VEGETA_IMG,PM_START_TEXT.format(first_name),
                 reply_markup=InlineKeyboardMarkup(buttons),
