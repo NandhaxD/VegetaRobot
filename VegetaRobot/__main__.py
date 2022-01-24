@@ -192,7 +192,7 @@ def test(update: Update, context: CallbackContext):
 
 def start(update: Update, context: CallbackContext):
     args = context.args
-    update.effective_user
+    user = update.effective_user
     first_name = mention_html(user.id, html.escape(user.first_name))
     uptime = get_readable_time((time.time() - StartTime))
     if update.effective_chat.type == "private":
