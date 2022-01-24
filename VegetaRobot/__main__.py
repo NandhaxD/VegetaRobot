@@ -1,6 +1,7 @@
 import importlib #vegeta special 
 import random
 import time
+import html
 import re
 
 from sys import argv
@@ -102,11 +103,11 @@ buttons = [
     ],
 ] 
 
-HELP_STRINGS = """
-ʜᴇʟʟᴏ! {}
-- /donate | ɪɴғᴏʀᴍᴀᴛɪᴏɴ ᴏɴ ʜᴏᴡ ᴛᴏ ᴅᴏɴᴀᴛᴇ!
-- /settings | BOT PM:  ᴡɪʟʟ sᴇɴᴅ ʏᴏᴜʀ sᴇᴛᴛɪɴɢs ғᴏʀ ᴀʟʟ sᴜᴘᴘᴏʀᴛᴇᴅ ᴍᴏᴅᴜʟᴇs.
-ʜᴇʀᴇ ᴛʜᴇ ʟɪsᴛ ᴄᴏᴍᴍᴇɴᴛs  :
+HELP_STRINGS = f"""
+ʜᴇʟʟᴏ! {mention_html(user.id, user.first_name)}
+- /donate | *ɪɴғᴏʀᴍᴀᴛɪᴏɴ ᴏɴ ʜᴏᴡ ᴛᴏ ᴅᴏɴᴀᴛᴇ!*
+- /settings | *BOT PM:  ᴡɪʟʟ sᴇɴᴅ ʏᴏᴜʀ sᴇᴛᴛɪɴɢs ғᴏʀ ᴀʟʟ sᴜᴘᴘᴏʀᴛᴇᴅ ᴍᴏᴅᴜʟᴇs.
+ʜᴇʀᴇ ᴛʜᴇ ʟɪsᴛ ᴄᴏᴍᴍᴇɴᴛs  :*
 """
 
 HELP_MSG = "Click the button below to get help manu in your pm."
