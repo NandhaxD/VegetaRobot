@@ -230,6 +230,7 @@ def pfp(update, context):
     user_id = extract_user(update.effective_message, args)
     chat = update.effective_chat
     text="*Made by @VegetaRobot*"
+    text +=f"PFP by *{html.escape(user.first_name)}*"
     
     if user_id:
         user = bot.get_chat(user_id)
@@ -254,7 +255,7 @@ def pfp(update, context):
     
     profile = bot.get_user_profile_photos(user_id).photos[0][-1]
     bot.sendChatAction(chat.id, "upload_photo")
-    bot.send_photo(chat.id, photo=profile, caption=text,parse_mode=ParseMode.MARKDOWN)
+    bot.send_photo(chat.id, photo=profile, caption=(text),parse_mode=ParseMode.MARKDOWN)
                        
 def info(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
