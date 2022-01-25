@@ -579,7 +579,6 @@ Examples:
 ❂ /setbio This user is a wolf (reply to the user)
 *Overall Information about you:*
 ❂ /info*:* get information about a user.
-*json Detailed info:*
 ❂ /json*:* Get Detailed info about any message.
  *AFk:*
 When marked as AFK, any mentions will be replied to with a message stating that you're not available!
