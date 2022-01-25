@@ -111,7 +111,7 @@ def pfp(update, context):
     text="*Made by @VegetaRobot*"
     profile = context.bot.get_user_profile_photos(user.id).photos[0][-1]
     context.bot.sendChatAction(chat.id, "upload_photo")
-    context.bot.send_photo(chat.id, photo=profile, ecaption=text,parse_mode=ParseMode.MARKDOWN)
+    context.bot.send_photo(chat.id, photo=profile, caption=text,parse_mode=ParseMode.MARKDOWN)
 
 
 @run_async
