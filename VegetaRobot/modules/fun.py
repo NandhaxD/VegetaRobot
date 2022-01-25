@@ -103,8 +103,8 @@ def yesnowtf(update, context):
 @typing_action
 def repo(update, context):
     update.effective_message.reply_text(fun.REPO)
-    
-@run_async
+   
+
 def pfp(update, context):
     user = update.effective_user
     chat = update.effective_chat
