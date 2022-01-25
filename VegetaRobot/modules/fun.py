@@ -107,10 +107,10 @@ def repo(update, context):
 
 def pfp(update, context):
     bot = context.bot
-    user = bot.get_user(user_id)
+    user = update.effective_user
     chat = update.effective_chat
     text="*Made by @VegetaRobot*"
-    profile = context.bot.get_user_profile_photos(user).photos[0][-1]
+    profile = context.bot.get_user_profile_photos(user.id).photos[0][-1]
     bot.sendChatAction(chat.id, "upload_photo")
     bot.send_photo(chat.id, photo=profile, caption=text,parse_mode=ParseMode.MARKDOWN)
 
