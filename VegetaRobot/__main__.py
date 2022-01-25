@@ -118,14 +118,16 @@ HELP_STRINGS = """
 HELP_MSG = "Click the button below to get help manu in your pm."
 DONATE_STRING = """Contact to **@PegasusXrobot**"""
 HELP_IMG= "https://telegra.ph/file/9d2c6e3b28afe7619856e.jpg"
-VEGETA_IMG= "https://telegra.ph/file/561fa547f3c4940c95ddf.jpg"
 GROUPSTART_IMG= "https://telegra.ph/file/1cbafa58dda18528f9e0c.mp4"
 
 STICKERS = ( "CAACAgUAAx0CXss_8QABAjzEYaXnOPwfLA22Dea6kU6EvrELQWgAAmoEAAIYaChVcBl8nrGetAIiBA",
            "CAACAgUAAx0CXss_8QABAjzFYaXnObthrCpGkPRRNr471UrxAxsAAgEEAAKqVjBVdLdGaDAs3noiBA",
            "CAACAgUAAx0CXss_8QABAjzGYaXnOosVqi4RBeMSLVvty53Q_UgAAhMEAAJqlClV9scsuWjjA60iBA",
            "CAACAgUAAx0CXss_8QABAjzHYaXnOlfNEo15FunXUy0O9RuSc_AAAs4EAALPrzFV_rrVm8aMDyYiBA", )
-           
+  
+VEGETA_IMG = ( "https://telegra.ph//file/a47f16c936dbbd4165399.jpg",
+               "https://telegra.ph//file/5026650d5e3f0b83c6d29.jpg"
+               "https://telegra.ph/file/561fa547f3c4940c95ddf.jpg",)       
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -230,9 +232,9 @@ def start(update: Update, context: CallbackContext):
                 random.choice(STICKERS),
                 timeout=60,
             )
-           first_name = update.effective_user.first_name
+            first_name = update.effective_user.first_name
             update.effective_message.reply_photo(
-               VEGETA_IMG,PM_START_TEXT.format(first_name),
+               random.choice(VEGETA_IMG),PM_START_TEXT.format(first_name),
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
