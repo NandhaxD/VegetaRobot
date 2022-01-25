@@ -104,12 +104,14 @@ def yesnowtf(update, context):
 def repo(update, context):
     update.effective_message.reply_text(fun.REPO)
     
-@typing_action
-def pfp(update, context):
-text="Made by @vegetaRobot"
-profile = context.bot.get_user_profile_photos(update.effective_user.id).photos[0][-1]
-context.bot.sendChatAction(update.effective_chat.id, "upload_photo")
-context.bot.send_photo(update.effective_chat.id, photo=profile, caption=text)
+@run_async
+def gbam(update, context):
+    user = update.effective_user
+    chat = update.effective_chat
+    text="Made by @vegetaRobot"
+    profile = context.bot.get_user_profile_photos(user.id).photos[0][-1]
+    context.bot.sendChatAction(chat.id, "upload_photo")
+    context.bot.send_photo(chat.id, photo=profile, caption=text)
 
 
 @run_async
