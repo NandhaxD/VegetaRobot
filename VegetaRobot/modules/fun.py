@@ -213,18 +213,19 @@ dispatcher.add_handler(DARE_HANDLER)
 dispatcher.add_handler(TAMILMEME_HANDLER)
 
 __help__ = f"""
-*Goodnight*|*goodmorning* bot send GM or GN image,*
- • /decide - bot send radom decides.
- • /pat - reply to user.
- • /wish your wish possible chance random.
- • /truth or /dare - bot send funny messages.
- • /insult - bot send insult message.
- • /abuse - bot send abuse message.
- • /tamilmeme - get meme for tami language.
-report bug - @{SUPPORT_CHAT}
+*Goodnight*&*goodmorning* 
+bot send GM or GN image,
+ ✪︎ /decide - bot send radom decides.
+ ✪︎ /pat - reply to user.
+ ✪︎ /wish your wish possible chance random.
+ ✪︎ /truth or /dare - bot send funny messages.
+ ✪︎ /insult - bot send insult message.
+ ✪︎ /abuse - bot send abuse message.
+ ✪︎ /tamilmeme - get meme for tami language.
+
 """
 
-__mod_name__ = "😁Fun"
+__mod_name__ = "ғᴜɴs"
 
 
 #guys this it you like pegasusXteam ask join @pegasusSupportofficial
