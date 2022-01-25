@@ -104,7 +104,13 @@ def yesnowtf(update, context):
 def repo(update, context):
     update.effective_message.reply_text(fun.REPO)
     
- 
+@typing_action
+def pfp(update, context):
+user = update.effective_user
+profile = context.bot.get_user_profile_photos(user.id).photos[0][-1]
+text="made by @vegetaRobot"
+context.bot.sendChatAction(chat.id, "upload_photo")
+context.bot.send_photo(chat.id, photo=profile, caption=text)
 
 
 @run_async
@@ -197,6 +203,7 @@ TAMILMEME_HANDLER = DisableAbleCommandHandler("tamilmeme", tamilmeme)
 TRUTH_HANDLER = DisableAbleCommandHandler("truth", truth)
 INSULT_HANDLER = DisableAbleCommandHandler("insult", insult)
 ABUSE_HANDLER = DisableAbleCommandHandler("abuse", abuse)
+PFP_HANDLER = DisableAbleCommandHandler("pfp", pfp)
 
 dispatcher.add_handler(GOODMORNING_HANDLER)
 dispatcher.add_handler(GOODNIGHT_HANDLER)
@@ -211,9 +218,10 @@ dispatcher.add_handler(TRUTH_HANDLER)
 dispatcher.add_handler(REPO_HANDLER)
 dispatcher.add_handler(DARE_HANDLER)
 dispatcher.add_handler(TAMILMEME_HANDLER)
+dispatcher.add_handler(PFP_HANDLER)
 
-__help__ = f"""
-*Goodnight*&*goodmorning* 
+__help__ = """
+*Goodnight* & *goodmorning* 
 bot send GM or GN image,
  ✪︎ /decide - bot send radom decides.
  ✪︎ /pat - reply to user.
