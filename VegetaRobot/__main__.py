@@ -116,17 +116,12 @@ HELP_STRINGS = """
 """
 
 HELP_MSG = "Click the button below to get help manu in your pm."
-DONATE_STRING = """Contact to **@PegasusXrobot**"""
+DONATE_STRING = """*don't need donate I'm free for every one add your group's this my donate🙂*"""
 HELP_IMG= "https://telegra.ph/file/9d2c6e3b28afe7619856e.jpg"
 GROUPSTART_IMG= "https://telegra.ph/file/1cbafa58dda18528f9e0c.mp4"
 
-STICKERS = ( "CAACAgUAAx0CXss_8QABAjzEYaXnOPwfLA22Dea6kU6EvrELQWgAAmoEAAIYaChVcBl8nrGetAIiBA",
-           "CAACAgUAAx0CXss_8QABAjzFYaXnObthrCpGkPRRNr471UrxAxsAAgEEAAKqVjBVdLdGaDAs3noiBA",
-           "CAACAgUAAx0CXss_8QABAjzGYaXnOosVqi4RBeMSLVvty53Q_UgAAhMEAAJqlClV9scsuWjjA60iBA",
-           "CAACAgUAAx0CXss_8QABAjzHYaXnOlfNEo15FunXUy0O9RuSc_AAAs4EAALPrzFV_rrVm8aMDyYiBA", )
-  
 VEGETA_IMG = ( "https://telegra.ph//file/a47f16c936dbbd4165399.jpg",
-               "https://telegra.ph//file/5026650d5e3f0b83c6d29.jpg"
+               "https://telegra.ph//file/5026650d5e3f0b83c6d29.jpg",
                "https://telegra.ph/file/561fa547f3c4940c95ddf.jpg",)       
 
 IMPORTED = {}
@@ -228,10 +223,6 @@ def start(update: Update, context: CallbackContext):
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
 
         else:
-            update.effective_message.reply_sticker(
-                random.choice(STICKERS),
-                timeout=60,
-            )
             first_name = update.effective_user.first_name
             update.effective_message.reply_photo(
                random.choice(VEGETA_IMG),PM_START_TEXT.format(first_name),
