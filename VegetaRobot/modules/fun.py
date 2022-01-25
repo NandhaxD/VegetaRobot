@@ -203,7 +203,7 @@ TAMILMEME_HANDLER = DisableAbleCommandHandler("tamilmeme", tamilmeme)
 TRUTH_HANDLER = DisableAbleCommandHandler("truth", truth)
 INSULT_HANDLER = DisableAbleCommandHandler("insult", insult)
 ABUSE_HANDLER = DisableAbleCommandHandler("abuse", abuse)
-PFP_HANDLER = DisableAbleCommandHandler("pfp", pfp)
+PFP_HANDLER = DisableAbleCommandHandler("pfp", pfp, run_async=True)
 
 dispatcher.add_handler(GOODMORNING_HANDLER)
 dispatcher.add_handler(GOODNIGHT_HANDLER)
