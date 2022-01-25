@@ -94,16 +94,16 @@ I Am *Prince Vegeta* Add 𝐌𝐞 𝐓𝐨 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩
 buttons = [
     [
         InlineKeyboardButton(
-                            text="☑ ADD VEGETA GROUP ☑",
+                            text="☑ ᴀᴅᴅ ᴠᴇɢᴇᴛᴀ ☑",
                             url="t.me/VegetaRobot?startgroup=true"),
                     ],
                      [
-                       InlineKeyboardButton(text="🔄 Inline", switch_inline_query_current_chat=""),
-                       InlineKeyboardButton(text="🔒 Close", callback_data="unbanb_del"),
+                       InlineKeyboardButton(text="🔄 ɪɴʟɪɴᴇ", switch_inline_query_current_chat=""),
+                       InlineKeyboardButton(text="🔒 ᴄʟᴏsᴇ", callback_data="unbanb_del"),
                     ],
                    [
-                       InlineKeyboardButton(text="🔐 Help", callback_data="help_back"),
-                       InlineKeyboardButton(text="💕 About", callback_data="vegeta_"
+                       InlineKeyboardButton(text="🔐 ʜᴇʟᴘ", callback_data="help_back"),
+                       InlineKeyboardButton(text="💕 ᴀʙᴏᴜᴛ", callback_data="vegeta_"
          ),
     ],
 ] 
@@ -240,8 +240,8 @@ def start(update: Update, context: CallbackContext):
         reply_markup=InlineKeyboardMarkup(
                 [
                   [
-                  InlineKeyboardButton(text="Support", url=f"https://telegram.dog/{SUPPORT_CHAT}"),
-                  InlineKeyboardButton(text="Updates", url=f"t.me/{UPDATES_CHANNEL}"),
+                  InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ", url=f"https://telegram.dog/{SUPPORT_CHAT}"),
+                  InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇs", url=f"t.me/{UPDATES_CHANNEL}"),
                   ]
                 ]
             ),
@@ -321,7 +321,7 @@ def help_button(update, context):
             module = mod_match.group(1)
             message = update.effective_message
             text = (
-                "\nModule Name - *{}*\n".format(
+                "\nᴍᴏᴅᴜʟᴇ ɴᴀᴍᴇ - *{}*\n".format(
                     HELPABLE[module].__mod_name__
                 )
                 + HELPABLE[module].__help__
@@ -330,8 +330,8 @@ def help_button(update, context):
                 text,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
-                    [[InlineKeyboardButton(text="⬅ Back", callback_data="help_back"),
-                      InlineKeyboardButton(text="⬅ Home", callback_data="vegeta_back")]]
+                    [[InlineKeyboardButton(text="⬅ ʙᴀᴄᴋ", callback_data="help_back"),
+                      InlineKeyboardButton(text="⬅ ʜᴏᴍᴇ", callback_data="vegeta_back")]]
                 ),
             )
 
@@ -390,15 +390,15 @@ def vegeta_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="👮 Admins", callback_data="vegeta_admin"),
-                    InlineKeyboardButton(text="📓 Notes", callback_data="vegeta_notes"),
+                    InlineKeyboardButton(text="👮 ᴀᴅᴍɪɴs", callback_data="vegeta_admin"),
+                    InlineKeyboardButton(text="📓 ɴᴏᴛᴇs", callback_data="vegeta_notes"),
                  ],
                  [
-                    InlineKeyboardButton(text="💕 Channels", callback_data="vegeta_support"),
-                    InlineKeyboardButton(text="💕 Stats", callback_data="stats_callback"),
+                    InlineKeyboardButton(text="💕 ᴄʜᴀɴɴᴇʟs", callback_data="vegeta_support"),
+                    InlineKeyboardButton(text="💕 sᴛᴀᴛs", callback_data="stats_callback"),
                  ],
                  [
-                    InlineKeyboardButton(text="Go Back", callback_data="vegeta_back"),
+                    InlineKeyboardButton(text="⬅️ ʙᴀᴄᴋ", callback_data="vegeta_back"),
                  ]
                 ]
             ),
@@ -446,12 +446,12 @@ def vegeta_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="👥 Support", url="t.me/Vegetasupport"),
-                    InlineKeyboardButton(text="📢 Updates", url="https://t.me/vegetaupdates"),
+                    InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ", url="t.me/Vegetasupport"),
+                    InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇs", url="https://t.me/vegetaupdates"),
                  ],
                  [
-                       InlineKeyboardButton(text="🌐 Network", url="t.me/pegasusXteam"),
-                       InlineKeyboardButton(text="🔔 Logs", url="t.me/VegetaLogs"),
+                       InlineKeyboardButton(text="ɴᴇᴛᴡᴏʀᴋ", url="t.me/pegasusXteam"),
+                       InlineKeyboardButton(text="ʟᴏɢs", url="t.me/VegetaLogs"),
                    
                    ],
                     [
@@ -498,7 +498,7 @@ def get_help(update: Update, context: CallbackContext):
                 [
                     [
                         InlineKeyboardButton(
-                            text="🔒 Help",
+                            text="🔒 ᴏᴘᴇɴ ᴄᴏᴍᴍᴀᴅs",
                             callback_data="help_back"
                         )
                     ]
