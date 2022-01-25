@@ -225,7 +225,37 @@ def gifid(update: Update, context: CallbackContext):
     else:
         update.effective_message.reply_text("Please reply to a gif to get its ID.")
         
-                        
+def pfp(update, context):
+    bot, args = context.bot, context.args
+    user_id = extract_user(update.effective_message, args)
+    chat = update.effective_chat
+    text="*Made by @VegetaRobot*"
+    
+    if user_id:
+        user = bot.get_chat(user_id)
+        
+    elif not message.reply_to_message and not args:
+        user = message.from_user  
+        
+    elif not message.reply_to_message and (
+        not args
+        or (
+            len(args) >= 1
+            and not args[0].startswith("@")
+            and not args[0].isdigit()
+            and not message.parse_entities([MessageEntity.TEXT_MENTION])
+        )
+    ):
+        message.reply_text("I can't extract a user from this.")
+        return
+
+    else:
+        return
+    
+    profile = bot.get_user_profile_photos(user_id).photos[0][-1]
+    bot.sendChatAction(chat.id, "upload_photo")
+    bot.send_photo(chat.id, photo=profile, caption=text,parse_mode=ParseMode.MARKDOWN)
+                       
 def info(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
     message = update.effective_message
@@ -567,6 +597,7 @@ GIFID_HANDLER = DisableAbleCommandHandler("gifid", gifid, run_async=True)
 INFO_HANDLER = DisableAbleCommandHandler(["info","status"], info, run_async=True)
 SET_ABOUT_HANDLER = DisableAbleCommandHandler("setme", set_about_me, run_async=True)
 GET_ABOUT_HANDLER = DisableAbleCommandHandler("me", about_me, run_async=True)
+PFP_HANDLER = DisableAbleCommandHandler("pfp", pfp, run_async=True)
 
 dispatcher.add_handler(STATS_HANDLER)
 dispatcher.add_handler(ID_HANDLER)
@@ -576,6 +607,7 @@ dispatcher.add_handler(SET_BIO_HANDLER)
 dispatcher.add_handler(GET_BIO_HANDLER)
 dispatcher.add_handler(SET_ABOUT_HANDLER)
 dispatcher.add_handler(GET_ABOUT_HANDLER)
+dispatcher.add_handler(PFP_HANDLER)
 
 __mod_name__ = "ɪɴғᴏ-ᴀғᴋ"
 __command_list__ = ["setbio", "bio", "setme", "me", "info"]
