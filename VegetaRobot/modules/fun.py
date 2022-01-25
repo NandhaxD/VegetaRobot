@@ -108,10 +108,10 @@ def repo(update, context):
 def pfp(update, context):
     user = update.effective_user
     chat = update.effective_chat
-    text="**Made by @VegetaRobot**"
-    profile = context.bot.get_user_profile_photos(user.id).photos[0][-1]
+    text="*Made by @VegetaRobot*"
+    profile = context.bot.get_user_profile_photos(user.id)
     context.bot.sendChatAction(chat.id, "upload_photo")
-    context.bot.send_photo(chat.id, photo=profile, caption=text)
+    context.bot.send_photo(chat.id, photo=profile, caption=text,parse_mode=ParseMode.MARKDOWN)
 
 
 @run_async
