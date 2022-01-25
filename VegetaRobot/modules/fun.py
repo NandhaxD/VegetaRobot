@@ -105,16 +105,6 @@ def repo(update, context):
     update.effective_message.reply_text(fun.REPO)
    
 
-def pfp(update, context):
-    bot = context.bot
-    user = update.effective_user
-    chat = update.effective_chat
-    text="*Made by @VegetaRobot*"
-    profile = context.bot.get_user_profile_photos(user.id).photos[0][-1]
-    bot.sendChatAction(chat.id, "upload_photo")
-    bot.send_photo(chat.id, photo=profile, caption=text,parse_mode=ParseMode.MARKDOWN)
-
-
 @run_async
 def insult(update, context):
     context.bot.sendChatAction(update.effective_chat.id, "typing") # Bot typing before send messages
@@ -205,7 +195,6 @@ TAMILMEME_HANDLER = DisableAbleCommandHandler("tamilmeme", tamilmeme)
 TRUTH_HANDLER = DisableAbleCommandHandler("truth", truth)
 INSULT_HANDLER = DisableAbleCommandHandler("insult", insult)
 ABUSE_HANDLER = DisableAbleCommandHandler("abuse", abuse)
-PFP_HANDLER = DisableAbleCommandHandler("pfp", pfp, run_async=True)
 
 dispatcher.add_handler(GOODMORNING_HANDLER)
 dispatcher.add_handler(GOODNIGHT_HANDLER)
@@ -220,7 +209,6 @@ dispatcher.add_handler(TRUTH_HANDLER)
 dispatcher.add_handler(REPO_HANDLER)
 dispatcher.add_handler(DARE_HANDLER)
 dispatcher.add_handler(TAMILMEME_HANDLER)
-dispatcher.add_handler(PFP_HANDLER)
 
 __help__ = """
 *Goodnight* & *goodmorning* 
