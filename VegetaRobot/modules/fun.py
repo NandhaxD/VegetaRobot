@@ -105,7 +105,7 @@ def repo(update, context):
     update.effective_message.reply_text(fun.REPO)
     
 @run_async
-def gbam(update, context):
+def pfp(update, context):
     user = update.effective_user
     chat = update.effective_chat
     text="Made by @vegetaRobot"
