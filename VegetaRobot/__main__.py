@@ -26,7 +26,7 @@ from VegetaRobot import (
     dispatcher,
     StartTime,
     telethn,
-    pgram,
+    pgram as pbot,
     updater,
 )
 
