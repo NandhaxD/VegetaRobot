@@ -10,6 +10,7 @@ import telegram.ext as tg
 from redis import StrictRedis
 from pyrogram import Client, errors
 from telethon import TelegramClient
+from ptbcontrib.postgres_persistence import PostgresPersistence
 
 StartTime = time.time()
 
