@@ -111,6 +111,7 @@ if ENV:
     TELEGRAPH_SHORT_NAME = os.environ.get("TELEGRAPH_SHORT_NAME", "lightYagami")
     HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
     LOG_GROUP_ID = os.environ.get('LOG_GROUP_ID', None)
+    DEBUG = bool(os.environ.get('DEBUG', False))
 
     try:
         BL_CHATS = set(int(x) for x in os.environ.get('BL_CHATS', "").split())
@@ -188,6 +189,7 @@ else:
     UPDATES_CHANNEL = Config.UPDATES_CHANNEL
     SPAMWATCH_SUPPORT_CHAT = Config.SPAMWATCH_SUPPORT_CHAT
     SPAMWATCH_API = Config.SPAMWATCH_API
+    DEBUG = Config.DEBUG
 
     try:
         BL_CHATS = set(int(x) for x in Config.BL_CHATS or [])
