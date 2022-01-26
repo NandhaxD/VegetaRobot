@@ -1,11 +1,9 @@
 import threading
 
-from VegetaRobot.modules.sql import BASE, SESSION
-from sqlalchemy import (Boolean, Column, Integer, String, UnicodeText, distinct,
-                        func)
-from sqlalchemy.dialects import postgresql
+from KURUMIBOT.modules.sql import BASE, SESSION
+from sqlalchemy import Boolean, Column, String, UnicodeText, distinct, func, Integer
 from sqlalchemy.sql.sqltypes import BigInteger
-
+from sqlalchemy.dialects import postgresql
 
 
 class Warns(BASE):
@@ -13,7 +11,7 @@ class Warns(BASE):
 
     user_id = Column(BigInteger, primary_key=True)
     chat_id = Column(String(14), primary_key=True)
-    num_warns = Column(BigInteger, default=0)
+    num_warns = Column(Integer, default=0)
     reasons = Column(postgresql.ARRAY(UnicodeText))
 
     def __init__(self, user_id, chat_id):
@@ -24,7 +22,11 @@ class Warns(BASE):
 
     def __repr__(self):
         return "<{} warns for {} in {} for reasons {}>".format(
-            self.num_warns, self.user_id, self.chat_id, self.reasons)
+            self.num_warns,
+            self.user_id,
+            self.chat_id,
+            self.reasons,
+        )
 
 
 class WarnFilters(BASE):
@@ -43,14 +45,16 @@ class WarnFilters(BASE):
 
     def __eq__(self, other):
         return bool(
-            isinstance(other, WarnFilters) and self.chat_id == other.chat_id and
-            self.keyword == other.keyword)
+            isinstance(other, WarnFilters)
+            and self.chat_id == other.chat_id
+            and self.keyword == other.keyword,
+        )
 
 
 class WarnSettings(BASE):
     __tablename__ = "warn_settings"
     chat_id = Column(String(14), primary_key=True)
-    warn_limit = Column(BigInteger, default=3)
+    warn_limit = Column(Integer, default=3)
     soft_warn = Column(Boolean, default=False)
 
     def __init__(self, chat_id, warn_limit=3, soft_warn=False):
@@ -59,8 +63,7 @@ class WarnSettings(BASE):
         self.soft_warn = soft_warn
 
     def __repr__(self):
-        return "<{} has {} possible warns.>".format(self.chat_id,
-                                                    self.warn_limit)
+        return "<{} has {} possible warns.>".format(self.chat_id, self.warn_limit)
 
 
 Warns.__table__.create(checkfirst=True)
@@ -83,7 +86,7 @@ def warn_user(user_id, chat_id, reason=None):
         warned_user.num_warns += 1
         if reason:
             warned_user.reasons = warned_user.reasons + [
-                reason
+                reason,
             ]  # TODO:: double check this wizardry
 
         reasons = warned_user.reasons
@@ -142,7 +145,8 @@ def add_warn_filter(chat_id, keyword, reply):
         if keyword not in WARN_FILTERS.get(str(chat_id), []):
             WARN_FILTERS[str(chat_id)] = sorted(
                 WARN_FILTERS.get(str(chat_id), []) + [keyword],
-                key=lambda x: (-len(x), x))
+                key=lambda x: (-len(x), x),
+            )
 
         SESSION.merge(warn_filt)  # merge to avoid duplicate key issues
         SESSION.commit()
@@ -168,8 +172,9 @@ def get_chat_warn_triggers(chat_id):
 
 def get_chat_warn_filters(chat_id):
     try:
-        return SESSION.query(WarnFilters).filter(
-            WarnFilters.chat_id == str(chat_id)).all()
+        return (
+            SESSION.query(WarnFilters).filter(WarnFilters.chat_id == str(chat_id)).all()
+        )
     finally:
         SESSION.close()
 
@@ -210,8 +215,7 @@ def get_warn_setting(chat_id):
         setting = SESSION.query(WarnSettings).get(str(chat_id))
         if setting:
             return setting.warn_limit, setting.soft_warn
-        else:
-            return 3, False
+        return 3, False
 
     finally:
         SESSION.close()
@@ -240,8 +244,11 @@ def num_warn_filters():
 
 def num_warn_chat_filters(chat_id):
     try:
-        return SESSION.query(WarnFilters.chat_id).filter(
-            WarnFilters.chat_id == str(chat_id)).count()
+        return (
+            SESSION.query(WarnFilters.chat_id)
+            .filter(WarnFilters.chat_id == str(chat_id))
+            .count()
+        )
     finally:
         SESSION.close()
 
@@ -275,15 +282,19 @@ def __load_chat_warn_filters():
 
 def migrate_chat(old_chat_id, new_chat_id):
     with WARN_INSERTION_LOCK:
-        chat_notes = SESSION.query(Warns).filter(
-            Warns.chat_id == str(old_chat_id)).all()
+        chat_notes = (
+            SESSION.query(Warns).filter(Warns.chat_id == str(old_chat_id)).all()
+        )
         for note in chat_notes:
             note.chat_id = str(new_chat_id)
         SESSION.commit()
 
     with WARN_FILTER_INSERTION_LOCK:
-        chat_filters = SESSION.query(WarnFilters).filter(
-            WarnFilters.chat_id == str(old_chat_id)).all()
+        chat_filters = (
+            SESSION.query(WarnFilters)
+            .filter(WarnFilters.chat_id == str(old_chat_id))
+            .all()
+        )
         for filt in chat_filters:
             filt.chat_id = str(new_chat_id)
         SESSION.commit()
@@ -293,8 +304,11 @@ def migrate_chat(old_chat_id, new_chat_id):
             del WARN_FILTERS[str(old_chat_id)]
 
     with WARN_SETTINGS_LOCK:
-        chat_settings = SESSION.query(WarnSettings).filter(
-            WarnSettings.chat_id == str(old_chat_id)).all()
+        chat_settings = (
+            SESSION.query(WarnSettings)
+            .filter(WarnSettings.chat_id == str(old_chat_id))
+            .all()
+        )
         for setting in chat_settings:
             setting.chat_id = str(new_chat_id)
         SESSION.commit()
