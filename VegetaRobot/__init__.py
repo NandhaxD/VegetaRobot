@@ -10,17 +10,27 @@ import telegram.ext as tg
 from redis import StrictRedis
 from pyrogram import Client, errors
 from telethon import TelegramClient
+from ptbcontrib.postgres_persistence import PostgresPersistence
+
 
 StartTime = time.time()
 
 # enable logging
+FORMAT = "[VegetaRobot] %(message)s"
 logging.basicConfig(
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    handlers=[logging.FileHandler('log.txt'),
-              logging.StreamHandler()],
-    level=logging.INFO)
+    handlers=[logging.FileHandler("log.txt"), logging.StreamHandler()],
+    level=logging.INFO,
+    format=FORMAT,
+    datefmt="[%X]",
+)
+logging.getLogger("pyrogram").setLevel(logging.INFO)
+logging.getLogger('ptbcontrib.postgres_persistence.postgrespersistence').setLevel(logging.WARNING)
 
-LOGGER = logging.getLogger(__name__)
+LOGGER = logging.getLogger('[VegetaRobot]')
+LOGGER.info("Emiko is starting. | An Vegeta Project Parts. | Licensed under GPLv3.")
+LOGGER.info("Not affiliated to other anime or Villain in any way whatsoever.")
+LOGGER.info("Project maintained by: github.com/ctzfamily (t.me/ctzfamily)")
+
 
 # if version < 3.6, stop bot.
 if sys.version_info[0] < 3 or sys.version_info[1] < 6:
