@@ -10,6 +10,7 @@ beautifulsoup4
 requests
 SQLAlchemy==1.4.28
 python-telegram-bot==13.9
+python-arq
 psycopg2-binary
 feedparser
 pynewtonmath
