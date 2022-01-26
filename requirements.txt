@@ -79,4 +79,5 @@ img2pdf
 gpytranslate
 pretty_errors
 psutil
+git+https://github.com/python-telegram-bot/ptbcontrib.git
 
