@@ -1,6 +1,6 @@
 import threading
 
-from sqlalchemy import Column, String, Integer
+from sqlalchemy import Column, String, BigInteger
 from sqlalchemy.sql.sqltypes import BigInteger
 from VegetaRobot.modules.sql import BASE, SESSION
 
