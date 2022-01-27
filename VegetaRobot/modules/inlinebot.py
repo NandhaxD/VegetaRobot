@@ -16,7 +16,7 @@ from telegram.utils.helpers import mention_html
 
 import VegetaRobot.modules.sql.users_sql as sql
 from VegetaRobot import (
-    OWNER_ID,
+    OWNER_ID, SUPPORT_CHAT, UPDATES_CHANNEL,
     DRAGONS,
     DEMONS,
     DEV_USERS,
