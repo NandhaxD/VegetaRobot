@@ -56,7 +56,7 @@ def inlinequery(update: Update, _) -> None:
             "title": "About & info",
             "description": "About And informations",
             "message_text": "Click the below button for about and commads",
-            "thumb_urL": "https://telegra.ph/file/561a53ed2800f4dccbe30.jpg",
+            "thumb_urL": "http://telegra.ph/file/6e8a69b73969cc433d2cf.jpg",
             "keyboard": ".about ",
         },
     ]
@@ -258,8 +258,8 @@ def about(query: str, update: Update, context: CallbackContext) -> None:
             id=str(uuid4()),
             title="Alive",
             description="Check Bot's Stats",
-            thumb_url="https://telegra.ph/file/396d27f7cba3f83efceab.jpg",
-            photo_url="https://telegra.ph/file/55669ba6d3475e5d77e8d.jpg",
+            thumb_url="http://telegra.ph/file/6e8a69b73969cc433d2cf.jpg",
+            photo_url="http://telegra.ph/file/6e8a69b73969cc433d2cf.jpg",
             caption=about_text,
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=kb
