@@ -8,7 +8,7 @@ from uuid import uuid4
 from pyrogram import __version__ as pyrover
 
 import requests
-from telegram import InlineQueryResultArticle, ParseMode, InputTextMessageContent, Update, InlineKeyboardMarkup, \
+from telegram import InlineQueryResultPhoto, InlineQueryResultArticle, ParseMode, InputTextMessageContent, Update, InlineKeyboardMarkup, \
     InlineKeyboardButton
 from telegram import __version__
 from telegram.error import BadRequest
@@ -256,11 +256,11 @@ def about(query: str, update: Update, context: CallbackContext) -> None:
 
     results.append(
 
-        InlineQueryResultArticle
+        InlineQueryResultPhoto
             (
             id=str(uuid4()),
             title=f"About thanimai (@{context.bot.username})",
-            input_message_content=InputTextMessageContent(about_text, parse_mode=ParseMode.MARKDOWN,
+            input_message_content=InputTextMessageContent(caption=about_text, parse_mode=ParseMode.MARKDOWN,
                                                           disable_web_page_preview=True),
             reply_markup=kb
         )
