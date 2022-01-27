@@ -99,11 +99,14 @@ def yesnowtf(update, context):
     except BadRequest:
         return
         
+
 @run_async
 @typing_action
 def repo(update, context):
-    update.effective_message.reply_text(fun.REPO)
+    file = "AAMCBQADHQJeyz_xAAEDL6Jh8lZZ0ahBFI8Zbp24N-Cap2HltwACSwQAArrwoVcaDvorXjBsmQEAB20AAyME"
+    update.effective_message.reply_audio(file)   
    
+
 
 @run_async
 def insult(update, context):
