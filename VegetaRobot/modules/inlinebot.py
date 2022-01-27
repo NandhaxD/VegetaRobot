@@ -256,6 +256,7 @@ def about(query: str, update: Update, context: CallbackContext) -> None:
     results.append(
         InlineQueryResultPhoto(
             id=str(uuid4()),
+            thumb_url="http://telegra.ph/file/6e8a69b73969cc433d2cf.jpg",
             photo_url="http://telegra.ph/file/6e8a69b73969cc433d2cf.jpg",
             caption=about_text,
             parse_mode=ParseMode.MARKDOWN,
