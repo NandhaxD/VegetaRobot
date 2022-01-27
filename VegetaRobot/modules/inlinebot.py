@@ -1,5 +1,4 @@
-*Stdout*
-`import html
+import html
 import sys
 import json
 from datetime import datetime
@@ -56,14 +55,14 @@ def inlinequery(update: Update, _) -> None:
         {
             "title": "Account info on thanimai",
             "description": "Look up a Telegram account in thanimai database",
-            "message_text": "Click the button below to look up a person in thanimai database using their Telegram ID",
+            "message_text": "Click the button below to look up a person in Vegeta database using their Telegram ID",
             "thumb_urL": "https://telegra.ph/file/8ca81e6279a7ba2657624.jpg",
             "keyboard": ".info ",
         },
         {
             "title": "About",
             "description": "Know about thanimai",
-            "message_text": "Click the button below to get to know about thanimai.",
+            "message_text": "Click the button below to get to know about Vegeta.",
             "thumb_urL": "https://telegra.ph/file/8ca81e6279a7ba2657624.jpg",
             "keyboard": ".about ",
         },
@@ -191,7 +190,7 @@ def inlineinfo(query: str, update: Update, context: CallbackContext) -> None:
             [
                 InlineKeyboardButton(
                     text="Report Error",
-                    url=f"https://t.me/thanimaisupport",
+                    url=f"https://t.me/vegetasupport",
                 ),
                 InlineKeyboardButton(
                     text="Search again",
@@ -236,11 +235,11 @@ def about(query: str, update: Update, context: CallbackContext) -> None:
             [
                 InlineKeyboardButton(
                     text="Support",
-                    url=f"https://t.me/thanimaisupport",
+                    url=f"https://t.me/vegetasupport",
                 ),
                 InlineKeyboardButton(
                     text="Channel",
-                    url=f"https://t.me/thanimaibots",
+                    url=f"https://t.me/vegetaupdates",
                 ),
                 InlineKeyboardButton(
                     text='Ping',
@@ -322,7 +321,7 @@ def spb(query: str, update: Update, context: CallbackContext) -> None:
             [
                 InlineKeyboardButton(
                     text="Report Error",
-                    url=f"https://t.me/thanimaisupport",
+                    url=f"https://t.me/vegetasupport",
                 ),
                 InlineKeyboardButton(
                     text="Search again",
@@ -466,7 +465,7 @@ def media_query(query: str, update: Update, context: CallbackContext) -> None:
                 [
                     InlineKeyboardButton(
                         text="Report error",
-                        url="https://t.me/thanimaisupport",
+                        url="https://t.me/vegetasupport",
                     ),
                     InlineKeyboardButton(
                         text="Search again",
@@ -490,4 +489,4 @@ def media_query(query: str, update: Update, context: CallbackContext) -> None:
         )
 
     update.inline_query.answer(results, cache_time=5)
-`
+
