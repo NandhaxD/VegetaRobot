@@ -209,7 +209,6 @@ def about(query: str, update: Update, context: CallbackContext) -> None:
     user_id = update.effective_user.id
     user = context.bot.get_chat(user_id)
     sql.update_user(user.id, user.username)
-    photo_url="https://telegra.ph/file/8ca81e6279a7ba2657624.jpg",
     about_text = f"""
             [thanimai](https://telegra.ph/file/449fa1cd169e352987c3c.jpg)
     *Bot State:* `Alive`
@@ -255,13 +254,14 @@ def about(query: str, update: Update, context: CallbackContext) -> None:
         ])
 
     results.append(
-        
-        InlineQueryResultPhoto
-            (
+        InlineQueryResultPhoto(
             id=str(uuid4()),
-            title=f"About thanimai (@{context.bot.username})",
-            input_message_content=InputTextMessageContent(caption=about_text, parse_mode=ParseMode.MARKDOWN,
-                                                          disable_web_page_preview=False),
+            title="Alive",
+            description="Check Bot's Stats",
+            thumb_url="https://telegra.ph/file/396d27f7cba3f83efceab.jpg",
+            photo_url="https://telegra.ph/file/55669ba6d3475e5d77e8d.jpg",
+            caption=about_text,
+            parse_mode=ParseMode.MARKDOWN,
             reply_markup=kb
         )
     )
