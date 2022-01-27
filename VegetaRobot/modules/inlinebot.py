@@ -16,7 +16,7 @@ from telegram.ext import CallbackContext
 from telegram.utils.helpers import mention_html
 
 import VegetaRobot.modules.sql.users_sql as sql
-from MashaRoBot import (
+from VegetaRobot import (
     OWNER_ID,
     DRAGONS,
     DEMONS,
