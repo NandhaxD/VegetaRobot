@@ -103,8 +103,7 @@ def yesnowtf(update, context):
 @run_async
 @typing_action
 def repo(update, context):
-    file = "AAMCBQADHQJeyz_xAAEDL6Jh8lZZ0ahBFI8Zbp24N-Cap2HltwACSwQAArrwoVcaDvorXjBsmQEAB20AAyME"
-    update.effective_message.reply_audio(file)   
+    update.effective_message.reply_audio(fun.REPO)   
    
 
 
