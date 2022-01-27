@@ -226,10 +226,15 @@ def about(query: str, update: Update, context: CallbackContext) -> None:
                     text="Info",
                     switch_inline_query_current_chat=".info ",
                 ),
+                
                 InlineKeyboardButton(
                     text="AniList",
                     switch_inline_query_current_chat=".anilist ",
                 ),
+                
+                ],
+                 [
+                     
                 InlineKeyboardButton(
                     text="Support",
                     url="t.me/VegetaSupport",
@@ -238,6 +243,9 @@ def about(query: str, update: Update, context: CallbackContext) -> None:
                     text="Updates",
                     url="t.me/VegetaUpdates",
                 ),
+                     
+                ],
+                 [
                 InlineKeyboardButton(
                     text='Ping',
                     callback_data='pingCB'
