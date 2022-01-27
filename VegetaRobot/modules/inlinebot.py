@@ -55,11 +55,13 @@ def inlinequery(update: Update, _) -> None:
         {
             "title": "About & info",
             "description": "About And informations",
-            "message_text": "Click this bellow button for commads and About of Vegeta",
-            "thumb_urL": "https://telegra.ph/file/8ca81e6279a7ba2657624.jpg",
+            "message_text": "Click the below button for about and commads",
+            "thumb_urL": "https://telegra.ph/file/561a53ed2800f4dccbe30.jpg",
             "keyboard": ".about ",
         },
-     }
+    ]
+        
+          
        
 
     inline_funcs = {
