@@ -1,5 +1,4 @@
-*Stdout*
-`import html
+import html
 import sys
 import json
 from datetime import datetime
@@ -9,15 +8,14 @@ from uuid import uuid4
 from pyrogram import __version__ as pyrover
 
 import requests
-from telegram import InlineQueryResultArticle, ParseMode, InputTextMessageContent, Update, InlineKeyboardMarkup, \
-    InlineKeyboardButton
+from telegram import InlineQueryResultArticle,InlineQueryResultPhoto, ParseMode, InputTextMessageContent, Update, InlineKeyboardMarkup, InlineKeyboardButton
 from telegram import __version__
 from telegram.error import BadRequest
 from telegram.ext import CallbackContext
 from telegram.utils.helpers import mention_html
 
-import MashaRoBot.modules.sql.users_sql as sql
-from MashaRoBot import (
+import VegetaRobot.modules.sql.users_sql as sql
+from VegetaRobot import (
     OWNER_ID,
     DRAGONS,
     DEMONS,
@@ -26,8 +24,8 @@ from MashaRoBot import (
     WOLVES,
     sw, LOGGER
 )
-from MashaRoBot.modules.helper_funcs.misc import article
-from MashaRoBot.modules.helper_funcs.decorators import kiginline
+from VegetaRobot.modules.helper_funcs.misc import article
+from VegetaRobot.modules.helper_funcs.decorators import vegetainline as kiginline
 
 
 def remove_prefix(text, prefix):
@@ -54,24 +52,24 @@ def inlinequery(update: Update, _) -> None:
             "keyboard": ".spb ",
         },
         {
-            "title": "Account info on thanimai",
+            "title": "Account info on Vegeta",
             "description": "Look up a Telegram account in thanimai database",
-            "message_text": "Click the button below to look up a person in thanimai database using their Telegram ID",
-            "thumb_urL": "https://telegra.ph/file/8ca81e6279a7ba2657624.jpg",
+            "message_text": "Click the button below to look up a person in Vegeta database using their Telegram ID",
+            "thumb_urL": "http://telegra.ph/file/6e8a69b73969cc433d2cf.jpg",
             "keyboard": ".info ",
         },
         {
             "title": "About",
-            "description": "Know about thanimai",
+            "description": "Know about Vegeta",
             "message_text": "Click the button below to get to know about thanimai.",
-            "thumb_urL": "https://telegra.ph/file/8ca81e6279a7ba2657624.jpg",
+            "thumb_urL": "http://telegra.ph/file/6e8a69b73969cc433d2cf.jpg",
             "keyboard": ".about ",
         },
         {
             "title": "Anilist",
             "description": "Search anime and manga on AniList.co",
             "message_text": "Click the button below to search anime and manga on AniList.co",
-            "thumb_urL": "https://telegra.ph/file/561a53ed2800f4dccbe30.jpg",
+            "thumb_urL": "http://telegra.ph/file/6e8a69b73969cc433d2cf.jpg",
             "keyboard": ".anilist ",
         },
     ]
@@ -191,7 +189,7 @@ def inlineinfo(query: str, update: Update, context: CallbackContext) -> None:
             [
                 InlineKeyboardButton(
                     text="Report Error",
-                    url=f"https://t.me/thanimaisupport",
+                    url=f"https://t.me/{SUPPORT_CHAT}",
                 ),
                 InlineKeyboardButton(
                     text="Search again",
@@ -221,9 +219,8 @@ def about(query: str, update: Update, context: CallbackContext) -> None:
     user_id = update.effective_user.id
     user = context.bot.get_chat(user_id)
     sql.update_user(user.id, user.username)
-    photo_url="https://telegra.ph/file/8ca81e6279a7ba2657624.jpg",
+    photo_url="http://telegra.ph/file/6e8a69b73969cc433d2cf.jpg",
     about_text = f"""
-            [thanimai](https://telegra.ph/file/449fa1cd169e352987c3c.jpg)
     *Bot State:* `Alive`
     *Python:* `{python_version()}`
     *Pyrogram:* `{pyrover}`
@@ -236,11 +233,11 @@ def about(query: str, update: Update, context: CallbackContext) -> None:
             [
                 InlineKeyboardButton(
                     text="Support",
-                    url=f"https://t.me/thanimaisupport",
+                    url=f"https://t.me/{SUPPORT_CHAT}",
                 ),
                 InlineKeyboardButton(
                     text="Channel",
-                    url=f"https://t.me/thanimaibots",
+                    url=f"https://t.me/{UPDATES_CHANNEL}",
                 ),
                 InlineKeyboardButton(
                     text='Ping',
@@ -252,12 +249,11 @@ def about(query: str, update: Update, context: CallbackContext) -> None:
 
     results.append(
 
-        InlineQueryResultArticle
+        InlineQueryResultPhoto
             (
             id=str(uuid4()),
-            title=f"About thanimai (@{context.bot.username})",
-            input_message_content=InputTextMessageContent(about_text, parse_mode=ParseMode.MARKDOWN,
-                                                          disable_web_page_preview=True),
+            title=f"About Vegeta (@{context.bot.username})",
+            input_message_content=InputTextMessageContent(about_text, parse_mode=ParseMode.MARKDOWN),
             reply_markup=kb
         )
     )
@@ -322,7 +318,7 @@ def spb(query: str, update: Update, context: CallbackContext) -> None:
             [
                 InlineKeyboardButton(
                     text="Report Error",
-                    url=f"https://t.me/thanimaisupport",
+                    url=f"https://t.me/{SUPPORT_CHAT}",
                 ),
                 InlineKeyboardButton(
                     text="Search again",
@@ -466,7 +462,7 @@ def media_query(query: str, update: Update, context: CallbackContext) -> None:
                 [
                     InlineKeyboardButton(
                         text="Report error",
-                        url="https://t.me/thanimaisupport",
+                        url=f"https://t.me/{SUPPORT_CHAT}",
                     ),
                     InlineKeyboardButton(
                         text="Search again",
@@ -490,4 +486,4 @@ def media_query(query: str, update: Update, context: CallbackContext) -> None:
         )
 
     update.inline_query.answer(results, cache_time=5)
-`
+
