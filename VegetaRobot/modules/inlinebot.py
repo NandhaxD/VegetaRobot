@@ -255,13 +255,13 @@ def about(query: str, update: Update, context: CallbackContext) -> None:
         ])
 
     results.append(
-
+        
         InlineQueryResultPhoto
             (
             id=str(uuid4()),
             title=f"About thanimai (@{context.bot.username})",
             input_message_content=InputTextMessageContent(caption=about_text, parse_mode=ParseMode.MARKDOWN,
-                                                          disable_web_page_preview=True),
+                                                          disable_web_page_preview=False),
             reply_markup=kb
         )
     )
