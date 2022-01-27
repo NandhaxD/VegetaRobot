@@ -53,27 +53,14 @@ def inlinequery(update: Update, _) -> None:
             "keyboard": ".spb ",
         },
         {
-            "title": "Account info on thanimai",
-            "description": "Look up a Telegram account in thanimai database",
-            "message_text": "Click the button below to look up a person in Vegeta database using their Telegram ID",
-            "thumb_urL": "https://telegra.ph/file/8ca81e6279a7ba2657624.jpg",
-            "keyboard": ".info ",
-        },
-        {
-            "title": "About",
-            "description": "Know about thanimai",
-            "message_text": "Click the button below to get to know about Vegeta.",
+            "title": "About & info",
+            "description": "About And informations",
+            "message_text": "Click this bellow button for commads and About of Vegeta",
             "thumb_urL": "https://telegra.ph/file/8ca81e6279a7ba2657624.jpg",
             "keyboard": ".about ",
         },
-        {
-            "title": "Anilist",
-            "description": "Search anime and manga on AniList.co",
-            "message_text": "Click the button below to search anime and manga on AniList.co",
-            "thumb_urL": "https://telegra.ph/file/561a53ed2800f4dccbe30.jpg",
-            "keyboard": ".anilist ",
-        },
-    ]
+     }
+       
 
     inline_funcs = {
         ".spb": spb,
@@ -234,12 +221,20 @@ def about(query: str, update: Update, context: CallbackContext) -> None:
         [
             [
                 InlineKeyboardButton(
-                    text="Support",
-                    url=f"https://t.me/vegetasupport",
+                    text="Info",
+                    switch_inline_query_current_chat=".info ",
                 ),
                 InlineKeyboardButton(
-                    text="Channel",
-                    url=f"https://t.me/vegetaupdates",
+                    text="AniList",
+                    switch_inline_query_current_chat=".anilist ",
+                ),
+                InlineKeyboardButton(
+                    text="Support",
+                    url="t.me/VegetaSupport",
+                ),
+                InlineKeyboardButton(
+                    text="Updates",
+                    url="t.me/VegetaUpdates",
                 ),
                 InlineKeyboardButton(
                     text='Ping',
