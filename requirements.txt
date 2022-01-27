@@ -57,6 +57,7 @@ pyrate-limiter
 nekos.py
 tgcrypto
 python-arq==6.0.3
+yt_dlp
 hachoir
 configparser
 bing_image_downloader
