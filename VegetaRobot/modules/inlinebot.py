@@ -210,7 +210,7 @@ def about(query: str, update: Update, context: CallbackContext) -> None:
     user = context.bot.get_chat(user_id)
     sql.update_user(user.id, user.username)
     about_text = f"""
-            [thanimai](https://telegra.ph/file/449fa1cd169e352987c3c.jpg)
+     [VegetaRobot ✨](t.me/VegetaRobot)
     *Bot State:* `Alive`
     *Python:* `{python_version()}`
     *Pyrogram:* `{pyrover}`
@@ -256,9 +256,6 @@ def about(query: str, update: Update, context: CallbackContext) -> None:
     results.append(
         InlineQueryResultPhoto(
             id=str(uuid4()),
-            title="Alive",
-            description="Check Bot's Stats",
-            thumb_url="http://telegra.ph/file/6e8a69b73969cc433d2cf.jpg",
             photo_url="http://telegra.ph/file/6e8a69b73969cc433d2cf.jpg",
             caption=about_text,
             parse_mode=ParseMode.MARKDOWN,
