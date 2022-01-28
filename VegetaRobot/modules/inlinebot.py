@@ -50,14 +50,14 @@ def inlinequery(update: Update, _) -> None:
             "message_text": "Click the button below to look up a person/bot/channel/chat on @Intellivoid SpamProtection API using "
                             "username or telegram id",
             "thumb_urL": "https://telegra.ph/file/3ce9045b1c7faf7123c67.jpg",
-            "keyboard": ".spb ",
+            "keyboard": ".spb",
         },
         {
             "title": "About & info",
             "description": "About And informations",
             "message_text": "Click the below button for about and commads",
             "thumb_urL": "http://telegra.ph/file/6e8a69b73969cc433d2cf.jpg",
-            "keyboard": ".about ",
+            "keyboard": ".about",
         },
     ]
         
@@ -121,17 +121,17 @@ def inlineinfo(query: str, update: Update, context: CallbackContext) -> None:
 
     text = (
         f"<b>Information:</b>\n"
-        f"â€¢ ID: <code>{user.id}</code>\n"
-        f"â€¢ First Name: {html.escape(user.first_name)}"
+        f"✪ ID: <code>{user.id}</code>\n"
+        f"✪ First Name: {html.escape(user.first_name)}"
     )
 
     if user.last_name:
-        text += f"\nâ€¢ Last Name: {html.escape(user.last_name)}"
+        text += f"\n✪ Last Name: {html.escape(user.last_name)}"
 
     if user.username:
-        text += f"\nâ€¢ Username: @{html.escape(user.username)}"
+        text += f"\n✪ Username: @{html.escape(user.username)}"
 
-    text += f"\nâ€¢ Permanent user link: {mention_html(user.id, 'link')}"
+    text += f"\n✪ Permanent user link: {mention_html(user.id, 'link')}"
 
     nation_level_present = False
 
@@ -160,16 +160,16 @@ def inlineinfo(query: str, update: Update, context: CallbackContext) -> None:
     try:
         spamwtc = sw.get_ban(int(user.id))
         if spamwtc:
-            text += "<b>\n\nâ€¢ SpamWatched:\n</b> Yes"
-            text += f"\nâ€¢ Reason: <pre>{spamwtc.reason}</pre>"
-            text += "\nâ€¢ Appeal at @SpamWatchSupport"
+            text += "<b>\n\n✪ SpamWatched:\n</b> Yes"
+            text += f"\n✪ Reason: <pre>{spamwtc.reason}</pre>"
+            text += "\n✪ Appeal at @SpamWatchSupport"
         else:
-            text += "<b>\n\nâ€¢ SpamWatched:</b> No"
+            text += "<b>\n\n✪ SpamWatched:</b> No"
     except:
         pass  # don't crash if api is down somehow...
 
     num_chats = sql.get_user_num_chats(user.id)
-    text += f"\nâ€¢ <b>Chat count</b>: <code>{num_chats}</code>"
+    text += f"\n✪ <b>Chat count</b>: <code>{num_chats}</code>"
 
 
 
@@ -178,11 +178,11 @@ def inlineinfo(query: str, update: Update, context: CallbackContext) -> None:
         [
             [
                 InlineKeyboardButton(
-                    text="Report Error",
+                    text="ʀᴇᴘᴏʀᴛ ᴇʀʀᴏʀ",
                     url=f"https://t.me/vegetasupport",
                 ),
                 InlineKeyboardButton(
-                    text="Search again",
+                    text="sᴇᴀʀxʜ ᴀɢᴀɪɴ",
                     switch_inline_query_current_chat=".info ",
                 ),
 
@@ -210,7 +210,7 @@ def about(query: str, update: Update, context: CallbackContext) -> None:
     user = context.bot.get_chat(user_id)
     sql.update_user(user.id, user.username)
     about_text = f"""
-     [VegetaRobot ✨](t.me/VegetaRobot)
+
     *Bot State:* `Alive`
     *Python:* `{python_version()}`
     *Pyrogram:* `{pyrover}`
@@ -222,12 +222,12 @@ def about(query: str, update: Update, context: CallbackContext) -> None:
         [
             [
                 InlineKeyboardButton(
-                    text="Info",
+                    text="ɪɴғᴏ",
                     switch_inline_query_current_chat=".info ",
                 ),
                 
                 InlineKeyboardButton(
-                    text="AniList",
+                    text="ᴀɴɪʟɪsᴛ",
                     switch_inline_query_current_chat=".anilist ",
                 ),
                 
@@ -235,19 +235,19 @@ def about(query: str, update: Update, context: CallbackContext) -> None:
                  [
                      
                 InlineKeyboardButton(
-                    text="Support",
+                    text="sᴜᴘᴘᴏʀᴛ",
                     url="t.me/VegetaSupport",
                 ),
                 InlineKeyboardButton(
-                    text="Updates",
+                    text="ᴜᴘᴅᴀᴛᴇs",
                     url="t.me/VegetaUpdates",
                 ),
                      
                 ],
                  [
                 InlineKeyboardButton(
-                    text='Ping',
-                    callback_data='pingCB'
+                    text='ɪɴʟɪɴᴇ ɢᴏ',
+                    switch_inline_query_current_chat=""
                 ),
 
             ],
@@ -288,32 +288,32 @@ def spb(query: str, update: Update, context: CallbackContext) -> None:
         response = a["success"]
         if response is True:
             date = a["results"]["last_updated"]
-            stats = f"*â—¢ Intellivoidâ€¢ SpamProtection Info*:\n"
-            stats += f' â€¢ *Updated on*: `{datetime.fromtimestamp(date).strftime("%Y-%m-%d %I:%M:%S %p")}`\n'
+            stats = f"*✪ Intellivoidâ€¢ SpamProtection Info*:\n"
+            stats += f'✪ *Updated on*: `{datetime.fromtimestamp(date).strftime("%Y-%m-%d %I:%M:%S %p")}`\n'
 
             if a["results"]["attributes"]["is_potential_spammer"] is True:
-                stats += f" â€¢ *User*: `USERxSPAM`\n"
+                stats += f" ✪ *User*: `USERxSPAM`\n"
             elif a["results"]["attributes"]["is_operator"] is True:
-                stats += f" â€¢ *User*: `USERxOPERATOR`\n"
+                stats += f" ✪ *User*: `USERxOPERATOR`\n"
             elif a["results"]["attributes"]["is_agent"] is True:
-                stats += f" â€¢ *User*: `USERxAGENT`\n"
+                stats += f" ✪ *User*: `USERxAGENT`\n"
             elif a["results"]["attributes"]["is_whitelisted"] is True:
-                stats += f" â€¢ *User*: `USERxWHITELISTED`\n"
+                stats += f" ✪ *User*: `USERxWHITELISTED`\n"
 
-            stats += f' â€¢ *Type*: `{a["results"]["entity_type"]}`\n'
+            stats += f' ✪ *Type*: `{a["results"]["entity_type"]}`\n'
             stats += (
-                f' â€¢ *Language*: `{a["results"]["language_prediction"]["language"]}`\n'
+                f' ✪ *Language*: `{a["results"]["language_prediction"]["language"]}`\n'
             )
-            stats += f' â€¢ *Language Probability*: `{a["results"]["language_prediction"]["probability"]}`\n'
+            stats += f' ✪ *Language Probability*: `{a["results"]["language_prediction"]["probability"]}`\n'
             stats += f"*Spam Prediction*:\n"
-            stats += f' â€¢ *Ham Prediction*: `{a["results"]["spam_prediction"]["ham_prediction"]}`\n'
-            stats += f' â€¢ *Spam Prediction*: `{a["results"]["spam_prediction"]["spam_prediction"]}`\n'
+            stats += f' ✪ *Ham Prediction*: `{a["results"]["spam_prediction"]["ham_prediction"]}`\n'
+            stats += f' ✪ *Spam Prediction*: `{a["results"]["spam_prediction"]["spam_prediction"]}`\n'
             stats += f'*Blacklisted*: `{a["results"]["attributes"]["is_blacklisted"]}`\n'
             if a["results"]["attributes"]["is_blacklisted"] is True:
                 stats += (
-                    f' â€¢ *Reason*: `{a["results"]["attributes"]["blacklist_reason"]}`\n'
+                    f' ✪ *Reason*: `{a["results"]["attributes"]["blacklist_reason"]}`\n'
                 )
-                stats += f' â€¢ *Flag*: `{a["results"]["attributes"]["blacklist_flag"]}`\n'
+                stats += f' ✪ *Flag*: `{a["results"]["attributes"]["blacklist_flag"]}`\n'
             stats += f'*PTID*:\n`{a["results"]["private_telegram_id"]}`\n'
 
         else:
@@ -323,11 +323,11 @@ def spb(query: str, update: Update, context: CallbackContext) -> None:
         [
             [
                 InlineKeyboardButton(
-                    text="Report Error",
+                    text="ʀᴇᴘᴏʀᴛ ᴇʀʀᴏʀ",
                     url=f"https://t.me/vegetasupport",
                 ),
                 InlineKeyboardButton(
-                    text="Search again",
+                    text="Sᴇᴀʀᴄʜ ᴀɢᴀɪɴ",
                     switch_inline_query_current_chat=".spb ",
                 ),
 
@@ -429,12 +429,12 @@ def media_query(query: str, update: Update, context: CallbackContext) -> None:
                 [
                     [
                         InlineKeyboardButton(
-                            text="Read More",
+                            text="ʀᴇᴀᴅ ᴍᴏʀᴇ",
                             url=aurl,
                         ),
                         InlineKeyboardButton(
-                            text="Search again",
-                            switch_inline_query_current_chat=".anilist ",
+                            text="Sᴇᴀʀᴄʜ ᴀɢᴀɪɴ",
+                            switch_inline_query_current_chat=".anilist",
                         ),
 
                     ],
@@ -467,11 +467,11 @@ def media_query(query: str, update: Update, context: CallbackContext) -> None:
             [
                 [
                     InlineKeyboardButton(
-                        text="Report error",
+                        text="ʀᴇᴘᴏʀᴛ ᴇʀʀᴏʀ",
                         url="https://t.me/vegetasupport",
                     ),
                     InlineKeyboardButton(
-                        text="Search again",
+                        text="Sᴇᴀʀᴄʜ ᴀɢᴀɪɴ",
                         switch_inline_query_current_chat=".anilist ",
                     ),
 
