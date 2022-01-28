@@ -136,26 +136,26 @@ def inlineinfo(query: str, update: Update, context: CallbackContext) -> None:
     nation_level_present = False
 
     if user.id == OWNER_ID:
-        text += f"\n\nThis person is my owner"
+        text += f"\n\nThis person is 'MASTER'"
         nation_level_present = True
     elif user.id in DEV_USERS:
-        text += f"\n\nThis Person is a part Developer of thanimai"
+        text += f"\n\nThis Person is Developer of Vegeta"
         nation_level_present = True
     elif user.id in DRAGONS:
-        text += f"\n\nThe Nation level of this person is Royal"
+        text += f"\n\nThis person is 'A-Rank'"
         nation_level_present = True
     elif user.id in DEMONS:
-        text += f"\n\nThe Nation level of this person is Demon"
+        text += f"\n\nThis person is 'B-Rank'"
         nation_level_present = True
     elif user.id in TIGERS:
-        text += f"\n\nThe Nation level of this person is Tiger Level Disaster"
+        text += f"\n\nThis person is Tiger Level Disaster"
         nation_level_present = True
     elif user.id in WOLVES:
         text += f"\n\nThe Nation level of this person is Wolf Level Disaster"
         nation_level_present = True
 
     if nation_level_present:
-        text += ' [<a href="https://t.me/{}?start=nations">?</a>]'.format(bot.username)
+        text += ' [<a href="https://t.me/vegetaUpdates/167">[ RANKS ]</a>]'.format(bot.username)
 
     try:
         spamwtc = sw.get_ban(int(user.id))
@@ -211,7 +211,7 @@ def about(query: str, update: Update, context: CallbackContext) -> None:
     sql.update_user(user.id, user.username)
     about_text = f"""
 
-    *Bot State:* `Alive`
+        *Bot State:* `Alive`
     *Python:* `{python_version()}`
     *Pyrogram:* `{pyrover}`
     *Platform:* `{sys.platform}`
