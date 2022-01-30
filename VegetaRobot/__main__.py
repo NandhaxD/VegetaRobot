@@ -450,7 +450,7 @@ def vegeta_about_callback(update, context):
                     InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇs", url="https://t.me/vegetaupdates"),
                  ],
                  [
-                       InlineKeyboardButton(text="ɴᴇᴛᴡᴏʀᴋ", url="t.me/pegasusXteam"),
+                       InlineKeyboardButton(text="ɴᴇᴛᴡᴏʀᴋ", url="t.me/XForceNetwork"),
                        InlineKeyboardButton(text="ʟᴏɢs", url="t.me/VegetaLogs"),
                    
                    ],
