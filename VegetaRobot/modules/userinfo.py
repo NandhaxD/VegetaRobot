@@ -151,17 +151,17 @@ def get_id(update: Update, context: CallbackContext):
             user2 = message.reply_to_message.forward_from
 
             msg.reply_text(
-                f"<b>Telegram ID:</b>\n"
-                f"• {html.escape(user2.first_name)} - <code>{user2.id}</code>.\n"
-                f"• {html.escape(user1.first_name)} - <code>{user1.id}</code>.",
-                parse_mode=ParseMode.HTML,
+                f"• *{html.escape(user2.first_name)}* - `{user2.id}`.\n"
+                f"• *{html.escape(user1.first_name)}* - `{user1.id}`.",
+                parse_mode=ParseMode.MARKDOWN,
             )
 
         else:
 
             user = bot.get_chat(user_id)
             msg.reply_text(
-                f"*{html.escape(user.first_name)}*'s id is `{user.id}`.",
+                f"*{html.escape(user.first_name)}*'s id is `{user.id}`."
+                f"*{(html.escape(chat.title))}*'s id is `{chat.id}`.",
                 parse_mode=ParseMode.MARKDOWN,
             )
 
