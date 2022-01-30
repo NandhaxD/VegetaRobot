@@ -221,7 +221,7 @@ def gban(update: Update, context: CallbackContext):
             pass
 
     if EVENT_LOGS:
-        log.edit_text(
+        log.edit_caption(
             log_message +
             f"\n<b>Chats affected:</b> <code>{gbanned_chats}</code>",
             parse_mode=ParseMode.HTML)
@@ -414,7 +414,7 @@ def check_and_ban(update, user_id, should_message=True):
             user = sql.get_gbanned_user(user_id)
             if user.reason:
                 text += f"\n<b>Ban Reason:</b> <code>{html.escape(user.reason)}</code>"
-            update.effective_message.reply_photo(caption=text, reply_markup=InlineKeyboardMarkup(
+            update.effective_message.reply_photo(caption=(text), reply_markup=InlineKeyboardMarkup(
                 [
                   [
                   InlineKeyboardButton(text="Appeal Chat", url=f"https://t.me/{SUPPORT_CHAT}")]],parse_mode=ParseMode.HTML))
@@ -492,7 +492,7 @@ def __user_info__(user_id):
             text += f"\n<b>Reason:</b> <code>{html.escape(user.reason)}</code>"
         text += f"\n<b>Appeal Chat:</b> @{SUPPORT_CHAT}"
     else:
-        text = text.format("???")
+        text = text.format("No")
     return text
 
 
