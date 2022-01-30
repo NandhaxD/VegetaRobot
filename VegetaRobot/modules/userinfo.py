@@ -140,6 +140,7 @@ def get_id(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
     message = update.effective_message
     chat = update.effective_chat
+    user = update.effective_user
     msg = update.effective_message
     user_id = extract_user(msg, args)
 
