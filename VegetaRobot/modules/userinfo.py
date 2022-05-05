@@ -266,6 +266,7 @@ def info(update: Update, context: CallbackContext):
 
     if user_id:
         user = bot.get_chat(user_id)
+        total_pic = bot.get_user_profile_photos(user_id).total_count))
 
     elif not message.reply_to_message and not args:
         user = message.from_user
@@ -300,7 +301,8 @@ def info(update: Update, context: CallbackContext):
         text += f"\n✪ Username: @{html.escape(user.username)}"
 
     text += f"\n✪ Userlink: {mention_html(user.id, 'link')}"
-
+    text += f"\n✪ total profile pic : {total_pic}"
+    
     if chat.type != "private" and user_id != bot.id:
         _stext = "\n✪ Presence: <code>{}</code>"
 
