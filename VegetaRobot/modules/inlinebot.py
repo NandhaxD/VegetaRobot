@@ -57,7 +57,7 @@ def inlinequery(update: Update, _) -> None:
             "description": "About And informations",
             "message_text": "Click the below button for about and commads",
             "thumb_urL": "http://telegra.ph/file/6e8a69b73969cc433d2cf.jpg",
-            "keyboard": ".about",
+            "keyboard": "about",
         },
     ]
         
@@ -65,9 +65,10 @@ def inlinequery(update: Update, _) -> None:
        
 
     inline_funcs = {
+        ".test": test,
         ".spb": spb,
         ".info": inlineinfo,
-        ".about": about,
+        "about": about,
         ".anilist": media_query,
     }
 
@@ -98,7 +99,16 @@ def inlinequery(update: Update, _) -> None:
 
         update.inline_query.answer(results, cache_time=5)
 
-
+def test(query: str, update: Update, context: CallbackContext) -> None:
+    """Handle the inline query."""
+    query = update.inline_query.query
+    user_id = update.effective_user.id
+    user = context.bot.get_chat(user_id)
+    sql.update_user(user.id, user.username)
+    test_text = f"""
+        test
+    """
+    
 def inlineinfo(query: str, update: Update, context: CallbackContext) -> None:
     """Handle the inline query."""
     bot = context.bot
