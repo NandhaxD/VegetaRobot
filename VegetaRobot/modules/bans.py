@@ -130,7 +130,7 @@ def ban(update: Update, context: CallbackContext) -> str:
         if reason:
             reply += f"\n<code> </code><b>• Reason:</b> \n{html.escape(reason)}"
 
-        bot.send_video(
+        bot.send_animation(
             chat.id, BAN_IMG,caption=reply,
             reply_markup=InlineKeyboardMarkup(
                 [
@@ -235,7 +235,7 @@ def temp_ban(update: Update, context: CallbackContext) -> str:
         if reason:
             reply_msg += f"\n<code> </code><b>• Reason:</b> {html.escape(reason)}"
 
-        bot.send_video(
+        bot.send_animation(
             chat.id,
             BAN_IMG,caption=reply_msg,
             reply_markup=InlineKeyboardMarkup(
@@ -311,7 +311,7 @@ def unbanb_btn(update: Update, context: CallbackContext) -> str:
             chat.unban_member(user_id)
             query.message.delete()
             chat_name = "<b>• {}</b>".format(html.escape(chat.title))
-            bot.send_video(
+            bot.send_animation(
             chat.id, #this code made by @ctzfamily & @h0daka
             UNBAN_IMG, caption= f" {chat_name}\n<b>👮Admin: </b>{mention_html(user.id, user.first_name)}\n<b>User: </b>{mention_html(member.user.id, member.user.first_name)}!",
         	    parse_mode=ParseMode.HTML,
@@ -374,7 +374,7 @@ def punch(update: Update, context: CallbackContext) -> str:
     res = chat.unban_member(user_id)  # unban on current user = kick
     if res:
         # bot.send_sticker(chat.id, BAN_STICKER)  # banhammer marie sticker
-        bot.send_video(
+        bot.send_animation(
             chat.id,
             KICK_IMG,caption=f"• <b>{html.escape(chat.title)}</b>\nRemoved! {mention_html(member.user.id, html.escape(member.user.first_name))}.",
             parse_mode=ParseMode.HTML,
@@ -407,7 +407,7 @@ def punchme(update: Update, context: CallbackContext):
 
     res = update.effective_chat.unban_member(user_id)  # unban on current user = kick
     if res:
-        update.effective_message.reply_video(SELF_KICK_IMG,caption="<b>❕Baka Noice Try!</b>",parse_mode=ParseMode.HTML,)
+        update.effective_message.reply_animation(SELF_KICK_IMG,caption="<b>❕Baka Noice Try!</b>",parse_mode=ParseMode.HTML,)
                                              
     else:
         update.effective_message.reply_text("Huh? I can't :/")
@@ -449,7 +449,7 @@ def unban(update: Update, context: CallbackContext) -> str:
         return log_message
 
     chat.unban_member(user_id)
-    message.reply_video(UNBAN_IMG,caption=f"{chat_name}\n<b>❕UNBANNED</b>: {mention_html(member.user.id, html.escape(member.user.first_name))}",parse_mode=ParseMode.HTML,)
+    message.reply_animation(UNBAN_IMG,caption=f"{chat_name}\n<b>❕UNBANNED</b>: {mention_html(member.user.id, html.escape(member.user.first_name))}",parse_mode=ParseMode.HTML,)
 
     log = (
         f"<b>{html.escape(chat.title)}:</b>\n"
