@@ -2,8 +2,8 @@ import threading
 
 from sqlalchemy import Column, String, UnicodeText, Boolean, BigInteger, distinct, func
 
-from ZeusXRobot.modules.helper_funcs.msg_types import Types
-from ZeusXRobot.modules.sql import BASE, SESSION
+from VegetaRobot.modules.helper_funcs.msg_types import Types
+from VegetaRobot.modules.sql import BASE, SESSION
 
 
 class CustomFilters(BASE):
