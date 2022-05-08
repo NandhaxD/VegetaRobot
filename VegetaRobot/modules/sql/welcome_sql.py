@@ -2,8 +2,8 @@ import random
 import threading
 from typing import Union
 
-from ZeusXRobot.modules.helper_funcs.msg_types import Types
-from ZeusXRobot.modules.sql import BASE, SESSION
+from VegetaRobot.modules.helper_funcs.msg_types import Types
+from VegetaRobot.modules.sql import BASE, SESSION
 from sqlalchemy import (BigInteger, Boolean, Column, BigInteger, String,
                         UnicodeText)
 
