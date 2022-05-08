@@ -2,7 +2,7 @@ import threading
 
 from sqlalchemy import String, Column, BigInteger, UnicodeText
 
-from ZeusXRobot.modules.sql import SESSION, BASE
+from VegetaRobot.modules.sql import SESSION, BASE
 DEF_COUNT = 1
 DEF_LIMIT = 0
 DEF_OBJ = (None, DEF_COUNT, DEF_LIMIT)
