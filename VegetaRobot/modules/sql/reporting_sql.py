@@ -1,7 +1,7 @@
 import threading
 from typing import Union
 
-from ZeusXRobot.modules.sql import BASE, SESSION
+from VegetaRobot.modules.sql import BASE, SESSION
 from sqlalchemy import Boolean, Column, BigInteger, String
 
 
