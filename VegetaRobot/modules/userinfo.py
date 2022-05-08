@@ -390,7 +390,7 @@ def info(update: Update, context: CallbackContext):
                             InlineKeyboardButton(
                                 "Health", url="https://t.me/vegetaUpdates/166"),
                             InlineKeyboardButton(
-                                "Disaster", url="https://t.me/vegetaUpdates/167")
+                                "Disaster", switch_inline_query_current_chat=".test"),
                         ],
                     ]
                 ),
