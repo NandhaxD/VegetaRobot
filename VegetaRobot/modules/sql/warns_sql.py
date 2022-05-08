@@ -1,6 +1,6 @@
 import threading
 
-from ZeusXRobot.modules.sql import BASE, SESSION
+from VegetaRobot.modules.sql import BASE, SESSION
 from sqlalchemy import (Boolean, Column, BigInteger, String, UnicodeText, distinct,
                         func)
 from sqlalchemy.dialects import postgresql
