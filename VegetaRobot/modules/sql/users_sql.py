@@ -1,7 +1,7 @@
 import threading
 
-from ZeusXRobot import dispatcher
-from ZeusXRobot.modules.sql import BASE, SESSION
+from VegetaRobot import dispatcher
+from VegetaRobot.modules.sql import BASE, SESSION
 from sqlalchemy.sql.sqltypes import BigInteger
 from sqlalchemy import (Column, ForeignKey, String, UnicodeText,
                         UniqueConstraint, func)
