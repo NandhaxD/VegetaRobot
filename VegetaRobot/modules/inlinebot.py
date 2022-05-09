@@ -65,7 +65,7 @@ def inlinequery(update: Update, _) -> None:
        
 
     inline_funcs = {
-        "Disaster": Disaster,
+        "disaster": disaster,
         "health": health,
         "spb": spb,
         "info": inlineinfo,
@@ -103,7 +103,7 @@ def inlinequery(update: Update, _) -> None:
         
         
         
- def Disaster(query: str, update: Update, context: CallbackContext) -> None:
+ def disaster(query: str, update: Update, context: CallbackContext) -> None:
     """Handle the inline query."""
     query = update.inline_query.query
     user_id = update.effective_user.id
@@ -121,7 +121,7 @@ def inlinequery(update: Update, _) -> None:
     results = [
         InlineQueryResultArticle(
             id=str(uuid4()),
-            title=f"Disaster",
+            title=f"disaster",
             input_message_content=InputTextMessageContent(test_text, parse_mode=ParseMode.HTML, disable_web_page_preview=True),
         ),
     ]
