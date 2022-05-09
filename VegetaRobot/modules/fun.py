@@ -21,6 +21,15 @@ GN_IMG= "https://telegra.ph/file/6b67b1f44a669a634cab8.jpg"
 
 @run_async
 @typing_action
+def waifu(update, context):
+    chat = update.effective_chat
+    url = "https://api.waifu.pics/sfw/waifu"
+     r = requests.get(url)
+     e = r.json()
+    context.bot.send_photo(chat_id, photo=e["url"], caption="Cute Waifu Images💕💕"
+
+@run_async
+@typing_action
 def goodnight(update, context):
     message = update.effective_message
     first_name = update.effective_user.first_name
