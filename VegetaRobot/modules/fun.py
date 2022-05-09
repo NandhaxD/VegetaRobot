@@ -196,7 +196,8 @@ def pat(update: Update, context: CallbackContext):
 GOODMORNING_HANDLER = DisableAbleMessageHandler(Filters.regex(r"(?i)(goodmorning|good morning)"), goodmorning, friendly="goodmorning")
 GOODNIGHT_HANDLER = DisableAbleMessageHandler(Filters.regex(r"(?i)(goodnight|good night)"), goodnight, friendly="goodnight")
 REPO_HANDLER = DisableAbleCommandHandler("repo", repo)
-WISH_HANDLER = DisableAbleCommandHandler("wish", wish)                     
+WISH_HANDLER = DisableAbleCommandHandler("wish", wish) 
+WAIFU_HANDLER = DisableAbleCommandHandler("waifu", waifu)                           
 YESNOWTF_HANDLER = DisableAbleCommandHandler("decide", yesnowtf)
 GBUN_HANDLER = CommandHandler("gbun", gbun)
 PAT_HANDLER = DisableAbleCommandHandler("pat", pat)
@@ -209,6 +210,7 @@ ABUSE_HANDLER = DisableAbleCommandHandler("abuse", abuse)
 
 dispatcher.add_handler(GOODMORNING_HANDLER)
 dispatcher.add_handler(GOODNIGHT_HANDLER)
+dispatcher.add_handler(WAIFU_HANDLER)                          
 dispatcher.add_handler(INSULT_HANDLER)
 dispatcher.add_handler(WISH_HANDLER)                        
 dispatcher.add_handler(ABUSE_HANDLER)
@@ -226,6 +228,7 @@ __help__ = """
 bot send GM or GN image,
  ✪︎ /decide - bot send radom decides.
  ✪︎ /pat - reply to user.
+ ✪︎ /Waifu - get waifu images.
  ✪︎ /wish your wish possible chance random.
  ✪︎ /truth or /dare - bot send funny messages.
  ✪︎ /insult - bot send insult message.
