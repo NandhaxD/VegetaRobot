@@ -263,7 +263,7 @@ def info(update: Update, context: CallbackContext):
     message = update.effective_message
     chat = update.effective_chat
     user_id = extract_user(update.effective_message, args)
-
+ 
     if user_id:
         user = bot.get_chat(user_id)
         
@@ -300,6 +300,7 @@ def info(update: Update, context: CallbackContext):
         text += f"\n✪ Username: @{html.escape(user.username)}"
 
     text += f"\n✪ Userlink: {mention_html(user.id, 'link')}"
+    text += f"\n total profiles: {bot.get_user_profile_photos(user_id).total_count}"
     
     if chat.type != "private" and user_id != bot.id:
         _stext = "\n✪ Presence: <code>{}</code>"
@@ -386,9 +387,9 @@ def info(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                "Health", url="https://t.me/vegetaUpdates/166"),
+                                "Health", switch_inline_query_current_chat="Health "),
                             InlineKeyboardButton(
-                                "Disaster", switch_inline_query_current_chat=".test"),
+                                "Disaster", switch_inline_query_current_chat="Disaster "),
                         ],
                     ]
                 ),
