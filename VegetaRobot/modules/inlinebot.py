@@ -65,11 +65,11 @@ def inlinequery(update: Update, _) -> None:
        
 
     inline_funcs = {
-        ".test": test,
-        ".spb": spb,
-        ".info": inlineinfo,
+        "health": health,
+        "spb": spb,
+        "info": inlineinfo,
         "about": about,
-        ".anilist": media_query,
+        "anilist": media_query,
     }
 
     if (f := query.split(" ", 1)[0]) in inline_funcs:
@@ -105,13 +105,42 @@ def test(query: str, update: Update, context: CallbackContext) -> None:
     user_id = update.effective_user.id
     user = context.bot.get_chat(user_id)
     sql.update_user(user.id, user.username)
-    test_text = f"""
-        test
+    health_text = f"""
+        📈 What is that health bar that Miku displays on /info❔
+That is a new weeb tech called "HP system", aka Health points system.
+Explaining what the panel is
+Health: avail_hp/max_hp
+[health bar] percentage
+
+What does this even do ❔
+It's an interactive way of showing how complete your profile is.
+Users with no PFP, no username, no bio on Saitama or no what others say will have less health as their profile is considered as "incomplete".
+
+How we determine Max HP
+((Number of chats seen in +10 )*10)
+Basically the more groups Miku sees you in, the higher your max hp is.
+You don't need to stay in the group, you can just join, send a message and leave and max hp will slightly increase.
+
+Penalties from available HP:
+-25% if no username
+-25% if no profile pic
+-20% if no setme exists
+-10% if no what others say exists
+ -7% if user is AFK
+ -5% if the user is AFK with reason
+
+Bad status effects:
+Gbanned users will always have 5% HP from max HP
+Example: If HP is 100 but gbanned
+Available HP is 5% of 100 = 5HP
+
+Why was this added❔
+To make the info panel more fun but mainly to urge our users to have a properly written profile, good profiles help you connect to users around you (plus looking like some spammer ID isnt a good experience, is it?)
     """
     results = [
         InlineQueryResultArticle(
             id=str(uuid4()),
-            title=f"test",
+            title=f"health",
             input_message_content=InputTextMessageContent(test_text, parse_mode=ParseMode.HTML, disable_web_page_preview=True),
         ),
     ]
