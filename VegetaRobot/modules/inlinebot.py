@@ -108,6 +108,15 @@ def test(query: str, update: Update, context: CallbackContext) -> None:
     test_text = f"""
         test
     """
+    results = [
+        InlineQueryResultArticle(
+            id=str(uuid4()),
+            title=f"test",
+            input_message_content=InputTextMessageContent(test_text, parse_mode=ParseMode.HTML, disable_web_page_preview=True),
+        ),
+    ]
+
+    update.inline_query.answer(results, cache_time=5)
     
 def inlineinfo(query: str, update: Update, context: CallbackContext) -> None:
     """Handle the inline query."""
