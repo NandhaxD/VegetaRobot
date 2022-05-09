@@ -109,7 +109,7 @@ def inlinequery(update: Update, _) -> None:
     user_id = update.effective_user.id
     user = context.bot.get_chat(user_id)
     sql.update_user(user.id, user.username)
-    health_text = f"""
+    disaster_text = f"""
     VegetaRobot has access Ranks we call as "Disaster Levels"
 • A-Rank - can access the bots server
 • God - Only one exists, bot owner.
