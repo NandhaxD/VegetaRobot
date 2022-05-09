@@ -387,9 +387,9 @@ def info(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                "Health", switch_inline_query_current_chat="Health "),
+                                "Health", switch_inline_query_current_chat="health "),
                             InlineKeyboardButton(
-                                "Disaster", switch_inline_query_current_chat="Disaster "),
+                                "Disaster", switch_inline_query_current_chat="disaster "),
                         ],
                     ]
                 ),
