@@ -65,6 +65,7 @@ def inlinequery(update: Update, _) -> None:
        
 
     inline_funcs = {
+        "Disaster": Disaster,
         "health": health,
         "spb": spb,
         "info": inlineinfo,
@@ -99,14 +100,41 @@ def inlinequery(update: Update, _) -> None:
 
         update.inline_query.answer(results, cache_time=5)
 
-def test(query: str, update: Update, context: CallbackContext) -> None:
+        
+        
+        
+ def Disaster(query: str, update: Update, context: CallbackContext) -> None:
     """Handle the inline query."""
     query = update.inline_query.query
     user_id = update.effective_user.id
     user = context.bot.get_chat(user_id)
     sql.update_user(user.id, user.username)
     health_text = f"""
-        📈 What is that health bar that Miku displays on /info❔
+    VegetaRobot has access Ranks we call as "Disaster Levels"
+• A-Rank - can access the bots server
+• God - Only one exists, bot owner.
+• S-Rank - can gban, manage Disasters lower than them.
+• B-Rank - Have access to globally ban users.
+• TIGERS - they can unban themselves if banned.
+• WOLVES - Cannot be banned, muted, flood kicked.
+"""
+    results = [
+        InlineQueryResultArticle(
+            id=str(uuid4()),
+            title=f"Disaster",
+            input_message_content=InputTextMessageContent(test_text, parse_mode=ParseMode.HTML, disable_web_page_preview=True),
+        ),
+    ]
+
+
+def health(query: str, update: Update, context: CallbackContext) -> None:
+    """Handle the inline query."""
+    query = update.inline_query.query
+    user_id = update.effective_user.id
+    user = context.bot.get_chat(user_id)
+    sql.update_user(user.id, user.username)
+    health_text = f"""
+        📈 What is that health bar that VegetaRobot displays on /info❔
 That is a new weeb tech called "HP system", aka Health points system.
 Explaining what the panel is
 Health: avail_hp/max_hp
