@@ -19,14 +19,6 @@ from VegetaRobot.modules.helper_funcs.extraction import extract_user
 
 GN_IMG= "https://telegra.ph/file/6b67b1f44a669a634cab8.jpg"
 
-@run_async
-@typing_action
-def waifu(update, context):
-    chat = update.effective_chat
-    url = "https://api.waifu.pics/sfw/waifu"
-     r = requests.get(url)
-     e = r.json()
-    context.bot.send_photo(chat_id, photo=e["url"], caption="Cute Waifu Images💕💕"
 
 @run_async
 @typing_action
@@ -112,7 +104,7 @@ def yesnowtf(update, context):
 @run_async
 @typing_action
 def repo(update, context):
-    update.effective_message.reply_audio(fun.REPO)   
+    update.effective_message.reply_text(fun.REPO)   
    
 
 
@@ -197,7 +189,7 @@ GOODMORNING_HANDLER = DisableAbleMessageHandler(Filters.regex(r"(?i)(goodmorning
 GOODNIGHT_HANDLER = DisableAbleMessageHandler(Filters.regex(r"(?i)(goodnight|good night)"), goodnight, friendly="goodnight")
 REPO_HANDLER = DisableAbleCommandHandler("repo", repo)
 WISH_HANDLER = DisableAbleCommandHandler("wish", wish) 
-WAIFU_HANDLER = DisableAbleCommandHandler("waifu", waifu)                           
+                           
 YESNOWTF_HANDLER = DisableAbleCommandHandler("decide", yesnowtf)
 GBUN_HANDLER = CommandHandler("gbun", gbun)
 PAT_HANDLER = DisableAbleCommandHandler("pat", pat)
@@ -210,7 +202,7 @@ ABUSE_HANDLER = DisableAbleCommandHandler("abuse", abuse)
 
 dispatcher.add_handler(GOODMORNING_HANDLER)
 dispatcher.add_handler(GOODNIGHT_HANDLER)
-dispatcher.add_handler(WAIFU_HANDLER)                          
+                       
 dispatcher.add_handler(INSULT_HANDLER)
 dispatcher.add_handler(WISH_HANDLER)                        
 dispatcher.add_handler(ABUSE_HANDLER)
@@ -228,7 +220,7 @@ __help__ = """
 bot send GM or GN image,
  ✪︎ /decide - bot send radom decides.
  ✪︎ /pat - reply to user.
- ✪︎ /Waifu - get waifu images.
+
  ✪︎ /wish your wish possible chance random.
  ✪︎ /truth or /dare - bot send funny messages.
  ✪︎ /insult - bot send insult message.
