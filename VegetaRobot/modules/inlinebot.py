@@ -103,13 +103,10 @@ def inlinequery(update: Update, _) -> None:
         
         
         
- def disaster(query: str, update: Update, context: CallbackContext) -> None:
+def disaster(query: str, update: Update, context: CallbackContext) -> None:
     """Handle the inline query."""
     query = update.inline_query.query
-    user_id = update.effective_user.id
-    user = context.bot.get_chat(user_id)
-    sql.update_user(user.id, user.username)
-    disaster_text = f"""
+    disaster_text = """
     VegetaRobot has access Ranks we call as "Disaster Levels"
 • A-Rank - can access the bots server
 • God - Only one exists, bot owner.
@@ -130,10 +127,7 @@ def inlinequery(update: Update, _) -> None:
 def health(query: str, update: Update, context: CallbackContext) -> None:
     """Handle the inline query."""
     query = update.inline_query.query
-    user_id = update.effective_user.id
-    user = context.bot.get_chat(user_id)
-    sql.update_user(user.id, user.username)
-    health_text = f"""
+    health_text = """
         📈 What is that health bar that VegetaRobot displays on /info❔
 That is a new weeb tech called "HP system", aka Health points system.
 Explaining what the panel is
