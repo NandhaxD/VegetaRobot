@@ -163,7 +163,7 @@ To make the info panel more fun but mainly to urge our users to have a properly 
         InlineQueryResultArticle(
             id=str(uuid4()),
             title=f"health",
-            input_message_content=InputTextMessageContent(test_text, parse_mode=ParseMode.HTML, disable_web_page_preview=True),
+            input_message_content=InputTextMessageContent(health_text, parse_mode=ParseMode.HTML, disable_web_page_preview=True),
         ),
     ]
 
