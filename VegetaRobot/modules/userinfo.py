@@ -228,6 +228,7 @@ def gifid(update: Update, context: CallbackContext):
         
 def pfp(update, context):
     bot, args = context.bot, context.args
+    message = update.effective_message
     user_id = extract_user(update.effective_message, args)
     chat = update.effective_chat
     
