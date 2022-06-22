@@ -119,7 +119,7 @@ def disaster(query: str, update: Update, context: CallbackContext) -> None:
         InlineQueryResultArticle(
             id=str(uuid4()),
             title=f"disaster",
-            input_message_content=InputTextMessageContent(test_text, parse_mode=ParseMode.HTML, disable_web_page_preview=True),
+            input_message_content=InputTextMessageContent(disaster_text, parse_mode=ParseMode.HTML, disable_web_page_preview=True),
         ),
     ]
 
