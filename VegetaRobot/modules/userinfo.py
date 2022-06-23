@@ -449,7 +449,7 @@ def stats(update, context):
             + "\n*Bot statistics*:\n"
             + "\n".join([mod.__stats__() for mod in STATS])
             + f"\n\n[✦ Support](https://t.me/{SUPPORT_CHAT})  | [✦ Updates](https://t.me/ZeusUpdates)\n\n"
-            + "╘══「 by [⚡CT⚡](https://github.com/ctzfamily) 」and  [⚡CT⚡] (https://github.com/Devilharsha) 」 \n",
+            + "╘══「 by [⚡CT⚡](https://github.com/ctzfamily) 」 \n",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
         )
