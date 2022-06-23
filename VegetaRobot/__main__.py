@@ -216,9 +216,9 @@ def start(update: Update, context: CallbackContext):
 
         else:
             PM_START_TEXT = """ ┗► ~~ *{}* ~~◄┛ 😉
-~~ _ *I'm made with Saiyans blood* _ ~~🔥
-_ *Wanna see my commands?
-below click the help button!* _ 💫
+~~ *I'm made with Saiyans blood* ~~🔥
+~ *Wanna see my commands?
+below click the help button!* ~💫
 
 ──『*ᴛʜᴀɴᴋs  ғᴏʀ  ᴜsɪɴɢ*』
 """ 
