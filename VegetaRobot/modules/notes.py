@@ -566,7 +566,7 @@ __help__ = """
 ✪ *Button things more details :* /markdownhelp
 """
 
-__mod_name__ = "ɴᴏᴛᴇs"
+__mod_name__ = "Notes"
 
 GET_HANDLER = CommandHandler("get", cmd_get, run_async=True)
 HASH_GET_HANDLER = MessageHandler(Filters.regex(r"^#[^\s]+"), hash_get, run_async=True)
