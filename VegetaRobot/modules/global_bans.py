@@ -420,7 +420,7 @@ def check_and_ban(update, user_id, should_message=True):
                   InlineKeyboardButton(text="Appeal Chat", url=f"https://t.me/{SUPPORT_CHAT}")]],parse_mode=ParseMode.HTML))
 
 
-@run_async
+
 def enforce_gban(update: Update, context: CallbackContext):
     # Not using @restrict handler to avoid spamming - just ignore if cant gban.
     bot = context.bot
@@ -449,7 +449,6 @@ def enforce_gban(update: Update, context: CallbackContext):
                 check_and_ban(update, user.id, should_message=False)
 
 
-@run_async
 @user_admin
 def gbanstat(update: Update, context: CallbackContext):
     args = context.args
@@ -519,13 +518,13 @@ Constantly help banning spammers off from your group automatically So, you wont 
 *Note:* Users can appeal spamwatch bans at @SpamwatchSupport
 """
 
-GBAN_HANDLER = CommandHandler("gban", gban, run_async=True)
-UNGBAN_HANDLER = CommandHandler("ungban", ungban, run_async=True)
-GBAN_LIST = CommandHandler("gbanlist", gbanlist, run_async=True)
+GBAN_HANDLER = CommandHandler("gban", gban,run_async=True)
+UNGBAN_HANDLER = CommandHandler("ungban", ungban,run_async=True)
+GBAN_LIST = CommandHandler("gbanlist", gbanlist,run_async=True)
 
-GBAN_STATUS = CommandHandler("antispam", gbanstat, filters=Filters.group)
+GBAN_STATUS = CommandHandler("antispam", gbanstat, filters=Filters.group,run_async=True)
 
-GBAN_ENFORCER = MessageHandler(Filters.all & Filters.group, enforce_gban)
+GBAN_ENFORCER = MessageHandler(Filters.all & Filters.group, enforce_gban,run_async=True)
 
 dispatcher.add_handler(GBAN_HANDLER)
 dispatcher.add_handler(UNGBAN_HANDLER)
