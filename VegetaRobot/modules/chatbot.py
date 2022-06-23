@@ -15,10 +15,10 @@ from telegram.ext import (CallbackContext, CallbackQueryHandler, CommandHandler,
 from telegram.error import BadRequest, RetryAfter, Unauthorized
 from telegram.utils.helpers import mention_html, mention_markdown, escape_markdown
 
-from ZeusXRobot.modules.helper_funcs.filters import CustomFilters
-from ZeusXRobot.modules.helper_funcs.chat_status import user_admin, user_admin_no_reply
-from ZeusXRobot import dispatcher, updater, SUPPORT_CHAT
-from ZeusXRobot.modules.log_channel import gloggable
+from VegetaRobot.modules.helper_funcs.filters import CustomFilters
+from VegetaRobot.modules.helper_funcs.chat_status import user_admin, user_admin_no_reply
+from VegetaRobot import dispatcher, updater, SUPPORT_CHAT
+from VegetaRobot.modules.log_channel import gloggable
 
 @user_admin_no_reply
 @gloggable
