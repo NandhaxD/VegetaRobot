@@ -159,4 +159,4 @@ Example:
 ➢ /horny: reply to someone or it self show how horny!
 """
 
-__mon_name__ = "Howall"
+__mod_name__ = "Howall"
