@@ -163,8 +163,6 @@ def __migrate__(old_chat_id, new_chat_id):
     sql.migrate_chat(old_chat_id, new_chat_id)
 
 
-__help__ = ""  # no help string
-
 BROADCAST_HANDLER = CommandHandler(
     ["broadcastall", "broadcastusers", "broadcastgroups"], broadcast)
 USER_HANDLER = MessageHandler(Filters.all & Filters.group, log_user)
@@ -176,6 +174,5 @@ dispatcher.add_handler(BROADCAST_HANDLER)
 dispatcher.add_handler(CHATLIST_HANDLER)
 dispatcher.add_handler(CHAT_CHECKER_HANDLER, CHAT_GROUP)
 
-__mod_name__ = "Usrs"
 __handlers__ = [(USER_HANDLER, USERS_GROUP), BROADCAST_HANDLER,
                 CHATLIST_HANDLER]
