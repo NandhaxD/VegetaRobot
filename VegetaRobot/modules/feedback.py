@@ -49,3 +49,14 @@ Feedback: **{text}**
                             InlineKeyboardButton(
                                 "➡ View Report", url=f"{msg.link}")]]))
          
+ __help__"""
+
+• /feedback: found any bugs or commands not working and
+What's your experience In this bot everything you can use this module.😁
+
+Example:
+• /feedback: bot spamming!
+
+Thanks for your feedbacks!
+"""
+__mod_name__ = "feedback"
