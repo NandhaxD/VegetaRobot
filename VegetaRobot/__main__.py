@@ -81,12 +81,7 @@ def get_readable_time(seconds: int) -> str:
 
 
 
-PM_START_TEXT = """
-    ┗► *{}* ◄┛ 🤗
-I'm made with Saiyans blood!!🔥
-I wanna see my commands below click the help button! 💫
-──『*ᴛʜᴀɴᴋs  ғᴏʀ  ᴜsɪɴɢ*』
-"""
+
 
 buttons = [
     [
@@ -220,10 +215,15 @@ def start(update: Update, context: CallbackContext):
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
 
         else:
-            first_name = update.effective_user.first_name
+            PM_START_TEXT = f""" ┗► ~~ **{update.effective_user.first_name}** ~~◄┛ 😉
+__ **I'm made with Saiyans blood!!**__🔥
+~~ **Wanna see my commands?* ~~ 
+below click the help button! 💫
+
+──『*ᴛʜᴀɴᴋs  ғᴏʀ  ᴜsɪɴɢ*』
+"""
             update.effective_message.reply_text(PM_START_TEXT.format(first_name),
                 reply_markup=InlineKeyboardMarkup(buttons),
-                parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
             )
     else:
