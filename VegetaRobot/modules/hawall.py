@@ -26,7 +26,7 @@ async def wish(_, m):
             await msg.delete()
             await m.reply_animation(url,caption=(wish),
               reply_markup=InlineKeyboardMarkup(
-                    [ [InlineKeyboardButton("❓ What is This", url=f"https://t.me/vegetaSupport/64304")]]))
+                    [ [InlineKeyboardButton("❓ What is This", url="https://t.me/vegetaUpdates/175")]]))
             
          
 BUTTON = [[Button.url("❓ What Is This", "https://t.me/vegetaUpdates/173")]]
