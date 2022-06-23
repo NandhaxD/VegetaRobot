@@ -27,7 +27,6 @@ from VegetaRobot import (
 # needed to dynamically load modules
 # NOTE: Module order is not guaranteed, specify that in the config file!
 from VegetaRobot.modules import ALL_MODULES
-from VegetaRobot.modules.bot_stats import bot_sys_stats
 from VegetaRobot.modules.helper_funcs.chat_status import is_user_admin
 from VegetaRobot.modules.helper_funcs.misc import paginate_modules
 from VegetaRobot.modules.disable import DisableAbleCommandHandler
@@ -392,7 +391,6 @@ def vegeta_about_callback(update, context):
                  ],
                  [
                     InlineKeyboardButton(text="💕 ᴄʜᴀɴɴᴇʟs", callback_data="vegeta_support"),
-                    InlineKeyboardButton(text="💕 sᴛᴀᴛs", callback_data="stats_callback"),
                  ],
                  [
                     InlineKeyboardButton(text="⬅️ ʙᴀᴄᴋ", callback_data="vegeta_back"),
