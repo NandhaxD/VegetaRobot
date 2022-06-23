@@ -144,3 +144,19 @@ async def cute(e):
                mm = random.randint(1,100)
                CUTE = f"**🍑** {mention} {mm}**% Cute**"
                await e.reply(CUTE, buttons=BUTTON, file=CUTIE)
+
+__help__ = """
+✪︎ What is this (wish):
+You having any kind of 
+(wishes) you can using this bot to how possible to your wish!
+Example:
+➢ /wish I want class topper 😌
+➢ /wish I want a new iphone 😜
+❓ What is This (howall):
+In this Howell show you possibltly!
+horny:gay:lezbian:boobs:cock:cute
+Example:
+➢ /horny: reply to someone or it self show how horny!
+"""
+
+__mon_name__ = "Howall"
