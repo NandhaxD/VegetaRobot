@@ -86,24 +86,22 @@ PM_START_TEXT = """
     ┗► *{}* ◄┛
 
 I Am *Prince Vegeta* Add 𝐌𝐞 𝐓𝐨 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩 𝐈 𝐖𝐢𝐥𝐥 𝐃𝐞𝐬𝐭𝐫𝐨𝐲 𝐄𝐯𝐢𝐥𝐬 𝐖𝐢𝐭𝐡 𝐌𝐲 Powers...\n
-*JOIN OFFICIAL* -
-[CHANNEL](t.me/pegasusUpdates) - [SUPPORT](t.me/pegasusSupportChat)\n
 ──『*ᴛʜᴀɴᴋs  ғᴏʀ  ᴜsɪɴɢ*』
 """
 
 buttons = [
     [
         InlineKeyboardButton(
-                            text="☑ ᴀᴅᴅ ᴠᴇɢᴇᴛᴀ ☑",
+                            text="☑ Add Vegeta To Groups ☑",
                             url="t.me/VegetaRobot?startgroup=true"),
                     ],
                      [
-                       InlineKeyboardButton(text="🔄 ɪɴʟɪɴᴇ", switch_inline_query_current_chat=""),
-                       InlineKeyboardButton(text="🔒 ᴄʟᴏsᴇ", callback_data="unbanb_del"),
+                       InlineKeyboardButton(text="SUPPORT", url="https://t.me/{SUPPORT_CHAT}"),
+                       InlineKeyboardButton(text="UPDATES",  url="https://t.me/{UPDATES_CHANNEL}"),
                     ],
                    [
-                       InlineKeyboardButton(text="🔐 ʜᴇʟᴘ", callback_data="help_back"),
-                       InlineKeyboardButton(text="💕 ᴀʙᴏᴜᴛ", callback_data="vegeta_"
+                       InlineKeyboardButton(text="NETWORK", url="https://t.me/nandhabots"),
+                       InlineKeyboardButton(text="HELP", callback_data="help_back"
          ),
     ],
 ] 
@@ -239,8 +237,8 @@ def start(update: Update, context: CallbackContext):
         reply_markup=InlineKeyboardMarkup(
                 [
                   [
-                  InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ", url=f"https://telegram.dog/{SUPPORT_CHAT}"),
-                  InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇs", url=f"t.me/{UPDATES_CHANNEL}"),
+                  InlineKeyboardButton(text="SUPPORT", url=f"https://telegram.dog/{SUPPORT_CHAT}"),
+                  InlineKeyboardButton(text="UPDATES", url=f"t.me/{UPDATES_CHANNEL}"),
                   ]
                 ]
             ),
