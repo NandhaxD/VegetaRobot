@@ -215,7 +215,7 @@ def start(update: Update, context: CallbackContext):
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
 
         else:
-            PM_START_TEXT = f""" ┗► ~~ *{first_name}* ~~◄┛ 😉
+            PM_START_TEXT = f""" ┗► ~~ *{}* ~~◄┛ 😉
 ~~ _ *I'm made with Saiyans blood* _ ~~🔥
 _ *Wanna see my commands?
 below click the help button!* _ 💫
