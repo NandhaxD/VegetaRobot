@@ -388,9 +388,9 @@ def info(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                "Health", switch_inline_query_current_chat="health "),
+                                "SUPPORT", url=f"https://t.me/{SUPPORT_CHAT}"),
                             InlineKeyboardButton(
-                                "Disaster", switch_inline_query_current_chat="disaster "),
+                                "UPDATES", url=f"https://t.me/{UPDATES_CHANNEL}"),
                         ],
                     ]
                 ),
@@ -418,8 +418,7 @@ def about_me(update: Update, context: CallbackContext):
     if info:
         update.effective_message.reply_text(
             f"*{user.first_name}*:\n{escape_markdown(info)}",
-            parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,
+            parse_mode=ParseMode.MARKDOWN
         )
     elif message.reply_to_message:
         username = message.reply_to_message.from_user.first_name
