@@ -96,9 +96,7 @@ def warn(user: User,
     else:
         keyboard = InlineKeyboardMarkup([[
             InlineKeyboardButton(
-                "🔘 Remove warn", callback_data="rm_warn({})".format(user.id)),
-             InlineKeyboardButton(text="❌ Delete ❌", callback_data="unbanb_del"),
-        ]])
+                "🔘 Remove warn", callback_data="rm_warn({})".format(user.id)) ]])
 
         reply = (
             f"<code>❕</code><b>Warn Event</b>\n"
@@ -507,7 +505,7 @@ be a sentence, encompass it with quotes, as such: `/addwarn "very angry" This is
  • `/strongwarn <on/yes/off/no>`*:* If set to on, exceeding the warn limit will result in a ban. Else, will just punch.
 """
 
-__mod_name__ = "⚠Warns"
+__mod_name__ = "Warning"
 
 WARN_HANDLER = CommandHandler(["warn", "dwarn"], warn_user, filters=Filters.group)
 RESET_WARN_HANDLER = CommandHandler(["resetwarn", "resetwarns"],
