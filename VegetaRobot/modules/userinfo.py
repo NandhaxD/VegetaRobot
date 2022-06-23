@@ -349,8 +349,7 @@ def info(update: Update, context: CallbackContext):
             chat.id,
             photo=profile,
             caption=(text),
-            parse_mode=ParseMode.HTML,
-            disable_web_page_preview=True,
+            parse_mode=ParseMode.HTML
         )
         # Incase user don't have profile pic, send normal text
         except IndexError:
