@@ -222,7 +222,7 @@ below click the help button! 💫
 
 ──『*ᴛʜᴀɴᴋs  ғᴏʀ  ᴜsɪɴɢ*』
 """
-            update.effective_message.reply_text(PM_START_TEXT.
+            update.effective_message.reply_text(PM_START_TEXT,
                 reply_markup=InlineKeyboardMarkup(buttons),
                 timeout=60,
             )
