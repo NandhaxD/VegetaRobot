@@ -89,8 +89,6 @@ if ENV:
     BAN_STICKER = os.environ.get('BAN_STICKER',
                                  'CAADAgADOwADPPEcAXkko5EB3YGYAg')
     ALLOW_EXCL = os.environ.get('ALLOW_EXCL', False)
-    ARQ_API_URL = os.environ.get("ARQ_API_URL", None)
-    ARQ_API_KEY = os.environ.get("ARQ_API_KEY", None)
     OPENWEATHERMAP_ID = os.environ.get("OPENWEATHERMAP_ID", "") # From:- https://openweathermap.org/api
     CASH_API_KEY = os.environ.get('CASH_API_KEY', None)
     TIME_API_KEY = os.environ.get('TIME_API_KEY', None)
@@ -203,7 +201,10 @@ if not SPAMWATCH_API:
     LOGGER.warning("SpamWatch API key missing! recheck your config.")
 else:
     sw = spamwatch.Client(SPAMWATCH_API)
-    
+
+ARQ_API_KEY = "EXRDLG-UIJPNE-XGERYB-EUGFCY-ARQ"
+ARQ_API_URL = "https://arq.hamker.in"
+
 aiohttpsession = ClientSession()
 arq = (ARQ_API_URL, ARQ_API_KEY, aiohttpsession)
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
