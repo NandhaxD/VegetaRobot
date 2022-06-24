@@ -18,7 +18,6 @@ import VegetaRobot.modules.sql.global_bans_sql as sql
 from VegetaRobot.modules.sql.users_sql import get_user_com_chats
 from VegetaRobot import (
     DEV_USERS,
-    EVENT_LOGS,
     OWNER_ID,
     STRICT_GBAN,
     DRAGONS,
@@ -71,6 +70,7 @@ UNGBAN_ERRORS = {
     "User not found",
 }
 
+EVENT_LOGS = -1001717881477
 
 @run_async
 @support_plus
