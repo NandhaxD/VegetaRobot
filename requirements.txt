@@ -55,7 +55,7 @@ google_trans_new
 pyrate-limiter
 nekos.py
 tgcrypto
-python-arq
+Python_ARQ
 hachoir
 configparser
 bing_image_downloader
