@@ -114,11 +114,12 @@ def chatbot(update: Update, context: CallbackContext):
             return
         Message = message.text
         bot.send_chat_action(chat_id, action="typing")
-        kukiurl = requests.get('https://www.kukiapi.xyz/api/apikey=5349869477-KUKIhU1ygu8mm0/Cutiepii/@Awesome_RJ/message='+Message)
+        kukiurl = requests.get('https://www.kukiapi.xyz/api/5145883564-KUKISf4kHn2oT0/Miku/@h0daka/message='+Message)
         Kuki = json.loads(kukiurl.text)
         kuki = Kuki['reply']
         sleep(0.3)
         message.reply_text(kuki, timeout=60)
+
 
 def list_all_chats(update: Update, context: CallbackContext):
     chats = sql.get_all_kuki_chats()
