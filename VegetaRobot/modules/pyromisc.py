@@ -6,7 +6,7 @@ from pyrogram.types.bots_and_keyboards.inline_keyboard_button import InlineKeybo
 from pyrogram.types.bots_and_keyboards.inline_keyboard_markup import InlineKeyboardMarkup
 from pyrogram.types import Message
 from gpytranslate import Translator
-from VegetaRobot import pbot as bot, SUPPORT_CHAT, arq
+from VegetaRobot import pgram as bot, SUPPORT_CHAT, arq
 from urllib.parse import quote
 
 
