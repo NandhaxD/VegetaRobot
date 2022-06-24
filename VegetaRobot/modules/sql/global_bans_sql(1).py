@@ -1,6 +1,6 @@
 import threading
 
-from WolfXRobot.modules.sql import BASE, SESSION
+from VegetaRobot.modules.sql import BASE, SESSION
 from sqlalchemy import Boolean, Column, BigInteger, String, UnicodeText
 
 
