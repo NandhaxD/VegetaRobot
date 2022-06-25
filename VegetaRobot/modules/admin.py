@@ -310,9 +310,8 @@ def demote(update: Update, context: CallbackContext) -> str:
             "Could not demote. I might not be admin, or the admin status was appointed by another"
             " user, so I can't act upon them!")
         return
-
-
-@run_async
+      
+      
 @user_admin
 def refresh_admin(update, _):
     try:
@@ -323,7 +322,6 @@ def refresh_admin(update, _):
     update.effective_message.reply_text("Admins cache refreshed!")
 
 
-@run_async
 @connection_status
 @bot_admin
 @can_promote
@@ -387,7 +385,6 @@ def set_title(update: Update, context: CallbackContext):
         parse_mode=ParseMode.HTML)
 
 
-@run_async
 @bot_admin
 @can_pin
 @user_admin
@@ -458,7 +455,7 @@ def pin(update, context):
 
     return ""
     
-@run_async
+
 @bot_admin
 @can_pin
 @user_admin
@@ -484,7 +481,6 @@ def unpin(update: Update, context: CallbackContext) -> str:
     return log_message
 
 
-@run_async
 @bot_admin
 @user_admin
 @connection_status
@@ -509,7 +505,6 @@ def invite(update: Update, context: CallbackContext):
         )
 
 
-@run_async
 @connection_status
 def adminlist(update, context):
     chat = update.effective_chat  # type: Optional[Chat]
@@ -703,21 +698,21 @@ __help__ = """
 """
 
 
-ADMINLIST_HANDLER = DisableAbleCommandHandler(["adminlist", "staff"], adminlist, filters=Filters.group)
-INVITE_HANDLER = DisableAbleCommandHandler(["grouplink", "invitelink"], invite, filters=Filters.group)
+ADMINLIST_HANDLER = DisableAbleCommandHandler(["adminlist", "staff"], adminlist, filters=Filters.group,run_async=True)
+INVITE_HANDLER = DisableAbleCommandHandler(["grouplink", "invitelink"], invite, filters=Filters.group,run_async=True)
 PIN_HANDLER = CommandHandler("pin", pin, filters=Filters.group)
-SET_DESC_HANDLER = CommandHandler(["setdesc","setgdesc"], set_desc, filters=Filters.group)
-UNPIN_HANDLER = CommandHandler("unpin", unpin, filters=Filters.group)
-SETCHATPIC_HANDLER = CommandHandler("setgpic", setchatpic, filters=Filters.group)
-RMCHATPIC_HANDLER = CommandHandler("delgpic", rmchatpic, filters=Filters.group)
-SET_STICKER_HANDLER = CommandHandler(["setgpack","setgsticker"], set_sticker, filters=Filters.group)
-SETCHAT_TITLE_HANDLER = CommandHandler("setgtitle", setchat_title, filters=Filters.group)
+SET_DESC_HANDLER = CommandHandler(["setdesc","setgdesc"], set_desc, filters=Filters.group,run_async=True)
+UNPIN_HANDLER = CommandHandler("unpin", unpin, filters=Filters.group,run_async=True)
+SETCHATPIC_HANDLER = CommandHandler("setgpic", setchatpic, filters=Filters.group,run_async=True)
+RMCHATPIC_HANDLER = CommandHandler("delgpic", rmchatpic, filters=Filters.group,run_async=True)
+SET_STICKER_HANDLER = CommandHandler(["setgpack","setgsticker"], set_sticker, filters=Filters.group,run_async=True)
+SETCHAT_TITLE_HANDLER = CommandHandler("setgtitle", setchat_title, filters=Filters.group,run_async=True)
 PROMOTE_HANDLER = DisableAbleCommandHandler(["promote","promo"], promote, run_async=True)                          
 DEMOTE_HANDLER = DisableAbleCommandHandler(["demote","demo"], demote, run_async=True)
 
-SET_TITLE_HANDLER = CommandHandler("title", set_title)
+SET_TITLE_HANDLER = CommandHandler("title", set_title,run_async=True)
 ADMIN_REFRESH_HANDLER = CommandHandler(
-    "admincache", refresh_admin, filters=Filters.group)
+    "admincache", refresh_admin, filters=Filters.group,run_async=True)
 
 dispatcher.add_handler(SET_STICKER_HANDLER)
 dispatcher.add_handler(ADMINLIST_HANDLER)
