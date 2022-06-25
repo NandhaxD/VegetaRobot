@@ -24,7 +24,6 @@ from emoji import UNICODE_EMOJI
 from telegram.ext import CallbackContext, CommandHandler, Filters, run_async
 from telegram.utils.helpers import mention_html
 
-@run_async
 def tts(update: Update, context: CallbackContext):
     args = context.args
     current_time = datetime.strftime(datetime.now(), "%d.%m.%Y %H:%M:%S")
@@ -46,7 +45,7 @@ def tts(update: Update, context: CallbackContext):
         update.message.reply_voice(speech, quote=False)
 
 
-TTS_HANDLER = DisableAbleCommandHandler("tts", tts, pass_args=True)
+TTS_HANDLER = DisableAbleCommandHandler("tts", tts, pass_args=True,run_async=True)
 dispatcher.add_handler(TTS_HANDLER)
 
 __mod_name__ = "ᴛᴛs"
