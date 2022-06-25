@@ -41,8 +41,7 @@ from VegetaRobot.modules.helper_funcs.extraction import extract_user_and_text
 from VegetaRobot.modules.helper_funcs.string_handling import extract_time
 from VegetaRobot.modules.log_channel import gloggable, loggable
 
-api = requests.get("https://api.waifu.pics/sfw/kick").json()
-           KICK_IMG = api["url"]
+
     
 UNBAN_IMG= "https://telegra.ph/file/0ac714f6c537a2570cfd3.mp4"
 BAN_IMG= "https://telegra.ph/file/35ae9ea0ae57d53b98c0f.mp4"
@@ -349,6 +348,8 @@ def punch(update: Update, context: CallbackContext) -> str:
     chat = update.effective_chat
     user = update.effective_user
     message = update.effective_message
+    api = requests.get("https://api.waifu.pics/sfw/kick").json()
+    KICK_IMG = api["url"]
     log_message = ""
     bot, args = context.bot, context.args
     user_id, reason = extract_user_and_text(message, args)
