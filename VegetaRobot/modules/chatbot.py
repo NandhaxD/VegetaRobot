@@ -70,6 +70,8 @@ def kukiadd(update: Update, context: CallbackContext) -> str:
 
     return ""
 
+CHATBOT_KEY = "1491497760-KUKIGz8LCr6rH3"
+
 @user_admin
 @gloggable
 def kuki(update: Update, context: CallbackContext):
@@ -114,7 +116,7 @@ def chatbot(update: Update, context: CallbackContext):
             return
         Message = message.text
         bot.send_chat_action(chat_id, action="typing")
-        kukiurl = requests.get('http://Kukiapi.xyz/api/apikey=5145883564-KUKISf4kHn2oT0/Miku/@h0daka/message='+Message)
+        kukiurl = requests.get(f'http://Kukiapi.xyz/api/apikey={CHATBOT_KEY}/Vegeta/@NandhaxD/message='+Message)
         Kuki = json.loads(kukiurl.text)
         kuki = Kuki['reply']
         sleep(0.3)
