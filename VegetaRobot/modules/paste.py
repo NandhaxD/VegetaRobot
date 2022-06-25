@@ -23,6 +23,6 @@ def paste(_, m):
         spacebin_url = spacebin(text)
         caption = f"[SPACEBIN]({spacebin_url})"
         m.reply(text=caption,
-                      reply_markup=InlineKeyboardMarkup(
-                          [[InlineKeyboardButton("SPACEBIN", url=spacebin_url)]],disable_web_page_preview=True)
+                   reply_markup=InlineKeyboardMarkup(
+                       [[InlineKeyboardButton("SPACEBIN", url=spacebin_url)]]),disable_web_page_preview=True)
 
