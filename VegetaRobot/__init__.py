@@ -161,7 +161,7 @@ else:
     API_ID = Config.API_ID
     API_HASH = Config.API_HASH
 
-    DB_URI = Config.SQLALCHEMY_DATABASE_URI
+    
     DONATION_LINK = Config.DONATION_LINK
     LOAD = Config.LOAD
     INFOPIC = Config.INFOPIC
@@ -174,8 +174,6 @@ else:
     WORKERS = Config.WORKERS
     BAN_STICKER = Config.BAN_STICKER
     ALLOW_EXCL = Config.ALLOW_EXCL
-    ARQ_API_URL = Config.ARQ_API_URL
-    ARQ_API_KEY = Config.ARQ_API_KEY
     CASH_API_KEY = Config.CASH_API_KEY
     TIME_API_KEY = Config.TIME_API_KEY
     AI_API_KEY = Config.AI_API_KEY
