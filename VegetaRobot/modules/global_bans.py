@@ -22,6 +22,7 @@ from VegetaRobot import (
     STRICT_GBAN,
     DRAGONS,
     SUPPORT_CHAT,
+    EVENT_LOGS,
     SPAMWATCH_SUPPORT_CHAT,
     DEMONS,
     TIGERS,
@@ -70,7 +71,6 @@ UNGBAN_ERRORS = {
     "User not found",
 }
 
-EVENT_LOGS = -1001717881477
 
 @run_async
 @support_plus
