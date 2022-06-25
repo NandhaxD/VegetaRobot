@@ -1,4 +1,4 @@
-import html
+import html, requests
 
 # this module ban type's and kick type make by @ctzfamily and some friends
 
@@ -41,9 +41,11 @@ from VegetaRobot.modules.helper_funcs.extraction import extract_user_and_text
 from VegetaRobot.modules.helper_funcs.string_handling import extract_time
 from VegetaRobot.modules.log_channel import gloggable, loggable
 
+api = requests.get("https://api.waifu.pics/sfw/kick").json()
+           KICK_IMG = api["url"]
+    
 UNBAN_IMG= "https://telegra.ph/file/0ac714f6c537a2570cfd3.mp4"
 BAN_IMG= "https://telegra.ph/file/35ae9ea0ae57d53b98c0f.mp4"
-KICK_IMG= "http://telegra.ph/file/a998e5d45d7a6418f3b86.mp4"
 SELF_KICK_IMG= "https://telegra.ph/file/f1d4f976d2e90fa40740c.mp4"
 
 @run_async
