@@ -1,6 +1,6 @@
 from requests import post, get
 import requests 
-from VegetaRobot import bot
+from VegetaRobot import pgram as bot
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 
