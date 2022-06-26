@@ -29,6 +29,7 @@ from VegetaRobot import (
 from VegetaRobot.modules import ALL_MODULES
 from VegetaRobot.modules.helper_funcs.chat_status import is_user_admin
 from VegetaRobot.modules.helper_funcs.misc import paginate_modules
+from VegetaRobot.modules.misc import markdown_help_sender
 from VegetaRobot.modules.disable import DisableAbleCommandHandler
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
 from telegram.utils.helpers import mention_html
@@ -218,6 +219,9 @@ def start(update: Update, context: CallbackContext):
 
             elif args[0][1:].isdigit() and "rules" in IMPORTED:
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
+            
+            elif args[0][1:].isdigit() and "markdownhelp" in IMPORTED:
+                IMPORTED["markdownhelp"].markdown_help_sender(update, args[0], from_pm=True)
 
         else:
             first_name = update.effective_user.first_name
