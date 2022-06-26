@@ -81,7 +81,7 @@ def get_readable_time(seconds: int) -> str:
     return ping_time
 
 
-PM_START_TEXT = """ ┗►  *{}* ◄┛
+PM_START_TEXT = """ ┗►  *What's Up Yoo! * ◄┛
 
 ~~ *I'm made with Saiyans blood* ~~
 
@@ -225,9 +225,8 @@ def start(update: Update, context: CallbackContext):
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
 
         else:
-            first_name = update.effective_user.first_name
             image = random.choice(VEGETA_IMG)
-            update.effective_message.reply_text(PM_START_TEXT.format(first_name,image),
+            update.effective_message.reply_text(PM_START_TEXT.format(image),
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
@@ -405,11 +404,9 @@ def vegeta_about_callback(update, context):
             ),
         )
     elif query.data == "vegeta_back":
-        message = update.effective_message
-        first_name = message.reply_to_message.from_user.first_name
         vegeta_img = random.choice(VEGETA_IMG)
         query.message.edit_text(
-                PM_START_TEXT.format(first_name,vegeta_img),
+                PM_START_TEXT.format(vegeta_img),
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
