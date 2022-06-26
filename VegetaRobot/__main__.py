@@ -82,7 +82,7 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """ ┗► ~~ *{}* ~~◄┛ [😉]({})
-~~ *I'm made with Saiyans blood* ~~🔥
+~~ *I'm made with Saiyans blood* ~~
 ~ *Wanna see my commands?
 below click the help button!* ~💫
 
@@ -101,7 +101,8 @@ buttons = [
                     ],
                    [
                        InlineKeyboardButton(text="NETWORK", url="https://t.me/nandhabots"),
-                       InlineKeyboardButton(text="HELP", callback_data="help_back"
+                       InlineKeyboardButton(text="LOGS", callback_data="help_back"),
+                ],[ InlineKeyboardButton(text="LOGS", callback_data="help_back"
          ),
     ],
 ] 
@@ -219,9 +220,6 @@ def start(update: Update, context: CallbackContext):
 
             elif args[0][1:].isdigit() and "rules" in IMPORTED:
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
-            
-            elif args[0][1:].isdigit() and "markdownhelp" in IMPORTED:
-                IMPORTED["markdownhelp"].markdown_help_sender(update, args[0], from_pm=True)
 
         else:
             first_name = update.effective_user.first_name
