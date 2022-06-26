@@ -81,12 +81,12 @@ def get_readable_time(seconds: int) -> str:
     return ping_time
 
 
-PM_START_TEXT = """ ┗► ~~ *{}* ~~◄┛ [😉]({})
+PM_START_TEXT = """ ┗► ~~ *{}* ~~ ◄┛
 
 ~~ *I'm made with Saiyans blood* ~~
 
 ~ *Wanna see my commands?
-below click the help button!* ~💫
+below click the help button!* ~[💫]({})
 
 ──『*ᴛʜᴀɴᴋs  ғᴏʀ  ᴜsɪɴɢ*』
 """ 
@@ -104,7 +104,7 @@ buttons = [
                    [
                        InlineKeyboardButton(text="NETWORK", url="https://t.me/nandhabots"),
                        InlineKeyboardButton(text="LOGS", url="https://t.me/vegetalogs"),
-                ],[ InlineKeyboardButton(text="Commands Help", callback_data="help_back"
+                ],[ InlineKeyboardButton(text="COMMANDS HELP", callback_data="help_back"
          ),
     ],
 ] 
