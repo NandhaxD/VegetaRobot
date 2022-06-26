@@ -11,7 +11,7 @@ GMAPS_LOC = "https://maps.googleapis.com/maps/api/geocode/json"
 @run_async
 @user_admin
 def gps(update, context, *args, **kwargs):
-
+    text = update.effective_message.text.split(None, 1)[1]
     args = context.args
     update.effective_message
     if len(args) == 0:
@@ -29,7 +29,7 @@ def gps(update, context, *args, **kwargs):
         gm = "https://www.google.com/maps/search/{},{}".format(lat, lon)
         dispatcher.bot.send_location(chat_id, location=the_loc)
         update.message.reply_text(
-            "Cʟɪᴄᴋ ʜᴇʀᴇ:🌎[ɢᴏᴏɢʟᴇ ᴍᴀᴘs]({})".format(gm),
+            f"here the your locating of [{text}]({gm})",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
         )
