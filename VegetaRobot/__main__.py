@@ -404,7 +404,8 @@ def vegeta_about_callback(update, context):
             ),
         )
     elif query.data == "vegeta_back":
-        first_name = query.message.reply_to_message.from_user.first_name
+        message = update.effective_message
+        first_name = message.reply_to_message.from_user.first_name
         vegeta_img = random.choice(VEGETA_IMG)
         query.message.edit_text(
                 PM_START_TEXT.format(first_name,vegeta_img),
