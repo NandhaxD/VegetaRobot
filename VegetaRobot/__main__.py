@@ -82,7 +82,9 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """ ┗► ~~ *{}* ~~◄┛ [😉]({})
+
 ~~ *I'm made with Saiyans blood* ~~
+
 ~ *Wanna see my commands?
 below click the help button!* ~💫
 
