@@ -85,8 +85,8 @@ PM_START_TEXT = """ ┗►  *{}* ◄┛
 
 ~~ *I'm made with Saiyans blood* ~~
 
-~ *Wanna see my commands[❗]({})
-below click the help button!* ~
+~ *Wanna see my commands*[❗]({})
+*below click the help button!* ~
 
 ──『*ᴛʜᴀɴᴋs  ғᴏʀ  ᴜsɪɴɢ*』
 """ 
@@ -404,7 +404,7 @@ def vegeta_about_callback(update, context):
             ),
         )
     elif query.data == "vegeta_back":
-        first_name = update.effective_message.from_user.first_name
+        first_name = query.message.from_user.first_name
         vegeta_img = random.choice(VEGETA_IMG)
         query.message.edit_text(
                 PM_START_TEXT.format(first_name,vegeta_img),
