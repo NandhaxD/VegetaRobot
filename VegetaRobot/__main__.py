@@ -103,7 +103,7 @@ buttons = [
                     ],
                    [
                        InlineKeyboardButton(text="NETWORK", url="https://t.me/nandhabots"),
-                       InlineKeyboardButton(text="LOGS", callback_data="help_back"),
+                       InlineKeyboardButton(text="LOGS", url="https://t.me/vegetalogs"),
                 ],[ InlineKeyboardButton(text="Commands Help", callback_data="help_back"
          ),
     ],
