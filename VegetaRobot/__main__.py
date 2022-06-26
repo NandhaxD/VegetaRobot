@@ -50,7 +50,7 @@ from telegram.ext import (
 )
 from telegram.ext.dispatcher import DispatcherHandlerStop, run_async
 from telegram.utils.helpers import escape_markdown
-
+from pyrogram.types import *
 
 
 def get_readable_time(seconds: int) -> str:
@@ -110,14 +110,15 @@ buttons = [
 ] 
 
 HELP_STRINGS = """
-ʜᴇʟʟᴏ ᴛʜᴇʀᴇ! 
-- /donate | *ɪɴғᴏʀᴍᴀᴛɪᴏɴ ᴏɴ ʜᴏᴡ ᴛᴏ ᴅᴏɴᴀᴛᴇ!*
-- /settings | *BOT PM:  ᴡɪʟʟ sᴇɴᴅ ʏᴏᴜʀ sᴇᴛᴛɪɴɢs ғᴏʀ ᴀʟʟ sᴜᴘᴘᴏʀᴛᴇᴅ ᴍᴏᴅᴜʟᴇs.
-ʜᴇʀᴇ ᴛʜᴇ ʟɪsᴛ ᴄᴏᴍᴍᴇɴᴛs  :*
+*Hello There! Here you can get all of the help commands!
+- /donate | Steps to Donate Bot Owner 
+- /help (modulename): you also get the about the module.
+- /settings | in this work group only chat!
+Below Click the module you know about module commands!*  :*
 """
 
 HELP_MSG = "Click the button below to get help manu in your pm."
-DONATE_STRING = """*don't need donate I'm free for every one add your group's this my donate🙂*"""
+DONATE_STRING = """*don't need donate I'm free for everyone add your group's in @VegetaRobot this is my donate🙂*"""
 HELP_IMG= "https://telegra.ph/file/9d2c6e3b28afe7619856e.jpg"
 GROUPSTART_IMG= "https://telegra.ph/file/1cbafa58dda18528f9e0c.mp4"
 
@@ -414,56 +415,7 @@ def vegeta_about_callback(update, context):
                 timeout=60,
         )
 
-    elif query.data == "vegeta_admin":
-        query.message.edit_text(
-            "*๏ Let's make your group bit effective now*"
-            "\nCongragulations, VegetaRobot now ready to manage your group."
-            "\n\n*Admin Tools*"
-            "\nBasic Admin tools help you to protect and powerup your group."
-            "\nYou can ban members, Kick members, Promote someone as admin through commands of bot."
-            "\n\n*Greetings*"
-            "\nLets set a welcome message to welcome new users coming to your group."
-            "\nsend `/setwelcome [message]` to set a welcome message!",
-            parse_mode=ParseMode.MARKDOWN,
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Go Back", callback_data="vegeta_")]]
-            ),
-        )
-
-    elif query.data == "vegeta_notes":
-        query.message.edit_text(
-            "<b>๏ Setting up notes</b>"
-            "\nYou can save message/media/audio or anything as notes"
-            "\nto get a note simply use # at the beginning of a word"
-            "\n\nYou can also set buttons for notes and filters (refer help menu)",
-            parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Go Back", callback_data="vegeta_")]]
-            ),
-        )
-    elif query.data == "vegeta_support":
-        query.message.edit_text(
-            "*๏ Vegeta support chats*"
-            "\nJoin My Support Group/Channel for see or report a problem on Vegeta.",
-            parse_mode=ParseMode.MARKDOWN,
-            reply_markup=InlineKeyboardMarkup(
-                [
-                 [
-                    InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ", url="t.me/Vegetasupport"),
-                    InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇs", url="https://t.me/vegetaupdates"),
-                 ],
-                 [
-                       InlineKeyboardButton(text="ɴᴇᴛᴡᴏʀᴋ", url="t.me/XForceNetwork"),
-                       InlineKeyboardButton(text="ʟᴏɢs", url="t.me/VegetaLogs"),
-                   
-                   ],
-                    [
-                     InlineKeyboardButton(text="Go Back", callback_data="vegeta_"),
-                 
-                 ]
-                ]
-            ),
-        )
+ 
 
 @pgram.on_callback_query(filters.regex("stats_callback"))
 async def stats_callbacc(_, CallbackQuery):
