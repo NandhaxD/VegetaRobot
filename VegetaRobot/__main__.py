@@ -81,12 +81,12 @@ def get_readable_time(seconds: int) -> str:
     return ping_time
 
 
-PM_START_TEXT = """ ┗► ~~ *{}* ~~ ◄┛
+PM_START_TEXT = """ ┗►  *{}* ◄┛
 
 ~~ *I'm made with Saiyans blood* ~~
 
-~ *Wanna see my commands?
-below click the help button!* ~[💫]({})
+~ *Wanna see my commands[❗]({})
+below click the help button!* ~
 
 ──『*ᴛʜᴀɴᴋs  ғᴏʀ  ᴜsɪɴɢ*』
 """ 
@@ -348,7 +348,7 @@ def help_button(update, context):
 
         elif next_match:
             next_page = int(next_match.group(1))
-            query.message.edit_caption(
+            query.message.edit_text(
                 HELP_STRINGS,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
@@ -404,8 +404,10 @@ def vegeta_about_callback(update, context):
             ),
         )
     elif query.data == "vegeta_back":
+        first_name = update.effective_message.from_user.first_name
+        vegeta_img = random.choice(VEGETA_IMG)
         query.message.edit_text(
-                PM_START_TEXT,
+                PM_START_TEXT.format(first_name,vegeta_img),
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
