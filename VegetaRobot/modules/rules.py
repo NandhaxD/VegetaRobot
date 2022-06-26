@@ -134,16 +134,16 @@ def __chat_settings__(chat_id, user_id):
     return f"This chat has had it's rules set: `{bool(sql.get_rules(chat_id))}`"
 
 
-__mod_name__ = "📄Rules"
+__mod_name__ = "Rules"
 
 GET_RULES_HANDLER = CommandHandler(
-    "rules", get_rules, filters=Filters.chat_type.groups, run_async=True
+    "rules", get_rules, filters=Filters.chat_type.groups
 )
 SET_RULES_HANDLER = CommandHandler(
-    "setrules", set_rules, filters=Filters.chat_type.groups, run_async=True
+    "setrules", set_rules, filters=Filters.chat_type.groups
 )
 RESET_RULES_HANDLER = CommandHandler(
-    "clearrules", clear_rules, filters=Filters.chat_type.groups, run_async=True
+    "clearrules", clear_rules, filters=Filters.chat_type.groups
 )
 
 dispatcher.add_handler(GET_RULES_HANDLER)
