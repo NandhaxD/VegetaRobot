@@ -289,7 +289,7 @@ def new_member(update: Update, context: CallbackContext):
                             f"{first_name} {new_mem.last_name}")
                     else:
                         fullname = escape_markdown(first_name)
-                    count = chat.get_members_count()
+                    count = chat.get_member_count()
                     mention = mention_markdown(new_mem.id,
                                                escape_markdown(first_name))
                     if new_mem.username:
