@@ -98,7 +98,7 @@ Reports bugs at @VegetaSupport
 """
 
 ECHO_HANDLER = DisableAbleCommandHandler("echo", echo, filters=Filters.group,run_async=True)
-MD_HELP_HANDLER = CommandHandler("markdownhelp", markdown_help,run_async=True)
+MD_HELP_HANDLER = CommandHandler("markdownhelp", markdown_help)
 
 dispatcher.add_handler(ECHO_HANDLER)
 dispatcher.add_handler(MD_HELP_HANDLER)
