@@ -138,7 +138,6 @@ def make_bar(per):
     return "■" * done + "□" * (10 - done)
 
 
-@run_async
 def get_id(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
     message = update.effective_message
@@ -215,7 +214,6 @@ async def group_info(event) -> None:
     await event.reply(msg)
 
 
-@run_async
 def gifid(update: Update, context: CallbackContext):
     msg = update.effective_message
     if msg.reply_to_message and msg.reply_to_message.animation:
@@ -362,8 +360,6 @@ def info(update: Update, context: CallbackContext):
 
     rep.delete()
 
-
-@run_async
 def about_me(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
     message = update.effective_message
@@ -390,7 +386,6 @@ def about_me(update: Update, context: CallbackContext):
             "There isnt one, use /setme to set one.")
 
 
-@run_async
 def set_about_me(update: Update, context: CallbackContext):
     message = update.effective_message
     user_id = message.from_user.id
@@ -421,55 +416,20 @@ def set_about_me(update: Update, context: CallbackContext):
                 "The info needs to be under {} characters! You have {}.".format(
                     MAX_MESSAGE_LENGTH // 4, len(info[1])))
 
+SATS_IMG = "https://telegra.ph/file/c478675cd20503653a232.mp4"
 
-@run_async
 @sudo_plus
-def stats(update, context):
-    uptime = datetime.datetime.fromtimestamp(boot_time()).strftime("%Y-%m-%d %H:%M:%S")
-    botuptime = get_readable_time((time.time() - StartTime))
-    status = "*╒═══「 📊 Zeus Stats 」*\n\n"
-    status += "*➢ Zeus Start time:* " + str(uptime) + "\n"
-    uname = platform.uname()
-    status += "*➢ System:* " + str(uname.system) + "\n"
-    status += "*➢ Node name:* " + escape_markdown(str(uname.node)) + "\n"
-    status += "*➢ Release:* " + escape_markdown(str(uname.release)) + "\n"
-    status += "*➢ Machine:* " + escape_markdown(str(uname.machine)) + "\n"
-    mem = virtual_memory()
-    cpu = cpu_percent()
-    disk = disk_usage("/")
-    status += "*➢ CPU:* " + str(cpu) + " %\n"
-    status += "*➢ RAM:* " + str(mem[2]) + " %\n"
-    status += "*➢ Storage:* " + str(disk[3]) + " %\n\n"
-    status += "*➢ Python Version:* " + python_version() + "\n"
-    status += "*➢ python-Telegram-Bot:* " + str(ptbver) + "\n"
-    status += "*➢ Uptime:* " + str(botuptime) + "\n"
-    try:
-        update.effective_message.reply_text(
-            status
-            + "\n*Bot statistics*:\n"
-            + "\n".join([mod.__stats__() for mod in STATS])
-            + f"\n\n[✦ Support](https://t.me/{SUPPORT_CHAT})  | [✦ Updates](https://t.me/ZeusUpdates)\n\n"
-            + "╘══「 by [⚡CT⚡](https://github.com/ctzfamily) 」 \n",
-            parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,
-        )
-    except BaseException:
-        update.effective_message.reply_text(
-            (
-                (
-                    (
-                        "\n*Bot statistics*:\n"
-                        + "\n".join(mod.__stats__() for mod in STATS)
-                    )
-                    + f"\n\n✦ [Support](https://t.me/{SUPPORT_CHAT}) | ✦ [Updates](https://t.me/vegetaupdates)\n\n"
-                )
-                + "╘══「 by [⚡CT_PRO⚡](https://github.com/ctzfamily) 」\n"
-            ),
-            parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,
-        )
+def stats(update: Update, context: CallbackContext):
+    process = subprocess.Popen(
+        "neofetch --stdout", shell=True, text=True, stdout=subprocess.PIPE)
+    output = process.communicate()[0]
+    stats = "<b>Current stats:</b>\n" + "\n" + output + "\n".join(
+        [mod.__stats__() for mod in STATS])
+    result = re.sub(r'(\d+)', r'<code>\1</code>', stats)
+    update.effective_message.reply_animation(SATS_IMG,caption=result, parse_mode=ParseMode.HTML)
 
-@run_async
+
+
 def about_bio(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
     message = update.effective_message
@@ -497,7 +457,6 @@ def about_bio(update: Update, context: CallbackContext):
             "You haven't had a bio set about yourself yet!")
 
 
-@run_async
 def set_about_bio(update: Update, context: CallbackContext):
     message = update.effective_message
     sender_id = update.effective_user.id
@@ -582,16 +541,16 @@ Examples:
 
 """
 
-SET_BIO_HANDLER = DisableAbleCommandHandler("setbio", set_about_bio)
-GET_BIO_HANDLER = DisableAbleCommandHandler("bio", about_bio)
+SET_BIO_HANDLER = DisableAbleCommandHandler("setbio", set_about_bio,run_async=True)
+GET_BIO_HANDLER = DisableAbleCommandHandler("bio", about_bio,run_async=True)
 
-STATS_HANDLER = CommandHandler("stats", stats)
-ID_HANDLER = DisableAbleCommandHandler("id", get_id)
-GIFID_HANDLER = DisableAbleCommandHandler("gifid", gifid)
+STATS_HANDLER = CommandHandler("stats", stats,run_async=True)
+ID_HANDLER = DisableAbleCommandHandler("id", get_id,run_async=True)
+GIFID_HANDLER = DisableAbleCommandHandler("gifid", gifid,run_async=True)
 INFO_HANDLER = DisableAbleCommandHandler(("info", "status"), info, run_async=True)
 
-SET_ABOUT_HANDLER = DisableAbleCommandHandler("setme", set_about_me)
-GET_ABOUT_HANDLER = DisableAbleCommandHandler("me", about_me)
+SET_ABOUT_HANDLER = DisableAbleCommandHandler("setme", set_about_me,run_async=True)
+GET_ABOUT_HANDLER = DisableAbleCommandHandler("me", about_me,run_async=True)
 
 dispatcher.add_handler(STATS_HANDLER)
 dispatcher.add_handler(ID_HANDLER)
