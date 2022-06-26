@@ -9,7 +9,6 @@ from telegram import TelegramError, Update
 from telegram.ext import CallbackContext, CommandHandler, run_async
 
 
-@run_async
 @dev_plus
 def leave(update: Update, context: CallbackContext):
     bot = context.bot
@@ -26,7 +25,6 @@ def leave(update: Update, context: CallbackContext):
         update.effective_message.reply_text("Send a valid chat ID")
 
 
-@run_async
 @dev_plus
 def gitpull(update: Update, context: CallbackContext):
     sent_msg = update.effective_message.reply_text(
@@ -45,7 +43,6 @@ def gitpull(update: Update, context: CallbackContext):
     os.execv('start.bat', sys.argv)
 
 
-@run_async
 @dev_plus
 def restart(update: Update, context: CallbackContext):
     update.effective_message.reply_text(
@@ -55,9 +52,9 @@ def restart(update: Update, context: CallbackContext):
     os.execv('start.bat', sys.argv)
 
 
-LEAVE_HANDLER = CommandHandler("leave", leave)
-GITPULL_HANDLER = CommandHandler("gitpull", gitpull)
-RESTART_HANDLER = CommandHandler("reboot", restart)
+LEAVE_HANDLER = CommandHandler("leave", leave,run_async=True)
+GITPULL_HANDLER = CommandHandler("gitpull", gitpull,run_async=True)
+RESTART_HANDLER = CommandHandler("reboot", restart,run_async=True)
 
 dispatcher.add_handler(LEAVE_HANDLER)
 dispatcher.add_handler(GITPULL_HANDLER)
