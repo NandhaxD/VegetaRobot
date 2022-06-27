@@ -13,7 +13,7 @@ GMAPS_LOC = "https://maps.googleapis.com/maps/api/geocode/json"
 def gps(update, context, *args, **kwargs):
 
     args = context.args
-    update.effective_message
+    message = update.effective_message
     if len(args) == 0:
         update.effective_message.reply_text(
             "That was a funny joke, but no really, put in a location"
@@ -28,8 +28,8 @@ def gps(update, context, *args, **kwargs):
         the_loc = Location(lon, lat)
         gm = "https://www.google.com/maps/search/{},{}".format(lat, lon)
         dispatcher.bot.send_location(chat_id, location=the_loc)
-        update.message.reply_text(
-            f"*Check from google:\n[google location]({gm})",
+        message.reply_text(
+            f"*Check from google:\n[google Location]({gm})",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
         )
@@ -42,8 +42,4 @@ GPS_HANDLER = CommandHandler("gps", gps)
 
 dispatcher.add_handler(GPS_HANDLER)
 
-
-
-
-__mod_name__ = "GPS"
 
