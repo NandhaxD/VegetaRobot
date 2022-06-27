@@ -372,37 +372,9 @@ def help_button(update, context):
         pass
 
 
-
 def vegeta_about_callback(update, context):
     query = update.callback_query
-    if query.data == "vegeta_":
-        query.message.edit_text(
-            "๏ I'm *Vegeta*, a powerful group management bot built to help you manage your group easily."
-            "\n• I can restrict users."
-            "\n• I can greet users with customizable welcome messages and even set a group's rules."
-            "\n• I have an advanced anti-flood system."
-            "\n• I can warn users until they reach max warns, with each predefined actions such as ban, mute, kick, etc."
-            "\n• I have a note keeping system, blacklists, and even predetermined replies on certain keywords."
-            "\n• I check for admins' permissions before executing any command and more stuffs"
-            "\n\n_Vegeta's licensed under the GNU General Public License v3.0_"
-            "\n\n Click on button bellow to get basic help for @VegetaRobot.",
-            parse_mode=ParseMode.MARKDOWN,
-            reply_markup=InlineKeyboardMarkup(
-                [
-                 [
-                    InlineKeyboardButton(text="👮 ᴀᴅᴍɪɴs", callback_data="vegeta_admin"),
-                    InlineKeyboardButton(text="📓 ɴᴏᴛᴇs", callback_data="vegeta_notes"),
-                 ],
-                 [
-                    InlineKeyboardButton(text="💕 ᴄʜᴀɴɴᴇʟs", callback_data="vegeta_support"),
-                 ],
-                 [
-                    InlineKeyboardButton(text="⬅️ ʙᴀᴄᴋ", callback_data="vegeta_back"),
-                 ]
-                ]
-            ),
-        )
-    elif query.data == "vegeta_back":
+    if query.data == "vegeta_back":
         vegeta_img = random.choice(VEGETA_IMG)
         query.message.edit_text(
                 PM_START_TEXT.format(vegeta_img),
