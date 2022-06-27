@@ -350,7 +350,7 @@ def info(update: Update, context: CallbackContext):
                 [
                     [
        InlineKeyboardButton(text="UPDATES", url=f"https://t.me/{UPDATES_CHANNEL}"),
-       InlineKeyboardButton(text="SUPPORT", url="https://t.me/{SUPPORT_CHAT}")
+       InlineKeyboardButton(text="SUPPORT", url=f"https://t.me/{SUPPORT_CHAT}")
                     ]
                 ]
             ),
@@ -438,7 +438,7 @@ def stats(update: Update, context: CallbackContext):
                 [
                     [
        InlineKeyboardButton(text="UPDATES", url=f"https://t.me/{UPDATES_CHANNEL}"),
-       InlineKeyboardButton(text="SUPPORT", url="https://t.me/{SUPPORT_CHAT}")
+       InlineKeyboardButton(text="SUPPORT", url=f"https://t.me/{SUPPORT_CHAT}")
                     ]
                 ]
             ),
