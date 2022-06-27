@@ -432,12 +432,12 @@ def stats(update: Update, context: CallbackContext):
         "neofetch --stdout", shell=True, text=True, stdout=subprocess.PIPE)
     output = process.communicate()[0]
     stats = f"<b>📊 Current stats:</b>\n"
-                  +"**Python Version**: {ptbver}\n"
-                  +"**Pyrogram Version**: {pyrogram_version}\n"
-                  +"**Telethon version**: {telethon_version}" + "\n" + output + "\n".join(
+    stats += f"**Python Version**: {ptbver}\n"
+    stats = f"**Pyrogram Version**: {pyrogram_version}\n"
+    stats = f"**Telethon version**: {telethon_version}" + "\n" + output + "\n".join(
         [mod.__stats__() for mod in STATS])
     result = re.sub(r'(\d+)', r'<code>\1</code>', stats)
-    update.effective_message.reply_animation(SATS_IMG,caption=result,
+    update.effective_message.reply_animation(SATS_IMG,caption=(result),
     reply_markup=InlineKeyboardMarkup(
                 [
                     [
