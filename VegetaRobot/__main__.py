@@ -108,12 +108,11 @@ buttons = [
     ],
 ] 
 
-HELP_STRINGS = """
-*Hello There! Here you can get all of the help commands!
-- /donate | Steps to Donate Bot Owner 
+HELP_STRINGS = """ *Hello There! Here you can get all of the help commands!
+- /donate - Steps to Donate Bot Owner 
 - /help (modulename): you also get the about the module.
-- /settings | in this work group only chat!
-Below Click the module you know about module commands!*  :*
+- /settings - in this work group only chat!
+Below Click the module you know about module commands!*
 """
 
 HELP_MSG = "Click the button below to get help manu in your pm."
