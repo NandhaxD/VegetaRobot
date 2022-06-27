@@ -20,7 +20,7 @@ from telegram.error import BadRequest
 from telegram.utils.helpers import escape_markdown, mention_html
 
 from VegetaRobot import (DEV_USERS, OWNER_ID, DRAGONS, DEMONS, TIGERS, WOLVES,
-                          INFOPIC, dispatcher,StartTime,SUPPORT_CHAT,sw)
+                          INFOPIC, dispatcher,StartTime,SUPPORT_CHAT,sw,UPDATES_CHANNEL)
 from VegetaRobot.__main__ import STATS, TOKEN, USER_INFO
 import VegetaRobot.modules.sql.userinfo_sql as sql
 from VegetaRobot.modules.disable import DisableAbleCommandHandler
