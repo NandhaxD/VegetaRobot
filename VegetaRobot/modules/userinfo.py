@@ -431,9 +431,9 @@ def stats(update: Update, context: CallbackContext):
     process = subprocess.Popen(
         "neofetch --stdout", shell=True, text=True, stdout=subprocess.PIPE)
     output = process.communicate()[0]
-    test += f"**Python Version**: {ptbver}\n"
+    test = f"**Python Version**: {ptbver}\n"
     test += f"**Pyrogram Version**: {pyrogram_version}\n"
-    test +8 = f"**Telethon version**: {telethon_version}"
+    test += f"**Telethon version**: {telethon_version}"
     stats = f"<b>📊 Current stats:</b>\n" + "\n" + output + "\n".join(
         [mod.__stats__() for mod in STATS])
     result = re.sub(r'(\d+)', r'<code>\1</code>', stats)
