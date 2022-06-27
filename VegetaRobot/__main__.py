@@ -385,11 +385,7 @@ def vegeta_about_callback(update, context):
 
  
 
-@pgram.on_callback_query(filters.regex("stats_callback"))
-async def stats_callbacc(_, CallbackQuery):
-    text = await bot_sys_stats()
-    await pgram.answer_callback_query(CallbackQuery.id, text, show_alert=True)
-    
+
 
 def get_help(update: Update, context: CallbackContext):
     chat = update.effective_chat  # type: Optional[Chat]
