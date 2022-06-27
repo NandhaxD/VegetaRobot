@@ -11,7 +11,8 @@ from platform import python_version
 from psutil import cpu_percent, virtual_memory, disk_usage, boot_time
 from telethon.tl.functions.channels import GetFullChannelRequest
 from telethon.tl.types import ChannelParticipantsAdmins
-from telethon import events
+from telethon import events, __version__ as telethon_version
+from pyrogram import __version__ as pyrogram_version
 
 from telegram import MAX_MESSAGE_LENGTH, ParseMode, __version__ as ptbver, Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import CallbackContext, CommandHandler
@@ -430,7 +431,7 @@ def stats(update: Update, context: CallbackContext):
     process = subprocess.Popen(
         "neofetch --stdout", shell=True, text=True, stdout=subprocess.PIPE)
     output = process.communicate()[0]
-    stats = "<b>Current stats:</b>\n" + "\n" + output + "\n".join(
+    stats =f "<b>📊 Current stats:</b>\n **Python Version**: {ptbver}\n**Pyrogram Version**: {pyrogram_version}\n**Telethon version**: {telethon_version}" + "\n" + output + "\n".join(
         [mod.__stats__() for mod in STATS])
     result = re.sub(r'(\d+)', r'<code>\1</code>', stats)
     update.effective_message.reply_animation(SATS_IMG,caption=result,
