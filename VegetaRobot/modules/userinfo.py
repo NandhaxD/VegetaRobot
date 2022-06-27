@@ -448,7 +448,7 @@ def stats(update: Update, context: CallbackContext):
             ),
             parse_mode=ParseMode.HTML)
 
-
+#8
 
 def about_bio(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
