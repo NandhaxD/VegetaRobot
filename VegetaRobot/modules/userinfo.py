@@ -346,7 +346,14 @@ def info(update: Update, context: CallbackContext):
             context.bot.send_photo(
             chat.id,
             photo=profile,
-            caption=(text),
+            caption=(text),reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+       InlineKeyboardButton(text="UPDATES", url=f"https://t.me/{UPDATES_CHANNEL}"),
+       InlineKeyboardButton(text="SUPPORT", url="https://t.me/{SUPPORT_CHAT}")
+                    ]
+                ]
+            ),
             parse_mode=ParseMode.HTML
         )
         # Incase user don't have profile pic, send normal text
@@ -426,7 +433,16 @@ def stats(update: Update, context: CallbackContext):
     stats = "<b>Current stats:</b>\n" + "\n" + output + "\n".join(
         [mod.__stats__() for mod in STATS])
     result = re.sub(r'(\d+)', r'<code>\1</code>', stats)
-    update.effective_message.reply_animation(SATS_IMG,caption=result, parse_mode=ParseMode.HTML)
+    update.effective_message.reply_animation(SATS_IMG,caption=result,
+    reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+       InlineKeyboardButton(text="UPDATES", url=f"https://t.me/{UPDATES_CHANNEL}"),
+       InlineKeyboardButton(text="SUPPORT", url="https://t.me/{SUPPORT_CHAT}")
+                    ]
+                ]
+            ),
+            parse_mode=ParseMode.HTML)
 
 
 
