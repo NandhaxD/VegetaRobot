@@ -68,42 +68,27 @@ if ENV:
             "Your tiger users list does not contain valid BigInteger.")
         
    
-    INFOPIC = bool(os.environ.get('INFOPIC', False))
+
+    INFOPIC = bool(os.environ.get('INFOPIC', True))
     EVENT_LOGS = os.environ.get('EVENT_LOGS', None)
     WEBHOOK = bool(os.environ.get('WEBHOOK', False))
-    URL = os.environ.get('URL', "")  # Does not contain token
     PORT = int(os.environ.get('PORT', 5000))
-    CERT_PATH = os.environ.get("CERT_PATH")
     API_ID = os.environ.get('API_ID', None)
     API_HASH = os.environ.get('API_HASH', None)
-    PYRO_SESSION = os.environ.get('PYRO_SESSION', None) 
     DB_URI = os.environ.get('DATABASE_URL')
     DONATION_LINK = os.environ.get('DONATION_LINK')
     LOAD = os.environ.get("LOAD", "").split()
-    NO_LOAD = os.environ.get("NO_LOAD", "translation").split()
-    DEL_CMDS = bool(os.environ.get('DEL_CMDS', False))
-    STRICT_GBAN = bool(os.environ.get('STRICT_GBAN', False))
-    STRICT_GMUTE = bool(os.environ.get('STRICT_GMUTE', False))
-    STRING_SESSION = os.environ.get("STRING_SESSION", None)
+    DEL_CMDS = bool(os.environ.get('DEL_CMDS', True))
+    STRICT_GBAN = bool(os.environ.get('STRICT_GBAN', True))
+    STRICT_GMUTE = bool(os.environ.get('STRICT_GMUTE', True))
     WORKERS = int(os.environ.get('WORKERS', 8))
-    BAN_STICKER = os.environ.get('BAN_STICKER',
-                                 'CAADAgADOwADPPEcAXkko5EB3YGYAg')
-    ALLOW_EXCL = os.environ.get('ALLOW_EXCL', False)
+    ALLOW_EXCL = os.environ.get('ALLOW_EXCL', True)
     OPENWEATHERMAP_ID = os.environ.get("OPENWEATHERMAP_ID", "") # From:- https://openweathermap.org/api
-    CASH_API_KEY = os.environ.get('CASH_API_KEY', None)
-    TIME_API_KEY = os.environ.get('TIME_API_KEY', None)
-    AI_API_KEY = os.environ.get('AI_API_KEY', None)
-    WALL_API = os.environ.get('WALL_API', None)
     SUPPORT_CHAT = os.environ.get('SUPPORT_CHAT', None)
     UPDATES_CHANNEL = os.environ.get('UPDATES_CHANNEL', None)
     SPAMWATCH_SUPPORT_CHAT = os.environ.get('SPAMWATCH_SUPPORT_CHAT', None)
     SPAMWATCH_API = os.environ.get('SPAMWATCH_API', None)
     REM_BG_API_KEY = os.environ.get("REM_BG_API_KEY", None) # From:- https://www.remove.bg/
-    REPOSITORY = os.environ.get("REPOSITORY", "")
-    REDIS_URL = os.environ.get("REDIS_URL")
-    IBM_WATSON_CRED_URL = os.environ.get("IBM_WATSON_CRED_URL", None)
-    IBM_WATSON_CRED_PASSWORD = os.environ.get("IBM_WATSON_CRED_PASSWORD", None)
-    TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TEMP_DOWNLOAD_DIRECTORY", None)
     HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
     TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TEMP_DOWNLOAD_DIRECTORY", "./")
     TELEGRAPH_SHORT_NAME = os.environ.get("TELEGRAPH_SHORT_NAME", "lightYagami")
@@ -153,6 +138,7 @@ else:
         raise Exception(
             "Your tiger users list does not contain valid BigInteger.")
 
+
     EVENT_LOGS = Config.EVENT_LOGS
     WEBHOOK = Config.WEBHOOK
     URL = Config.URL
@@ -160,8 +146,6 @@ else:
     CERT_PATH = Config.CERT_PATH
     API_ID = Config.API_ID
     API_HASH = Config.API_HASH
-
-    
     DONATION_LINK = Config.DONATION_LINK
     LOAD = Config.LOAD
     INFOPIC = Config.INFOPIC
