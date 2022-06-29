@@ -8,7 +8,6 @@ from Python_ARQ import ARQ
 import telegram.ext as tg
 from pyrogram import Client, errors
 from telethon import TelegramClient
-from VegetaRobot.config import *
 
 StartTime = time.time()
 
@@ -171,6 +170,8 @@ if not SPAMWATCH_API:
     LOGGER.warning("SpamWatch API key missing! recheck your config.")
 else:
     sw = spamwatch.Client(SPAMWATCH_API)
+   
+from VegetaRobot.config import *
 
 ARQ_API_URL = ARQ_API_URL
 ARQ_API_KEY = ARQ_API_KEY
