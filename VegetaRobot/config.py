@@ -2,6 +2,8 @@
 import json #by ctzfamioy
 import os
 
+ARQ_API_URL = "https://arq.hamker.in"
+ARQ_API_KEY =  "KGTHQB-IKDNAI-XXFCND-VDZFQI-ARQ"
 
 def get_user_list(config, key):
     with open('{}/VegetaRobot/{}'.format(os.getcwd(), config),
@@ -46,8 +48,6 @@ class Config(object):
     CERT_PATH = None
     PORT = 5000
     WORKERS = 8  # Number of subthreads to use. Set as number of threads your processor uses
-    ARQ_API_URL = "https://arq.hamker.in"
-    ARQ_API_KEY =  "KGTHQB-IKDNAI-XXFCND-VDZFQI-ARQ"
     BL_CHATS = []  # List of groups that you want blacklisted.
     SPAMMERS = None
 
