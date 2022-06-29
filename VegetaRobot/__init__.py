@@ -67,7 +67,7 @@ if ENV:
             "Your tiger users list does not contain valid BigInteger.")
         
    
-
+    URL = os.environ.get('URL', "")  # Does
     INFOPIC = bool(os.environ.get('INFOPIC', True))
     EVENT_LOGS = os.environ.get('EVENT_LOGS', None)
     WEBHOOK = bool(os.environ.get('WEBHOOK', False))
