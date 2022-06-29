@@ -8,7 +8,7 @@ from Python_ARQ import ARQ
 import telegram.ext as tg
 from pyrogram import Client, errors
 from telethon import TelegramClient
-from VegetaRobot.Config import *
+from VegetaRobot.config import *
 
 StartTime = time.time()
 
@@ -140,8 +140,6 @@ else:
 
     EVENT_LOGS = Config.EVENT_LOGS
     WEBHOOK = Config.WEBHOOK
-    ARQ_API_KEY = ARQ_API_KEY
-    ARQ_API_URL = ARQ_API_URL
     URL = Config.URL
     PORT = Config.PORT
     CERT_PATH = Config.CERT_PATH
@@ -178,6 +176,8 @@ else:
     sw = spamwatch.Client(SPAMWATCH_API)
 
 
+ARQ_API_KEY = ARQ_API_KEY
+ARQ_API_URL = ARQ_API_URL
 
 aiohttpsession = ClientSession()
 arq = ARQ(ARQ_API_URL, ARQ_API_KEY, aiohttpsession)
