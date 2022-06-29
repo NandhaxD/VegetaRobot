@@ -90,10 +90,8 @@ if ENV:
     SPAMWATCH_SUPPORT_CHAT = os.environ.get('SPAMWATCH_SUPPORT_CHAT', None)
     SPAMWATCH_API = os.environ.get('SPAMWATCH_API', None)
     REM_BG_API_KEY = os.environ.get("REM_BG_API_KEY", None) # From:- https://www.remove.bg/
-    HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
     TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TEMP_DOWNLOAD_DIRECTORY", "./")
-    TELEGRAPH_SHORT_NAME = os.environ.get("TELEGRAPH_SHORT_NAME", "lightYagami")
-    HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
+    TELEGRAPH_SHORT_NAME = os.environ.get("TELEGRAPH_SHORT_NAME", "VegetRobot")
     LOG_GROUP_ID = os.environ.get('LOG_GROUP_ID', None)
 
     try:
@@ -142,26 +140,21 @@ else:
 
     EVENT_LOGS = Config.EVENT_LOGS
     WEBHOOK = Config.WEBHOOK
+    ARQ_API_KEY = Config.ARQ_API_KEY
+    ARQ_API_URL = Config.ARQ_API_URL
     URL = Config.URL
     PORT = Config.PORT
     CERT_PATH = Config.CERT_PATH
     DONATION_LINK = Config.DONATION_LINK
     LOAD = Config.LOAD
-    INFOPIC = Config.INFOPIC
     NO_LOAD = Config.NO_LOAD
     JOIN_LOGGER = Config.JOIN_LOGGER
-    OPENWEATHERMAP_ID = Config.OPENWEATHERMAP_ID
-    STRING_SESSION = Config.STRING_SESSION
     DEL_CMDS = Config.DEL_CMDS
     STRICT_GBAN = Config.STRICT_GBAN
     STRICT_GMUTE = Config.STRICT_GMUTE
     WORKERS = Config.WORKERS
     BAN_STICKER = Config.BAN_STICKER
     ALLOW_EXCL = Config.ALLOW_EXCL
-    CASH_API_KEY = Config.CASH_API_KEY
-    TIME_API_KEY = Config.TIME_API_KEY
-    AI_API_KEY = Config.AI_API_KEY
-    WALL_API = Config.WALL_API
     SUPPORT_CHAT = Config.SUPPORT_CHAT
     REM_BG_API_KEY = Config.REM_BG_API_KEY
     TEMP_DOWNLOAD_DIRECTORY = Config.TEMP_DOWNLOAD_DIRECTORY
@@ -184,8 +177,7 @@ if not SPAMWATCH_API:
 else:
     sw = spamwatch.Client(SPAMWATCH_API)
 
-ARQ_API_KEY = "KGTHQB-IKDNAI-XXFCND-VDZFQI-ARQ"
-ARQ_API_URL = "https://arq.hamker.in"
+
 
 aiohttpsession = ClientSession()
 arq = ARQ(ARQ_API_URL, ARQ_API_KEY, aiohttpsession)
