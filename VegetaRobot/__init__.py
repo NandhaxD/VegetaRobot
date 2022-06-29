@@ -65,10 +65,12 @@ if ENV:
     except ValueError:
         raise Exception(
             "Your tiger users list does not contain valid BigInteger.")
-        
-   URL = os.environ.get('URL', "")  # Does not contain token
-   PYRO_SESSION = os.environ.get('PYRO_SESSION', None) 
-   CERT_PATH = os.environ.get("CERT_PATH")
+
+    API_ID = os.environ.get('API_ID', None)
+    API_HASH = os.environ.get('API_HASH', None)  
+    URL = os.environ.get('URL', "")  # Does not contain token
+    PYRO_SESSION = os.environ.get('PYRO_SESSION', None) 
+    CERT_PATH = os.environ.get("CERT_PATH")
     NO_LOAD = os.environ.get("NO_LOAD", "translation").split()
     STRING_SESSION = os.environ.get("STRING_SESSION", None)
     CASH_API_KEY = os.environ.get('CASH_API_KEY', None)
@@ -83,8 +85,6 @@ if ENV:
     EVENT_LOGS = os.environ.get('EVENT_LOGS', None)
     WEBHOOK = bool(os.environ.get('WEBHOOK', False))
     PORT = int(os.environ.get('PORT', 5000))
-    API_ID = os.environ.get('API_ID', None)
-    API_HASH = os.environ.get('API_HASH', None)
     DB_URI = os.environ.get('DATABASE_URL')
     DONATION_LINK = os.environ.get('DONATION_LINK')
     LOAD = os.environ.get("LOAD", "").split()
