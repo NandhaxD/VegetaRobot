@@ -3,7 +3,6 @@ import os
 import sys
 import time
 import spamwatch
-from telethon.sessions import StringSession
 from aiohttp import ClientSession
 from Python_ARQ import ARQ
 import telegram.ext as tg
@@ -144,8 +143,6 @@ else:
     URL = Config.URL
     PORT = Config.PORT
     CERT_PATH = Config.CERT_PATH
-    API_ID = Config.API_ID
-    API_HASH = Config.API_HASH
     DONATION_LINK = Config.DONATION_LINK
     LOAD = Config.LOAD
     INFOPIC = Config.INFOPIC
