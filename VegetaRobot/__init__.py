@@ -8,7 +8,8 @@ from Python_ARQ import ARQ
 import telegram.ext as tg
 from pyrogram import Client, errors
 from telethon import TelegramClient
-from VegetaRobot.config import *
+from VegetaRobot.config import ( 
+ARQ_API_URL, ARQ_API_KEY )
 
 StartTime = time.time()
 
