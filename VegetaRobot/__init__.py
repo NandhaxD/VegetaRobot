@@ -149,8 +149,6 @@ else:
     NO_LOAD = Config.NO_LOAD
     JOIN_LOGGER = Config.JOIN_LOGGER
     DEL_CMDS = Config.DEL_CMDS
-    STRICT_GBAN = Config.STRICT_GBAN
-    STRICT_GMUTE = Config.STRICT_GMUTE
     WORKERS = Config.WORKERS
     BAN_STICKER = Config.BAN_STICKER
     ALLOW_EXCL = Config.ALLOW_EXCL
@@ -176,9 +174,6 @@ if not SPAMWATCH_API:
 else:
     sw = spamwatch.Client(SPAMWATCH_API)
 
-
-ARQ_API_KEY = ARQ_API_KEY
-ARQ_API_URL = ARQ_API_URL
 
 aiohttpsession = ClientSession()
 arq = ARQ(ARQ_API_URL, ARQ_API_KEY, aiohttpsession)
