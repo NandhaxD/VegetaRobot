@@ -69,7 +69,7 @@ if ENV:
     API_ID = os.environ.get('API_ID', None)
     API_HASH = os.environ.get('API_HASH', None)  
     URL = os.environ.get('URL', "")  # Does not contain token
-   
+    REPOSITORY = os.environ.get("REPOSITORY", "")
     CERT_PATH = os.environ.get("CERT_PATH")
     INFOPIC = bool(os.environ.get('INFOPIC', True))
     EVENT_LOGS = os.environ.get('EVENT_LOGS', None)
