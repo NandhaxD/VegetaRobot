@@ -66,8 +66,19 @@ if ENV:
         raise Exception(
             "Your tiger users list does not contain valid BigInteger.")
         
-   
-    URL = os.environ.get('URL', "")  # Does
+   URL = os.environ.get('URL', "")  # Does not contain token
+  PYRO_SESSION = os.environ.get('PYRO_SESSION', None) 
+CERT_PATH = os.environ.get("CERT_PATH")
+NO_LOAD = os.environ.get("NO_LOAD", "translation").split()
+STRING_SESSION = os.environ.get("STRING_SESSION", None)
+CASH_API_KEY = os.environ.get('CASH_API_KEY', None)
+    TIME_API_KEY = os.environ.get('TIME_API_KEY', None)
+    AI_API_KEY = os.environ.get('AI_API_KEY', None)
+    WALL_API = os.environ.get('WALL_API', None)
+IBM_WATSON_CRED_URL = os.environ.get("IBM_WATSON_CRED_URL", None)
+    IBM_WATSON_CRED_PASSWORD = os.environ.get("IBM_WATSON_CRED_PASSWORD", None)
+REPOSITORY = os.environ.get("REPOSITORY", "")
+    REDIS_URL = os.environ.get("REDIS_URL")
     INFOPIC = bool(os.environ.get('INFOPIC', True))
     EVENT_LOGS = os.environ.get('EVENT_LOGS', None)
     WEBHOOK = bool(os.environ.get('WEBHOOK', False))
