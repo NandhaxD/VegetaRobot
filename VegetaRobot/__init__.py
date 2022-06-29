@@ -171,10 +171,9 @@ if not SPAMWATCH_API:
 else:
     sw = spamwatch.Client(SPAMWATCH_API)
    
-from VegetaRobot.config import *
 
-ARQ_API_URL = ARQ_API_URL
-ARQ_API_KEY = ARQ_API_KEY
+from VegetaRobot.config import ARQ_API_KEY, ARQ_API_URL
+
 
 aiohttpsession = ClientSession()
 arq = ARQ(ARQ_API_URL, ARQ_API_KEY, aiohttpsession)
