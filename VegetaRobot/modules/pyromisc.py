@@ -9,6 +9,18 @@ from gpytranslate import Translator
 from VegetaRobot import pgram as bot, SUPPORT_CHAT, arq
 from urllib.parse import quote
 
+       
+@bot.on_message(filters.command("ud"))
+async def ud(_, message: Message):
+        if len(message.command) < 2:
+             await message.reply("gime a ward")
+             return
+        text = message.text.split(None, 1)[1]
+        results = requests.get(
+        f'https://api.urbandictionary.com/v0/define?term={text}').json()
+        reply_text = f'**results: {text}**\n\n{results["list"][0]["definition"]}\n\n_{results["list"][0]["example"]}_'
+        ud = await message.reply_text("finding.. define.")
+        await ud.edit_text(reply_text)
 
 @bot.on_message(filters.command("spell"))
 async def spellcheck(_, m):
