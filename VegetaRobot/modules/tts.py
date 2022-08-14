@@ -20,7 +20,6 @@ from VegetaRobot.modules.helper_funcs.filters import CustomFilters
 from VegetaRobot.modules.helper_funcs.chat_status import sudo_plus, user_admin
 from telegram import MessageEntity, ParseMode, Update, constants
 from telegram.error import BadRequest
-from emoji import UNICODE_EMOJI
 from telegram.ext import CallbackContext, CommandHandler, Filters, run_async
 from telegram.utils.helpers import mention_html
 
