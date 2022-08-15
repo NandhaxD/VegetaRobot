@@ -20,10 +20,6 @@ async def wish(_, m):
             wish = f"✨~~ **hey! {m.from_user.first_name}!** ~~🤗"
             wish += f"✨ ~~**Your wish**:~~ **{text}** 😃"
             wish += f"✨ ~~ **Possible to: {wish_count}%** ~~"
-            file_id = "CAACAgIAAx0CXss_8QABBpFuYrMigIRzrvu0BLalDGPgfyhzqNsAAgIVAAI6wVBJt0ySCb_oqBMeBA"
-            msg = await m.reply_sticker(file_id)
-            time.sleep(2)
-            await msg.delete()
             await m.reply_animation(url,caption=(wish),
               reply_markup=InlineKeyboardMarkup(
                     [ [InlineKeyboardButton("❓ What is This", url="https://t.me/vegetaUpdates/175")]]))
