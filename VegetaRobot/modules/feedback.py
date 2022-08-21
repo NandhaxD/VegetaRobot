@@ -1,5 +1,5 @@
 
-from nandhabot import bot, dev_user, SUPPORT_CHAT
+from VegetaRobot import pgram as bot, DEV_USERS as dev_user, SUPPORT_CHAT
 from pyrogram import filters, enums 
 from pyrogram.enums import ChatType
 import random
