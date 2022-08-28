@@ -19,7 +19,7 @@ async def repository(_, message):
         global user_id
         user_id = message.from_user.id
         await message.reply_photo(SOURCE_IMAGE,caption=SOURCE_TEXT,
-        reply_markup=InlineKeyboardMarkup(SOURCE_BUTTONS)
+        reply_markup=InlineKeyboardMarkup(SOURCE_BUTTONS))
        
 CONTRIBUTORS = """
 CONTRIBUTORS:
