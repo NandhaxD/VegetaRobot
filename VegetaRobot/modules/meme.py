@@ -130,4 +130,4 @@ __help__ = """ •
 - /hmeme: hentai memes.
 """
 
-__mod_name__ = "meme"
+__mod_name__ = "Meme"
