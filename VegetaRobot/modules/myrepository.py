@@ -25,7 +25,7 @@ async def repository(_, message):
 CONTRIBUTORS = """
 **CONTRIBUTORS**:
 
-**Here the following list How helpful for Make Vegeta's Repository!**
+**Here the following list who's helpful for Make Vegeta's Repository!**
 
 • [〄 ⋞ Hσdαkα ⋟ ➛](tg://user?id=5597384270)
 • [H ᴀ ᴄ ᴋ ᴇ ʀ ♡︎](tg://user?id=1989750989)
