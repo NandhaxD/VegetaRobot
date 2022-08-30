@@ -21,7 +21,7 @@ async def repository(_, message):
         global user_id
         user_id = message.from_user.id
         await message.reply_photo(SOURCE_IMAGE,caption=SOURCE_TEXT,
-        parse_mod=ParseMode.MARKDOWN,                      
+        parse_mode=ParseMode.MARKDOWN,                      
         reply_markup=InlineKeyboardMarkup(SOURCE_BUTTONS))
        
 CONTRIBUTORS = """
@@ -39,6 +39,6 @@ CONTRIBUTORS = """
 @bot.on_callback_query(filters.regex("contributors"))
 async def contributors(_, query):
       if query.from_user.id == user_id:
-          await query.message.edit_caption(CONTRIBUTORS,parse_mod=ParseMode.MARKDOWN)
+          await query.message.edit_caption(CONTRIBUTORS,parse_mode=ParseMode.MARKDOWN)
       else: 
           query.answer("PLZ THIS NOT YOUR REQUEST")
