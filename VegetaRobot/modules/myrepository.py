@@ -1,5 +1,6 @@
 from VegetaRobot import pgram as bot
 from pyrogram import filters
+from pyrogram.enums import ParseMode
 from pyrogram.types import *
 
 SOURCE_IMAGE = "http://telegra.ph/file/e4781c5d359939627904d.jpg"
@@ -20,6 +21,7 @@ async def repository(_, message):
         global user_id
         user_id = message.from_user.id
         await message.reply_photo(SOURCE_IMAGE,caption=SOURCE_TEXT,
+        parse_mod=ParseMode.MARKDOWN,                      
         reply_markup=InlineKeyboardMarkup(SOURCE_BUTTONS))
        
 CONTRIBUTORS = """
@@ -37,6 +39,6 @@ CONTRIBUTORS = """
 @bot.on_callback_query(filters.regex("contributors"))
 async def contributors(_, query):
       if query.from_user.id == user_id:
-          await query.message.edit_caption(CONTRIBUTORS)
+          await query.message.edit_caption(CONTRIBUTORS,parse_mod=ParseMode.MARKDOWN)
       else: 
           query.answer("PLZ THIS NOT YOUR REQUEST")
