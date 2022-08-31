@@ -12,6 +12,7 @@ from VegetaRobot import (
     ALLOW_EXCL,
     CERT_PATH,
     DONATION_LINK,
+    BOT_USERNAME,
     LOGGER,
     OWNER_ID,
     PORT,
@@ -94,7 +95,7 @@ buttons = [
     [
         InlineKeyboardButton(
                             text="☑ Add Vegeta To Groups ☑",
-                            url="t.me/VegetaRobot?startgroup=true"),
+                            url=f"t.me/{BOT_USERNAME}?startgroup=true"),
                     ],
                      [
                        InlineKeyboardButton(text="SUPPORT", url=f"https://t.me/{SUPPORT_CHAT}"),
