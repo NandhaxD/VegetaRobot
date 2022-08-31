@@ -77,7 +77,7 @@ async def drawText(image_path, text):
 
     else:
 
-        fnt = "./nandhabot/nandha/fonts/logofont.otf"
+        fnt = "./VegetaRobot/images/LOGOS/logofont.otf"
 
     m_font = ImageFont.truetype(fnt, int((70 / 640) * i_width))
 
