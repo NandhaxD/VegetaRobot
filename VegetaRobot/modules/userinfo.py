@@ -32,6 +32,14 @@ from VegetaRobot.modules.helper_funcs.chat_status import sudo_plus
 from VegetaRobot.modules.helper_funcs.extraction import extract_user
 from VegetaRobot import telethn as tbot , TIGERS, DRAGONS, DEMONS
 
+def killing(update: Update):
+     message = update.effective_message
+     api = requests.get("https://api.waifu.pics/sfw/kill").json()
+     url = api["url"]
+     if message.reply_to_message:
+          message.reply_to_message.reply_animation(url, caption="Killer Anime Movements")
+     else:
+           message.reply_animation(url, caption="Killer Movements")
     
 def no_by_per(totalhp, percentage):
     """
@@ -572,6 +580,7 @@ INFO_HANDLER = DisableAbleCommandHandler(("info", "status"), info, run_async=Tru
 
 SET_ABOUT_HANDLER = DisableAbleCommandHandler("setme", set_about_me,run_async=True)
 GET_ABOUT_HANDLER = DisableAbleCommandHandler("me", about_me,run_async=True)
+KILL_GIF = CommandHandler("kill", killing,run_async=True)
 
 dispatcher.add_handler(STATS_HANDLER)
 dispatcher.add_handler(ID_HANDLER)
