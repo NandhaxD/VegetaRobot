@@ -413,10 +413,11 @@ def get_help(update: Update, context: CallbackContext):
         update.effective_message.reply_text(
             HELP_MSG,
             reply_markup=InlineKeyboardMarkup(
+                
                 [
-                    [
-                        InlineKeyboardButton(
-                            text="🔒 ᴏᴘᴇɴ ᴄᴏᴍᴍᴀᴅs",
+                    [ InlineKeyboardButton(text="ᴏᴘᴇɴ ɪɴ ᴘʀɪᴠᴀᴛᴇ", url=f"https://t.me/{BOT_USERNAME}?start=help"),
+                      ],[  InlineKeyboardButton(
+                            text="ᴏᴘᴇɴ ʜᴇʀᴇ",
                             callback_data="help_back"
                         )
                     ]
