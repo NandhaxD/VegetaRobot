@@ -38,6 +38,7 @@ def kill(update: Update):
      url = api["url"]
      if message.reply_to_message:
           message.reply_to_message.reply_animation(animation=""http://telegra.ph/file/1e1ccd6ea9e649f96402c.mp4", caption="Killer Anime Movements")
+          return 
      else:
            message.reply_animation(animation="http://telegra.ph/file/1e1ccd6ea9e649f96402c.mp4", caption="Killer Movements")
     
