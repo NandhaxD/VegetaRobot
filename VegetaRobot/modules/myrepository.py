@@ -39,6 +39,6 @@ CONTRIBUTORS = """
 @bot.on_callback_query(filters.regex("contributors"))
 async def contributors(_, query):
       if query.from_user.id == user_id:
-          await query.message.edit_caption(CONTRIBUTORS,parse_mode=ParseMode.MARKDOWN)
+          return await query.message.edit_caption(CONTRIBUTORS,parse_mode=ParseMode.MARKDOWN)
       else: 
-          query.answer("PLZ THIS NOT YOUR REQUEST")
+         await query.answer("This Message Not for You", show_alert=True)
