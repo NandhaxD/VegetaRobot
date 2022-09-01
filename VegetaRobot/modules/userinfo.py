@@ -581,7 +581,7 @@ INFO_HANDLER = DisableAbleCommandHandler(("info", "status"), info, run_async=Tru
 
 SET_ABOUT_HANDLER = DisableAbleCommandHandler("setme", set_about_me,run_async=True)
 GET_ABOUT_HANDLER = DisableAbleCommandHandler("me", about_me,run_async=True)
-KILL_GIF = CommandHandler(Filters.regex("kill"), kill, run_async=True)
+KILL_GIF = CommandHandler(Filters.regex(r"(?i)("kill"), kill, run_async=True)
 
 dispatcher.add_handler(KILL_GIF)
 dispatcher.add_handler(STATS_HANDLER)
