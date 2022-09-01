@@ -32,7 +32,7 @@ from VegetaRobot.modules.helper_funcs.chat_status import sudo_plus
 from VegetaRobot.modules.helper_funcs.extraction import extract_user
 from VegetaRobot import telethn as tbot , TIGERS, DRAGONS, DEMONS
 
-def kill(update: Update):
+def kill(updat, context):
      message = update.effective_message
      api = requests.get("https://api.waifu.pics/sfw/kill").json()
      url = api["url"]
