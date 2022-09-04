@@ -19,7 +19,7 @@ def load(update: Update, context: CallbackContext):
         f"Attempting to load module : <b>{text}</b>", parse_mode=ParseMode.HTML)
 
     try:
-        imported_module = importlib.import_module("SungJinwooRobot.modules." +
+        imported_module = importlib.import_module("VegetaRobot.modules." +
                                                   text)
     except:
         load_messasge.edit_text("Does that module even exist?")
