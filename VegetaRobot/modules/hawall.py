@@ -149,7 +149,7 @@ Example:
 ➢ /wish I want class topper 😌
 ➢ /wish I want a new iphone 😜
 ❓ What is This (howall):
-In this Howell show you possibltly!
+In this Howell show you possibility!
 horny:gay:lezbian:boobs:cock:cute
 Example:
 ➢ /horny: reply to someone or it self show how horny!
