@@ -14,7 +14,7 @@ async def get(url: str, *args, **kwargs):
 
 @pgram.on_message(filters.command("repo"))
 async def repo(_, m):
-    chat_id = message.chat.id
+    chat_id = m.chat.id
     users = await get("https://api.github.com/repos/NandhaxD/VegetaRobot/contributors")
     list_of_users = ""
     count = 1
