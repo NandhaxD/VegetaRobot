@@ -1,44 +1,32 @@
-from VegetaRobot import pgram as bot
+from VegetaRobot import pgram, aiohttpsession as session
 from pyrogram import filters
-from pyrogram.enums import ParseMode
 from pyrogram.types import *
 
-SOURCE_IMAGE = "http://telegra.ph/file/e4781c5d359939627904d.jpg"
 
-SOURCE_TEXT = """**Hello!  Searching for Vegeta's Repository?
-We're kindly asking Vegeta have Some Errors! But it's Also have some good modules you can use your bots to are else you can run whole repository to your own! And We're Only helps you to fix common Errors Not at All! 
 
-Vegeta's Codes Based On Some Different Bots Codes One More Times Thanks to All! (for using Vegeta/for helping Vegeta)
+async def get(url: str, *args, **kwargs):
+    async with session.get(url, *args, **kwargs) as resp:
+        try:
+            data = await resp.json()
+        except Exception:
+            data = await resp.text()
+    return data
 
-You can find Repository to using Below link.**
-"""
+@pgram.on_message(filters.command("repo",config.CMDS))
+async def repo(_, m):
+    chat_id = message.chat.id
+    users = await get("https://api.github.com/repos/NandhaxD/VegetaRobot/contributors")
+    list_of_users = ""
+    count = 1
+    for user in users:
+        list_of_users += (f"**{count}.** [{user['login']}]({user['html_url']})\n")
+        count += 1
+        total = count-1
+    text = f"""
+[ `Contributors in Vegeta` ]
 
-SOURCE_BUTTONS = [[ InlineKeyboardButton(text="Repository Link", url="https://github.com/nandhaxd/VegetaRobot"),
-                  ],[ InlineKeyboardButton(text="Contributors", callback_data="contributors")]]
-
-@bot.on_message(filters.command(["repo","source"]))
-async def repository(_, message):
-        global user_id
-        user_id = message.from_user.id
-        await message.reply_photo(SOURCE_IMAGE,caption=SOURCE_TEXT,
-        parse_mode=ParseMode.MARKDOWN,                      
-        reply_markup=InlineKeyboardMarkup(SOURCE_BUTTONS))
-       
-CONTRIBUTORS = """
-**CONTRIBUTORS**:
-
-**Here the following list who's helpful for Make Vegeta's Repository!**
-
-• [〄 ⋞ Hσdαkα ⋟ ➛](tg://user?id=5597384270)
-• [H ᴀ ᴄ ᴋ ᴇ ʀ ♡︎](tg://user?id=1989750989)
-• [🖤𝐋𝐨𝐯𝐞𝐥𝐲𝐏𝐫𝐢𝐧𝐜𝐞🖤 °•♡왕자♡•°](tg://user?id=5362971543)
-• [𝗔𝗮𝘀𝗳𝗖𝘆𝗯𝗲𝗿𝗞𝗶𝗻𝗴](tg://user?id=5446914371)
-
-**Thanks for you all Supporting Our Bots And We're happy to Say This!**
-"""
-@bot.on_callback_query(filters.regex("contributors"))
-async def contributors(_, query):
-      if query.from_user.id == user_id:
-          return await query.message.edit_caption(CONTRIBUTORS,parse_mode=ParseMode.MARKDOWN)
-      else: 
-         await query.answer("This Message Not for You", show_alert=True)
+{list_of_users}
+[`Contributors: {total}`]"""
+    await pgram.send_message(chat_id,text=text,
+    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Repo",url="https://gitHub.com/NandhaxD/VegetaRobot"),
+InlineKeyboardButton("Group",url="t.me/VegetaSupport"),]]) ,reply_to_message_id=message.id ,disable_web_page_preview=True)
