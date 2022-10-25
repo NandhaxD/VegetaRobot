@@ -12,7 +12,7 @@ async def get(url: str, *args, **kwargs):
             data = await resp.text()
     return data
 
-@pgram.on_message(filters.command("repo",config.CMDS))
+@pgram.on_message(filters.command("repo"))
 async def repo(_, m):
     chat_id = message.chat.id
     users = await get("https://api.github.com/repos/NandhaxD/VegetaRobot/contributors")
