@@ -29,4 +29,4 @@ async def repo(_, m):
 [`Contributors: {total}`]"""
     await pgram.send_message(chat_id,text=text,
     reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Repo",url="https://gitHub.com/NandhaxD/VegetaRobot"),
-InlineKeyboardButton("Group",url="t.me/VegetaSupport"),]]) ,reply_to_message_id=message.id ,disable_web_page_preview=True)
+InlineKeyboardButton("Group",url="t.me/VegetaSupport"),]]) ,reply_to_message_id=m.id ,disable_web_page_preview=True)
