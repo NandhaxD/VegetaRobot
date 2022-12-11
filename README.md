@@ -34,6 +34,19 @@ Your star's my motivation 😞 Going to fork hit a star 😊 | thanks for suppor
 
    [![Deploy To Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/Ctzfamily/VegetaRobot)
 
+<details><summary>Deploy To VPS</summary>
+<p>
+<pre>
+# Use Your Forked Link Here And Edit VegetaRobot/config.py
+git clone https://github.com/NandhaxD/VegetaRobot && cd VegetaRobot
+# Install Packages
+pip3 install -U -r requirements.txt
+# Run Bot
+python3 -m VegetaRobot
+</pre>
+</p>
+</details>
+
 
 ## `SQLALCHEMY_DATABASE_URI` | ᴍᴏsᴛ ᴜsᴇ ᴏʟᴅ `ᴅʙ_ᴜʀʟ`
 
