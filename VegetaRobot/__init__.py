@@ -94,6 +94,7 @@ if ENV:
     TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TEMP_DOWNLOAD_DIRECTORY", "./")
     TELEGRAPH_SHORT_NAME = os.environ.get("TELEGRAPH_SHORT_NAME", "VegetRobot")
     LOG_GROUP_ID = os.environ.get('LOG_GROUP_ID', None)
+    SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI', None)
 
     try:
         BL_CHATS = set(int(x) for x in os.environ.get('BL_CHATS', "").split())
@@ -157,6 +158,7 @@ else:
     UPDATES_CHANNEL = Config.UPDATES_CHANNEL
     SPAMWATCH_SUPPORT_CHAT = Config.SPAMWATCH_SUPPORT_CHAT
     SPAMWATCH_API = Config.SPAMWATCH_API
+    SQLALCHEMY_DATABASE_URI = Config.SQLALCHEMY_DATABASE_URI
 
     try:
         BL_CHATS = set(int(x) for x in Config.BL_CHATS or [])
