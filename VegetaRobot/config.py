@@ -20,6 +20,7 @@ class Config(object):
     API_ID = 12345   # integer value, dont use ""
     API_HASH = "awew"
     TOKEN = "wow"  #This var used to be API_KEY but it is now TOKEN, adjust accordingly.
+    SQLALCHEMY_DATABASE_URI = "" #Use Your ElephantSQL
     OWNER_ID = 1491497760  # If you dont know, run the bot and do /id in your private chat with it, also an integer
     OWNER_USERNAME = "nandhaxd"
     SUPPORT_CHAT = 'vegetasupport'  #Your own group for support, do not add the @
