@@ -20,7 +20,7 @@ async def aexec(code, client, message):
     return await locals()["__aexec"](client, message)
 
 
-@Nandha.on_message(filters.command(["run","eval", "e"],["?","!",".","*","/","$",]))
+@pgram.on_message(filters.command(["run","eval", "e"],["?","!",".","*","/","$",]))
 async def eval(client, message):
     if not message.from_user.id in config.DEVS:
          return await message.reply_text("`You Don't Have Enough Rights To Run This!`")
