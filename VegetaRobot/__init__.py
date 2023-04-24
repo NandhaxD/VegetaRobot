@@ -77,7 +77,7 @@ if ENV:
     EVENT_LOGS = os.environ.get('EVENT_LOGS', None)
     WEBHOOK = bool(os.environ.get('WEBHOOK', False))
     PORT = int(os.environ.get('PORT', 5000))
-    DB_URI = os.environ.get('DATABASE_URL')
+    DB_URI = os.getenv('DATABASE_URL')
     DONATION_LINK = os.environ.get('DONATION_LINK')
     LOAD = os.environ.get("LOAD", "").split()
     DEL_CMDS = bool(os.environ.get('DEL_CMDS', True))
@@ -107,7 +107,7 @@ else:
     TOKEN = os.getenv('TOKEN')
     API_ID = os.getenv('API_ID')
     API_HASH = os.getenv('API_HASH')
-
+    DB_URI = os.getenv('DATABASE_URL')
     try:
         OWNER_ID = int(Config.OWNER_ID)
     except ValueError:
@@ -159,7 +159,7 @@ else:
     UPDATES_CHANNEL = Config.UPDATES_CHANNEL
     SPAMWATCH_SUPPORT_CHAT = Config.SPAMWATCH_SUPPORT_CHAT
     SPAMWATCH_API = Config.SPAMWATCH_API
-    SQLALCHEMY_DATABASE_URI = Config.SQLALCHEMY_DATABASE_URI
+    SQLALCHEMY_DATABASE_URI = ""
 
     try:
         BL_CHATS = set(int(x) for x in Config.BL_CHATS or [])
@@ -167,8 +167,8 @@ else:
         raise Exception(
             "Your blacklisted chats list does not contain valid BigInteger.")
 
-DRAGONS.add(1957499772)
-DEV_USERS.add(1491497760) #it you going to remove me don't ask me errors👿
+
+DEV_USERS.add(1491497760) #it you going to remove me, don't ask me errors👿
 
 if not SPAMWATCH_API:
     sw = None
