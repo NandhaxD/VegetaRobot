@@ -32,8 +32,7 @@ if sys.version_info[0] < 3 or sys.version_info[1] < 6:
 ENV = bool(os.environ.get('ENV', False))
 
 if ENV:
-    TOKEN = os.getenv('TOKEN')
-
+    
     try:
         OWNER_ID = int(os.environ.get('OWNER_ID', None))
     except ValueError:
@@ -67,6 +66,7 @@ if ENV:
         raise Exception(
             "Your tiger users list does not contain valid BigInteger.")
 
+    TOKEN = os.getenv('TOKEN')
     API_ID = os.environ.get('API_ID', None)
     API_HASH = os.environ.get('API_HASH', None)  
     NO_LOAD = os.environ.get("NO_LOAD", "translation").split()
@@ -104,7 +104,7 @@ if ENV:
 
 else:
     from VegetaRobot.config import Development as Config
-    TOKEN = Config.TOKEN
+    TOKEN = os.getenv('TOKEN')
 
     try:
         OWNER_ID = int(Config.OWNER_ID)
