@@ -67,8 +67,8 @@ if ENV:
             "Your tiger users list does not contain valid BigInteger.")
 
     TOKEN = os.getenv('TOKEN')
-    API_ID = os.environ.get('API_ID', None)
-    API_HASH = os.environ.get('API_HASH', None)  
+    API_ID = os.getenv('API_ID')
+    API_HASH = os.getenv('API_HASH')  
     NO_LOAD = os.environ.get("NO_LOAD", "translation").split()
     URL = os.environ.get('URL', "")  # Does not contain token
     REPOSITORY = os.environ.get("REPOSITORY", "")
@@ -105,6 +105,8 @@ if ENV:
 else:
     from VegetaRobot.config import Development as Config
     TOKEN = os.getenv('TOKEN')
+    API_ID = os.getenv('API_ID')
+    API_HASH = os.getenv('API_HASH')
 
     try:
         OWNER_ID = int(Config.OWNER_ID)
