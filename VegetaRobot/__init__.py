@@ -151,7 +151,7 @@ else:
     JOIN_LOGGER = Config.JOIN_LOGGER
     DEL_CMDS = True
     WORKERS = Config.WORKERS
-    BAN_STICKER = Config.BAN_STICKER
+    BAN_STICKER = "your stickerid"
     ALLOW_EXCL = Config.ALLOW_EXCL
     SUPPORT_CHAT = Config.SUPPORT_CHAT
     REM_BG_API_KEY = Config.REM_BG_API_KEY
