@@ -107,6 +107,7 @@ else:
     API_ID = os.getenv('API_ID')
     API_HASH = os.getenv('API_HASH')
     DB_URI = os.getenv('DATABASE_URL')
+    ALLOW_EXCL = os.getenv('ALLOW_EXCL')
     try:
         OWNER_ID = int(Config.OWNER_ID)
     except ValueError:
