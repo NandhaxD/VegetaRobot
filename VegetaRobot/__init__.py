@@ -84,7 +84,7 @@ if ENV:
     STRICT_GBAN = bool(os.environ.get('STRICT_GBAN', True))
     STRICT_GMUTE = bool(os.environ.get('STRICT_GMUTE', True))
     WORKERS = int(os.environ.get('WORKERS', 8))
-    ALLOW_EXCL = os.environ.get('ALLOW_EXCL', True)
+    ALLOW_EXCL = os.getenv('ALLOW_EXCL')
     OPENWEATHERMAP_ID = os.environ.get("OPENWEATHERMAP_ID", "") # From:- https://openweathermap.org/api
     SUPPORT_CHAT = os.environ.get('SUPPORT_CHAT', None)
     UPDATES_CHANNEL = os.environ.get('UPDATES_CHANNEL', None)
@@ -152,7 +152,6 @@ else:
     DEL_CMDS = True
     WORKERS = Config.WORKERS
     BAN_STICKER = "your stickerid"
-    ALLOW_EXCL = Config.ALLOW_EXCL
     SUPPORT_CHAT = Config.SUPPORT_CHAT
     REM_BG_API_KEY = Config.REM_BG_API_KEY
     UPDATES_CHANNEL = Config.UPDATES_CHANNEL
