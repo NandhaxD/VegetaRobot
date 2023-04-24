@@ -149,7 +149,7 @@ else:
     LOAD = Config.LOAD
     NO_LOAD = Config.NO_LOAD
     JOIN_LOGGER = Config.JOIN_LOGGER
-    DEL_CMDS = Config.DEL_CMDS
+    DEL_CMDS = True
     WORKERS = Config.WORKERS
     BAN_STICKER = Config.BAN_STICKER
     ALLOW_EXCL = Config.ALLOW_EXCL
