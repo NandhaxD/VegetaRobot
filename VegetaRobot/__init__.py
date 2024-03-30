@@ -185,7 +185,7 @@ from VegetaRobot.config import ARQ_API_KEY, ARQ_API_URL
 aiohttpsession = ClientSession()
 arq = ARQ(ARQ_API_URL, ARQ_API_KEY, aiohttpsession)
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
-pgram = Client("VegetaRobot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
+pgram = Client("VegetaRobot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN, in_memory=True)
 telethn = TelegramClient('tbot-vegeta', api_id=API_ID, api_hash=API_HASH) 
 dispatcher = updater.dispatcher
 
@@ -207,16 +207,14 @@ tg.MessageHandler = CustomMessageHandler
 
 print("Starting Pyrogram Client")
 
-pgram.run()
+
 
 
 print("Aquiring BOT Client Info")
 
 
+BOT_ID = dispatcher.bot.id
+BOT_NAME = dispatcher.bot.first_name
+BOT_USERNAME = dispatcher.bot.username
 
-bottie = pgram.get_me()
 
-BOT_ID = bottie.id
-BOT_USERNAME = bottie.username
-BOT_NAME = bottie.first_name
-BOT_MENTION = bottie.mention
