@@ -8,7 +8,7 @@ import sys
 import pretty_errors
 import io
 from telegram import Update, InlineKeyboardMarkup, InlineKeyboardButton
-from telegram.ext import CallbackContext, CommandHandler
+from telegram.ext import CallbackContext, CommandHandler, run_async
 from VegetaRobot import dispatcher, DEV_USERS, OWNER_ID
 
 pretty_errors.mono()
@@ -126,4 +126,4 @@ def list_errors(update: Update, context: CallbackContext):
 
 
 dispatcher.add_error_handler(error_callback)
-dispatcher.add_handler(CommandHandler("errors", list_errors))
+dispatcher.add_handler(CommandHandler("errors", list_errors, run_async=True))
