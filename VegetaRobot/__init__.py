@@ -205,14 +205,12 @@ tg.RegexHandler = CustomRegexHandler
 tg.CommandHandler = CustomCommandHandler
 tg.MessageHandler = CustomMessageHandler
 
-print("Starting Pyrogram Client")
+
 
 
 
 
 print("Aquiring BOT Client Info")
-
-
 BOT_ID = dispatcher.bot.id
 BOT_NAME = dispatcher.bot.first_name
 BOT_USERNAME = dispatcher.bot.username
