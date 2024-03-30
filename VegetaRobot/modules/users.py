@@ -48,7 +48,6 @@ def get_user_id(username):
     return None
 
 
-@run_async
 @dev_plus
 def broadcast(update: Update, context: CallbackContext):
     to_send = update.effective_message.text.split(None, 1)
@@ -93,7 +92,6 @@ def broadcast(update: Update, context: CallbackContext):
         )
 
 
-@run_async
 def log_user(update: Update, context: CallbackContext):
     chat = update.effective_chat
     msg = update.effective_message
@@ -110,7 +108,6 @@ def log_user(update: Update, context: CallbackContext):
         sql.update_user(msg.forward_from.id, msg.forward_from.username)
 
 
-@run_async
 @sudo_plus
 def chats(update: Update, context: CallbackContext):
     all_chats = sql.get_all_chats() or []
@@ -135,7 +132,6 @@ def chats(update: Update, context: CallbackContext):
             caption="Here be the list of all groups in my database.")
 
 
-@run_async
 def chat_checker(update: Update, context: CallbackContext):
     bot = context.bot
     try:
@@ -164,10 +160,10 @@ def __migrate__(old_chat_id, new_chat_id):
 
 
 BROADCAST_HANDLER = CommandHandler(
-    ["broadcastall", "broadcastusers", "broadcastgroups"], broadcast)
-USER_HANDLER = MessageHandler(Filters.all & Filters.group, log_user)
-CHAT_CHECKER_HANDLER = MessageHandler(Filters.all & Filters.group, chat_checker)
-CHATLIST_HANDLER = CommandHandler("groups", chats)
+    ["broadcastall", "broadcastusers", "broadcastgroups"], broadcast, run_async=True)
+USER_HANDLER = MessageHandler(Filters.all & Filters.group, log_user, run_async=True)
+CHAT_CHECKER_HANDLER = MessageHandler(Filters.all & Filters.group, chat_checker, run_async=True)
+CHATLIST_HANDLER = CommandHandler("groups", chats, run_async=True)
 
 dispatcher.add_handler(USER_HANDLER, USERS_GROUP)
 dispatcher.add_handler(BROADCAST_HANDLER)
