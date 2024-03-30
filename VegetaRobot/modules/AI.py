@@ -85,7 +85,7 @@ async def bard(_, message):
             return await txt.edit(str(e))
 
 
-__help__ """
+__help__ = """
 ✪︎ /bard:
 LLM also called gemeni AI,
 Google AI
