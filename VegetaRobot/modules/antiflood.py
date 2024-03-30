@@ -352,13 +352,13 @@ will result in restricting that user.
 __mod_name__ = "Flood"
 
 FLOOD_BAN_HANDLER = MessageHandler(
-    Filters.all & ~Filters.status_update & Filters.group, check_flood,run_async=True)
-SET_FLOOD_HANDLER = CommandHandler("setflood", set_flood, filters=Filters.group,run_async=True)
+    Filters.all & ~Filters.status_update & Filters.ChatType.GROUP, check_flood,run_async=True)
+SET_FLOOD_HANDLER = CommandHandler("setflood", set_flood, filters=Filters.ChatType.GROUP,run_async=True)
 SET_FLOOD_MODE_HANDLER = CommandHandler(
-    "setfloodmode", set_flood_mode, pass_args=True,run_async=True)  #, filters=Filters.group)
+    "setfloodmode", set_flood_mode, pass_args=True,run_async=True, filters=Filters.ChatType.GROUP)
 FLOOD_QUERY_HANDLER = CallbackQueryHandler(
     flood_button, pattern=r"unmute_flooder")
-FLOOD_HANDLER = CommandHandler("flood", flood, filters=Filters.group,run_async=True)
+FLOOD_HANDLER = CommandHandler("flood", flood, filters=Filters.ChatType.GROUP,run_async=True)
 
 dispatcher.add_handler(FLOOD_BAN_HANDLER, FLOOD_GROUP)
 dispatcher.add_handler(FLOOD_QUERY_HANDLER)
