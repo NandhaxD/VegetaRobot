@@ -22,7 +22,7 @@ from VegetaRobot import (
     SUPPORT_CHAT,UPDATES_CHANNEL,
     dispatcher,
     StartTime,
-    pgram,
+    pgram, telethn,
     updater)
 
 # needed to dynamically load modules
@@ -713,8 +713,10 @@ def main():
         LOGGER.info("Vegeta is now alive and functioning")
         updater.start_polling()
     updater.idle()
+    
 
 
 if __name__ == '__main__':
+    telethn.start(bot_token=TOKEN)
     LOGGER.info("Successfully loaded modules: " + str(ALL_MODULES))
     main()
