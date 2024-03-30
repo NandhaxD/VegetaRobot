@@ -9,6 +9,7 @@ from Python_ARQ import ARQ
 import telegram.ext as tg
 from pyrogram import Client, errors, __version__ as pyrover
 from telethon.sync import TelegramClient
+from telethon.sessions import MemorySession
 
 pyrogram_version = pyrover
 
@@ -186,6 +187,7 @@ aiohttpsession = ClientSession()
 arq = ARQ(ARQ_API_URL, ARQ_API_KEY, aiohttpsession)
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
 pgram = Client("VegetaRobot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN, in_memory=True)
+telethn = TelegramClient(MemorySession(), API_ID, API_HASH)
 telethn = TelegramClient('tbot-vegeta', api_id=API_ID, api_hash=API_HASH) 
 dispatcher = updater.dispatcher
 
