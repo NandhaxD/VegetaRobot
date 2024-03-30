@@ -6,10 +6,10 @@ motor
 PyDictionary==2.0.1
 emoji
 lxml
-beautifulsoup4
+beautifulsoup4==4.11.1
 requests
 sqlalchemy==1.3.20
-python-telegram-bot==13.9
+python-telegram-bot==13.15
 psycopg2-binary
 feedparser
 pynewtonmath
@@ -23,7 +23,7 @@ coffeehouse
 regex
 bleach
 wikipedia
-telethon
+telethon==1.30.3
 spamwatch
 markdown2
 alphabet_detector
@@ -45,7 +45,7 @@ hachoir
 pybase64
 pySmartDL
 validators
-pyrogram
+pyrogram==2.0.106
 nltk
 aiohttp>=3.7.4
 pykeyboard==0.1.2
