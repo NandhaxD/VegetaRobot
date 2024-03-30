@@ -10,6 +10,7 @@ import telegram.ext as tg
 from pyrogram import Client, errors, __version__ as pyrover
 from telethon.sync import TelegramClient
 from telethon.sessions import MemorySession
+from ptbcontrib.postgres_persistence import PostgresPersistence
 
 pyrogram_version = pyrover
 
