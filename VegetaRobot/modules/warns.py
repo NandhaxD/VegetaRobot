@@ -498,30 +498,30 @@ be a sentence, encompass it with quotes, as such: `/addwarn "very angry" This is
 
 __mod_name__ = "Warning"
 
-WARN_HANDLER = CommandHandler(["warn", "dwarn"], warn_user, filters=Filters.ChatType.GROUP, run_async=True)
+WARN_HANDLER = CommandHandler(["warn", "dwarn"], warn_user, filters=Filters.chat_type.groups, run_async=True)
 RESET_WARN_HANDLER = CommandHandler(["resetwarn", "resetwarns"],
                                     reset_warns,
-                                    filters=Filters.ChatType.GROUP, run_async=True)
+                                    filters=Filters.chat_type.groups, run_async=True)
 CALLBACK_QUERY_HANDLER = CallbackQueryHandler(button, pattern=r"rm_warn")
 MYWARNS_HANDLER = DisableAbleCommandHandler(
     "warns", warns, filters=Filters.ChatType.GROUP, run_async=True)
 ADD_WARN_HANDLER = CommandHandler(
-    "addwarn", add_warn_filter, filters=Filters.ChatType.GROUP, run_async=True)
+    "addwarn", add_warn_filter, filters=Filters.chat_type.groups, run_async=True)
 REMOVE_WARN_HANDLER = CommandHandler(
-    "rmwarn", rmwarn_cmd, filters=Filters.ChatType.GROUP, run_async=True)
+    "rmwarn", rmwarn_cmd, filters=Filters.chat_type.groups, run_async=True)
 RM_WARN_HANDLER = CommandHandler(["nowarn", "stopwarn"],
                                  remove_warn_filter,
-                                 filters=Filters.ChatType.GROUP, run_async=True)
+                                 filters=Filters.chat_type.groups, run_async=True)
 LIST_WARN_HANDLER = DisableAbleCommandHandler(["warnlist", "warnfilters"],
                                               list_warn_filters,
-                                              filters=Filters.ChatType.GROUP,
+                                              filters=Filters.chat_type.groups,
                                               admin_ok=True, run_async=True)
-WARN_FILTER_HANDLER = MessageHandler(CustomFilters.has_text & Filters.ChatType.GROUP,
+WARN_FILTER_HANDLER = MessageHandler(CustomFilters.has_text & Filters.chat_type.groups,
                                      reply_filter, run_async=True)
 WARN_LIMIT_HANDLER = CommandHandler(
-    "warnlimit", set_warn_limit, filters=Filters.ChatType.GROUP, run_async=True)
+    "warnlimit", set_warn_limit, filters=Filters.chat_type.groups, run_async=True)
 WARN_STRENGTH_HANDLER = CommandHandler(
-    "strongwarn", set_warn_strength, filters=Filters.ChatType.GROUP, run_async=True)
+    "strongwarn", set_warn_strength, filters=Filters.chat_type.groups, run_async=True)
 
 dispatcher.add_handler(WARN_HANDLER)
 dispatcher.add_handler(CALLBACK_QUERY_HANDLER)
