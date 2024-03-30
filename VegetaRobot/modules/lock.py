@@ -194,14 +194,14 @@ def unrestr_members(bot,
             pass
 
 
-@run_async
+
 def locktypes(update, context):
     update.effective_message.reply_text(
         "\n • ".join(["Locks available: "] +
                      sorted(list(LOCK_TYPES) + list(LOCK_CHAT_RESTRICTION))))
 
 
-@run_async
+
 @user_admin
 @loggable
 @typing_action
@@ -308,7 +308,7 @@ def lock(update, context) -> str:
     return ""
 
 
-@run_async
+
 @user_admin
 @loggable
 @typing_action
@@ -417,7 +417,7 @@ def unlock(update, context) -> str:
     return ""
 
 
-@run_async
+
 @user_not_admin
 def del_lockables(update, context):
     chat = update.effective_chat  # type: Optional[Chat]
@@ -556,7 +556,7 @@ def build_lock_message(chat_id):
     return res
 
 
-@run_async
+
 @user_admin
 @typing_action
 def list_locks(update, context):
@@ -648,12 +648,12 @@ Locking bots will stop non-admins from adding bots to the chat.
 
 __mod_name__ = "Lock"
 
-LOCKTYPES_HANDLER = DisableAbleCommandHandler("locktypes", locktypes)
+LOCKTYPES_HANDLER = DisableAbleCommandHandler("locktypes", locktypes, run_async=True)
 LOCK_HANDLER = CommandHandler(
-    "lock", lock, pass_args=True)  # , filters=Filters.group)
+    "lock", lock, pass_args=True, run_async=True)  # , filters=Filters.group)
 UNLOCK_HANDLER = CommandHandler(
-    "unlock", unlock, pass_args=True)  # , filters=Filters.group)
-LOCKED_HANDLER = CommandHandler("locks", list_locks)  # , filters=Filters.group)
+    "unlock", unlock, pass_args=True, run_async=True)  # , filters=Filters.group)
+LOCKED_HANDLER = CommandHandler("locks", list_locks, run_async=True)  # , filters=Filters.group)
 
 dispatcher.add_handler(LOCK_HANDLER)
 dispatcher.add_handler(UNLOCK_HANDLER)
