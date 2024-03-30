@@ -83,3 +83,18 @@ async def bard(_, message):
             return await txt.edit(bard)
         except Exception as e:
             return await txt.edit(str(e))
+
+
+__help__ """
+✪︎ /bard:
+LLM also called gemeni AI,
+Google AI
+✪︎ /gpt: 
+LLM OpenAI Mode
+
+ask anything about it.
+"""
+
+__mod_name__ = "Ai"
+
+
