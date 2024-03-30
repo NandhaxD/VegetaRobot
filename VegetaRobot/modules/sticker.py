@@ -17,7 +17,6 @@ from VegetaRobot.modules.disable import DisableAbleCommandHandler
 combot_stickers_url = "https://combot.org/telegram/stickers?q="
 
 
-@run_async
 def stickerid(update: Update, context: CallbackContext):
     msg = update.effective_message
     if msg.reply_to_message and msg.reply_to_message.sticker:
@@ -37,7 +36,6 @@ def stickerid(update: Update, context: CallbackContext):
         )
 
 
-@run_async
 def cb_sticker(update: Update, context: CallbackContext):
     msg = update.effective_message
     split = msg.text.split(' ', 1)
@@ -73,7 +71,6 @@ def getsticker(update: Update, context: CallbackContext):
             "Please reply to a sticker for me to upload its PNG.")
 
 
-@run_async
 def kang(update: Update, context: CallbackContext):
     msg = update.effective_message
     user = update.effective_user
@@ -459,10 +456,10 @@ __help__ = """
 """
 
 __mod_name__ = "Sticker"
-STICKERID_HANDLER = DisableAbleCommandHandler("stickerid", stickerid)
-GETSTICKER_HANDLER = DisableAbleCommandHandler("getsticker", getsticker)
-KANG_HANDLER = DisableAbleCommandHandler(["kang", "steal"], kang, admin_ok=True)
-STICKERS_HANDLER = DisableAbleCommandHandler("stickers", cb_sticker)
+STICKERID_HANDLER = DisableAbleCommandHandler("stickerid", stickerid, run_async=True)
+GETSTICKER_HANDLER = DisableAbleCommandHandler("getsticker", getsticker, run_async=True)
+KANG_HANDLER = DisableAbleCommandHandler(["kang", "steal"], kang, admin_ok=True, run_async=True)
+STICKERS_HANDLER = DisableAbleCommandHandler("stickers", cb_sticker, run_async=True)
 
 dispatcher.add_handler(STICKERS_HANDLER)
 dispatcher.add_handler(STICKERID_HANDLER)
