@@ -469,6 +469,7 @@ def check_not_bot(member, chat_id, message_id, context):
 def left_member(update: Update, context: CallbackContext):
     bot = context.bot
     chat = update.effective_chat
+    Chat = update.effective_chat
     user = update.effective_user
     should_goodbye, cust_goodbye, goodbye_type = sql.get_gdbye_pref(chat.id)
 
@@ -535,7 +536,7 @@ def left_member(update: Update, context: CallbackContext):
                         f"{first_name} {left_mem.last_name}")
                 else:
                     fullname = escape_markdown(first_name)
-                count = chat.get_members_count()
+                count = Chat.get_member_count
                 mention = mention_markdown(left_mem.id, first_name)
                 if left_mem.username:
                     username = "@" + escape_markdown(left_mem.username)
