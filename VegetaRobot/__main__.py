@@ -711,7 +711,7 @@ def main():
 
     else:
         LOGGER.info("Vegeta is now alive and functioning")
-        updater.start_polling()
+        updater.start_polling(timeout=15, read_latency=4, drop_pending_updates=True)
     updater.idle()
     
 
