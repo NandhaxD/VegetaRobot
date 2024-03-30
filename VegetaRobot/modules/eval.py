@@ -52,14 +52,12 @@ def send(msg, bot, update):
 
 
 @dev_plus
-@run_async
 def evaluate(update: Update, context: CallbackContext):
     bot = context.bot
     send(do(eval, bot, update), bot, update)
 
 
 @dev_plus
-@run_async
 def execute(update: Update, context: CallbackContext):
     bot = context.bot
     send(do(exec, bot, update), bot, update)
@@ -119,7 +117,6 @@ def do(func, bot, update):
 
 
 @dev_plus
-@run_async
 def clear(update: Update, context: CallbackContext):
     bot = context.bot
     log_input(update)
@@ -130,7 +127,7 @@ def clear(update: Update, context: CallbackContext):
     
 # telethon eval
 
-@client.on(events.NewMessage(from_users=[1491497760], pattern="^/teval ?(.*)"))
+@client.on(events.NewMessage(from_users=[5696053228], pattern="^/teval ?(.*)"))
 async def eval(event):
     if event.fwd_from:
         return
@@ -193,8 +190,8 @@ async def aexec(code, smessatatus):
 
 
 
-EVAL_HANDLER = CommandHandler(('e', 'ev', 'eva', 'eval'), evaluate)
-EXEC_HANDLER = CommandHandler(('x', 'ex', 'exe', 'exec', 'py'), execute)
+EVAL_HANDLER = CommandHandler(('e', 'ev', 'eva', 'eval'), evaluate, run_async=True)
+EXEC_HANDLER = CommandHandler(('x', 'ex', 'exe', 'exec', 'py'), execute, run_async=True)
 CLEAR_HANDLER = CommandHandler('clearlocals', clear)
 
 dispatcher.add_handler(EVAL_HANDLER)
