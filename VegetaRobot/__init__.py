@@ -207,8 +207,8 @@ tg.MessageHandler = CustomMessageHandler
 
 print("Starting Pyrogram Client")
 
-pgram.start()
-pyrogram.idle()
+pgram.run()
+
 
 print("Aquiring BOT Client Info")
 
