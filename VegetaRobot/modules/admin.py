@@ -698,21 +698,21 @@ __help__ = """
 """
 
 
-ADMINLIST_HANDLER = DisableAbleCommandHandler(["adminlist", "staff"], adminlist, filters=Filters.ChatType.GROUP,run_async=True)
-INVITE_HANDLER = DisableAbleCommandHandler(["grouplink", "invitelink"], invite, filters=Filters.ChatType.GROUP,run_async=True)
+ADMINLIST_HANDLER = DisableAbleCommandHandler(["adminlist", "staff"], adminlist, filters=Filters.chat_type.groups,run_async=True)
+INVITE_HANDLER = DisableAbleCommandHandler(["grouplink", "invitelink"], invite, filters=Filters.chat_type.groups,run_async=True)
 PIN_HANDLER = CommandHandler("pin", pin, filters=Filters.ChatType.GROUP)
-SET_DESC_HANDLER = CommandHandler(["setdesc","setgdesc"], set_desc, filters=Filters.ChatType.GROUP,run_async=True)
+SET_DESC_HANDLER = CommandHandler(["setdesc","setgdesc"], set_desc, filters=Filters.chat_type.groups,run_async=True)
 UNPIN_HANDLER = CommandHandler("unpin", unpin, filters=Filters.ChatType.GROUP,run_async=True)
 SETCHATPIC_HANDLER = CommandHandler("setgpic", setchatpic, filters=Filters.ChatType.GROUP,run_async=True)
 RMCHATPIC_HANDLER = CommandHandler("delgpic", rmchatpic, filters=Filters.ChatType.GROUP,run_async=True)
-SET_STICKER_HANDLER = CommandHandler(["setgpack","setgsticker"], set_sticker, filters=Filters.ChatType.GROUP,run_async=True)
-SETCHAT_TITLE_HANDLER = CommandHandler("setgtitle", setchat_title, filters=Filters.ChatType.GROUP,run_async=True)
+SET_STICKER_HANDLER = CommandHandler(["setgpack","setgsticker"], set_sticker, filters=Filters.chat_type.groups,run_async=True)
+SETCHAT_TITLE_HANDLER = CommandHandler("setgtitle", setchat_title, filters=Filters.chat_type.groups,run_async=True)
 PROMOTE_HANDLER = DisableAbleCommandHandler(["promote","promo"], promote, run_async=True)                          
 DEMOTE_HANDLER = DisableAbleCommandHandler(["demote","demo"], demote, run_async=True)
 
 SET_TITLE_HANDLER = CommandHandler("title", set_title,run_async=True)
 ADMIN_REFRESH_HANDLER = CommandHandler(
-    "admincache", refresh_admin, filters=Filters.ChatType.GROUP,run_async=True)
+    "admincache", refresh_admin, filters=Filters.chat_type.groups,run_async=True)
 
 dispatcher.add_handler(SET_STICKER_HANDLER)
 dispatcher.add_handler(ADMINLIST_HANDLER)
