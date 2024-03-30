@@ -97,7 +97,7 @@ Output: `1.0 USD = 75.505 INR`
 Reports bugs at @VegetaSupport
 """
 
-ECHO_HANDLER = DisableAbleCommandHandler("echo", echo, filters=Filters.group,run_async=True)
+ECHO_HANDLER = DisableAbleCommandHandler("echo", echo, filters=Filters.ChatType.GROUP,run_async=True)
 MD_HELP_HANDLER = CommandHandler("markdownhelp", markdown_help, run_async=True)
 
 dispatcher.add_handler(ECHO_HANDLER)
