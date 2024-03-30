@@ -46,7 +46,6 @@ from VegetaRobot.modules.helper_funcs.anonymous import user_admin, AdminPerms
 UNBAN_IMG= "https://telegra.ph/file/0ac714f6c537a2570cfd3.mp4"
 BAN_IMG= "https://telegra.ph/file/35ae9ea0ae57d53b98c0f.mp4"
 
-@run_async
 @connection_status
 @bot_admin
 @can_restrict
@@ -157,7 +156,6 @@ def cban(update: Update, context: CallbackContext) -> Optional[str]:
 
     return ""
   
-@run_async
 @connection_status
 @bot_admin
 @can_restrict
@@ -229,8 +227,8 @@ def uncban(update: Update, context: CallbackContext) -> Optional[str]:
     return log
     
     
-UNCBAN_HANDLER = CommandHandler(["channelunban", "uncban"], uncban)
-CBAN_HANDLER = CommandHandler(["cban", "channelban"], cban)
+UNCBAN_HANDLER = CommandHandler(["channelunban", "uncban"], uncban, run_async=True)
+CBAN_HANDLER = CommandHandler(["cban", "channelban"], cban, run_async=True)
     
 dispatcher.add_handler(UNCBAN_HANDLER)
 dispatcher.add_handler(CBAN_HANDLER)
