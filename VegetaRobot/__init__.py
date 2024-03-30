@@ -3,6 +3,7 @@ import os
 import sys
 import time
 import spamwatch
+import pyrogram 
 from aiohttp import ClientSession
 from Python_ARQ import ARQ
 import telegram.ext as tg
@@ -205,7 +206,9 @@ tg.CommandHandler = CustomCommandHandler
 tg.MessageHandler = CustomMessageHandler
 
 print("Starting Pyrogram Client")
+
 pgram.start()
+pyrogram.idle()
 
 print("Aquiring BOT Client Info")
 
