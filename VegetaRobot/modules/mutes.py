@@ -57,7 +57,6 @@ def check_user(user_id: int, bot: Bot, chat: Chat) -> Optional[str]:
     return None
 
 
-@run_async
 @connection_status
 @bot_admin
 @user_admin
@@ -115,7 +114,6 @@ def mute(update: Update, context: CallbackContext) -> str:
     return ""
 
 
-@run_async
 @connection_status
 @bot_admin
 @user_admin
@@ -173,7 +171,6 @@ def unmute(update: Update, context: CallbackContext) -> str:
     return ""
 
 
-@run_async
 @connection_status
 @bot_admin
 @can_restrict
@@ -298,9 +295,9 @@ def button(update: Update, context: CallbackContext) -> str:
         )
         return ""
 
-MUTE_HANDLER = CommandHandler("mute", mute)
-UNMUTE_HANDLER = CommandHandler("unmute", unmute)
-TEMPMUTE_HANDLER = CommandHandler(["tmute", "tempmute"], temp_mute)
+MUTE_HANDLER = CommandHandler("mute", mute, run_async=True)
+UNMUTE_HANDLER = CommandHandler("unmute", unmute, run_async=True)
+TEMPMUTE_HANDLER = CommandHandler(["tmute", "tempmute"], temp_mute, run_async=True)
 UNMUTE_BUTTON_HANDLER = CallbackQueryHandler(button, pattern=r"unmute_")
 
 dispatcher.add_handler(MUTE_HANDLER)
