@@ -3,6 +3,8 @@ import re
 import os
 import html
 import requests
+from urllib.parse import quote
+
 import VegetaRobot.modules.sql.chatbot_sql as sql
 
 from time import sleep
@@ -116,10 +118,9 @@ def chatbot(update: Update, context: CallbackContext):
             return
         Message = message.text
         bot.send_chat_action(chat_id, action="typing")
-        kukiurl = requests.get(f'http://Kukiapi.xyz/api/apikey={CHATBOT_KEY}/Vegeta/@NandhaxD/message='+Message)
-        Kuki = json.loads(kukiurl.text)
-        kuki = Kuki['reply']
-        sleep(0.3)
+        kukiurl = requests.get(f'https://nandha-api.onrender.com/chatbot/'+quote(Message))
+        kuki = Kuki['text']
+        sleep(0.7)
         message.reply_text(kuki, timeout=60)
 
 
