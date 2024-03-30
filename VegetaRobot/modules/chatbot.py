@@ -118,10 +118,10 @@ def chatbot(update: Update, context: CallbackContext):
             return
         Message = message.text
         bot.send_chat_action(chat_id, action="typing")
-        kukiurl = requests.get(f'https://nandha-api.onrender.com/chatbot/'+quote(Message))
-        kuki = Kuki['text']
+        kukiurl = requests.get(f'https://nandha-api.onrender.com/chatbot/'+quote(Message)).json()
+        text = kukiurl['text']
         sleep(0.7)
-        message.reply_text(kuki, timeout=60)
+        message.reply_text(text, timeout=60)
 
 
 def list_all_chats(update: Update, context: CallbackContext):
