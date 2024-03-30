@@ -504,7 +504,7 @@ RESET_WARN_HANDLER = CommandHandler(["resetwarn", "resetwarns"],
                                     filters=Filters.chat_type.groups, run_async=True)
 CALLBACK_QUERY_HANDLER = CallbackQueryHandler(button, pattern=r"rm_warn")
 MYWARNS_HANDLER = DisableAbleCommandHandler(
-    "warns", warns, filters=Filters.ChatType.GROUP, run_async=True)
+    "warns", warns, filters=Filters.chat_type.groups, run_async=True)
 ADD_WARN_HANDLER = CommandHandler(
     "addwarn", add_warn_filter, filters=Filters.chat_type.groups, run_async=True)
 REMOVE_WARN_HANDLER = CommandHandler(
