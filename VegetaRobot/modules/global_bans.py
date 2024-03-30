@@ -72,7 +72,6 @@ UNGBAN_ERRORS = {
 }
 
 
-@run_async
 @support_plus
 def gban(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
@@ -274,7 +273,7 @@ def gban(update: Update, context: CallbackContext):
         pass  # bot probably blocked by user
 
 
-@run_async
+
 @support_plus
 def ungban(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
@@ -387,7 +386,7 @@ def ungban(update: Update, context: CallbackContext):
         message.reply_text(f"Person has been un-gbanned. Took {ungban_time} sec")
 
 
-@run_async
+
 @support_plus
 def gbanlist(update: Update, context: CallbackContext):
     banned_users = sql.get_gban_list()
@@ -449,7 +448,6 @@ def check_and_ban(update, user_id, should_message=True):
             update.effective_message.reply_text(text, parse_mode=ParseMode.HTML)
 
 
-@run_async
 def enforce_gban(update: Update, context: CallbackContext):
     # Not using @restrict handler to avoid spamming - just ignore if cant gban.
     bot = context.bot
@@ -479,7 +477,7 @@ def enforce_gban(update: Update, context: CallbackContext):
                 check_and_ban(update, user.id, should_message=False)
 
 
-@run_async
+
 @user_admin
 def gbanstat(update: Update, context: CallbackContext):
     args = context.args
@@ -537,11 +535,11 @@ def __chat_settings__(chat_id, user_id):
     return f"This chat is enforcing *gbans*: `{sql.does_chat_gban(chat_id)}`."
 
 
-GBAN_HANDLER = CommandHandler("gban", gban)
-UNGBAN_HANDLER = CommandHandler("ungban", ungban)
-GBAN_LIST = CommandHandler("gbanlist", gbanlist)
+GBAN_HANDLER = CommandHandler("gban", gban, run_async=True)
+UNGBAN_HANDLER = CommandHandler("ungban", ungban, run_async=True)
+GBAN_LIST = CommandHandler("gbanlist", gbanlist, run_async=True)
 
-GBAN_STATUS = CommandHandler("antispam", gbanstat, filters=Filters.group)
+GBAN_STATUS = CommandHandler("antispam", gbanstat, filters=Filters.group, run_async=True)
 
 GBAN_ENFORCER = MessageHandler(Filters.all & Filters.group, enforce_gban)
 
