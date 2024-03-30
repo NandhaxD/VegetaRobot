@@ -4,7 +4,7 @@ import time
 import html
 import re
 
-from sys import argv
+from sys import argv, version_info
 from typing import Optional
 from pyrogram import filters
 
@@ -712,12 +712,16 @@ def main():
     else:
         LOGGER.info("Vegeta is now alive and functioning")
         updater.start_polling(timeout=15, read_latency=4, drop_pending_updates=True)
+        if len(argv) not in (1, 3, 4):
+            telethn.disconnect()
+        else:
+           telethn.run_until_disconnected()
     updater.idle()
     
 
 
 if __name__ == '__main__':
     telethn.start(bot_token=TOKEN)
-    pgram.run()
+    pgram.start()
     LOGGER.info("Successfully loaded modules: " + str(ALL_MODULES))
     main()
