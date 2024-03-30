@@ -4,7 +4,8 @@ from pyrogram.types import Message, InputMediaPhoto
 from VegetaRobot import pgram as app
 from pyrogram.errors import MediaCaptionTooLong
 
-api_url_chat5 = "https://nandha-api.onrender.com/ai/bard"
+api_url_gpt = "https://nandha-api.onrender.com/ai/gpt"
+api_url_bard = "https://nandha-api.onrender.com/ai/bard"
 
 def fetch_data(api_url: str, query: str) -> tuple:
     try:
@@ -17,8 +18,23 @@ def fetch_data(api_url: str, query: str) -> tuple:
     except Exception as e:
         return None, f"An error occurred: {str(e)}"
 
-@app.on_message(filters.command(["bard"]))
-async def chatgpt5(_, message: Message):
+@app.on_message(filters.command(["chat", "ask", "gpt"]))
+async def chatgpt(_, message):
+    if len(message.command) < 2:
+        return await message.reply_text("**Please provide a query.**")
+
+    query = " ".join(message.command[1:])    
+    txt = await message.reply_text("**Wait patiently, requesting to API...**")
+    await txt.edit("💭")
+    api_response, error_message = fetch_data(api_url_gpt, query)
+    await txt.edit(api_response or error_message)
+
+
+
+
+
+@app.on_message(filters.command(["bard", "gemini"]))
+async def bard(_, message):
     chat_id = message.chat.id
     message_id = message.id
     
@@ -29,7 +45,7 @@ async def chatgpt5(_, message: Message):
     txt = await message.reply_text("Wait patiently, requesting to API...")
     await txt.edit("💭")
     
-    api_response, images = fetch_data(api_url_chat5, query)
+    api_response, images = fetch_data(api_url_bard, query)
 
     medias = []
     bard = str(api_response)
@@ -67,4 +83,3 @@ async def chatgpt5(_, message: Message):
             return await txt.edit(bard)
         except Exception as e:
             return await txt.edit(str(e))
-    
