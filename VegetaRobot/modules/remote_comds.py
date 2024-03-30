@@ -58,7 +58,6 @@ RUNMUTE_ERRORS = {
 }
 
 
-@run_async
 @bot_admin
 def rban(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
@@ -134,7 +133,6 @@ def rban(update: Update, context: CallbackContext):
             message.reply_text("Well damn, I can't ban that user.")
 
 
-@run_async
 @bot_admin
 def runban(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
@@ -213,7 +211,6 @@ def runban(update: Update, context: CallbackContext):
             message.reply_text("Well damn, I can't unban that user.")
 
 
-@run_async
 @bot_admin
 def rkick(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
@@ -289,7 +286,6 @@ def rkick(update: Update, context: CallbackContext):
             message.reply_text("Well damn, I can't punch that user.")
 
 
-@run_async
 @bot_admin
 def rmute(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
@@ -368,7 +364,6 @@ def rmute(update: Update, context: CallbackContext):
             message.reply_text("Well damn, I can't mute that user.")
 
 
-@run_async
 @bot_admin
 def runmute(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
@@ -455,15 +450,15 @@ def runmute(update: Update, context: CallbackContext):
             message.reply_text("Well damn, I can't unmute that user.")
 
 
-RBAN_HANDLER = CommandHandler("rban", rban, filters=CustomFilters.sudo_filter)
+RBAN_HANDLER = CommandHandler("rban", rban, filters=CustomFilters.sudo_filter, run_async=True)
 RUNBAN_HANDLER = CommandHandler(
-    "runban", runban, filters=CustomFilters.sudo_filter)
+    "runban", runban, filters=CustomFilters.sudo_filter, run_async=True)
 RKICK_HANDLER = CommandHandler(
-    "rpunch", rkick, filters=CustomFilters.sudo_filter)
+    "rpunch", rkick, filters=CustomFilters.sudo_filter, run_async=True)
 RMUTE_HANDLER = CommandHandler(
-    "rmute", rmute, filters=CustomFilters.sudo_filter)
+    "rmute", rmute, filters=CustomFilters.sudo_filter, run_async=True)
 RUNMUTE_HANDLER = CommandHandler(
-    "runmute", runmute, filters=CustomFilters.sudo_filter)
+    "runmute", runmute, filters=CustomFilters.sudo_filter, run_async=True)
 
 dispatcher.add_handler(RBAN_HANDLER)
 dispatcher.add_handler(RUNBAN_HANDLER)
