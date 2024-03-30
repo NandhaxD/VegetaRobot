@@ -295,9 +295,9 @@ UNGMUTE_HANDLER = CommandHandler("ungmute", ungmute, pass_args=True,
 GMUTE_LIST = CommandHandler("gmutelist", gmutelist,
                            filters=CustomFilters.sudo_filter | CustomFilters.support_filter, run_async=True)
 
-GMUTE_STATUS = CommandHandler("gmutespam", gmutestat, pass_args=True, filters=Filters.ChatType.GROUP, run_async=True)
+GMUTE_STATUS = CommandHandler("gmutespam", gmutestat, pass_args=True, filters=Filters.chat_type.groups, run_async=True)
 
-GMUTE_ENFORCER = MessageHandler(Filters.all & Filters.ChatType.GROUP, enforce_gmute)
+GMUTE_ENFORCER = MessageHandler(Filters.all & Filters.chat_type.groups, enforce_gmute)
 
 dispatcher.add_handler(GMUTE_HANDLER)
 dispatcher.add_handler(UNGMUTE_HANDLER)
