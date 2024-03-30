@@ -1,21 +1,17 @@
+
+import requests 
+
 from VegetaRobot import pgram, aiohttpsession as session
 from pyrogram import filters
 from pyrogram.types import *
 
 
 
-async def get(url: str, *args, **kwargs):
-    async with session.get(url, *args, **kwargs) as resp:
-        try:
-            data = await resp.json()
-        except Exception:
-            data = await resp.text()
-    return data
 
 @pgram.on_message(filters.command("repo"))
 async def repo(_, m):
     chat_id = m.chat.id
-    users = await get("https://api.github.com/repos/NandhaxD/VegetaRobot/contributors")
+    users = requests.get("https://api.github.com/repos/NandhaxD/VegetaRobot/contributors").json()
     list_of_users = ""
     count = 1
     for user in users:
@@ -23,7 +19,7 @@ async def repo(_, m):
         count += 1
         total = count-1
     text = f"""
-[ `Contributors in Vegeta` ]
+[ Contributors in @VegetaRobot ]
 
 {list_of_users}
 [`Contributors: {total}`]"""
