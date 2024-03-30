@@ -14,6 +14,7 @@ psycopg2-binary
 feedparser
 pynewtonmath
 spongemock
+pyrate_limiter==2.10
 zalgo-text
 geopy
 psutil
