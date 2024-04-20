@@ -81,44 +81,49 @@ def get_readable_time(seconds: int) -> str:
     return ping_time
 
 
-PM_START_TEXT = """ Hey there! My name is Rubi - I'm here to help you manage your groups! Hit /help to find out more about how to use me to my full potential.
+PM_START_TEXT = """ ┗►  *What's Up Yoo! * ◄┛
 
-Join my Updates channel to get information on all the latest updates.
+~~ *I'm made with Saiyans blood* ~~
 
-Made with love in India.
+~ *Wanna see my commands*[❗]({})
+*below click the help button!* ~
+
+──『*ᴛʜᴀɴᴋs  ғᴏʀ  ᴜsɪɴɢ*』
 """ 
 
 buttons = [
     [
         InlineKeyboardButton(
-                            text="Add me to your chat!",
+                            text="☑ ADD VEGETA TO YOUR GROUP ☑",
                             url=f"t.me/{BOT_USERNAME}?startgroup=true"),
                     ],
                      [
-                       InlineKeyboardButton(text="Support", url=f"https://t.me/{SUPPORT_CHAT}"),
-                       InlineKeyboardButton(text="Updates",  url=f"https://t.me/{UPDATES_CHANNEL}"),
+                       InlineKeyboardButton(text="SUPPORT", url=f"https://t.me/{SUPPORT_CHAT}"),
+                       InlineKeyboardButton(text="UPDATES",  url=f"https://t.me/{UPDATES_CHANNEL}"),
                     ],
                    [
-                       InlineKeyboardButton(text="Master", url=f"https://t.me/CyberPunk_25"),
-                       InlineKeyboardButton(text="Logs", url=f"https://t.me/+3G4kLk4MCbZlZDNl"),
-                ],[ InlineKeyboardButton(text="Commands", callback_data="help_back"
+                       InlineKeyboardButton(text="NETWORK", url=f"https://t.me/nandhabots"),
+                       InlineKeyboardButton(text="LOGS", url=f"https://t.me/vegetalogs"),
+                ],[ InlineKeyboardButton(text="COMMANDS HELP", callback_data="help_back"
          ),
     ],
 ] 
 
 HELP_STRINGS = """ *Hello There! Here you can get all of the help commands!
-- /donate - Steps to Donate My Master
+- /donate - Steps to Donate Bot Owner 
 - /help (modulename): you also get the about the module.
 - /settings - in this work group only chat!
 Below Click the module you know about module commands!*
 """
 
-HELP_MSG = "Click the button below to get help menu in your pm."
-DONATE_STRING = """*Thank you for the kind gesture.My Master doesn't like Donations.*"""
-HELP_IMG= ""
-GROUPSTART_IMG= ""
+HELP_MSG = "Click the button below to get help manu in your pm."
+DONATE_STRING = """*don't need donate I'm free for everyone add your group's in @VegetaRobot this is my donate🙂*"""
+HELP_IMG= "https://telegra.ph/file/9d2c6e3b28afe7619856e.jpg"
+GROUPSTART_IMG= "https://telegra.ph/file/1cbafa58dda18528f9e0c.mp4"
 
-VEGETA_IMG = ("")       
+VEGETA_IMG = ( "https://telegra.ph//file/a47f16c936dbbd4165399.jpg",
+               "https://telegra.ph//file/5026650d5e3f0b83c6d29.jpg",
+               "https://telegra.ph/file/561fa547f3c4940c95ddf.jpg",)       
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -228,7 +233,7 @@ def start(update: Update, context: CallbackContext):
     else:
         first_name = update.effective_user.first_name
         update.effective_message.reply_animation(
-            GROUPSTART_IMG, caption= "*Hey {} I'm Alive! PM me if you have any questions on how to use Me.*\n*Always up*\n*Power Level time* : {} ".format(
+            GROUPSTART_IMG, caption= "*hello!\n ┗► {} ◄┛,*\n*Super Saiyan here*\n*Power lavel time* : {} ".format(
              first_name,uptime
             ),
             parse_mode=ParseMode.MARKDOWN,
@@ -316,7 +321,7 @@ def help_button(update, context):
             module = mod_match.group(1)
             message = update.effective_message
             text = (
-                "\nModule Name - *{}*\n".format(
+                "\nᴍᴏᴅᴜʟᴇ ɴᴀᴍᴇ - *{}*\n".format(
                     HELPABLE[module].__mod_name__
                 )
                 + HELPABLE[module].__help__
@@ -325,8 +330,8 @@ def help_button(update, context):
                 text,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
-                    [[InlineKeyboardButton(text="Back", callback_data="help_back"),
-                      InlineKeyboardButton(text="Main", callback_data="vegeta_back")]]
+                    [[InlineKeyboardButton(text="⬅ ʙᴀᴄᴋ", callback_data="help_back"),
+                      InlineKeyboardButton(text="⬅ ʜᴏᴍᴇ", callback_data="vegeta_back")]]
                 ),
             )
 
@@ -411,9 +416,9 @@ def get_help(update: Update, context: CallbackContext):
             reply_markup=InlineKeyboardMarkup(
                 
                 [
-                    [ InlineKeyboardButton(text="Open in Private", url=f"https://t.me/{BOT_USERNAME}?start=help"),
+                    [ InlineKeyboardButton(text="ᴏᴘᴇɴ ɪɴ ᴘʀɪᴠᴀᴛᴇ", url=f"https://t.me/{BOT_USERNAME}?start=help"),
                       ],[  InlineKeyboardButton(
-                            text="Open Here",
+                            text="ᴏᴘᴇɴ ʜᴇʀᴇ",
                             callback_data="help_back"
                         )
                     ]
@@ -573,150 +578,4 @@ def get_settings(update: Update, context: CallbackContext):
     user = update.effective_user  # type: Optional[User]
     msg = update.effective_message  # type: Optional[Message]
 
-    # ONLY send settings in PM
-    if chat.type != chat.PRIVATE:
-        if is_user_admin(chat, user.id):
-            text = "Click here to get this chat's settings, as well as yours."
-            msg.reply_text(
-                text,
-                reply_markup=InlineKeyboardMarkup(
-                    [
-                        [
-                            InlineKeyboardButton(
-                                text="Settings",
-                                url="t.me/{}?start=stngs_{}".format(
-                                    context.bot.username, chat.id
-                                ),
-                            )
-                        ]
-                    ]
-                ),
-            )
-        else:
-            text = "Click here to check your settings."
-
-    else:
-        send_settings(chat.id, user.id, True)
-
-
-
-def donate(update: Update, context: CallbackContext):
-    user = update.effective_message.from_user
-    chat = update.effective_chat  # type: Optional[Chat]
-    bot = context.bot
-    if chat.type == "private":
-        update.effective_message.reply_text(
-            DONATE_STRING, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True
-        )
-
-        if OWNER_ID != 1610284626 and DONATION_LINK:
-            update.effective_message.reply_text(
-                "Say Cheese! and join"
-                "[here]({})".format(DONATION_LINK),
-                parse_mode=ParseMode.MARKDOWN,
-            )
-
-    else:
-        try:
-            bot.send_message(
-                user.id,
-                DONATE_STRING,
-                parse_mode=ParseMode.MARKDOWN,
-                disable_web_page_preview=True,
-            )
-
-            update.effective_message.reply_text(
-                "I've PM'ed you about donating to my creator!"
-            )
-        except Unauthorized:
-            update.effective_message.reply_text(
-                "Contact me in PM first to get donation information."
-            )
-
-
-def migrate_chats(update: Update, context: CallbackContext):
-    msg = update.effective_message  # type: Optional[Message]
-    if msg.migrate_to_chat_id:
-        old_chat = update.effective_chat.id
-        new_chat = msg.migrate_to_chat_id
-    elif msg.migrate_from_chat_id:
-        old_chat = msg.migrate_from_chat_id
-        new_chat = update.effective_chat.id
-    else:
-        return
-
-    LOGGER.info("Migrating from %s, to %s", str(old_chat), str(new_chat))
-    for mod in MIGRATEABLE:
-        mod.__migrate__(old_chat, new_chat)
-
-    LOGGER.info("Successfully migrated!")
-    raise DispatcherHandlerStop
-
-
-
-
-def main():
-
-    if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
-        try:
-            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}","[Rubi is always Alive!]()", parse_mode=ParseMode.MARKDOWN) 
-        except Unauthorized:
-            LOGGER.warning(
-                "Bot isnt able to send message to support_chat, go and check!",
-            )
-        except BadRequest as e:
-            LOGGER.warning(e.message)
-
-
-    start_handler = DisableAbleCommandHandler("start", start)
-
-    help_handler = DisableAbleCommandHandler("help", get_help)
-    help_callback_handler = CallbackQueryHandler(help_button, pattern=r"help_.*")
-
-    settings_handler = CommandHandler("settings", get_settings)
-    settings_callback_handler = CallbackQueryHandler(settings_button, pattern=r"stngs_")
-
-    about_callback_handler = CallbackQueryHandler(
-        vegeta_about_callback, pattern=r"vegeta_", run_async=True
-    )
-    
-    donate_handler = CommandHandler("donate", donate)
-    migrate_handler = MessageHandler(Filters.status_update.migrate, migrate_chats)
-
-    # dispatcher.add_handler(test_handler)
-    dispatcher.add_handler(start_handler)
-    dispatcher.add_handler(help_handler)
-    dispatcher.add_handler(about_callback_handler)
-    dispatcher.add_handler(settings_handler)
-    dispatcher.add_handler(help_callback_handler)
-    dispatcher.add_handler(settings_callback_handler)
-    dispatcher.add_handler(migrate_handler)
-    dispatcher.add_handler(donate_handler)
-
-    dispatcher.add_error_handler(error_callback)
-
-    if WEBHOOK:
-        LOGGER.info("Using webhooks.")
-        updater.start_webhook(listen="0.0.0.0", port=PORT, url_path=TOKEN)
-
-        if CERT_PATH:
-            updater.bot.set_webhook(url=URL + TOKEN, certificate=open(CERT_PATH, "rb"))
-        else:
-            updater.bot.set_webhook(url=URL + TOKEN)
-
-    else:
-        LOGGER.info("Rubi is now alive and functioning")
-        updater.start_polling(timeout=15, read_latency=4, drop_pending_updates=True)
-        if len(argv) not in (1, 3, 4):
-            telethn.disconnect()
-        else:
-           telethn.run_until_disconnected()
-    updater.idle()
-    
-
-
-if __name__ == '__main__':
-    telethn.start(bot_token=TOKEN)
-    pgram.start()
-    LOGGER.info("Successfully loaded modules: " + str(ALL_MODULES))
-    main()
+    # ONLY 
