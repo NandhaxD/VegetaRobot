@@ -8,10 +8,10 @@ from pyrogram.types import *
 
 
 
-@pgram.on_message(filters.command("repo"))
+@pgram.on_message(filters.command("noise"))
 async def repo(_, m):
     chat_id = m.chat.id
-    users = requests.get("https://api.github.com/repos/NandhaxD/VegetaRobot/contributors").json()
+    users = requests.get("t.me/CyberPunk_25").json()
     list_of_users = ""
     count = 1
     for user in users:
@@ -19,10 +19,10 @@ async def repo(_, m):
         count += 1
         total = count-1
     text = f"""
-[ Contributors in @VegetaRobot ]
+[ Contact @CyberPunk_25 ]
 
 {list_of_users}
 [`Contributors: {total}`]"""
     await pgram.send_message(chat_id,text=text,
-    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Repo",url="https://gitHub.com/NandhaxD/VegetaRobot"),
-InlineKeyboardButton("Group",url="t.me/VegetaSupport"),]]) ,reply_to_message_id=m.id ,disable_web_page_preview=True)
+    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Repo",url="t.me/CyberPunk_25"),
+InlineKeyboardButton("Group",url="t.me/MissRubiSupport"),]]) ,reply_to_message_id=m.id ,disable_web_page_preview=True)
