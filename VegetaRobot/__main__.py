@@ -81,30 +81,27 @@ def get_readable_time(seconds: int) -> str:
     return ping_time
 
 
-PM_START_TEXT = """ ┗►  *What's Up Yoo! * ◄┛
+PM_START_TEXT = """   *Heya :) {},Whatsup!* 
 
-~~ *I'm made with Saiyans blood* ~~
+Made with Love in India.
 
-~ *Wanna see my commands*[❗]({})
-*below click the help button!* ~
-
-──『*ᴛʜᴀɴᴋs  ғᴏʀ  ᴜsɪɴɢ*』
+Hit /help to find out more about how to use me to my full potential.
 """ 
 
 buttons = [
     [
         InlineKeyboardButton(
-                            text="☑ ADD VEGETA TO YOUR GROUP ☑",
+                            text="Add me to your chat!",
                             url=f"t.me/{BOT_USERNAME}?startgroup=true"),
                     ],
                      [
-                       InlineKeyboardButton(text="SUPPORT", url=f"https://t.me/{SUPPORT_CHAT}"),
-                       InlineKeyboardButton(text="UPDATES",  url=f"https://t.me/{UPDATES_CHANNEL}"),
+                       InlineKeyboardButton(text="Support", url=f"https://t.me/{SUPPORT_CHAT}"),
+                       InlineKeyboardButton(text="Updates",  url=f"https://t.me/{UPDATES_CHANNEL}"),
                     ],
                    [
-                       InlineKeyboardButton(text="NETWORK", url=f"https://t.me/nandhabots"),
-                       InlineKeyboardButton(text="LOGS", url=f"https://t.me/vegetalogs"),
-                ],[ InlineKeyboardButton(text="COMMANDS HELP", callback_data="help_back"
+                       InlineKeyboardButton(text="Master", url=f"https://t.me/CyberPunk_25"),
+                       InlineKeyboardButton(text="Master", url=f"https://t.me/MrTopiA"),
+                ],[ InlineKeyboardButton(text="Commands and Help", callback_data="help_back"
          ),
     ],
 ] 
@@ -116,8 +113,8 @@ HELP_STRINGS = """ *Hello There! Here you can get all of the help commands!
 Below Click the module you know about module commands!*
 """
 
-HELP_MSG = "Click the button below to get help manu in your pm."
-DONATE_STRING = """*don't need donate I'm free for everyone add your group's in @VegetaRobot this is my donate🙂*"""
+HELP_MSG = "Click the button below to get help menu in your pm."
+DONATE_STRING = """*Thank you for your kind gesture. I'm free to use and doesn't need any donations.*"""
 HELP_IMG= "https://telegra.ph/file/9d2c6e3b28afe7619856e.jpg"
 GROUPSTART_IMG= "https://telegra.ph/file/1cbafa58dda18528f9e0c.mp4"
 
@@ -207,7 +204,7 @@ def start(update: Update, context: CallbackContext):
                     update.effective_chat.id,
                     HELPABLE[mod].__help__,
                     InlineKeyboardMarkup(
-                        [[InlineKeyboardButton(text="⬅Back", callback_data="help_back")]]
+                        [[InlineKeyboardButton(text="Back", callback_data="help_back")]]
                     ),
                 )
 
@@ -233,15 +230,15 @@ def start(update: Update, context: CallbackContext):
     else:
         first_name = update.effective_user.first_name
         update.effective_message.reply_animation(
-            GROUPSTART_IMG, caption= "*hello!\n ┗► {} ◄┛,*\n*Super Saiyan here*\n*Power lavel time* : {} ".format(
+            GROUPSTART_IMG, caption= "*Heya {}*\n*I'm always Alive!*\n*Power level time* : {} ".format(
              first_name,uptime
             ),
             parse_mode=ParseMode.MARKDOWN,
         reply_markup=InlineKeyboardMarkup(
                 [
                   [
-                  InlineKeyboardButton(text="SUPPORT", url=f"https://telegram.dog/{SUPPORT_CHAT}"),
-                  InlineKeyboardButton(text="UPDATES", url=f"t.me/{UPDATES_CHANNEL}"),
+                  InlineKeyboardButton(text="Support", url=f"https://telegram.dog/{SUPPORT_CHAT}"),
+                  InlineKeyboardButton(text="Updates", url=f"t.me/{UPDATES_CHANNEL}"),
                   ]
                 ]
             ),
@@ -321,7 +318,7 @@ def help_button(update, context):
             module = mod_match.group(1)
             message = update.effective_message
             text = (
-                "\nᴍᴏᴅᴜʟᴇ ɴᴀᴍᴇ - *{}*\n".format(
+                "\nModule Name - *{}*\n".format(
                     HELPABLE[module].__mod_name__
                 )
                 + HELPABLE[module].__help__
@@ -330,8 +327,8 @@ def help_button(update, context):
                 text,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
-                    [[InlineKeyboardButton(text="⬅ ʙᴀᴄᴋ", callback_data="help_back"),
-                      InlineKeyboardButton(text="⬅ ʜᴏᴍᴇ", callback_data="vegeta_back")]]
+                    [[InlineKeyboardButton(text="Back", callback_data="help_back"),
+                      InlineKeyboardButton(text="Main", callback_data="vegeta_back")]]
                 ),
             )
 
@@ -416,9 +413,9 @@ def get_help(update: Update, context: CallbackContext):
             reply_markup=InlineKeyboardMarkup(
                 
                 [
-                    [ InlineKeyboardButton(text="ᴏᴘᴇɴ ɪɴ ᴘʀɪᴠᴀᴛᴇ", url=f"https://t.me/{BOT_USERNAME}?start=help"),
+                    [ InlineKeyboardButton(text="Open in Private", url=f"https://t.me/{BOT_USERNAME}?start=help"),
                       ],[  InlineKeyboardButton(
-                            text="ᴏᴘᴇɴ ʜᴇʀᴇ",
+                            text="Open Here",
                             callback_data="help_back"
                         )
                     ]
