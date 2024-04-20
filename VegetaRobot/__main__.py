@@ -83,7 +83,7 @@ def get_readable_time(seconds: int) -> str:
 
 PM_START_TEXT = """ ┗►  *What's Up Yoo! * ◄┛
 
-~~ *I'm made with Saiyans blood* ~~
+~~ *I'm made with love by @CyberPunk_25* ~~
 
 ~ *Wanna see my commands*[❗]({})
 *below click the help button!* ~
@@ -102,8 +102,8 @@ buttons = [
                        InlineKeyboardButton(text="UPDATES",  url=f"https://t.me/{UPDATES_CHANNEL}"),
                     ],
                    [
-                       InlineKeyboardButton(text="NETWORK", url=f"https://t.me/nandhabots"),
-                       InlineKeyboardButton(text="LOGS", url=f"https://t.me/vegetalogs"),
+                       InlineKeyboardButton(text="NETWORK", url=f"https://t.me/CyberPunk_25"),
+                       InlineKeyboardButton(text="LOGS", url=f"https://t.me/CyberPunk_25"),
                 ],[ InlineKeyboardButton(text="COMMANDS HELP", callback_data="help_back"
          ),
     ],
@@ -117,7 +117,7 @@ Below Click the module you know about module commands!*
 """
 
 HELP_MSG = "Click the button below to get help manu in your pm."
-DONATE_STRING = """*don't need donate I'm free for everyone add your group's in @VegetaRobot this is my donate🙂*"""
+DONATE_STRING = """*don't need donate I'm free for everyone add your groups and thanks to my Master @CyberPunk_25 🙂*"""
 HELP_IMG= "https://telegra.ph/file/9d2c6e3b28afe7619856e.jpg"
 GROUPSTART_IMG= "https://telegra.ph/file/1cbafa58dda18528f9e0c.mp4"
 
