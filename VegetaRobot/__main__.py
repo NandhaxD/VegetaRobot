@@ -81,49 +81,44 @@ def get_readable_time(seconds: int) -> str:
     return ping_time
 
 
-PM_START_TEXT = """ ┗►  *What's Up Yoo! * ◄┛
+PM_START_TEXT = """ Hey there! My name is Rubi - I'm here to help you manage your groups! Hit /help to find out more about how to use me to my full potential.
 
-~~ *I'm made with love by @CyberPunk_25* ~~
+Join my Updates channel to get information on all the latest updates.
 
-~ *Wanna see my commands*[❗]({})
-*below click the help button!* ~
-
-──『*ᴛʜᴀɴᴋs  ғᴏʀ  ᴜsɪɴɢ*』
+Made with love in India.
 """ 
 
 buttons = [
     [
         InlineKeyboardButton(
-                            text="☑ ADD VEGETA TO YOUR GROUP ☑",
+                            text="Add me to your chat!",
                             url=f"t.me/{BOT_USERNAME}?startgroup=true"),
                     ],
                      [
-                       InlineKeyboardButton(text="SUPPORT", url=f"https://t.me/{SUPPORT_CHAT}"),
-                       InlineKeyboardButton(text="UPDATES",  url=f"https://t.me/{UPDATES_CHANNEL}"),
+                       InlineKeyboardButton(text="Support", url=f"https://t.me/{SUPPORT_CHAT}"),
+                       InlineKeyboardButton(text="Updates",  url=f"https://t.me/{UPDATES_CHANNEL}"),
                     ],
                    [
-                       InlineKeyboardButton(text="NETWORK", url=f"https://t.me/CyberPunk_25"),
-                       InlineKeyboardButton(text="LOGS", url=f"https://t.me/CyberPunk_25"),
-                ],[ InlineKeyboardButton(text="COMMANDS HELP", callback_data="help_back"
+                       InlineKeyboardButton(text="Master", url=f"https://t.me/CyberPunk_25"),
+                       InlineKeyboardButton(text="Logs", url=f"https://t.me/+3G4kLk4MCbZlZDNl"),
+                ],[ InlineKeyboardButton(text="Commands", callback_data="help_back"
          ),
     ],
 ] 
 
 HELP_STRINGS = """ *Hello There! Here you can get all of the help commands!
-- /donate - Steps to Donate Bot Owner 
+- /donate - Steps to Donate My Master
 - /help (modulename): you also get the about the module.
 - /settings - in this work group only chat!
 Below Click the module you know about module commands!*
 """
 
-HELP_MSG = "Click the button below to get help manu in your pm."
-DONATE_STRING = """*don't need donate I'm free for everyone add your groups and thanks to my Master @CyberPunk_25 🙂*"""
-HELP_IMG= "https://telegra.ph/file/9d2c6e3b28afe7619856e.jpg"
-GROUPSTART_IMG= "https://telegra.ph/file/1cbafa58dda18528f9e0c.mp4"
+HELP_MSG = "Click the button below to get help menu in your pm."
+DONATE_STRING = """*Thank you for the kind gesture.My Master doesn't like Donations.*"""
+HELP_IMG= ""
+GROUPSTART_IMG= ""
 
-VEGETA_IMG = ( "https://telegra.ph//file/a47f16c936dbbd4165399.jpg",
-               "https://telegra.ph//file/5026650d5e3f0b83c6d29.jpg",
-               "https://telegra.ph/file/561fa547f3c4940c95ddf.jpg",)       
+VEGETA_IMG = ("")       
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -233,7 +228,7 @@ def start(update: Update, context: CallbackContext):
     else:
         first_name = update.effective_user.first_name
         update.effective_message.reply_animation(
-            GROUPSTART_IMG, caption= "*hello!\n ┗► {} ◄┛,*\n*Super Saiyan here*\n*Power lavel time* : {} ".format(
+            GROUPSTART_IMG, caption= "*Hey {} I'm Alive! PM me if you have any questions on how to use Me.*\n*Always up*\n*Power Level time* : {} ".format(
              first_name,uptime
             ),
             parse_mode=ParseMode.MARKDOWN,
@@ -321,7 +316,7 @@ def help_button(update, context):
             module = mod_match.group(1)
             message = update.effective_message
             text = (
-                "\nᴍᴏᴅᴜʟᴇ ɴᴀᴍᴇ - *{}*\n".format(
+                "\nModule Name - *{}*\n".format(
                     HELPABLE[module].__mod_name__
                 )
                 + HELPABLE[module].__help__
@@ -330,8 +325,8 @@ def help_button(update, context):
                 text,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
-                    [[InlineKeyboardButton(text="⬅ ʙᴀᴄᴋ", callback_data="help_back"),
-                      InlineKeyboardButton(text="⬅ ʜᴏᴍᴇ", callback_data="vegeta_back")]]
+                    [[InlineKeyboardButton(text="Back", callback_data="help_back"),
+                      InlineKeyboardButton(text="Main", callback_data="vegeta_back")]]
                 ),
             )
 
@@ -416,9 +411,9 @@ def get_help(update: Update, context: CallbackContext):
             reply_markup=InlineKeyboardMarkup(
                 
                 [
-                    [ InlineKeyboardButton(text="ᴏᴘᴇɴ ɪɴ ᴘʀɪᴠᴀᴛᴇ", url=f"https://t.me/{BOT_USERNAME}?start=help"),
+                    [ InlineKeyboardButton(text="Open in Private", url=f"https://t.me/{BOT_USERNAME}?start=help"),
                       ],[  InlineKeyboardButton(
-                            text="ᴏᴘᴇɴ ʜᴇʀᴇ",
+                            text="Open Here",
                             callback_data="help_back"
                         )
                     ]
@@ -616,7 +611,7 @@ def donate(update: Update, context: CallbackContext):
 
         if OWNER_ID != 1610284626 and DONATION_LINK:
             update.effective_message.reply_text(
-                "You can also donate to the person currently running me "
+                "Say Cheese! and join"
                 "[here]({})".format(DONATION_LINK),
                 parse_mode=ParseMode.MARKDOWN,
             )
@@ -664,7 +659,7 @@ def main():
 
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
-            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}","[SUPER SAIYAN VEGETA IS BACK](https://telegra.ph/file/d3db0babad0d1729c5f59.jpg)", parse_mode=ParseMode.MARKDOWN) 
+            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}","[Rubi is always Alive!]()", parse_mode=ParseMode.MARKDOWN) 
         except Unauthorized:
             LOGGER.warning(
                 "Bot isnt able to send message to support_chat, go and check!",
@@ -710,7 +705,7 @@ def main():
             updater.bot.set_webhook(url=URL + TOKEN)
 
     else:
-        LOGGER.info("Vegeta is now alive and functioning")
+        LOGGER.info("Rubi is now alive and functioning")
         updater.start_polling(timeout=15, read_latency=4, drop_pending_updates=True)
         if len(argv) not in (1, 3, 4):
             telethn.disconnect()
