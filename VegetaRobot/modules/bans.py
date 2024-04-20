@@ -43,9 +43,9 @@ from VegetaRobot.modules.log_channel import gloggable, loggable
 
 
     
-UNBAN_IMG= "https://telegra.ph/file/0ac714f6c537a2570cfd3.mp4"
-BAN_IMG= "https://telegra.ph/file/35ae9ea0ae57d53b98c0f.mp4"
-SELF_KICK_IMG= "https://telegra.ph/file/f1d4f976d2e90fa40740c.mp4"
+UNBAN_IMG= ""
+BAN_IMG= ""
+SELF_KICK_IMG= ""
 
 
 @connection_status
@@ -81,7 +81,7 @@ def ban(update: Update, context: CallbackContext) -> str:
         if user_id == OWNER_ID:
             message.reply_text("Trying to put me against a God level disaster huh?")
         elif user_id in DEV_USERS:
-            message.reply_text("I can't act against our own.")
+            message.reply_text("I can't act against My Master.")
         elif user_id in DRAGONS:
             message.reply_text(
                 "Fighting this Dragon here will put civilian lives at risk."
