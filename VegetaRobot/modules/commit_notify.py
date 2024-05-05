@@ -15,6 +15,9 @@ commit_ids = []
 api = f'https://api.github.com/repos/{repo_owner}/{repo_name}/commits'
 
 
+commit_url = f'https://github.com/{repo_owner}/{repo_name}/commit/'
+
+
 String = (
   '**Author**: {}\n'
   '**Committer**: {}\n'
@@ -30,7 +33,7 @@ async def notify_commit(_, message):
            commit_id = rsp[0]['commit']['url'].split('/')[-1]
            author = rsp[0]['commit']['author']['name']
            name = rsp[0]['commit']['committer']['name']
-           url = rsp[0]['commit']['url']
+           url = commit_url+commit_id
            email = rsp[0]['commit']['committer']['email']
            msg = rsp[0]['commit']['message']
            date = rsp[0]['commit']['committer']['date']
@@ -48,7 +51,7 @@ async def notify_commit(_, message):
               if Scommit_id != commit_id:
                   author = rsp[0]['commit']['author']['name']
                   name = rsp[0]['commit']['committer']['name']
-                  url = rsp[0]['commit']['url']
+                  url = commit_url+commit_id
                   email = rsp[0]['commit']['committer']['email']
                   msg = rsp[0]['commit']['message']
                   date = rsp[0]['commit']['committer']['date']
