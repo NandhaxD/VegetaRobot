@@ -2,6 +2,7 @@ from math import ceil
 from typing import Dict, List
 
 from VegetaRobot import NO_LOAD
+from VegetaRobot import utils
 from telegram import MAX_MESSAGE_LENGTH, Bot, InlineKeyboardButton, ParseMode
 from telegram.error import TelegramError
 
@@ -40,12 +41,12 @@ def split_message(msg: str) -> List[str]:
 def paginate_modules(page_n: int, module_dict: Dict, prefix, chat=None) -> List:
     if not chat:
         modules = sorted(
-            [EqInlineKeyboardButton(x.__mod_name__,
+            [EqInlineKeyboardButton(utils.san(x.__mod_name__),
                                     callback_data="{}_module({})".format(prefix, x.__mod_name__.lower())) for x
              in module_dict.values()])
     else:
         modules = sorted(
-            [EqInlineKeyboardButton(x.__mod_name__,
+            [EqInlineKeyboardButton(utils.san(x.__mod_name__),
                                     callback_data="{}_module({},{})".format(prefix, chat, x.__mod_name__.lower())) for x
              in module_dict.values()])
 
