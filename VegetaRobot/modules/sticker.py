@@ -995,19 +995,17 @@ async def drawText(image_path, text):
 
 __mod_name__ = "Sᴛɪᴄᴋᴇʀ"
 
+__help__ = """
+ᴍᴏᴅᴜʟᴇ ɴᴀᴍᴇ - 𝚂𝚝𝚒𝚌𝚔𝚎𝚛
 
-# ғᴏʀ ʜᴇʟᴘ ᴍᴇɴᴜ
-
-
-# """
-from Exon.modules.language import gs
-
-
-def get_help(chat):
-    return gs(chat, "sticker_help")
-
-
-# """
+× /stickerid: reply to a sticker to me to tell you its file ID.
+× /getsticker: reply to a sticker to me to upload its raw PNG file.
+× /kang: reply to a sticker to add it to your pack.
+× /stickers: Find stickers for given term on combot sticker catalogue
+× /getvidsticker: get video sticker
+× /getvideo: get video
+× /delsticker: delete sticker
+"""
 
 STICKERID_HANDLER = CommandHandler("stickerid", stickerid, run_async=True)
 GETSTICKER_HANDLER = CommandHandler("getsticker", getsticker, run_async=True)
