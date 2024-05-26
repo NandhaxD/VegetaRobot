@@ -197,7 +197,7 @@ async def pinterest(_, message):
 
      for url in images["images"][:6]:
                   
-          media_group.append(InputMediaPhoto(media=url))
+          media_group.append(types.InputMediaPhoto(media=url))
           count += 1
           await msg.edit(f"=> ✅ Scaped {count}")
 
