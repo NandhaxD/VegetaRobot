@@ -87,8 +87,7 @@ async def bard(_, message):
 
 __help__ = """
 ✪︎ /bard:
-LLM also called gemeni AI,
-Google AI
+LLM also called gemeni AI Google AI
 ✪︎ /gpt: 
 LLM OpenAI Mode
 
