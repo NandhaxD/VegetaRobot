@@ -79,7 +79,7 @@ pip==24.0
 pretty-errors==1.2.25
 psutil==5.9.8
 psycopg2-binary==2.9.9
-ptbcontrib==0.0.0
+git+https://github.com/python-telegram-bot/ptbcontrib.git
 pyaes==1.6.1
 pyasn1==0.6.0
 pybase64==1.3.2
