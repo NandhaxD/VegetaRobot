@@ -38,6 +38,7 @@ fonttools==4.50.0
 frozenlist==1.4.1
 future==1.0.0
 futures==3.0.5
+ffmpeg==1.4
 geographiclib==2.0
 geopy==2.4.1
 glitch-this==1.0.3
