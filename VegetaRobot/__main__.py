@@ -81,12 +81,13 @@ def get_readable_time(seconds: int) -> str:
     return ping_time
 
 
-PM_START_TEXT = """ *┗► What's Up, Earthling! ◄┛
+PM_START_TEXT = """ 
+*┗► What's Up, Earthling! ◄┛*
 
-~~ I am the Prince of All Saiyans, Vegeta! ~~
+~~ *I am the Prince of All Saiyans, Vegeta!* ~~
 
-~ Prepare yourself for my commands! ~
-Click the help button below if you dare[❗]({})
+~ *Prepare yourself for my commands! ~
+Click the help button below if you dare* [❗]({})
 
 ──『 *You better be ready to train hard!* 』──
 """ 
@@ -235,7 +236,7 @@ def start(update: Update, context: CallbackContext):
         update.effective_message.reply_animation(
              GROUPSTART_IMG, 
              caption="*Greetings!\n ┗► {} ◄┛,\nSaiyan Warrior reporting\nEnergy level now : {} *".format(
-             first_name,uptime
+             first_name, uptime
             ),
             parse_mode=ParseMode.MARKDOWN,
         reply_markup=InlineKeyboardMarkup(
