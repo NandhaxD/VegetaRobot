@@ -33,7 +33,7 @@ async def urban(_, m):
            return await m.reply(text=string, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('next', callback_data=f"udnxt:{user_id}:{text}:{num}")]]), quote=True)
               
 @app.on_callback_query(filters.regex("^udnxt"))   
-async def next(_, query):
+async def udnext(_, query):
          user_id = int(query.data.split(":")[1])
          text = str(query.data.split(":")[2])
          num = int(query.data.split(":")[3])+1
@@ -56,7 +56,7 @@ async def next(_, query):
              return await query.message.edit(text=string, reply_markup=InlineKeyboardMarkup(buttons))
 
 @app.on_callback_query(filters.regex("^udbck"))   
-async def back(_, query):
+async def udback(_, query):
          user_id = int(query.data.split(":")[1])
          text = str(query.data.split(":")[2])
          num = int(query.data.split(":")[3])-1
@@ -79,42 +79,7 @@ async def back(_, query):
              return await query.message.edit(text=string, reply_markup=InlineKeyboardMarkup(buttons))
        
        
-       
 
-
-
-@bot.on_message(filters.command("spell"))
-async def spellcheck(_, m):
-      reply = m.reply_to_message
-      if not reply:
-          return await m.reply_text("reply to text")
-      if reply:
-          x = await arq.spellcheck(reply.text)
-          y = x.result
-      text = await m.reply_text("Spelling...")
-      await text.edit(f"`{y.corrected}`")
-
-@bot.on_message(filters.command("wall")) 
-async def wall(_, m: Message):
-       if len(m.command) < 2:
-           return await m.reply_text("gime a text Baka!")
-       search = m.text.split(None, 1)[1]
-       x = await arq.wall(search)
-       y = x.result
-       await m.reply_photo(random.choice(y).url_image)
-       await m.reply_document(random.choice(y).url_image)
-
-@bot.on_message(filters.command("reddit"))
-async def reddit(_, m):
-          if len(m.command) < 2:
-              await m.reply_text("Gime text to search reddit!")
-              return 
-          text = m.text.split(None, 1)[1]
-          x = await arq.reddit(text)
-          y = x.result
-          url  = y["url"]
-          title = y["title"]
-          await m.reply_photo(url,caption=title)
 
 @bot.on_message(filters.command(["lang", "langs"]))
 def language(_, m: Message):
@@ -131,6 +96,7 @@ def language(_, m: Message):
             ],
         ),
     )
+
 
 
 trans = Translator()
