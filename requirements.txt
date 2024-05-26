@@ -24,6 +24,7 @@ countryinfo==0.1.2
 coverage==5.5
 cssselect==1.2.0
 currencyconverter==0.17.19
+cloudscraper==1.2.71
 deprecated==1.2.14
 deprecation==2.1.0
 dnspython==2.6.1
