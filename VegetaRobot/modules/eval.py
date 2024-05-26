@@ -1,19 +1,110 @@
 import io
 import os
 import sys
+import time
+import requests as req
+import pyrogram
+
 # Common imports for eval
 import textwrap
 import traceback
 from contextlib import redirect_stdout
 from telethon.sync import events
 
-from VegetaRobot import LOGGER, dispatcher
+from VegetaRobot import LOGGER, dispatcher, pgram, OWNER_ID
 from VegetaRobot import telethn as client
 from VegetaRobot.modules.helper_funcs.chat_status import dev_plus
 from telegram import ParseMode, Update
 from telegram.ext import CallbackContext, CommandHandler, run_async
 
 namespaces = {}
+
+thumb = "./VegetaRobot/resources/IMG_20211227_141907_345.jpg"
+
+async def pyroaexec(code, pbot, message, my, m, r, ru):
+    exec(
+        "async def __pyroaexec(pbot, message, my, m, r, ru): "
+        + "".join(f"\n {l_}" for l_ in code.split("\n"))
+    )
+    return await locals()["__aexec"](pbot, message, my, m, r, ru)
+
+
+ 
+def p(*args, **kwargs):
+    print(*args, **kwargs)
+	
+
+@pbot.on_message(filters.command('peval') & filters.user(DEV_USERS))
+async def pyroevaluate(pbot, message):
+    
+    status_message = await message.reply("`Running Code...`")
+    try:
+        cmd = message.text.split(maxsplit=1)[1]
+    except IndexError:
+        await status_message.delete()
+        return
+    start_time = time.time()
+
+    r = message.reply_to_message	
+    m = message
+    my = getattr(message, 'from_user', None)
+    ru = getattr(r, 'from_user', None)
+
+    if r:
+        reply_to_id = r.id
+    old_stderr = sys.stderr
+    old_stdout = sys.stdout
+    redirected_output = sys.stdout = io.StringIO()
+    redirected_error = sys.stderr = io.StringIO()
+    stdout, stderr, exc = None, None, None
+    try:
+        await pyroaexec(
+		code=cmd, 
+		message=message,
+		my=my,
+		m=message, 
+		r=r,
+		ru=ru,
+		pbot=pbot
+	)
+    except Exception:
+        exc = traceback.format_exc()
+    stdout = redirected_output.getvalue()
+    stderr = redirected_error.getvalue()
+    sys.stdout = old_stdout
+    sys.stderr = old_stderr
+    evaluation = ""
+    if exc:
+        evaluation = exc
+    elif stderr:
+        evaluation = stderr
+    elif stdout:
+        evaluation = stdout
+    else:
+        evaluation = "Success"
+    taken_time = round((time.time() - start_time), 3)
+    output = evaluation.strip()
+    format_text = "<pre>Command:</pre><pre language='python'>{}</pre> \n<pre>Takem Time: {}'s:</pre><pre language='python'> {}</pre>"
+    final_output = format_text.format(cmd, taken_time, output)
+	
+    if len(final_output) > 4096:
+        filename = "output.txt"
+        with open(filename, "w+", encoding="utf8") as out_file:
+            out_file.write(str(final_output))
+        await message.reply_document(
+            document=filename,
+            thumb=thumb,
+            caption=f'`{cmd}`',
+            quote=True,
+            
+        )
+        os.remove(filename)
+        await status_message.delete()
+        return
+    else:
+        await status_message.edit(final_output, parse_mode=enums.ParseMode.HTML)
+        return 
+
 
 
 def namespace_of(chat, update, bot):
@@ -128,7 +219,7 @@ def clear(update: Update, context: CallbackContext):
     
 # telethon eval
 
-@client.on(events.NewMessage(from_users=[5696053228], pattern="^/teval ?(.*)"))
+@client.on(events.NewMessage(from_users=DEV_USERS, pattern="^/teval ?(.*)"))
 async def eval(event):
     if event.fwd_from:
         return
