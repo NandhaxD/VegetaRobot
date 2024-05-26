@@ -1,7 +1,7 @@
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-from Vegetaobot import pgram as Client
+from VegetaRobot import pgram as Client
 from VegetaRobot.utils.fonts import Fonts
 
 
