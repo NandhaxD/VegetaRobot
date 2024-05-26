@@ -22,6 +22,7 @@ from telethon.tl import types
 from telethon.tl.types import *
 
 from VegetaRobot import *
+from VegetaRobot import pgram as pbot
 
 from VegetaRobot.events import register
 
@@ -177,13 +178,50 @@ async def scam(results, lim):
 
 
 
+# by aditiya
+@pbot.on_message(filters.command(["pinterest","pintst"]))
+async def pinterest(_, message):
+     chat_id = message.chat.id
+     try:
+       query= message.text.split(None,1)[1]
+     except:
+         return await message.reply("Input image name for search 🔍")
+         
+     images = requests.get(f"https://pinterest-api-one.vercel.app/?q={query}").json()
+
+     media_group = []
+     count = 0
+
+     msg = await message.reply(f"scaping images from pinterest...")
+
+     for url in images["images"][:6]:
+                  
+          media_group.append(InputMediaPhoto(media=url))
+          count += 1
+          await msg.edit(f"=> ✅ Scaped {count}")
+
+     try:
+        
+        await pbot.send_media_group(
+                chat_id=chat_id, 
+                media=media_group,
+                reply_to_message_id=message.id)
+        return await msg.delete()
+
+     except Exception as e:
+           await msg.delete()
+           return await message.reply(f"Error\n{e}")
+          
+
+
 __mod_name__ = "Tools"
 
 __help__ = """
  
  ❍ /img <text>*:* Search Google for images and returns them\nFor greater no. of results specify lim, For eg: `/img hello lim=10`
  ❍ /reverse: Does a reverse image search of the media which it was replie.
-
+ 
+ ✪︎ /pinterest <text>: get pinterst images.
  ✪︎ /ud <text>: Search for word definitions.
  ✪︎ /langs: View a list of language codes.
  ✪︎ /tr reply: Translate text messages.
