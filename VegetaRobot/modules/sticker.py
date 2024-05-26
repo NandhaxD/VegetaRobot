@@ -23,7 +23,7 @@ from telegram.ext import CallbackContext, CallbackQueryHandler, CommandHandler
 from telegram.utils.helpers import mention_html
 
 from VegetaRobot import dispatcher
-from VeegtaRobot import telethn as bot
+from VegtaRobot import telethn as bot
 from VegtaRobot.events import register as asux
 
 combot_stickers_url = "https://combot.org/telegram/stickers?q="
