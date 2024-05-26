@@ -5,7 +5,7 @@ import time
 import requests as req
 import pyrogram
 
-from pyrogram import filters, types, enumsz errors
+from pyrogram import filters, types, enums, errors
 
 # Common imports for eval
 import textwrap
