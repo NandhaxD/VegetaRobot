@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import urllib
 from VegetaRobot import telethn as tbot
+from pyrogram import filters, types, enums, errors
 import glob
 import io
 import os
