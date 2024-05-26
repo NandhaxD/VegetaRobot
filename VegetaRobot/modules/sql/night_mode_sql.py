@@ -39,4 +39,4 @@ def is_nightmode_indb(chat_id: str):
         if s__:
             return str(s__.chat_id)
     finally:
-        SESSION.close(
+        SESSION.close()
