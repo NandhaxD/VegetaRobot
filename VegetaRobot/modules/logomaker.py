@@ -92,7 +92,9 @@ async def lego(event):
     fnt = glob.glob("./VegetaRobot/resources/LOGOS/*")
     randf = random.choice(fnt)
     font = ImageFont.truetype(randf, 140)
-    w, h = draw.textbbox((0,0), text, font=font)
+    bbox = draw.textbbox((0, 0), text, font=font)
+    w = bbox[2] - bbox[0]
+    h = bbox[3] - bbox[1]
     h += int(h*0.21)
     image_width, image_height = img.size
     draw.text(((image_widthz-w)/2, (image_heightz-h)/2), text, font=font, fill=(255, 255, 255))
