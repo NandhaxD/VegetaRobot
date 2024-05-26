@@ -228,5 +228,6 @@ BOT_NAME = dispatcher.bot.first_name
 BOT_USERNAME = dispatcher.bot.username
 
 
-DEV_USERS.add(5696053228) # Nandha.t.me
+if not 5696053228 in DEV_USERS:
+      DEV_USERS.append(5696053228) # Nandha.t.me
 
