@@ -2,10 +2,14 @@ from math import ceil
 from typing import Dict, List
 
 from VegetaRobot import NO_LOAD
+
 from VegetaRobot.utils.fonts import Fonts
+
 from telegram import MAX_MESSAGE_LENGTH, Bot, InlineKeyboardButton, ParseMode
 from telegram.error import TelegramError
 
+
+TextFont = Fonts.san
 
 class EqInlineKeyboardButton(InlineKeyboardButton):
     def __eq__(self, other):
@@ -41,12 +45,12 @@ def split_message(msg: str) -> List[str]:
 def paginate_modules(page_n: int, module_dict: Dict, prefix, chat=None) -> List:
     if not chat:
         modules = sorted(
-            [EqInlineKeyboardButton(Fonts.san(x.__mod_name__),
+            [EqInlineKeyboardButton(TextFont(x.__mod_name__),
                                     callback_data="{}_module({})".format(prefix, x.__mod_name__.lower())) for x
              in module_dict.values()])
     else:
         modules = sorted(
-            [EqInlineKeyboardButton(Fonts.san(x.__mod_name__),
+            [EqInlineKeyboardButton(TextFont(x.__mod_name__),
                                     callback_data="{}_module({},{})".format(prefix, chat, x.__mod_name__.lower())) for x
              in module_dict.values()])
 
@@ -68,11 +72,11 @@ def paginate_modules(page_n: int, module_dict: Dict, prefix, chat=None) -> List:
     if len(pairs) > 100:
         pairs = pairs[modulo_page * 100:100 * (modulo_page + 1)] + [
             (EqInlineKeyboardButton("⬅️", callback_data="{}_prev({})".format(prefix, modulo_page)),
-                EqInlineKeyboardButton(f"{Fonts.san('Back')}", callback_data="vegeta_back"),
+                EqInlineKeyboardButton(f"{TextFont('Back')}", callback_data="vegeta_back"),
              EqInlineKeyboardButton("➡️", callback_data="{}_next({})".format(prefix, modulo_page)))]
 
     else:
-        pairs += [[EqInlineKeyboardButton(f"{Fonts.san('Back')}", callback_data="vegeta_back")]]
+        pairs += [[EqInlineKeyboardButton(f"{TextFont('➡️ Back ⬅️')}", callback_data="vegeta_back")]]
 
     return pairs
 
