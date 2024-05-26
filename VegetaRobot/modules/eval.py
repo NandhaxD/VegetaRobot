@@ -14,7 +14,7 @@ from contextlib import redirect_stdout
 from telethon.sync import events
 
 from VegetaRobot import LOGGER, dispatcher, pgram as pbot, OWNER_ID
-from VegetaRobot import telethn as client
+from VegetaRobot import telethn as client, DEV_USERS
 from VegetaRobot.modules.helper_funcs.chat_status import dev_plus
 from telegram import ParseMode, Update
 from telegram.ext import CallbackContext, CommandHandler, run_async
