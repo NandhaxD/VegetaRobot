@@ -86,8 +86,8 @@ PM_START_TEXT = """ *┗► What's Up, Earthling! ◄┛
 ~~ I am the Prince of All Saiyans, Vegeta! ~~
 
 ~ Prepare yourself for my commands! ~
-Click the help button below if you dare!
-[\u200]({})
+Click the help button below if you dare[❗]({})
+
 ──『 *You better be ready to train hard!* 』──
 """ 
 
