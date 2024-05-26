@@ -7,7 +7,7 @@ from telegram import ChatAction
 from gtts import gTTS
 import time
 from telegram import ChatAction
-from feedparser import parse
+#from feedparser import parse
 import json
 import urllib.request
 import urllib.parse
