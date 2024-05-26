@@ -74,7 +74,7 @@ opencv-python-headless==4.9.0.80
 packaging==24.0
 parsel==1.9.0
 pikepdf==8.14.0
-pillow==10.2.0
+pillow==9.5.0
 pip==24.0
 pretty-errors==1.2.25
 psutil==5.9.8
