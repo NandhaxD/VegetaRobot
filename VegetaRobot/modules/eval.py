@@ -28,7 +28,7 @@ async def pyroaexec(code, pbot, message, my, m, r, ru):
         "async def __pyroaexec(pbot, message, my, m, r, ru): "
         + "".join(f"\n {l_}" for l_ in code.split("\n"))
     )
-    return await locals()["__aexec"](pbot, message, my, m, r, ru)
+    return await locals()["__pyroaexec"](pbot, message, my, m, r, ru)
 
 
  
@@ -114,9 +114,10 @@ def namespace_of(chat, update, bot):
         namespaces[chat] = {
             '__builtins__': globals()['__builtins__'],
             'bot': bot,
-            'effective_message': update.effective_message,
-            'effective_user': update.effective_user,
-            'effective_chat': update.effective_chat,
+	    'reply': update.effective_message.reply_to_message,
+            'message': update.effective_message,
+            'user': update.effective_user,
+            'chat': update.effective_chat,
             'update': update
         }
 
@@ -126,8 +127,8 @@ def namespace_of(chat, update, bot):
 def log_input(update):
     user = update.effective_user.id
     chat = update.effective_chat.id
-    LOGGER.info(
-        f"IN: {update.effective_message.text} (user={user}, chat={chat})")
+  #  LOGGER.info(
+  #      f"IN: {update.effective_message.text} (user={user}, chat={chat})")
 
 
 def send(msg, bot, update):
@@ -137,11 +138,15 @@ def send(msg, bot, update):
             bot.send_document(
                 chat_id=update.effective_chat.id, document=out_file)
     else:
-        LOGGER.info(f"OUT: '{msg}'")
+       # LOGGER.info(f"OUT: '{msg}'")
         bot.send_message(
             chat_id=update.effective_chat.id,
-            text=f"`{msg}`",
-            parse_mode=ParseMode.MARKDOWN)
+            text=(
+	      f"*Output*:\n\n`{msg}`"
+	    ),
+            parse_mode=ParseMode.MARKDOWN,
+	    reply_to_message_id=update.effective_message.message_id
+	)
 
 
 @dev_plus
@@ -292,4 +297,4 @@ dispatcher.add_handler(EVAL_HANDLER)
 dispatcher.add_handler(EXEC_HANDLER)
 dispatcher.add_handler(CLEAR_HANDLER)
 
-__mod_name__ = "🔥ᴇᴠᴀʟ"
+__mod_name__ = "🔥 Eval"
