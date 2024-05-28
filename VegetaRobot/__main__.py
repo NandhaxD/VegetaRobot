@@ -52,6 +52,11 @@ from telegram.ext import (
 from telegram.ext.dispatcher import DispatcherHandlerStop, run_async
 from telegram.utils.helpers import escape_markdown
 
+from VegetaRobot.utils.fonts import Fonts
+
+
+
+TextFont = Fonts.san
 
 def get_readable_time(seconds: int) -> str:
     count = 0
@@ -95,17 +100,17 @@ Click the help button below if you dare* [❗]({})
 buttons = [
     [
         InlineKeyboardButton(
-                            text="☑ ADD VEGETA TO YOUR GROUP ☑",
+                            text=f"{TextFont("☑ ADD VEGETA TO GROUP ☑")}",
                             url=f"t.me/{BOT_USERNAME}?startgroup=true"),
                     ],
                      [
-                       InlineKeyboardButton(text="SUPPORT", url=f"https://t.me/{SUPPORT_CHAT}"),
-                       InlineKeyboardButton(text="UPDATES",  url=f"https://t.me/{UPDATES_CHANNEL}"),
+                       InlineKeyboardButton(text=f"{TextFont("SUPPORT")}", url=f"https://t.me/{SUPPORT_CHAT}"),
+                       InlineKeyboardButton(text=f"{TextFont("UPDATES")}",  url=f"https://t.me/{UPDATES_CHANNEL}"),
                     ],
                    [
-                       InlineKeyboardButton(text="NETWORK", url=f"https://t.me/nandhabots"),
-                       InlineKeyboardButton(text="LOGS", url=f"https://t.me/vegetalogs"),
-                ],[ InlineKeyboardButton(text="COMMANDS HELP", callback_data="help_back"
+                       InlineKeyboardButton(text=f"{TextFont("NETWORK")}", url=f"https://t.me/nandhabots"),
+                       InlineKeyboardButton(text=f"{TextFont("LOGS")}", url=f"https://t.me/vegetalogs"),
+                ],[ InlineKeyboardButton(text=f"{TextFont("COMMANDS HELP")}", callback_data="help_back"
          ),
     ],
 ] 
@@ -242,8 +247,8 @@ def start(update: Update, context: CallbackContext):
         reply_markup=InlineKeyboardMarkup(
                 [
                   [
-                  InlineKeyboardButton(text="SUPPORT", url=f"https://telegram.dog/{SUPPORT_CHAT}"),
-                  InlineKeyboardButton(text="UPDATES", url=f"t.me/{UPDATES_CHANNEL}"),
+                  InlineKeyboardButton(text=f"{TextFont('SUPPORT')}", url=f"https://telegram.dog/{SUPPORT_CHAT}"),
+                  InlineKeyboardButton(text=f"{TextFont('UPDATES')}", url=f"t.me/{UPDATES_CHANNEL}"),
                   ]
                 ]
             ),
@@ -332,8 +337,8 @@ def help_button(update, context):
                 text,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
-                    [[InlineKeyboardButton(text="⬅ ʙᴀᴄᴋ", callback_data="help_back"),
-                      InlineKeyboardButton(text="⬅ ʜᴏᴍᴇ", callback_data="vegeta_back")]]
+                    [[InlineKeyboardButton(text=f"{TextFont('⬅ back')}", callback_data="help_back"),
+                      InlineKeyboardButton(text=f"{TextFont('⬅ Home')}", callback_data="vegeta_back")]]
                 ),
             )
 
@@ -403,7 +408,7 @@ def get_help(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                text="Help",
+                                text=f"{TextFont("Help")}",
                                 url="t.me/{}?start=ghelp_{}".format(
                                     context.bot.username, module
                                 ),
@@ -418,9 +423,9 @@ def get_help(update: Update, context: CallbackContext):
             reply_markup=InlineKeyboardMarkup(
                 
                 [
-                    [ InlineKeyboardButton(text="ᴏᴘᴇɴ ɪɴ ᴘʀɪᴠᴀᴛᴇ", url=f"https://t.me/{BOT_USERNAME}?start=help"),
+                    [ InlineKeyboardButton(text=f"{TextFont('Open in private')}", url=f"https://t.me/{BOT_USERNAME}?start=help"),
                       ],[  InlineKeyboardButton(
-                            text="ᴏᴘᴇɴ ʜᴇʀᴇ",
+                            text=f"{TextFont('Open here')}",
                             callback_data="help_back"
                         )
                     ]
@@ -441,7 +446,7 @@ def get_help(update: Update, context: CallbackContext):
             chat.id,
             text,
             InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Back", callback_data="help_back")]]
+                [[InlineKeyboardButton(text=f"{TextFont('Back')}", callback_data="help_back")]]
             ),
         )
 
@@ -514,7 +519,7 @@ def settings_button(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                text="Back",
+                                text=f"{TextFont("Back")}",
                                 callback_data="stngs_back({})".format(chat_id),
                             )
                         ]
@@ -590,7 +595,7 @@ def get_settings(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                text="Settings",
+                                text=f"{TextFont("Settings")}",
                                 url="t.me/{}?start=stngs_{}".format(
                                     context.bot.username, chat.id
                                 ),
