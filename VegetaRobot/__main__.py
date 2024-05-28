@@ -100,12 +100,12 @@ Click the help button below if you dare* [❗]({})
 buttons = [
     [
         InlineKeyboardButton(
-                            text=f"{TextFont("☑ ADD VEGETA TO GROUP ☑")}",
+                            text=f"{TextFont('ADD VEGETA TO GROUP')}",
                             url=f"t.me/{BOT_USERNAME}?startgroup=true"),
                     ],
                      [
-                       InlineKeyboardButton(text=f"{TextFont("SUPPORT")}", url=f"https://t.me/{SUPPORT_CHAT}"),
-                       InlineKeyboardButton(text=f"{TextFont("UPDATES")}",  url=f"https://t.me/{UPDATES_CHANNEL}"),
+                       InlineKeyboardButton(text=f"{TextFont('SUPPORT')}", url=f"https://t.me/{SUPPORT_CHAT}"),
+                       InlineKeyboardButton(text=f"{TextFont('UPDATES')}",  url=f"https://t.me/{UPDATES_CHANNEL}"),
                     ],
                    [
                        InlineKeyboardButton(text=f"{TextFont("NETWORK")}", url=f"https://t.me/nandhabots"),
