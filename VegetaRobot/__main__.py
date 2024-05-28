@@ -108,9 +108,9 @@ buttons = [
                        InlineKeyboardButton(text=f"{TextFont('UPDATES')}",  url=f"https://t.me/{UPDATES_CHANNEL}"),
                     ],
                    [
-                       InlineKeyboardButton(text=f"{TextFont("NETWORK")}", url=f"https://t.me/nandhabots"),
-                       InlineKeyboardButton(text=f"{TextFont("LOGS")}", url=f"https://t.me/vegetalogs"),
-                ],[ InlineKeyboardButton(text=f"{TextFont("COMMANDS HELP")}", callback_data="help_back"
+                       InlineKeyboardButton(text=f"{TextFont('NETWORK')}", url=f"https://t.me/nandhabots"),
+                       InlineKeyboardButton(text=f"{TextFont('LOGS')}", url=f"https://t.me/vegetalogs"),
+                ],[ InlineKeyboardButton(text=f"{TextFont('COMMANDS HELP')}", callback_data="help_back"
          ),
     ],
 ] 
@@ -213,7 +213,7 @@ def start(update: Update, context: CallbackContext):
                     update.effective_chat.id,
                     HELPABLE[mod].__help__,
                     InlineKeyboardMarkup(
-                        [[InlineKeyboardButton(text="⬅Back", callback_data="help_back")]]
+                        [[InlineKeyboardButton(text=f"{TextFont('⬅Back')}", callback_data="help_back")]]
                     ),
                 )
 
@@ -280,7 +280,11 @@ def error_handler(update, context):
     if len(message) >= 4096:
         message = message[:4096]
     # Finally, send the message
-    context.bot.send_message(chat_id=OWNER_ID, text=message, parse_mode=ParseMode.HTML)
+    context.bot.send_message(
+      chat_id=OWNER_ID, 
+      text=message, 
+      parse_mode=ParseMode.HTML
+    )
 
 
 # for test purposes
@@ -408,7 +412,7 @@ def get_help(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                text=f"{TextFont("Help")}",
+                                text=f"{TextFont('Help')}",
                                 url="t.me/{}?start=ghelp_{}".format(
                                     context.bot.username, module
                                 ),
@@ -519,7 +523,7 @@ def settings_button(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                text=f"{TextFont("Back")}",
+                                text=f"{TextFont('Back')}",
                                 callback_data="stngs_back({})".format(chat_id),
                             )
                         ]
@@ -595,7 +599,7 @@ def get_settings(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                text=f"{TextFont("Settings")}",
+                                text=f"{TextFont('Settings')}",
                                 url="t.me/{}?start=stngs_{}".format(
                                     context.bot.username, chat.id
                                 ),
