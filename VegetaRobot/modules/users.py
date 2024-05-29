@@ -55,7 +55,9 @@ def get_user_id(username):
 
 
 
-@pgram.on_message(filters.user(OWNER_ID) & filters.command(['bcastgroup','bcastuser']))
+@pgram.on_message(filters.user(OWNER_ID) & filters.command(
+  ['bcastgroup','bcastuser', 'fbcastgroup','fbcastuser']
+))
 async def broadcast(bot: pgram, message: types.Message):
    m = message
    reply = m.reply_to_message
@@ -83,9 +85,9 @@ async def broadcast(bot: pgram, message: types.Message):
                   await asyncio.sleep(5)
             try:
                 await (bot.forward_messages if is_forward else bot.copy_message)(
-                    chat_id=int(chat['chat_id']),
-                    from_chat_id=chat_id,
-                    message_id=reply.id
+                    int(chat.chat_id),
+                    chat_id,
+                    reply.id
                 )
                 done += 1
             except Exception:
@@ -97,14 +99,14 @@ async def broadcast(bot: pgram, message: types.Message):
 
 
             if done % 5 == 0:
-                  await msg.edit_text(f'**Successfully broadcast sent to {done} chats loop processing. ❤️**.')
+                  await msg.edit_text(f"Successfully broadcast sent to {done} chats and loop processing...")
                   await asyncio.sleep(5)
               
             try:
                 await (bot.forward_messages if is_forward else bot.copy_message)(
-                    chat_id=int(user['user_id']),
-                    from_chat_id=chat_id,
-                    message_id=reply.id
+                    int(user.user_id),
+                    chat_id,
+                    reply.id
                 )
                 done += 1
             except Exception:
