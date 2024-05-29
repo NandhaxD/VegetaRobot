@@ -136,7 +136,10 @@ def send(msg, bot, update):
         with io.BytesIO(str.encode(msg)) as out_file:
             out_file.name = "output.txt"
             bot.send_document(
-                chat_id=update.effective_chat.id, document=out_file)
+                chat_id=update.effective_chat.id,
+		document=out_file,
+	        thumb=thumb
+	    )
     else:
        # LOGGER.info(f"OUT: '{msg}'")
         bot.send_message(
