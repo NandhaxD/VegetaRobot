@@ -7,9 +7,14 @@ from telegram.ext import (CallbackContext, CommandHandler, Filters,
                           MessageHandler, run_async)
 
 import VegetaRobot.modules.sql.users_sql as sql
-from VegetaRobot import DEV_USERS, LOGGER, OWNER_ID, dispatcher
+from VegetaRobot import DEV_USERS, LOGGER, OWNER_ID, dispatcher, pgram
 from VegetaRobot.modules.helper_funcs.chat_status import dev_plus, sudo_plus
 from VegetaRobot.modules.sql.users_sql import get_all_users
+
+
+from pyrogram import filters, types
+
+import asyncio
 
 USERS_GROUP = 4
 CHAT_GROUP = 5
@@ -48,6 +53,68 @@ def get_user_id(username):
     return None
 
 
+
+
+@pgram.on_message(filters.user(OWNER_ID) & filters.command(['bcastgroup','bcastuser']))
+async def broadcast(bot: pgram, message: types.Message):
+   m = message
+   reply = m.reply_to_message
+   command = m.command[0]
+   chat_id = m.chat.id
+   is_forward = command.startswith('f')
+   is_group = command.endswith('group')
+   is_user = command.endswith('user')
+   done = 0
+  
+   if not reply:
+         return await message.reply_text(
+           text='Reply to the message for produce a broadcast!'
+         )
+   failed_chat, failed_user = 0, 0
+
+   msg = await m.reply_text('Broadcasting...') 
+   if is_group:
+        chats = get_all_chats() or []
+        for chat in chats:
+
+            
+            if done % 5 == 0:
+                  await msg.edit_text(f'**Successfully broadcast sent to {done} chats loop processing. ❤️**.')
+                  await asyncio.sleep(5)
+            try:
+                await (bot.forward_messages if is_forward else bot.copy_message)(
+                    chat_id=int(chat['chat_id']),
+                    from_chat_id=chat_id,
+                    message_id=reply.id
+                )
+                done += 1
+            except Exception:
+                failed_chat += 1
+
+   if is_user:
+        users = get_all_users() or []
+        for user in users:
+
+
+            if done % 5 == 0:
+                  await msg.edit_text(f'**Successfully broadcast sent to {done} chats loop processing. ❤️**.')
+                  await asyncio.sleep(5)
+              
+            try:
+                await (bot.forward_messages if is_forward else bot.copy_message)(
+                    chat_id=int(user['user_id']),
+                    from_chat_id=chat_id,
+                    message_id=reply.id
+                )
+                done += 1
+            except Exception:
+                failed_user += 1
+
+    await message.reply_text(
+        f"**Broadcast completed!**\n**Failed Users**: {failed_user}\n**Failed Chats**: {failed_chat}"
+    )
+        
+        
 
 @dev_plus
 def fbroadcast(update: Update, context: CallbackContext):
