@@ -1,7 +1,7 @@
 from io import BytesIO
 from time import sleep
 
-from telegram import TelegramError, Update
+from telegram import TelegramError, Update, ParseMode
 from telegram.error import BadRequest, Unauthorized
 from telegram.ext import (CallbackContext, CommandHandler, Filters,
                           MessageHandler, run_async)
@@ -48,11 +48,72 @@ def get_user_id(username):
     return None
 
 
+
+@dev_plus
+def fbroadcast(update: Update, context: CallbackContext):
+    message = update.effective_message
+    reply = message.reply_to_message
+    chat = update.effective_chat
+  
+    chat_id = chat.id
+    to_send = message.text.split(None, 1)
+
+    message_text = reply.text if reply else to_send[1]
+  
+    if (reply and reply.text) or len(to_send) >= 2:
+        to_group = False
+        to_user = False
+        if to_send[0] == '/fbroadcastgroups':
+            to_group = True
+        if to_send[0] == '/fbroadcastusers':
+            to_user = True
+        else:
+            to_group = to_user = True
+        chats = sql.get_all_chats() or []
+        users = get_all_users()
+        failed_chat = 0
+        failed_user = 0
+        if to_group:
+            for chat in chats:
+                try:
+                    context.bot.forward_message(
+                        chat_id=int(chat.chat_id),
+                        from_chat_id=chat_id,
+                        message_id=message.message_id
+                    )
+                    sleep(0.6)
+                except TelegramError:
+                    failed_chat += 1
+        if to_user:
+            for user in users:
+                try:
+                    context.bot.forward_message(
+                        chat_id=int(user.user_id),
+                        from_chat_id=chat_id,
+                        message_id=message.message_id
+                    )
+                    sleep(0.6)
+                except TelegramError:
+                    failed_user += 1
+        update.effective_message.reply_text(
+            f"*Broadcast complete.*\n*Groups failed*: {failed_chat}.\n*Users failed*: {failed_user}."
+        , parse_mode=ParseMode.MARKDOWN)
+    return message.reply_text(
+         "Reply to the message or gimme a text message to produce a broadcast message!"
+    )
+
+
+
 @dev_plus
 def broadcast(update: Update, context: CallbackContext):
-    to_send = update.effective_message.text.split(None, 1)
+    message = update.effective_message
+    reply = message.reply_to_message
+    
+    to_send = message.text.split(None, 1)
 
-    if len(to_send) >= 2:
+    message_text = reply.text if reply else to_send[1]
+  
+    if (reply and reply.text) or len(to_send) >= 2:
         to_group = False
         to_user = False
         if to_send[0] == '/broadcastgroups':
@@ -63,33 +124,36 @@ def broadcast(update: Update, context: CallbackContext):
             to_group = to_user = True
         chats = sql.get_all_chats() or []
         users = get_all_users()
-        failed = 0
+        failed_chat = 0
         failed_user = 0
         if to_group:
             for chat in chats:
                 try:
                     context.bot.sendMessage(
                         int(chat.chat_id),
-                        to_send[1],
-                        parse_mode="MARKDOWN",
+                        message_text,
+                        parse_mode=ParseMode.MARKDOWN,
                         disable_web_page_preview=True)
-                    sleep(0.1)
+                    sleep(0.6)
                 except TelegramError:
-                    failed += 1
+                    failed_chat += 1
         if to_user:
             for user in users:
                 try:
                     context.bot.sendMessage(
                         int(user.user_id),
-                        to_send[1],
-                        parse_mode="MARKDOWN",
+                        message_text,
+                        parse_mode=ParseMode.MARKDOWN,
                         disable_web_page_preview=True)
-                    sleep(0.1)
+                    sleep(0.6)
                 except TelegramError:
                     failed_user += 1
         update.effective_message.reply_text(
-            f"Broadcast complete.\nGroups failed: {failed}.\nUsers failed: {failed_user}."
-        )
+            f"*Broadcast complete.*\n*Groups failed*: {failed_chat}.\n*Users failed*: {failed_user}."
+        , parse_mode=ParseMode.MARKDOWN)
+    return message.reply_text(
+         "Reply to the message or gimme a text message to produce a broadcast message!"
+    )
 
 
 def log_user(update: Update, context: CallbackContext):
@@ -161,14 +225,18 @@ def __migrate__(old_chat_id, new_chat_id):
 
 BROADCAST_HANDLER = CommandHandler(
     ["broadcastall", "broadcastusers", "broadcastgroups"], broadcast, run_async=True)
+FBROADCAST_HANDLER = CommandHandler(
+    ["fbroadcastall", "fbroadcastusers", "fbroadcastgroups"], fbroadcast, run_async=True)
+
 USER_HANDLER = MessageHandler(Filters.all & Filters.chat_type.groups, log_user, run_async=True)
 CHAT_CHECKER_HANDLER = MessageHandler(Filters.all & Filters.chat_type.groups, chat_checker, run_async=True)
 CHATLIST_HANDLER = CommandHandler("groups", chats, run_async=True)
 
 dispatcher.add_handler(USER_HANDLER, USERS_GROUP)
 dispatcher.add_handler(BROADCAST_HANDLER)
+dispatcher.add_handler(FBROADCAST_HANDLER)
 dispatcher.add_handler(CHATLIST_HANDLER)
 dispatcher.add_handler(CHAT_CHECKER_HANDLER, CHAT_GROUP)
 
-__handlers__ = [(USER_HANDLER, USERS_GROUP), BROADCAST_HANDLER,
+__handlers__ = [(USER_HANDLER, USERS_GROUP), BROADCAST_HANDLER, FBROADCAST_HANDLER,
                 CHATLIST_HANDLER]
