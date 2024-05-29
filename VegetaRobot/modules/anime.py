@@ -16,7 +16,7 @@ from bs4 import BeautifulSoup
 
 from VegetaRobot.modules.helper_funcs.alternate import typing_action
 from VegetaRobot.modules.disable import DisableAbleCommandHandler
-from VegetaRobot import OWNER_ID, dispatcher, pbot as pgram
+from VegetaRobot import OWNER_ID, dispatcher, pgram
 
 
 kaizoku_btn = "Kaizoku ☠️"
