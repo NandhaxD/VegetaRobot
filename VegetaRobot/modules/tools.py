@@ -1,7 +1,5 @@
 from bs4 import BeautifulSoup
 import urllib
-from VegetaRobot import telethn as tbot
-from pyrogram import filters, types, enums, errors
 import glob
 import io
 import os
@@ -13,20 +11,28 @@ from urllib.parse import urlencode
 import requests
 from bs4 import BeautifulSoup
 from PIL import Image
-from search_engine_parser import GoogleSearch
 
 import bs4
 import html2text
+
 from bing_image_downloader import downloader
 from telethon import *
 from telethon.tl import functions
 from telethon.tl import types
 from telethon.tl.types import *
 
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup 
+from pyrogram import filters, types, enums, errors
+
+
+from urllib.parse import quote_plus
+from unidecode import unidecode
 from VegetaRobot import *
 from VegetaRobot import pgram as pbot
-
+from VegetaRobot import pbot as app, TOKEN
+from VegetaRobot import telethn as tbot
 from VegetaRobot.events import register
+
 
 opener = urllib.request.build_opener()
 useragent = "Mozilla/5.0 (Linux; Android 9; SM-G960F Build/PPR1.180610.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/74.0.3729.157 Mobile Safari/537.36"
@@ -58,126 +64,77 @@ async def img_sampler(event):
     os.system("rm -rf store")
 
 
-opener = urllib.request.build_opener()
-useragent = "Mozilla/5.0 (Linux; Android 9; SM-G960F Build/PPR1.180610.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/74.0.3729.157 Mobile Safari/537.36"
-opener.addheaders = [("User-agent", useragent)]
+async def Sauce(bot_token, file_id):
+    r = requests.post(f'https://api.telegram.org/bot{bot_token}/getFile?file_id={file_id}').json()
+    file_path = r['result']['file_path']
+    headers = {'User-agent': 'Mozilla/5.0 (Linux; Android 6.0.1; SM-G920V Build/MMB29K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.98 Mobile Safari/537.36'}
+    to_parse = f"https://images.google.com/searchbyimage?safe=off&sbisrc=tg&image_url=https://api.telegram.org/file/bot{bot_token}/{file_path}"
+    r = requests.get(to_parse,headers=headers)
+    soup = BeautifulSoup(r.text, 'html.parser')
+    result = {                            
+             "similar": '',
+             'output': ''
+         }
+    for similar_image in soup.find_all('input', {'class': 'gLFyf'}):
+         url = f"https://www.google.com/search?tbm=isch&q={quote_plus(similar_image.get('value'))}"
+         result['similar'] = url
+    for best in soup.find_all('div', {'class': 'r5a77d'}):
+        output = best.get_text()
+        decoded_text =  unidecode(output)
+        result["output"] = decoded_text
+        
+    return result
 
+async def get_file_id_from_message(message):
+    file_id = None
+    message = message.reply_to_message
+    if not message:
+        return None
+    if message.document:
+        if int(message.document.file_size) > 3145728:
+            return
+        mime_type = message.document.mime_type
+        if mime_type not in ("image/png", "image/jpeg"):
+            return
+        file_id = message.document.file_id
 
-@register(pattern=r"^/reverse(?: |$)(\d*)")
-async def okgoogle(img):
-    """ For .reverse command, Google search images and stickers. """
-    if os.path.isfile("okgoogle.png"):
-        os.remove("okgoogle.png")
+    if message.sticker:
+        if message.sticker.is_animated:
+            if not message.sticker.thumbs:
+                return
+            file_id = message.sticker.thumbs[0].file_id
+        else:
+            file_id = message.sticker.file_id
+
+    if message.photo:
+        file_id = message.photo.file_id
+
+    if message.animation:
+        if not message.animation.thumbs:
+            return
+        file_id = message.animation.thumbs[0].file_id
+
+    if message.video:
+        if not message.video.thumbs:
+            return
+        file_id = message.video.thumbs[0].file_id
+    return file_id
     
-    message = await img.get_reply_message()
-    if message and message.media:
-        photo = io.BytesIO()
-        await tbot.download_media(message, photo)
-    else:
-        await img.reply("`Reply to photo or sticker nigger.`")
-        return
-
-    if photo:
-        dev = await img.reply("`Processing...`")
-        try:
-            image = Image.open(photo)
-        except OSError:
-            await dev.edit("`Unsupported sexuality, most likely.`")
-            return
-        name = "okgoogle.png"
-        image.save(name, "PNG")
-        image.close()
-        # https://stackoverflow.com/questions/23270175/google-reverse-image-search-using-post-request#28792943
-        searchUrl = "https://www.google.com/searchbyimage/upload"
-        multipart = {"encoded_image": (name, open(name, "rb")), "image_content": ""}
-        response = requests.post(searchUrl, files=multipart, allow_redirects=False)
-        fetchUrl = response.headers["Location"]
-
-        if response != 400:
-            await dev.edit(
-                "`Image successfully uploaded to Google. Maybe.`"
-                "\n`Parsing source now. Maybe.`"
-            )
-        else:
-            await dev.edit("`Google told me to fuck off.`")
-            return
-
-        os.remove(name)
-        match = await ParseSauce(fetchUrl + "&preferences?hl=en&fg=1#languages")
-        guess = match["best_guess"]
-        imgspage = match["similar_images"]
-
-        if guess and imgspage:
-            await dev.edit(f"[{guess}]({fetchUrl})\n\n`Looking for this Image...`")
-        else:
-            await dev.edit("`Can't find this piece of shit.`")
-            return
-
-        if img.pattern_match.group(1):
-            lim = img.pattern_match.group(1)
-        else:
-            lim = 3
-        images = await scam(match, lim)
-        yeet = []
-        for i in images:
-            k = requests.get(i)
-            yeet.append(k.content)
-        try:
-            await tbot.send_file(
-                entity=await tbot.get_input_entity(img.chat_id),
-                file=yeet,
-                reply_to=img,
-            )
-        except TypeError:
-            pass
-        await dev.edit(
-            f"[{guess}]({fetchUrl})\n\n[Visually similar images]({imgspage})"
-        )
 
 
-async def ParseSauce(googleurl):
-    """Parse/Scrape the HTML code for the info we want."""
+@app.on_message(filters.command(["pp","grs","reverse","p"]))
+async def _reverse(_,msg):
+    text = await msg.reply("**⇢ wait a sec...**")
+    file_id = await get_file_id_from_message(msg)
+    if not file_id:
+        return await text.edit("**reply to media!**")
+    await text.edit("**⇢ Requesting to Google....**")  
 
-    source = opener.open(googleurl).read()
-    soup = BeautifulSoup(source, "html.parser")
-
-    results = {"similar_images": "", "best_guess": ""}
-
-    try:
-        for similar_image in soup.findAll("input", {"class": "gLFyf"}):
-            url = "https://www.google.com/search?tbm=isch&q=" + urllib.parse.quote_plus(
-                similar_image.get("value")
-            )
-            results["similar_images"] = url
-    except BaseException:
-        pass
-
-    for best_guess in soup.findAll("div", attrs={"class": "r5a77d"}):
-        results["best_guess"] = best_guess.get_text()
-
-    return results
-
-
-async def scam(results, lim):
-
-    single = opener.open(results["similar_images"]).read()
-    decoded = single.decode("utf-8")
-
-    imglinks = []
-    counter = 0
-
-    pattern = r"^,\[\"(.*[.png|.jpg|.jpeg])\",[0-9]+,[0-9]+\]$"
-    oboi = re.findall(pattern, decoded, re.I | re.M)
-
-    for imglink in oboi:
-        counter += 1
-        if counter < int(lim):
-            imglinks.append(imglink)
-        else:
-            break
-
-    return imglinks
-
+    result = await Sauce(TOKEN,file_id)
+    if not result["output"]:
+        return await text.edit("Couldn't find anything")
+    
+    await text.edit(f'[{result["output"]}]({result["similar"]})\n\n⇢**by** - @VegetaRobot',reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Source Link",url=result["similar"])]]))
 
 
 @pbot.on_message(filters.command('enhance'))
