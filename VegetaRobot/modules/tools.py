@@ -303,6 +303,7 @@ __help__ = """
  ✪︎ /tr reply: Translate text messages.
  ✪︎ /share <text>: Share messages with other users.
  ✪︎ /paste reply: paste your code or text in web protocols
+ ✪︎ /carbon: reply to the message text
 
 *Zip a files And Unzip files*
  ❍ /zip: reply to a telegram file to compress it in .zip format
