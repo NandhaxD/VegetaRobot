@@ -76,10 +76,14 @@ async def broadcast(bot: pgram, message: types.Message):
 
    msg = await m.reply_text('Broadcasting...') 
    if is_group:
-        chats = get_all_chats() or []
+        chats = sql.get_all_chats() or []
+
+
         for chat in chats:
 
-            
+
+            done += 1
+          
             if done % 5 == 0:
                   await msg.edit_text(f'**Successfully broadcast sent to {done} chats loop processing. ❤️**.')
                   await asyncio.sleep(5)
@@ -89,17 +93,19 @@ async def broadcast(bot: pgram, message: types.Message):
                     chat_id,
                     reply.id
                 )
-                done += 1
+                
             except Exception:
                 failed_chat += 1
 
    if is_user:
-        users = get_all_users() or []
+        users = sql.get_all_users() or []
         for user in users:
 
-
+            done += 1
             if done % 5 == 0:
-                  await msg.edit_text(f"Successfully broadcast sent to {done} chats and loop processing...")
+                  await msg.edit_text(
+                    f"Successfully broadcast sent to {done} group chats and loop processing..."
+                  )
                   await asyncio.sleep(5)
               
             try:
@@ -108,7 +114,7 @@ async def broadcast(bot: pgram, message: types.Message):
                     chat_id,
                     reply.id
                 )
-                done += 1
+                
             except Exception:
                 failed_user += 1
    await msg.edit_text(
