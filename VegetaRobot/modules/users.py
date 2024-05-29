@@ -109,8 +109,7 @@ async def broadcast(bot: pgram, message: types.Message):
                 done += 1
             except Exception:
                 failed_user += 1
-
-    await message.reply_text(
+   await msg.edit_text(
         f"**Broadcast completed!**\n**Failed Users**: {failed_user}\n**Failed Chats**: {failed_chat}"
     )
         
