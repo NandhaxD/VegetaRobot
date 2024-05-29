@@ -19,12 +19,13 @@ def send(update: Update, context: CallbackContext):
     bot = context.bot
     try:
         chat_id = str(args[0])
-        message_text = ''.join(args[1:])
+        message_text = ' '.join(args[1:])
         if not message_text:
-            update.effective_message.reply_text(
-            "Please give me a message text to echo!")
+            return update.effective_message.reply_text(
+            "Please give me a message text to echo!"
+            )
     except:
-        update.effective_message.reply_text(
+        return update.effective_message.reply_text(
             "Please give me a chat and message text to echo!")
     
     try:
@@ -35,7 +36,7 @@ def send(update: Update, context: CallbackContext):
             , parse_mode=ParseMode.MARKDOWN)
     except Exception as e:
             LOGGER.warning("Couldn't send to group %s", str(chat_id))
-            update.effective_message.reply_text(
+            return update.effective_message.reply_text(
                 f"❌ Errors occur: `{e}`"
             )
 
