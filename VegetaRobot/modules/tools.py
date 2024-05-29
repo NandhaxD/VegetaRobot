@@ -6,6 +6,7 @@ import glob
 import io
 import os
 import re
+import base64
 import aiohttp
 import urllib.request
 from urllib.parse import urlencode
@@ -179,6 +180,49 @@ async def scam(results, lim):
 
 
 
+@pbot.on_message(filters.command('enhance'))
+async def enchance(_, message):
+      reply = message.reply_to_message
+      if not reply and (not reply.photo or reply.sticker):
+            return await message.reply_text('⛔ Reply to the photo....')
+      else:
+           path = await reply.download(file_name=f"{message.from_user.id}.jpeg")
+           msg = await message.reply_text("Wait a movement we're processing your request.")
+           with open(path, 'rb') as file:
+                 photo = file.read()
+           encoded_image_data = base64.b64encode(photo).decode('utf-8')
+           url = 'https://apis-awesome-tofu.koyeb.app/api/remini?mode=enhance'
+           headers = {
+                 'accept': 'image/jpg',
+                 'Content-Type': 'application/json' 
+           }
+           data = { "imageData": encoded_image_data }
+           try:
+              response = requests.post(
+                    url, 
+                    headers=headers, 
+                    json=data
+              )
+              await msg.edit('✨ Almost done now... sending photo... ❤️')
+               
+              path = 'enhanced_' + path
+              with open(path, 'wb') as file:
+                 file.write(response.content)
+              
+              if (await message.reply_document(
+                   document=path, quote=True
+              )):
+                   await msg.delete()
+                  
+              
+           except Exception as e:
+                return await message.reply_text(
+                    f"❌ Error occurred when processing: `{e}`"
+                )
+           
+                     
+
+
 # by aditiya
 @pbot.on_message(filters.command(["pinterest","pintst"]))
 async def pinterest(_, message):
@@ -197,7 +241,7 @@ async def pinterest(_, message):
 
      for url in images["images"][:6]:
                   
-          media_group.append(types.InputMediaPhoto(media=url))
+          media_group.append(types.InputMediaPhoto(url))
           count += 1
           await msg.edit(f"=> ✅ Scaped {count}")
 
@@ -223,6 +267,7 @@ __help__ = """
  ❍ /reverse: Does a reverse image search of the media which it was replie.
  
  ✪︎ /pinterest <text>: get pinterst images.
+ ✪︎ /enhance: reply to the photo
  ✪︎ /ud <text>: Search for word definitions.
  ✪︎ /langs: View a list of language codes.
  ✪︎ /tr reply: Translate text messages.
