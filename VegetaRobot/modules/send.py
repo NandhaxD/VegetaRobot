@@ -19,17 +19,17 @@ def send(update: Update, context: CallbackContext):
     bot = context.bot
     try:
         chat_id = str(args[0])
-        message_text = ''.join(str(args[1:]))
+        message_text = ''.join(args[1:])
         if not message_text:
             update.effective_message.reply_text(
             "Please give me a message text to echo!")
     except:
         update.effective_message.reply_text(
             "Please give me a chat and message text to echo!")
-    to_send = message_text
+    
     try:
         chat = bot.getChat(chat_id)
-        bot.sendMessage(chat.id, str(to_send))
+        bot.sendMessage(chat.id, str(message_text))
         update.effective_message.reply_text(
               f"*Successfully message sent to {chat.title}*"
             , parse_mode=ParseMode.MARKDOWN)
