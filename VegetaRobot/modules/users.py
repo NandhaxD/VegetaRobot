@@ -58,9 +58,8 @@ def fbroadcast(update: Update, context: CallbackContext):
     chat_id = chat.id
     to_send = message.text.split(None, 1)
 
-    message_text = reply.text if reply else to_send[1]
-  
-    if (reply and reply.text) or len(to_send) >= 2:
+    
+    if reply:
         to_group = False
         to_user = False
         if to_send[0] == '/fbroadcastgroups':
@@ -79,7 +78,7 @@ def fbroadcast(update: Update, context: CallbackContext):
                     context.bot.forward_message(
                         chat_id=int(chat.chat_id),
                         from_chat_id=chat_id,
-                        message_id=message.message_id
+                        message_id=reply.message_id
                     )
                     sleep(0.6)
                 except TelegramError:
@@ -90,7 +89,7 @@ def fbroadcast(update: Update, context: CallbackContext):
                     context.bot.forward_message(
                         chat_id=int(user.user_id),
                         from_chat_id=chat_id,
-                        message_id=message.message_id
+                        message_id=reply.message_id
                     )
                     sleep(0.6)
                 except TelegramError:
@@ -100,7 +99,7 @@ def fbroadcast(update: Update, context: CallbackContext):
         , parse_mode=ParseMode.MARKDOWN)
     else:
       return message.reply_text(
-         "Reply to the message or gimme a text message to produce a broadcast message!"
+         "Reply to the message for produce a broadcast message!"
     )
 
 
