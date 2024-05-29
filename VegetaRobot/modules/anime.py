@@ -14,9 +14,9 @@ from telegram.utils.helpers import mention_html
 from pyrogram import filters
 from bs4 import BeautifulSoup
 
-from FallenRobot.modules.helper_funcs.alternate import typing_action
-from FallenRobot.modules.disable import DisableAbleCommandHandler
-from FallenRobot import OWNER_ID, dispatcher, pbot as pgram
+from VegetaRobot.modules.helper_funcs.alternate import typing_action
+from VegetaRobot.modules.disable import DisableAbleCommandHandler
+from VegetaRobot import OWNER_ID, dispatcher, pbot as pgram
 
 
 kaizoku_btn = "Kaizoku ☠️"
