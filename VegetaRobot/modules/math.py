@@ -153,4 +153,4 @@ dispatcher.add_handler(ARCCOS_HANDLER)
 dispatcher.add_handler(ARCSIN_HANDLER)
 dispatcher.add_handler(ARCTAN_HANDLER)
 dispatcher.add_handler(ABS_HANDLER)
-dispatcher.add_handler(LOG_HANDLER
+dispatcher.add_handler(LOG_HANDLER)
