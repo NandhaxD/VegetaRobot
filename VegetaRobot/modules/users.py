@@ -98,7 +98,8 @@ def fbroadcast(update: Update, context: CallbackContext):
         update.effective_message.reply_text(
             f"*Broadcast complete.*\n*Groups failed*: {failed_chat}.\n*Users failed*: {failed_user}."
         , parse_mode=ParseMode.MARKDOWN)
-    return message.reply_text(
+    else:
+      return message.reply_text(
          "Reply to the message or gimme a text message to produce a broadcast message!"
     )
 
@@ -151,7 +152,8 @@ def broadcast(update: Update, context: CallbackContext):
         update.effective_message.reply_text(
             f"*Broadcast complete.*\n*Groups failed*: {failed_chat}.\n*Users failed*: {failed_user}."
         , parse_mode=ParseMode.MARKDOWN)
-    return message.reply_text(
+    else:
+      return message.reply_text(
          "Reply to the message or gimme a text message to produce a broadcast message!"
     )
 
