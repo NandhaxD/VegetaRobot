@@ -51,8 +51,14 @@ async def i_do_nothing_yes(event):
 @dev_plus
 def logs(update: Update, context: CallbackContext):
     user = update.effective_user
+    message = update.effective_message
     with open("log.txt", "rb") as f:
-        context.bot.send_document(document=f, filename=f.name, chat_id=user.id)
+        context.bot.send_document(
+            document=f, 
+            filename=f.name,
+            chat_id=user.id,
+            reply_to_message_id=message.message_id
+        )
 
 
 LOG_HANDLER = CommandHandler("logs", logs, run_async=True)
