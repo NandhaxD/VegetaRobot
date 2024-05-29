@@ -524,4 +524,4 @@ dispatcher.add_handler(BLACKLIST_STICKER_HANDLER)
 dispatcher.add_handler(ADDBLACKLIST_STICKER_HANDLER)
 dispatcher.add_handler(UNBLACKLIST_STICKER_HANDLER)
 dispatcher.add_handler(BLACKLISTMODE_HANDLER)
-dispatcher.add_handler(BLACKLIST_STICKER_DEL_HANDLER
+dispatcher.add_handler(BLACKLIST_STICKER_DEL_HANDLER)
