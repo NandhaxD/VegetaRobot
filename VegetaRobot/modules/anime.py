@@ -720,7 +720,7 @@ dispatcher.add_handler(UPCOMING_HANDLER)
 dispatcher.add_handler(KAIZOKU_SEARCH_HANDLER)
 dispatcher.add_handler(KAYO_SEARCH_HANDLER)
 dispatcher.add_handler(ANIMEQUOTES_HANDLER)
-l
+
 
 __mod_name__ = "Anime"
 __command_list__ = [
