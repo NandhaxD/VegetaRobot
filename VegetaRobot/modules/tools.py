@@ -231,20 +231,20 @@ async def pinterest(_, message):
 
 def webss(url: str, user_id: int):
       payload = {
-    "url": url,
-    "width": 1920,
-    "height": 1080,
-    "scale": 1,
-    "full": True,
-    "format": "jpeg"}
+         "url": url,
+         "width": 1920,
+         "height": 1080,
+         "scale": 1,
+         "full": True,
+         "format": "jpeg"}
       response = requests.post("https://webscreenshot.vercel.app/api", data=payload)
       data = response.json()
       b = data["image"].replace("data:image/jpeg;base64,", "")
       file = io.BytesIO(base64.b64decode(b))
-      file.name = f'webss_{user_id}.jpeg'
-      with open(file.name, 'wb') as f:
+      path = f'webss_{user_id}.jpeg'
+      with open(path, 'wb') as f:
            f.write(file.getbuffer())
-      return file.name
+      return path
 
   
 
@@ -260,11 +260,14 @@ async def take_ss(_, message):
       
      text = ' '.join(message.command[1:])
      matches = re.findall(regex, text)
+  
      msg = await message.reply_text("Wait a movement we're processing your request. ✨")
-     if matches:
+     if len(matches) > 0:
           url = matches[0]
           try:
-            document = webss(url, message.from_user.id)
+            document = webss(
+              url, message.from_user.id
+            )
             if (await message.reply_document(
          document=document, quote=True)):
                  await msg.delete()
