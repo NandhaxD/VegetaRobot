@@ -229,6 +229,62 @@ async def pinterest(_, message):
           
 
 
+def webss(url: str, user_id: int):
+      payload = {
+    "url": url,
+    "width": 1920,
+    "height": 1080,
+    "scale": 1,
+    "full": True,
+    "format": "jpeg"}
+      response = requests.post("https://webscreenshot.vercel.app/api", data=payload)
+      data = response.json()
+      b = data["image"].replace("data:image/jpeg;base64,", "")
+      file = io.BytesIO(base64.b64decode(b))
+      file.name = f'webss_{user_id}.jpeg'
+      with open(file.name, 'wb') as f:
+           f.write(file.getbuffer())
+      return file.name
+
+  
+
+
+@pbot.on_message(filters.command('webss'))
+async def take_ss(_, message):
+     regex = r"\b(?:https?|ftp):\/\/[-A-Za-z0-9+&@#\/%?=~_|!:,.;]*[-A-Za-z0-9+&@#\/%=~_|]"
+    
+     if not len(message.command) == 2:
+          return await message.reply_text(
+              "WELL, WELL, where is the url ??"
+          )
+      
+     text = ' '.join(message.command[1:])
+     matches = re.findall(regex, text)
+     msg = await message.reply_text("Wait a movement we're processing your request. ✨")
+     if matches:
+          url = matches[0]
+          try:
+            document = webss(url, message.from_user.id)
+            if (await message.reply_document(
+         document=document, quote=True)):
+                 await msg.delete()
+          except Exception as e:
+               return await msg.edit_text(
+                   f"❌ Error occurred: {e}"
+               )
+     else:
+         return await message.reply_text(
+             "No url detected in text 💀"
+         )
+          
+    
+
+
+
+
+
+
+
 __mod_name__ = "Tools"
 
 __help__ = """
@@ -238,6 +294,7 @@ __help__ = """
  
  ✪︎ /pinterest <text>: get pinterst images.
  ✪︎ /enhance: reply to the photo
+ ✪︎ /webss: take screenshot from website.
  ✪︎ /ud <text>: Search for word definitions.
  ✪︎ /langs: View a list of language codes.
  ✪︎ /tr reply: Translate text messages.
