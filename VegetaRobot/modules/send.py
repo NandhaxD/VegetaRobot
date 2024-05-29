@@ -1,7 +1,7 @@
 from time import sleep
 from typing import Optional, List
 from telegram import TelegramError
-from telegram import Update
+from telegram import Update, ParseMode
 from telegram.error import BadRequest
 from telegram.ext import Filters, CommandHandler
 from telegram.ext.dispatcher import run_async, CallbackContext
@@ -14,37 +14,41 @@ from VegetaRobot.modules.disable import DisableAbleCommandHandler
 USERS_GROUP = 4
 
 
-def snipe(update: Update, context: CallbackContext):
+def send(update: Update, context: CallbackContext):
     args = context.args
     bot = context.bot
     try:
         chat_id = str(args[0])
-        del args[0]
-    except TypeError:
+    except IndexError:
         update.effective_message.reply_text(
             "Please give me a chat to echo to!")
-    to_send = " ".join(args)
-    if len(to_send) >= 2:
+    to_send = " ".join(chat_id)
+    if len(to_send.split()) == 1:
         try:
-            bot.sendMessage(int(chat_id), str(to_send))
-        except TelegramError:
+            chat = bot.getChat(chat_id)
+            bot.sendMessage(chat.id, str(to_send))
+            update.effective_message.reply_text(
+              f"*Successfully message sent to {chat.title}*"
+            , parse_mode=ParseMode.MARKDOWN)
+        except Exception as e:
             LOGGER.warning("Couldn't send to group %s", str(chat_id))
             update.effective_message.reply_text(
-                "Couldn't send the message. Perhaps I'm not part of that group?")
+                f"❌ Errors occur: `{e}`"
+            )
 
 
 __help__ = """
 
 ──「 *Sudo only:* 」──
--> /snipe <chatid> <string>
+-> /send <chat> <string>
 Make me send a message to a specific chat.
 """
 
-__mod_name__ = "Snipe"
+__mod_name__ = "Send"
 
 SNIPE_HANDLER = CommandHandler(
-    "snipe",
-    snipe,
+    "send",
+    send,
     pass_args=True,
     filters=CustomFilters.sudo_filter, run_async=True)
 
