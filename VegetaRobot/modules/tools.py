@@ -29,7 +29,7 @@ from urllib.parse import quote_plus
 from unidecode import unidecode
 from VegetaRobot import *
 from VegetaRobot import pgram as pbot
-from VegetaRobot import pbot as app, TOKEN
+from VegetaRobot import pgram as app, TOKEN
 from VegetaRobot import telethn as tbot
 from VegetaRobot.events import register
 
