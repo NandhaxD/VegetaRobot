@@ -2,6 +2,7 @@
 
 import bs4
 import html
+import random
 import jikanpy
 import datetime
 import textwrap
