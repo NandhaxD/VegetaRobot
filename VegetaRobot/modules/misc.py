@@ -5,6 +5,7 @@ from VegetaRobot import dispatcher
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram import MessageEntity, ParseMode, Update
 from telegram.ext.dispatcher import run_async
+from VegetaRobot.modules.helper_funcs.filters import CustomFilters
 from telegram.ext import CallbackContext, Filters, CommandHandler
 
 MARKDOWN_HELP = f"""
@@ -32,6 +33,32 @@ Keep in mind that your message <b>MUST</b> contain some text other than just a b
 """
 
 
+def send(update: Update, context: CallbackContext):
+    args = context.args
+    bot = context.bot
+    try:
+        chat_id = str(args[0])
+        message_text = ' '.join(args[1:])
+        if not message_text:
+            return update.effective_message.reply_text(
+            "Please give me a message text to echo!"
+            )
+    except:
+        return update.effective_message.reply_text(
+            "Please give me a chat and message text to echo!")
+    
+    try:
+        chat = bot.getChat(chat_id)
+        bot.sendMessage(chat.id, str(message_text))
+        update.effective_message.reply_text(
+              f"*Successfully message sent to {chat.title}*"
+            , parse_mode=ParseMode.MARKDOWN)
+    except Exception as e:
+            LOGGER.warning("Couldn't send to group %s", str(chat_id))
+            return update.effective_message.reply_text(
+                f"❌ Errors occur: `{e}`"
+            )
+        
 @user_admin
 def echo(update: Update, context: CallbackContext):
     args = update.effective_message.text.split(None, 1)
@@ -99,7 +126,14 @@ Reports bugs at @VegetaSupport
 
 ECHO_HANDLER = DisableAbleCommandHandler("echo", echo, filters=Filters.chat_type.groups,run_async=True)
 MD_HELP_HANDLER = CommandHandler("markdownhelp", markdown_help, run_async=True)
+SNIPE_HANDLER = CommandHandler(
+    "send",
+    send,
+    pass_args=True,
+    filters=CustomFilters.sudo_filter, run_async=True)
 
+
+dispatcher.add_handler(SNIPE_HANDLER)
 dispatcher.add_handler(ECHO_HANDLER)
 dispatcher.add_handler(MD_HELP_HANDLER)
 
