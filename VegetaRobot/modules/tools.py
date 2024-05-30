@@ -194,7 +194,7 @@ async def _reverse(_, msg):
         )
 
 
-         await text.edit_text(reply_text, parse_mode=enums.ParseMode.MARKDOWN)
+        await text.edit_text(reply_text, parse_mode=enums.ParseMode.MARKDOWN)
    
     except Exception as e:
         await text.edit(f"❌ Error occured: {e}")
