@@ -514,10 +514,11 @@ UNBLACKLIST_STICKER_HANDLER = CommandHandler(
 )
 
 BLACKLISTMODE_HANDLER = CommandHandler(
-  "blstickermode", blacklist_mode, run_async=True)
+  "blstickermode", blacklist_mode, run_async=True
+)
 
 BLACKLIST_STICKER_DEL_HANDLER = MessageHandler(
-    Filters.sticker & Filters.group, del_blackliststicker, run_async=True
+    Filters.sticker & Filters.chat_type.groups, del_blackliststicker, run_async=True
 )
 
 dispatcher.add_handler(BLACKLIST_STICKER_HANDLER)
