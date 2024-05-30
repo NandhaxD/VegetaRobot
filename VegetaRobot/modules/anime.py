@@ -675,16 +675,11 @@ Get information about anime, manga or characters from [AniList](anilist.co)
   ➢ `/manga <manga>`*:* returns information about the manga from AniList.
   ➢ `/upcoming`*:* returns a list of new anime in the upcoming seasons from AniList.
   ➢ `/airing <anime>`*:* returns anime airing info from AniList.
-    `/quote`: returns random anime quote
- 
+  
 Get information about anime, manga or characters from [MAL](https://myanimelist.net/)
 *My Anime list Commands:*
-  ➢ `/manime <anime>`*:* returns information about the anime MAL.
-  ➢ `/mcharacter` <character>*:* returns information about the character from MAL.
-  ➢ `/mmanga <manga>`*:* returns information about the manga from MAL.
-  ➢ `/mupcoming`*:* returns a list of new anime in the upcoming seasons from MAL.
+  ➢ `/upcoming`*:* returns a list of new anime in the upcoming seasons from MAL.
   ➢ `/user <user>`*:* returns information about a MyAnimeList user.
-  ➢ `/animequotes`*:* sends random anime quotes.
 
 *Anime Search Commands:*
    ➢ `/kayo`*:* search an Anime on AnimeKayo website.
@@ -694,7 +689,8 @@ Get information about anime, manga or characters from [MAL](https://myanimelist.
    
 *Anime Search Commands:*
   ➢ `/watchorder <anime>`*:* send watch Order of anime.
-  
+  ➢  `/quote`: returns random anime quote
+ 	
 You saw a good anime video, photo, gif but dont know what is that anime's name?
 This is where whatanime comes in, just reply to that media with /whatanime and it will search the anime name for you from anilist.                             
  """
@@ -708,7 +704,7 @@ UPCOMING_HANDLER = DisableAbleCommandHandler("upcoming", upcoming, run_async=Tru
 KAIZOKU_SEARCH_HANDLER = DisableAbleCommandHandler("kaizoku", kaizoku, run_async=True)
 KAYO_SEARCH_HANDLER = DisableAbleCommandHandler("kayo", kayo, run_async=True)
 BUTTON_HANDLER = CallbackQueryHandler(button, pattern='anime_.*')
-ANIMEQUOTES_HANDLER = DisableAbleCommandHandler("quote", animequotes, run_async=True)
+ANIMEQUOTES_HANDLER = DisableAbleCommandHandler(["quote","animequote"], animequotes, run_async=True)
 
 
 dispatcher.add_handler(BUTTON_HANDLER)
