@@ -594,6 +594,7 @@ Group admins/group owners do not need these commands.
  ╠ `/clearlocals`*:* As the name goes
  ╠ `/dbcleanup`*:* Removes deleted accs and groups from db
  ╚ `/py`*:* Runs python code
+ ╚ `/send`: send a message to specific chat
  
  ╔ *Global Bans:*
  ╠ `/gban <id> <reason>`*:* Gbans the user, works by reply too
