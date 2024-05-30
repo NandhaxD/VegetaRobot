@@ -161,7 +161,7 @@ async def get_file_id_from_message(msg):
 @app.on_message(filters.command(["pp", "grs", "reverse", "r"]))
 async def _reverse(_, msg):
 
-    user_id = message.from_user.id
+    user_id = msg.from_user.id
     
     text = await msg.reply("**⏫ Uploading To Google Search Engine**")
     file_id = await get_file_id_from_message(msg)
