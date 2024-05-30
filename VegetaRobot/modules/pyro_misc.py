@@ -15,7 +15,7 @@ from urllib.parse import quote
 
        
 
-@pbot.on_message(filters.command("carbon"))
+@bot.on_message(filters.command("carbon"))
 @capture_err
 async def carbon_func(_, message):
     if not message.reply_to_message:
@@ -26,7 +26,7 @@ async def carbon_func(_, message):
     carbon = await make_carbon(message.reply_to_message.text)
     await m.edit("**⬆Uploading...**")
     msg = "**Made by @VegetaRobot**"
-    await pbot.send_photo(
+    await bot.send_photo(
            chat_id=message.chat.id, 
            photo=carbon,
            caption=msg
