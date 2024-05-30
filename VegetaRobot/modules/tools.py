@@ -180,7 +180,7 @@ async def _reverse(_, msg):
         for code in grap:
               url = "https://graph.org"+code
             
-        result = google.reverse_search_image(address=url)
+        result = GoogleReverseImageSearch.reverse_search_image(address=url)
 
         if not result["output"]:
             return await text.edit("**❌ No result found for this.**")
