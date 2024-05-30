@@ -176,11 +176,11 @@ async def _reverse(_, msg):
            message=file_id, file_name=path
     )
     
-        grap = upload_file(path)
+        grap = upload_file(image)
         for code in grap:
               url = "https://graph.org"+code
             
-        result = google.reverse_search_image()
+        result = google.reverse_search_image(address=url)
 
         if not result["output"]:
             return await text.edit("**❌ No result found for this.**")
