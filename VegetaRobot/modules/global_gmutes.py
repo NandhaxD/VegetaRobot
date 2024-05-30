@@ -217,7 +217,7 @@ def gmutelist(update, context):
 
 def check_and_mute(update, context, user_id, should_message=True):
     if sql.is_user_gmuted(user_id):
-        context.bot.restrict_chat_member(update.effective_chat.id, user_id, can_send_messages=False)
+        context.bot.restrict_chat_member(update.effective_chat.id, user_id, permissions=ChatPermissions(can_send_messages=False))
         if should_message:
             update.effective_message.reply_text("This is a bad person, I'll silence them for you!")
 
