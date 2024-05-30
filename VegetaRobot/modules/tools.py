@@ -187,7 +187,7 @@ async def _reverse(_, msg):
 
         reply_text = (
             
-          f'Similar: {result['similar']}\n'
+          f'Similar: {result["similar"]}\n'
           f'Google: {result["output"]}\n'
           f'**Made by @VegetaRobot**'
             
