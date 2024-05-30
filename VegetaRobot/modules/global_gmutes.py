@@ -185,7 +185,9 @@ def ungmute(update, context):
                 pass
             else:
                 message.reply_text("Unexpected Error!")
-                bot.send_message(ERROR_DUMP, "Could not un-gmute due to: {}".format(excp.message))
+                message.reply_text(
+                  "Could not un-gmute due to: {}".format(excp.message)
+                )
                 return
         except TelegramError:
             pass
