@@ -126,7 +126,7 @@ async def get_file_id_from_message(msg):
         file_id = message.video.thumbs[0].file_id
     return file_id
 
-@app.on_message(filters.command(["pp", "grs", "reverse", "r"]) & filters.group)
+@app.on_message(filters.command(["pp", "grs", "reverse", "r"]))
 async def _reverse(_, msg):
     text = await msg.reply("**⏫ Uploading To Google Search Engine**")
     file_id = await get_file_id_from_message(msg)
@@ -145,7 +145,7 @@ async def _reverse(_, msg):
     )
 
 
-    await text.edit_text(reply_text, parse_mode=ParseMode.MARKDOWN)
+    await text.edit_text(reply_text, parse_mode=enums.ParseMode.MARKDOWN)
 
 
 @pbot.on_message(filters.command('enhance'))
