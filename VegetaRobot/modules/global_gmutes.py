@@ -76,6 +76,7 @@ def gmute(update, context):
     sql.gmute_user(user_id, user_chat.username or user_chat.first_name, reason)
 
     chats = get_all_chats()
+    failed = 0
     for chat in chats:
         chat_id = chat.chat_id
 
@@ -84,7 +85,11 @@ def gmute(update, context):
             continue
 
         try:
-            context.bot.restrict_chat_member(chat_id, user_id, permissions=ChatPermissions(can_send_messages=False))
+            context.bot.restrict_chat_member(
+                chat_id,
+                user_id,
+                permissions=ChatPermissions(can_send_messages=False)
+            )
         except BadRequest as excp:
             if excp.message == "User is an administrator of the chat":
                 pass
@@ -109,14 +114,15 @@ def gmute(update, context):
             elif excp.message == "Can't demote chat creator":
                 pass
             else:
-                message.reply_text("Unexpected Error!")
-                context.bot.send_message(ERROR_DUMP, "Could not gmute due to: {}".format(excp.message))
-                sql.ungmute_user(user_id)
-                return
+                pass
+             #   message.reply_text("Unexpected Error!")
+              #  context.bot.send_message(ERROR_DUMP, "Could not gmute due to: {}".format(excp.message))
+             #   failed += 1
+                
         except TelegramError:
             pass
-
-    message.reply_text("They won't be talking again anytime soon.")
+    
+    message.reply_text("They won't be talking again anytime soon. Globally muted")
 
 
 
@@ -144,6 +150,7 @@ def ungmute(update, context):
 
 
     chats = get_all_chats()
+    failed = 0
     for chat in chats:
         chat_id = chat.chat_id
 
@@ -184,17 +191,18 @@ def ungmute(update, context):
             elif excp.message == "Chat_admin_required":
                 pass
             else:
-                message.reply_text("Unexpected Error!")
-                message.reply_text(
-                  "Could not un-gmute due to: {}".format(excp.message)
-                )
-                return
+              #  message.reply_text("Unexpected Error!")
+              #  return message.reply_text("I've ungmuted but Could not un-gmute in some chats case: {}".format(excp.message))
+               failed += 1
         except TelegramError:
             pass
 
     sql.ungmute_user(user_id)
-
-    message.reply_text("Person has been un-gmuted.")
+    
+    message.reply_text(
+        f"*Person has been un-gmuted. failed to un-gmute in {failed} chats*",
+                      parse_mode=ParseMode.MARKDOWN
+            )
 
 
 
@@ -290,16 +298,21 @@ def __migrate__(old_chat_id, new_chat_id):
 
 
 
-GMUTE_HANDLER = CommandHandler("gmute", gmute, pass_args=True,
+GMUTE_HANDLER = CommandHandler(
+  "gmute", gmute, pass_args=True,
                               filters=CustomFilters.sudo_filter | CustomFilters.support_filter, run_async=True)
-UNGMUTE_HANDLER = CommandHandler("ungmute", ungmute, pass_args=True,
+UNGMUTE_HANDLER = CommandHandler(
+  "ungmute", ungmute, pass_args=True,
                                 filters=CustomFilters.sudo_filter | CustomFilters.support_filter, run_async=True)
-GMUTE_LIST = CommandHandler("gmutelist", gmutelist,
+GMUTE_LIST = CommandHandler(
+  "gmutelist", gmutelist,
                            filters=CustomFilters.sudo_filter | CustomFilters.support_filter, run_async=True)
 
-GMUTE_STATUS = CommandHandler("gmutespam", gmutestat, pass_args=True, filters=Filters.chat_type.groups, run_async=True)
+GMUTE_STATUS = CommandHandler(
+  "gmutespam", gmutestat, pass_args=True, filters=Filters.chat_type.groups, run_async=True)
 
-GMUTE_ENFORCER = MessageHandler(Filters.all & Filters.chat_type.groups, enforce_gmute)
+GMUTE_ENFORCER = MessageHandler(
+  Filters.all & Filters.chat_type.groups, enforce_gmute)
 
 dispatcher.add_handler(GMUTE_HANDLER)
 dispatcher.add_handler(UNGMUTE_HANDLER)
