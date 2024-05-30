@@ -134,7 +134,7 @@ async def _reverse(_, msg):
         return await text.edit("`Dear Pro People's Please Reply To A Media File 🗃️`")
     
     await text.edit("**🌐 Wait For >1 Min Searching Your Prompt**")
-    result, to_parse = await Sauce(bot_token, file_id)
+    result, to_parse = await Sauce(TOKEN, file_id)
 
     if not result["output_google"]:
         return await text.edit("**❌ No result found for this.**")
