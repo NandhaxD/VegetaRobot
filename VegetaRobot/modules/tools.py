@@ -210,11 +210,12 @@ async def _reverse(_, msg):
 
 
 
-@pbot.on_message(filters.command('enhance'))
-async def enchance(_, message):
+@pbot.on_message(filters.command(["dehaze","enhance","recolor"]))
+async def image_editor(_, message):
       reply = message.reply_to_message
       user_id = message.from_user.id
-  
+
+      type = message.command[0]
       if not reply and (not reply.photo or not reply.sticker):
             return await message.reply_text('⛔ Reply to the photo....')
       else:
@@ -228,7 +229,7 @@ async def enchance(_, message):
              
            encoded_image_data = base64.b64encode(photo).decode('utf-8')
         
-           url = 'https://apis-awesome-tofu.koyeb.app/api/remini?mode=enhance'
+           url = f'https://apis-awesome-tofu.koyeb.app/api/remini?mode={type}'
            headers = {
                  'accept': 'image/jpg',
                  'Content-Type': 'application/json' 
@@ -370,6 +371,8 @@ __help__ = """
  
  ✪︎ /pinterest <text>: get pinterst images.
  ✪︎ /enhance: reply to the photo
+ ✪︎ /recolour: reply to the photo
+ ✪︎ /dehaze: reply to the photo
  ✪︎ /webss: take screenshot from website.
  ✪︎ /ud <text>: Search for word definitions.
  ✪︎ /langs: View a list of language codes.
