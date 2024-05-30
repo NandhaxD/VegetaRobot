@@ -63,33 +63,39 @@ async def img_sampler(event):
     os.chdir("/app")
     os.system("rm -rf store")
 
-
 async def Sauce(bot_token, file_id):
     r = requests.post(f'https://api.telegram.org/bot{bot_token}/getFile?file_id={file_id}').json()
     file_path = r['result']['file_path']
     headers = {'User-agent': 'Mozilla/5.0 (Linux; Android 6.0.1; SM-G920V Build/MMB29K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.98 Mobile Safari/537.36'}
     to_parse = f"https://images.google.com/searchbyimage?safe=off&sbisrc=tg&image_url=https://api.telegram.org/file/bot{bot_token}/{file_path}"
-    r = requests.get(to_parse,headers=headers)
+    r = requests.get(to_parse, headers=headers)
     soup = BeautifulSoup(r.text, 'html.parser')
-    result = {                            
-             "similar": '',
-             'output': ''
-         }
-    for similar_image in soup.find_all('input', {'class': 'gLFyf'}):
-         url = f"https://www.google.com/search?tbm=isch&q={quote_plus(similar_image.get('value'))}"
-         result['similar'] = url
-    for best in soup.find_all('div', {'class': 'r5a77d'}):
-        output = best.get_text()
-        decoded_text =  unidecode(output)
-        result["output"] = decoded_text
-        
-    return result
+    
+    result = {
+        "similar_google": [],
+        'output_google': '',
+    }
 
-async def get_file_id_from_message(message):
+    # Google Search
+    similar_images_div = soup.find('div', {'class': 'RAyV4b'})
+    if similar_images_div:
+        for similar_images_link in similar_images_div.find_all('a'):
+            url = f"https://www.google.com{similar_images_link['href']}"
+            result['similar_google'].append(url)
+
+    best_guess_div = soup.find('div', {'class': 'r5a77d'})
+    if best_guess_div:
+        output = best_guess_div.get_text()
+        decoded_text = unidecode(output)
+        result["output_google"] = f"[{decoded_text}"
+
+    return result, to_parse
+
+async def get_file_id_from_message(msg):
     file_id = None
-    message = message.reply_to_message
+    message = msg.reply_to_message
     if not message:
-        return None
+        return
     if message.document:
         if int(message.document.file_size) > 3145728:
             return
@@ -119,22 +125,27 @@ async def get_file_id_from_message(message):
             return
         file_id = message.video.thumbs[0].file_id
     return file_id
-    
 
-
-@app.on_message(filters.command(["pp","grs","reverse","p"]))
-async def _reverse(_,msg):
-    text = await msg.reply("**⇢ wait a sec...**")
+@app.on_message(filters.command(["pp", "grs", "reverse", "r"]) & filters.group)
+async def _reverse(_, msg):
+    text = await msg.reply("**⏫ Uploading To Google Search Engine**")
     file_id = await get_file_id_from_message(msg)
     if not file_id:
-        return await text.edit("**reply to media!**")
-    await text.edit("**⇢ Requesting to Google....**")  
-
-    result = await Sauce(TOKEN,file_id)
-    if not result["output"]:
-        return await text.edit("Couldn't find anything")
+        return await text.edit("`Dear Pro People's Please Reply To A Media File 🗃️`")
     
-    await text.edit(f'[{result["output"]}]({result["similar"]})\n\n⇢**by** - @VegetaRobot',reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Source Link",url=result["similar"])]]))
+    await text.edit("**🌐 Wait For >1 Min Searching Your Prompt**")
+    result, to_parse = await Sauce(bot_token, file_id)
+
+    if not result["output_google"]:
+        return await text.edit("**❌ No result found for this.**")
+
+    reply_text = (
+        f'Google: {result["output_google"]}\n'
+        f'**Made by @VegetaRobot**'
+    )
+
+
+    await text.edit_text(reply_text, parse_mode=ParseMode.MARKDOWN)
 
 
 @pbot.on_message(filters.command('enhance'))
