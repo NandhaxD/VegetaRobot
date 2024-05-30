@@ -178,24 +178,31 @@ async def _reverse(_, msg):
     
         grap = upload_file(image)
         for code in grap:
-              url = "https://graph.org"+code
+              grap_url = "https://graph.org"+code
 
         google = GoogleReverseImageSearch()
-        result = google.reverse_search_image(address=url)
+        result = google.reverse_search_image(address=grap_url)
 
-        if not result["output"]:
+      
+        if not result.get("output", None):
             return await text.edit("**❌ No result found for this.**")
 
+        button = reply_markup=types.InlineKeyboardMarkup([[
+          types.InlineKeyboardButton('Similar ✨', url=result["similar"]),
+          types.InlineKeyboardButton('Telegrap ✨', url=grap_url)
+          
+        ]])
         reply_text = (
             
-          f'Similar: {result["similar"]}\n'
-          f'Google: {result["output"]}\n'
+          f'**🔍 Google**: {result["output"]}\n\n'
           f'**Made by @VegetaRobot**'
             
         )
 
 
-        await text.edit_text(reply_text, parse_mode=enums.ParseMode.MARKDOWN)
+        await text.edit_text(
+          text=reply_text, reply_markup=button, parse_mode=enums.ParseMode.MARKDOWN)
+      
    
     except Exception as e:
         await text.edit(f"❌ Error occured: {e}")
