@@ -3,7 +3,7 @@ from io import BytesIO
 from typing import Optional, List
 
 from telegram import ChatPermissions
-from telegram import Message, Update, Bot, User, Chat
+from telegram import Message, Update, Bot, User, Chat, ParseMode
 from telegram.error import BadRequest, TelegramError
 from telegram.ext import run_async, CommandHandler, MessageHandler, Filters
 from telegram.utils.helpers import mention_html
@@ -68,7 +68,9 @@ def gmute(update, context):
 
         return
 
-    message.reply_text("Gets duct tape ready 😉")
+    message.reply_text(
+        text="*🥸 Gmuting Globally {user_chat.first_name} in all chats!!!*",
+             parse_mode=ParseMode.MARKDOWN)
 
     muter = update.effective_user  # type: Optional[User]
 
@@ -88,7 +90,9 @@ def gmute(update, context):
             context.bot.restrict_chat_member(
                 chat_id,
                 user_id,
-                permissions=ChatPermissions(can_send_messages=False)
+                permissions=ChatPermissions(
+                    can_send_messages=False
+                )
             )
         except BadRequest as excp:
             if excp.message == "User is an administrator of the chat":
@@ -122,7 +126,10 @@ def gmute(update, context):
         except TelegramError:
             pass
     
-    message.reply_text("They won't be talking again anytime soon. Globally muted")
+    message.reply_text(
+        text="*💀 Successfully {user_chat.first_name} Globally Muted in all chats!*",
+                parse_mode=ParseMode.MARKDOWN
+                      )
 
 
 
