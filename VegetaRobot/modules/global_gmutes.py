@@ -215,7 +215,7 @@ def gmutelist(update, context):
                                                 caption="Here is the list of currently gmuted users.")
 
 
-def check_and_mute(update, user_id, should_message=True):
+def check_and_mute(update, context, user_id, should_message=True):
     if sql.is_user_gmuted(user_id):
         context.bot.restrict_chat_member(update.effective_chat.id, user_id, can_send_messages=False)
         if should_message:
@@ -231,15 +231,15 @@ def enforce_gmute(update, context):
         msg = update.effective_message  # type: Optional[Message]
 
         if user and not is_user_admin(chat, user.id):
-            check_and_mute(update, user.id, should_message=True)
+            check_and_mute(update, context, user.id, should_message=True)
         if msg.new_chat_members:
             new_members = update.effective_message.new_chat_members
             for mem in new_members:
-                check_and_mute(update, mem.id, should_message=True)
+                check_and_mute(update, context, mem.id, should_message=True)
         if msg.reply_to_message:
             user = msg.reply_to_message.from_user  # type: Optional[User]
             if user and not is_user_admin(chat, user.id):
-                check_and_mute(update, user.id, should_message=True)
+                check_and_mute(update, context, user.id, should_message=True)
 
 
 @user_admin
