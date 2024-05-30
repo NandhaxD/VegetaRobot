@@ -10,6 +10,7 @@ import urllib.request
 from urllib.parse import urlencode
 import requests
 from bs4 import BeautifulSoup
+from telegraph import upload_file
 from PIL import Image
 
 import bs4
@@ -29,7 +30,7 @@ from urllib.parse import quote_plus
 from unidecode import unidecode
 from VegetaRobot import *
 from VegetaRobot import pgram as pbot
-from VegetaRobot import pgram as app, TOKEN
+from VegetaRobot import pgram as app
 from VegetaRobot import telethn as tbot
 from VegetaRobot.events import register
 
@@ -63,33 +64,64 @@ async def img_sampler(event):
     os.chdir("/app")
     os.system("rm -rf store")
 
-async def Sauce(bot_token, file_id):
-    r = requests.post(f'https://api.telegram.org/bot{bot_token}/getFile?file_id={file_id}').json()
-    file_path = r['result']['file_path']
-    headers = {'User-agent': 'Mozilla/5.0 (Linux; Android 6.0.1; SM-G920V Build/MMB29K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.98 Mobile Safari/537.36'}
-    to_parse = f"https://images.google.com/searchbyimage?safe=off&sbisrc=tg&image_url=https://api.telegram.org/file/bot{bot_token}/{file_path}"
-    r = requests.get(to_parse, headers=headers)
-    soup = BeautifulSoup(r.text, 'html.parser')
-    
-    result = {
-        "similar_google": [],
-        'output_google': '',
-    }
 
-    # Google Search
-    similar_images_div = soup.find('div', {'class': 'RAyV4b'})
-    if similar_images_div:
-        for similar_images_link in similar_images_div.find_all('a'):
-            url = f"https://www.google.com{similar_images_link['href']}"
-            result['similar_google'].append(url)
 
-    best_guess_div = soup.find('div', {'class': 'r5a77d'})
-    if best_guess_div:
-        output = best_guess_div.get_text()
-        decoded_text = unidecode(output)
-        result["output_google"] = f"[{decoded_text}"
+class GoogleReverseImageSearch:
+    """
+    A class for performing a reverse image search on Google.
+    """
 
-    return result, to_parse
+    GOOGLE_IMAGE_SEARCH_URL = "https://images.google.com/searchbyimage?safe=off&sbisrc=tg&client=app&image_url={img_url}"
+    USER_AGENT = (
+        "Mozilla/5.0 (Linux; Android 6.0.1; SM-G920V Build/MMB29K) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.98 "
+        "Mobile Safari/537.36"
+    )
+
+    def __init__(self) -> None:
+        """
+        Initialize the GoogleReverseImageSearch instance.
+        """
+        self._client = requests.Session()
+
+    @staticmethod
+    def _get_image_url(address: str):
+        """
+        Get the image URL, either from a file upload or directly if it's a URL.
+
+        Returns:
+            str: The image URL.
+        """
+        if os.path.isfile(address):
+            assert (
+                os.path.getsize(address) <= 5979648
+            ), "File size must be less than 5.7 MB"
+            return f"https://graph.org{upload_file(address)[0]}"
+        else:
+            return address
+
+    def reverse_search_image(self, address: str):
+        """
+        Perform a reverse image search on Google and retrieve results.
+
+        Returns:
+            dict: A dictionary containing search results, including 'similar' and 'output'.
+        """
+        img_url = self._get_image_url(address=address)
+        response = self._client.get(
+            url=self.GOOGLE_IMAGE_SEARCH_URL.format(img_url=img_url),
+            headers={"User-agent": self.USER_AGENT},
+        )
+        soup = BeautifulSoup(response.text, "html.parser")
+        result = {"similar": response.url, "output": ""}
+        for best in soup.find_all("div", {"class": "r5a77d"}):
+            output = best.get_text()
+            result["output"] = unidecode(output)
+
+        return result
+
+
+
 
 async def get_file_id_from_message(msg):
     file_id = None
@@ -128,24 +160,46 @@ async def get_file_id_from_message(msg):
 
 @app.on_message(filters.command(["pp", "grs", "reverse", "r"]))
 async def _reverse(_, msg):
+
+    user_id = message.from_user.id
+    
     text = await msg.reply("**⏫ Uploading To Google Search Engine**")
     file_id = await get_file_id_from_message(msg)
-    if not file_id:
-        return await text.edit("`Dear Pro People's Please Reply To A Media File 🗃️`")
+    try:
+        if not file_id:
+             return await text.edit("`Dear Pro People's Please Reply To A Media File 🗃️`")
     
-    await text.edit("**🌐 Wait For >1 Min Searching Your Prompt**")
-    result, to_parse = await Sauce(TOKEN, file_id)
+        await text.edit("**🌐 Wait For >1 Min Searching Your Prompt**")
 
-    if not result["output_google"]:
-        return await text.edit("**❌ No result found for this.**")
-
-    reply_text = (
-        f'Google: {result["output_google"]}\n'
-        f'**Made by @VegetaRobot**'
+        path = f"reverse_{user_id}.jpeg"
+        image = await app.download_media(
+           message=file_id, file_name=path
     )
+    
+        grap = upload_file(path)
+        for code in grap:
+              url = "https://graph.org"+code
+            
+        result = google.reverse_search_image()
+
+        if not result["output"]:
+            return await text.edit("**❌ No result found for this.**")
+
+        reply_text = (
+            
+          f'Similar: {result['similar']}\n'
+          f'Google: {result["output"]}\n'
+          f'**Made by @VegetaRobot**'
+            
+        )
 
 
-    await text.edit_text(reply_text, parse_mode=enums.ParseMode.MARKDOWN)
+         await text.edit_text(reply_text, parse_mode=enums.ParseMode.MARKDOWN)
+   
+    except Exception as e:
+        await text.edit(f"❌ Error occured: {e}")
+        
+
 
 
 @pbot.on_message(filters.command('enhance'))
