@@ -72,7 +72,6 @@ def kukiadd(update: Update, context: CallbackContext) -> str:
 
     return ""
 
-CHATBOT_KEY = "1491497760-KUKIGz8LCr6rH3"
 
 @user_admin
 @gloggable
@@ -122,23 +121,29 @@ def chatbot(update: Update, context: CallbackContext):
         Message = message.text
         bot.send_chat_action(chat_id, action="typing")
         base_url = 'https://api.qewertyy.dev/models?model_id=5'
-        char_role = f"Your name is Vegeta, and Your from Dragon Ball. You are a stern person, but you also help others. your a chat assistant for {chat_name} to assist. At last your owner is @Nandha"
+        char_role = f"Your name is Vegeta and Your from Dragon Ball anime, You help and talk people's in the {chat_name}, You are created by @NandhaBots"
         payload = {
               'messages': [
        {
             'role': "system",
-            'content': char_role},
+            'content': char_role
+       },
        {
             'role': "user",
             'content': Message,
-           }
+       }
 							]
 				}
+	    
         kukiurl = requests.post(base_url, json=payload).json()
         text = kukiurl['content']
 			
         sleep(0.7)
-        message.reply_text(text, timeout=60)
+        message.reply_text(
+            text=text, 
+	    parse_mode=ParseMode.MARKDOWN,
+	    timeout=60
+	)
 
 
 def list_all_chats(update: Update, context: CallbackContext):
