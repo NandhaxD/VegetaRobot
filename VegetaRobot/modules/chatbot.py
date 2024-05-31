@@ -107,7 +107,10 @@ def kuki_message(context: CallbackContext, message):
 
 def chatbot(update: Update, context: CallbackContext):
     message = update.effective_message
-    chat_id = update.effective_chat.id
+	  chat = update.effective_chat
+    chat_id = chat.id
+    chat_name = chat.title if chat.title else chat.first_name
+	  
     bot = context.bot
     is_kuki = sql.is_kuki(chat_id)
     if not is_kuki:
@@ -118,8 +121,26 @@ def chatbot(update: Update, context: CallbackContext):
             return
         Message = message.text
         bot.send_chat_action(chat_id, action="typing")
-        kukiurl = requests.get(f'https://nandha-api.onrender.com/chatbot/'+quote(Message)).json()
-        text = kukiurl['text']
+			
+			  base_url = 'https://api.qewertyy.dev/models?model_id=5'
+			  char_role = f"Your name is Vegeta, and Your from Dragon Ball. You are a stern person, but you also help others. your a chat assistant for {chat_name} to assist."
+			
+			  payload = {
+              'messages': [
+       {
+            'role': "system",
+            'content': char_role},
+       {
+            'role': "user",
+            'content': Message,
+           }
+							]
+				}
+			
+        kukiurl = requests.post(base_url, json=payload).json()
+			
+        text = kukiurl['content']
+			
         sleep(0.7)
         message.reply_text(text, timeout=60)
 
