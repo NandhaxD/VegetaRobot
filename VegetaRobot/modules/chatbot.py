@@ -107,7 +107,7 @@ def kuki_message(context: CallbackContext, message):
 
 def chatbot(update: Update, context: CallbackContext):
     message = update.effective_message
-	  chat = update.effective_chat
+    chat = update.effective_chat
     chat_id = chat.id
     chat_name = chat.title if chat.title else chat.first_name
 	  
@@ -121,7 +121,7 @@ def chatbot(update: Update, context: CallbackContext):
             return
         Message = message.text
         bot.send_chat_action(chat_id, action="typing")
-			  base_url = 'https://api.qewertyy.dev/models?model_id=5'
+        base_url = 'https://api.qewertyy.dev/models?model_id=5'
         char_role = f"Your name is Vegeta, and Your from Dragon Ball. You are a stern person, but you also help others. your a chat assistant for {chat_name} to assist."
         payload = {
               'messages': [
