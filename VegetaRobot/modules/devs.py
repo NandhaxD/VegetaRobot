@@ -36,9 +36,9 @@ def speedtest_func(update: Update, context: CallbackContext):
        update.effective_message.reply_photo(
          photo=speedtest_image, caption=msg
        )
-        msg.delete()
+       msg.delete()
     except Exception:
-      msg.edit_text(
+       msg.edit_text(
            f"❌ Error: {Exception}"
         )
 
