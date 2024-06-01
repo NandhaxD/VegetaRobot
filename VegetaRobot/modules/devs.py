@@ -6,7 +6,7 @@ import speedtest
 
 from VegetaRobot import dispatcher
 from VegetaRobot.modules.helper_funcs.chat_status import dev_plus
-from telegram import TelegramError, Update
+from telegram import TelegramError, Update, ParseMode
 from telegram.ext import CallbackContext, CommandHandler, run_async
 
 
@@ -40,7 +40,7 @@ def speedtest_func(update: Update, context: CallbackContext):
        msg.delete()
     except Exception:
         msg.edit_text(
-           f"❌ Error: {Exception}"
+           f"❌ Error: {str(Exception)}"
         )
 
 @dev_plus
