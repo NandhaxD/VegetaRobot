@@ -75,10 +75,8 @@ def remove_html_tags(text):
 async def stackoverflow(_, message):
     if len(message.command) == 1:
         return await message.reply("Give a query to search in StackOverflow!")
-    r = (
-        fetch.get(
+    r = requests.get(
             f"https://api.stackexchange.com/2.3/search/excerpts?order=asc&sort=relevance&q={message.command[1]}&accepted=True&migrated=False¬ice=False&wiki=False&site=stackoverflow"
-        )
     ).json()
     msg = await message.reply("Getting data..")
     hasil = ""
