@@ -2,12 +2,41 @@ import os
 import subprocess
 import sys
 from time import sleep
+import speedtest
 
 from VegetaRobot import dispatcher
 from VegetaRobot.modules.helper_funcs.chat_status import dev_plus
 from telegram import TelegramError, Update
 from telegram.ext import CallbackContext, CommandHandler, run_async
 
+
+
+
+
+def convert(speed):
+    return round(int(speed) / 1_000_000, 3)
+	
+@dev_plus
+def speedtest(update: Update, context: CallbackContext):
+    speed = speedtest.Speedtest()
+    speed.get_best_server()
+    speed.download()
+    speed.upload()
+    try:
+       speedtest_image = speed.results.share()
+       result = speed.results.dict()
+       msg = (
+    f"**∅ Download**: {convert(result['download'])}Mb/s"
+    f"\n**∅ Upload**: {convert(result['upload'])}Mb/s"
+    f"\n**∅ Ping**: {result['ping']}"
+    )
+       update.effective_message.reply_photo(
+         photo=speedtest_image, caption=msg
+       )
+    except Exception:
+        update.effective_message.reply_text(
+           f"❌ Error: {e}"
+        )
 
 @dev_plus
 def leave(update: Update, context: CallbackContext):
@@ -55,10 +84,14 @@ def restart(update: Update, context: CallbackContext):
 LEAVE_HANDLER = CommandHandler("leave", leave,run_async=True)
 GITPULL_HANDLER = CommandHandler("gitpull", gitpull,run_async=True)
 RESTART_HANDLER = CommandHandler("reboot", restart,run_async=True)
+SPEED_HANDLER = CommandHandler("speedtest", speedtest,run_async=True)
+
 
 dispatcher.add_handler(LEAVE_HANDLER)
 dispatcher.add_handler(GITPULL_HANDLER)
 dispatcher.add_handler(RESTART_HANDLER)
+dispatcher.add_handler(SPEED_HANDLER)
+
 
 __mod_name__ = "Dev"
-__handlers__ = [LEAVE_HANDLER, GITPULL_HANDLER, RESTART_HANDLER]
+__handlers__ = [LEAVE_HANDLER, GITPULL_HANDLER, RESTART_HANDLER, SPEED_HANDLER]
