@@ -22,7 +22,7 @@ def speedtest_func(update: Update, context: CallbackContext):
     speed.get_best_server()
     speed.download()
     speed.upload()
-	  msg = update.effective_message.reply_text(
+    msg = update.effective_message.reply_text(
 			"please wait checking network...")
     
     try:
@@ -36,10 +36,10 @@ def speedtest_func(update: Update, context: CallbackContext):
        update.effective_message.reply_photo(
          photo=speedtest_image, caption=msg
        )
-			 msg.delete()
+        msg.delete()
     except Exception:
-        msg.edit_text(
-           f"❌ Error: {e}"
+      msg.edit_text(
+           f"❌ Error: {Exception}"
         )
 
 @dev_plus
