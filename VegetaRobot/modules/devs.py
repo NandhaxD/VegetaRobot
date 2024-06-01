@@ -28,17 +28,18 @@ def speedtest_func(update: Update, context: CallbackContext):
     try:
        speedtest_image = speed.results.share()
        result = speed.results.dict()
-       msg = (
-    f"**∅ Download**: {convert(result['download'])}Mb/s"
-    f"\n**∅ Upload**: {convert(result['upload'])}Mb/s"
-    f"\n**∅ Ping**: {result['ping']}"
+       text = (
+    f"*∅ Download*: {convert(result['download'])}Mb/s"
+    f"\n*∅ Upload*: {convert(result['upload'])}Mb/s"
+    f"\n*∅ Ping*: {result['ping']}"
     )
        update.effective_message.reply_photo(
-         photo=speedtest_image, caption=msg
+         photo=speedtest_image, caption=text
+       , parse_mode=ParseMode.MARKDOWN
        )
        msg.delete()
     except Exception:
-       msg.edit_text(
+        msg.edit_text(
            f"❌ Error: {Exception}"
         )
 
