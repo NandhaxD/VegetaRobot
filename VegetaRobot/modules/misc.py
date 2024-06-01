@@ -1,6 +1,6 @@
 from VegetaRobot.modules.helper_funcs.chat_status import user_admin
 from VegetaRobot.modules.disable import DisableAbleCommandHandler
-from VegetaRobot import dispatcher
+from VegetaRobot import dispatcher, SUPPORT_CHAT
 
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram import MessageEntity, ParseMode, Update
@@ -101,7 +101,8 @@ def markdown_help(update: Update, context: CallbackContext):
     markdown_help_sender(update)
 
 
-__help__ = """
+__help__ = f"""
+
 *Available commands:*
 *Markdown:*
  • `/markdownhelp` *:* quick summary of how markdown works in telegram - can only be called in private chats
@@ -113,6 +114,8 @@ __help__ = """
  • `/reverse` *:* Does a reverse image search of the media which it was replied to.
 *Wikipedia:*
  • `/wiki <query>`*:* wikipedia your query
+ *StackOverflow*:
+ • `/sof` <query>: search result from stakoverflow
 *Currency converter:* 
  • `/cash` *:* currency converter
 Example:
@@ -121,7 +124,10 @@ Example:
  `/cash 1 usd inr`
 Output: `1.0 USD = 75.505 INR`
 
-Reports bugs at @VegetaSupport
+*QR Read & Write*:
+Cmds: `/createqr`, `/readqr`
+
+Reports bugs at @{SUPPORT_CHAT}
 """
 
 ECHO_HANDLER = DisableAbleCommandHandler("echo", echo, filters=Filters.chat_type.groups,run_async=True)
