@@ -15,6 +15,93 @@ from urllib.parse import quote
 
        
 
+@bot.on_message(filters.command("readqr"))
+async def readqr(c, m):
+    if not m.reply_to_message:
+        return await m.reply("Please reply with a photo that contains a valid QR Code.")
+    if not m.reply_to_message.photo:
+        return await m.reply("Please reply with a photo that contains a valid QR Code.")
+    
+    # Download the photo
+    foto = await m.reply_to_message.download()
+    
+    # Prepare the file for upload
+    with open(foto, "rb") as f:
+        files = {"file": f}
+        url = "http://api.qrserver.com/v1/read-qr-code/"
+        
+        # Post the request
+        r = requests.post(url, files=files)
+    
+    # Remove the downloaded photo
+    os.remove(foto)
+    
+    # Check the response
+    response = r.json()
+    data = response[0]["symbol"][0]["data"]
+    if data is None:
+        return await m.reply_text("Could not read the QR code.")
+    
+    await m.reply_text(
+        f"<b>QR Code Reader by @{c.me.username}:</b> <code>{data}</code>",
+        quote=True,
+    )
+
+
+@bot.on_message(filters.command("createqr"))
+async def makeqr(c, m):
+    if m.reply_to_message and m.reply_to_message.text:
+        teks = m.reply_to_message.text
+    elif len(m.command) > 1:
+        teks = m.text.split(None, 1)[1]
+    else:
+        return await m.reply(
+            "Please add text after command to convert text -> QR Code."
+        )
+    url = f"https://api.qrserver.com/v1/create-qr-code/?data={quote(teks)}&size=300x300"
+    await m.reply_photo(
+        url, caption=f"<b>QR Code Maker by @{c.me.username}</b>", quote=True
+    )
+
+
+def remove_html_tags(text):
+    """Remove html tags from a string"""
+    import re
+
+    clean = re.compile("<.*?>")
+    return re.sub(clean, "", text)
+  
+@bot.on_message(filters.command(["sof"]))
+async def stackoverflow(_, message):
+    if len(message.command) == 1:
+        return await message.reply("Give a query to search in StackOverflow!")
+    r = (
+        fetch.get(
+            f"https://api.stackexchange.com/2.3/search/excerpts?order=asc&sort=relevance&q={message.command[1]}&accepted=True&migrated=False¬ice=False&wiki=False&site=stackoverflow"
+        )
+    ).json()
+    msg = await message.reply("Getting data..")
+    hasil = ""
+    for count, data in enumerate(r["items"], start=1):
+        question = data["question_id"]
+        title = data["title"]
+        snippet = (
+            remove_html_tags(data["excerpt"])[:80].replace("\n", "").replace("    ", "")
+            if len(remove_html_tags(data["excerpt"])) > 80
+            else remove_html_tags(data["excerpt"]).replace("\n", "").replace("    ", "")
+        )
+        hasil += f"{count}. <a href='https://stackoverflow.com/questions/{question}'>{title}</a>\n<code>{snippet}</code>\n"
+    try:
+        await msg.edit(hasil)
+    except MessageTooLong:
+        path = f"{message.from_user.id}_sof.txt"
+        with open(path, 'w') as f:
+            f.write(hasil)
+        await msg.reply_document(document=path)
+    except Exception as e:
+        await msg.edit(e)
+
+
 @bot.on_message(filters.command("carbon"))
 @capture_err
 async def carbon_func(_, message):
