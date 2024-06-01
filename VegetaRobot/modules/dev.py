@@ -17,11 +17,14 @@ def convert(speed):
     return round(int(speed) / 1_000_000, 3)
 	
 @dev_plus
-def speedtest(update: Update, context: CallbackContext):
+def speedtest_func(update: Update, context: CallbackContext):
     speed = speedtest.Speedtest()
     speed.get_best_server()
     speed.download()
     speed.upload()
+	  msg = update.effective_message.reply_text(
+			"please wait checking network...")
+    
     try:
        speedtest_image = speed.results.share()
        result = speed.results.dict()
@@ -33,8 +36,9 @@ def speedtest(update: Update, context: CallbackContext):
        update.effective_message.reply_photo(
          photo=speedtest_image, caption=msg
        )
+			 msg.delete()
     except Exception:
-        update.effective_message.reply_text(
+        msg.edit_text(
            f"❌ Error: {e}"
         )
 
@@ -84,7 +88,7 @@ def restart(update: Update, context: CallbackContext):
 LEAVE_HANDLER = CommandHandler("leave", leave,run_async=True)
 GITPULL_HANDLER = CommandHandler("gitpull", gitpull,run_async=True)
 RESTART_HANDLER = CommandHandler("reboot", restart,run_async=True)
-SPEED_HANDLER = CommandHandler("speedtest", speedtest,run_async=True)
+SPEED_HANDLER = CommandHandler("speedtest", speedtest_func ,run_async=True)
 
 
 dispatcher.add_handler(LEAVE_HANDLER)
