@@ -61,16 +61,26 @@ def ban(update: Update, context: CallbackContext) -> str:
     log_message = ""
     bot = context.bot
     args = context.args
-    user_id, reason = extract_user_and_text(message, args)
 
     if message.reply_to_message and message.reply_to_message.sender_chat:
-        sender_chat = message.reply_to_message.sender_chat  
-        text = f"*You can't ban a channel using this command but you can use my /cban instead.*"      
+
+        sender_chat = message.reply_to_message.sender_chat 
       
+        bot.ban_chat_sender_chat(
+            chat_id=chat.id,
+            sender_chat_id=sender_chat.id
+        )
+          
+        
+        text = f"*Successfully banned {html.escape(sender_chat.title)} from {html.escape(chat.title)}*"      
         return message.reply_text(
             text=text, 
             parse_mode=ParseMode.MARKDOWN
         )
+        
+    user_id, reason = extract_user_and_text(message, args)
+
+    
           
     if not user_id:
         message.reply_text("I doubt that's a user.")
@@ -457,6 +467,22 @@ def unban(update: Update, context: CallbackContext) -> str:
     chat_name = "<b>• {}</b>".format(html.escape(chat.title))
     log_message = ""
     bot, args = context.bot, context.args
+
+    if message.reply_to_message and message.reply_to_message.sender_chat:
+
+        sender_chat = message.reply_to_message.sender_chat 
+      
+        bot.unban_chat_sender_chat(
+            chat_id=chat.id,
+            sender_chat_id=sender_chat.id
+        )
+          
+        
+        text = f"*Successfully unbanned {html.escape(sender_chat.title)} from {html.escape(chat.title)}*"      
+        return message.reply_text(
+            text=text, 
+            parse_mode=ParseMode.MARKDOWN
+        )
     user_id, reason = extract_user_and_text(message, args)
 
     if message.reply_to_message and message.reply_to_message.sender_chat:
