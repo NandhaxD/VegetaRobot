@@ -69,7 +69,7 @@ def gmute(update, context):
         return
 
     message.reply_text(
-        text="*🥸 Gmuting Globally {user_chat.first_name} in all chats!!!*",
+        text=f"*🥸 Gmuting Globally {user_chat.first_name} in all chats!!!*",
              parse_mode=ParseMode.MARKDOWN)
 
     muter = update.effective_user  # type: Optional[User]
@@ -127,7 +127,7 @@ def gmute(update, context):
             pass
     
     message.reply_text(
-        text="*💀 Successfully {user_chat.first_name} Globally Muted in all chats!*",
+        text=f"*💀 Successfully {user_chat.first_name} Globally Muted in all chats!*",
                 parse_mode=ParseMode.MARKDOWN
                       )
 
@@ -248,7 +248,7 @@ def enforce_gmute(update, context):
         msg = update.effective_message  # type: Optional[Message]
 
         if user and not is_user_admin(chat, user.id):
-            check_and_mute(update, context, user.id, should_message=True)
+                check_and_mute(update, context, user.id, should_message=True)
         if msg.new_chat_members:
             new_members = update.effective_message.new_chat_members
             for mem in new_members:
@@ -319,7 +319,8 @@ GMUTE_STATUS = CommandHandler(
   "gmutespam", gmutestat, pass_args=True, filters=Filters.chat_type.groups, run_async=True)
 
 GMUTE_ENFORCER = MessageHandler(
-  Filters.all & Filters.chat_type.groups, enforce_gmute)
+  Filters.all & Filters.chat_type.groups, enforce_gmute
+)
 
 dispatcher.add_handler(GMUTE_HANDLER)
 dispatcher.add_handler(UNGMUTE_HANDLER)
