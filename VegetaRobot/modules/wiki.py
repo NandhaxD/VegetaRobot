@@ -74,4 +74,4 @@ async def button(client, query):
         message = f"{result['title']}\n\n{result['description']}\n\nURL: {result['url']}"
         await query.edit_message_text(text=message)
     else:
-        await query.answer("Invalid selection"
+        await query.answer("Invalid selection")
