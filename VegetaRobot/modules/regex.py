@@ -121,6 +121,7 @@ occurrences of 'text1' with 'text2'. Flags are optional, and currently include '
 or nothing. Delimiters include `/`, `_`, `|`, and `:`. Text grouping is supported. The resulting message cannot be \
 larger than {}.
 *Reminder:* Sed uses some special characters to make matching easier, such as these: `+*.?\\`
+
 If you want to use these characters, make sure you escape them!
 *Example:* \\?.
 """.format(telegram.MAX_MESSAGE_LENGTH)
