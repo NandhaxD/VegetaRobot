@@ -190,6 +190,15 @@ def temp_ban(update: Update, context: CallbackContext) -> str:
     bot, args = context.bot, context.args
     user_id, reason = extract_user_and_text(message, args)
 
+    if message.reply_to_message and message.reply_to_message.sender_chat:
+        sender_chat = message.reply_to_message.sender_chat  
+        text = f"*You can't ban a channel using this command but you can use my /cban instead.*"      
+      
+        return message.reply_text(
+            text=text, 
+            parse_mode=ParseMode.MARKDOWN
+        )
+    
     if not user_id:
         message.reply_text("Dude! at least refer some user to ban...")
         return log_message
@@ -363,6 +372,15 @@ def punch(update: Update, context: CallbackContext) -> str:
     bot, args = context.bot, context.args
     user_id, reason = extract_user_and_text(message, args)
 
+    if message.reply_to_message and message.reply_to_message.sender_chat:
+        sender_chat = message.reply_to_message.sender_chat  
+        text = f"*You can't ban a channel using this command but you can use my /cban instead.*"      
+      
+        return message.reply_text(
+            text=text, 
+            parse_mode=ParseMode.MARKDOWN
+        )
+    
     if not user_id:
         message.reply_text("I doubt that's a user.")
         return log_message
@@ -441,6 +459,15 @@ def unban(update: Update, context: CallbackContext) -> str:
     bot, args = context.bot, context.args
     user_id, reason = extract_user_and_text(message, args)
 
+    if message.reply_to_message and message.reply_to_message.sender_chat:
+        sender_chat = message.reply_to_message.sender_chat  
+        text = f"*You can't unban a channel using this command but you can use my /uncban instead.*"      
+      
+        return message.reply_text(
+            text=text, 
+            parse_mode=ParseMode.MARKDOWN
+        )
+    
     if not user_id:
         message.reply_text("I doubt that's a user.")
         return log_message
