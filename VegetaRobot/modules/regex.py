@@ -130,6 +130,7 @@ __mod_name__ = "Regexs"
 SED_HANDLER = DisableAbleMessageHandler(
     Filters.regex(r's([{}]).*?\1.*'.format("".join(DELIMITERS))),
     sed,
-    friendly="sed",run_async=True)
+    friendly="sed"
+)
 
 dispatcher.add_handler(SED_HANDLER)
