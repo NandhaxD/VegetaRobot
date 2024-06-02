@@ -2,6 +2,7 @@ from datetime import datetime
 from functools import wraps
 
 from telegram.ext import CallbackContext
+from telegram import Message
 
 from VegetaRobot.modules.helper_funcs.misc import is_module_loaded
 
@@ -30,9 +31,12 @@ if is_module_loaded(FILENAME):
             else:
                 result = func(update, context, job_queue, *args, **kwargs)
 
+                      
             chat = update.effective_chat
             message = update.effective_message
-
+            if isinstance(result, Message):
+                 return
+              
             if result:
                 datetime_fmt = "%H:%M - %d-%m-%Y"
                 result += f"\n<b>Event Stamp</b>: <code>{datetime.utcnow().strftime(datetime_fmt)}</code>"
@@ -44,7 +48,6 @@ if is_module_loaded(FILENAME):
                     send_log(context, log_chat, chat.id, result)
 
             return result
-
         return log_action
 
     def gloggable(func):
@@ -56,6 +59,7 @@ if is_module_loaded(FILENAME):
             chat = update.effective_chat
             message = update.effective_message
 
+                          
             if result:
                 datetime_fmt = "%H:%M - %d-%m-%Y"
                 result += "\n<b>Event Stamp</b>: <code>{}</code>".format(
