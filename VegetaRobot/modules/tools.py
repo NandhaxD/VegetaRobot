@@ -8,6 +8,7 @@ import base64
 import aiohttp
 import urllib.request
 from urllib.parse import urlencode
+from urllib.parse import quote
 import requests
 from bs4 import BeautifulSoup
 from telegraph import upload_file
@@ -276,7 +277,7 @@ async def pinterest(_, message):
      except:
          return await message.reply("Input image name for search 🔍")
          
-     images = requests.get(f"https://pinterest-api-one.vercel.app/?q={query}").json()
+     images = requests.get(f"https://apis-awesome-tofu.koyeb.app/api/pinterest?q={quote(query)}").json()
 
      media_group = []
      count = 0
@@ -298,8 +299,7 @@ async def pinterest(_, message):
         return await msg.delete()
 
      except Exception as e:
-           await msg.delete()
-           return await message.reply(f"Error\n{e}")
+           return await msg.edit(f"❌ Error:\n{e}")
           
 
 
