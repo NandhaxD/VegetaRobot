@@ -1,7 +1,7 @@
 import os, random , io
 import requests
 from PIL import Image
-from pyrogram import filters
+from pyrogram import filters, types
 from pyrogram.types.bots_and_keyboards.inline_keyboard_button import InlineKeyboardButton
 from pyrogram.types.bots_and_keyboards.inline_keyboard_markup import InlineKeyboardMarkup
 from pyrogram.types import Message
@@ -16,7 +16,7 @@ from urllib.parse import quote
 
 
 @bot.on_message(filters.command("meme"))
-async def GetMeme(bot, m: message):
+async def GetMeme(bot, m: types.Message):
 
        api_url = "https://apis-awesome-tofu.koyeb.app/api/meme?type=random"
        response = requests.get(api_url)
