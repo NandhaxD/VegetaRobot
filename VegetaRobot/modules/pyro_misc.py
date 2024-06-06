@@ -16,7 +16,7 @@ from urllib.parse import quote
 
 
 @bot.on_message(filters.command("meme"))
-async def GetMeme(bot, m:= message):
+async def GetMeme(bot, m: message):
 
        api_url = "https://apis-awesome-tofu.koyeb.app/api/meme?type=random"
        response = requests.get(api_url)
