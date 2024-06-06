@@ -24,7 +24,7 @@ async def GetMeme(bot, m: types.Message):
              data = response.json()
              media_type = data['contentType'].split('/')[0]
              media_url = data['media']
-             await (bot.send_photo if media_type == 'image' else bot.send_video)(m.chat.id, media_url, m.id)
+             await (m.reply_photo if media_type == 'image' else m.reply_video)(media_url, True)
        else:
           return await m.reply_text("❌ Try again something went wrong while fetching...")
 
