@@ -13,7 +13,21 @@ from VegetaRobot.utils.make_carbon import make_carbon
 
 from urllib.parse import quote
 
-       
+
+
+@bot.on_message(filters.command("meme"))
+async def GetMeme(bot, m:= message):
+
+       api_url = "https://apis-awesome-tofu.koyeb.app/api/meme?type=random"
+       response = requests.get(api_url)
+       if response.status_code == 200:
+             data = response.json()
+             media_type = data['contentType'].split('/')[0]
+             media_url = data['media']
+             await (bot.send_photo if media_type == 'image' else bot.send_video)(m.chat.id, media_url, m.id)
+       else:
+          return await m.reply_text("❌ Try again something went wrong while fetching...")
+
 
 @bot.on_message(filters.command("readqr"))
 async def readqr(c, m):
