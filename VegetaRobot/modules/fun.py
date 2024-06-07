@@ -32,7 +32,7 @@ def truth(update: Update, context: CallbackContext):
         text = response.json()['truth']
         reply.reply_text(
           text = ( 
-            f"<b>Hey {rmention}, {mention} asked a dare question to you ( ꈍᴗꈍ)!!!</b>\n\n"
+            f"<b>Hey {rmention}, {mention} asked a truth question to you ( ꈍᴗꈍ) !!!</b>\n\n"
             f"𝗧𝗥𝗨𝗧𝗛: <code>{text}</code>"
           ), parse_mode=ParseMode.HTML
          )
@@ -60,7 +60,7 @@ def dare(update: Update, context: CallbackContext):
         text = response.json()['dare']
         reply.reply_text(
           text = ( 
-            f"<b>Hey {rmention}, {mention} asked a dare question to you ( ꈍᴗꈍ)!!!</b>\n\n"
+            f"<b>Hey {rmention}, {mention} asked a dare question to you ( ꈍᴗꈍ) !!!</b>\n\n"
             f"𝗗𝗔𝗥𝗘: <code>{text}</code>"
           ), parse_mode=ParseMode.HTML
          )
