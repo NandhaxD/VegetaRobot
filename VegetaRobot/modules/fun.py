@@ -1,4 +1,5 @@
 
+from VegetaRobot import dispatcher
 from VegetaRobot.modules.disable import DisableAbleCommandHandler
 
 from telegram import Update, ParseMode
