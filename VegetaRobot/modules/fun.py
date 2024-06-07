@@ -15,7 +15,7 @@ def truth(update: Update, context: CallbackContext):
     reply = msg.reply_to_message
     chat = update.effective_chat
     user = update.effective_user
-    if not reply and (not reply.from_user):
+    if not reply or (reply and not reply.from_user):
         msg.reply_text("Reply to the user ❗")
     else:
         user = msg.from_user
