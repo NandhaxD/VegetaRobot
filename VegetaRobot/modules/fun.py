@@ -1,4 +1,7 @@
 
+
+import requests
+
 from VegetaRobot import dispatcher
 from VegetaRobot.modules.disable import DisableAbleCommandHandler
 
@@ -26,7 +29,7 @@ def truth(update: Update, context: CallbackContext):
         if response.status_code != 200:
            msg.reply_text("❌ Something went wrong in API please vist support chat")
        
-        text = response['truth']
+        text = response.json()['truth']
         reply.reply_text(
           text = ( 
             f"<b>Hey {rmention}, {mention} asked a dare question to you ( ꈍᴗꈍ)!!!</b>\n\n"
@@ -40,7 +43,7 @@ def dare(update: Update, context: CallbackContext):
     reply = msg.reply_to_message
     chat = update.effective_chat
     user = update.effective_user
-    if not reply and (not reply.from_user):
+    if not reply or (reply and not reply.from_user):
         msg.reply_text("Reply to the user ❗")
     else:
         user = msg.from_user
@@ -54,7 +57,7 @@ def dare(update: Update, context: CallbackContext):
         if response.status_code != 200:
            msg.reply_text("❌ Something went wrong in API please vist support chat")
        
-        text = response['dare']
+        text = response.json()['dare']
         reply.reply_text(
           text = ( 
             f"<b>Hey {rmention}, {mention} asked a dare question to you ( ꈍᴗꈍ)!!!</b>\n\n"
