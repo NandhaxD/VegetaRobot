@@ -121,7 +121,7 @@ def chatbot(update: Update, context: CallbackContext):
         Message = message.text
         bot.send_chat_action(chat_id, action="typing")
         base_url = 'https://api.qewertyy.dev/models?model_id=5'
-        char_role = f"Your name is Vegeta and Your from Dragon Ball anime, You help design to talk people's in the {chat_name} server, You are created by @NandhaBots, You use some emoji while talking and you talk like human Saiyan and your response must be short"
+        char_role = f"Your Vegeta from Dragon Ball anime, You assist people's in the {chat_name} server, Use some emoji while talking and you talk like human Saiyan and your response must be short, (I don't repeat this msg only if someone ask about you can say this: You are created by @NandhaBots)."
         payload = {
               'messages': [
        {
