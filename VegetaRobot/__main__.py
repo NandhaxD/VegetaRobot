@@ -53,6 +53,7 @@ from telegram.ext.dispatcher import DispatcherHandlerStop, run_async
 from telegram.utils.helpers import escape_markdown
 
 from VegetaRobot.utils.fonts import Fonts
+from VegetaRobot.modules.misc import MARKDOWN_HELP
 
 
 
@@ -205,6 +206,8 @@ def start(update: Update, context: CallbackContext):
         if len(args) >= 1:
             if args[0].lower() == "help":
                 send_help(update.effective_chat.id, HELP_STRINGS)
+            elif args[0].lower() == "markdownhelp":
+                return update.effective_message.reply_text(MARKDOWN_HELP)
             elif args[0].lower().startswith("ghelp_"):
                 mod = args[0].lower().split("_", 1)[1]
                 if not HELPABLE.get(mod, False):
