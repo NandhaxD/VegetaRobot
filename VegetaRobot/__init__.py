@@ -79,7 +79,7 @@ if ENV:
     INFOPIC = bool(os.environ.get('INFOPIC', True))
     EVENT_LOGS = os.environ.get('EVENT_LOGS', None)
     WEBHOOK = bool(os.environ.get('WEBHOOK', False))
-    PORT = int(os.environ.get('PORT', 5000))
+    PORT = int(os.environ.get('PORT', 443))
     DB_URI = os.getenv('DATABASE_URL')
     DONATION_LINK = os.environ.get('DONATION_LINK')
     LOAD = os.environ.get("LOAD", "").split()
