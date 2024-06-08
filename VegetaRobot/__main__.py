@@ -725,7 +725,12 @@ def main():
 
     else:
         LOGGER.info("Vegeta Is Now Alive And Functioning")
-        updater.start_polling(timeout=15, read_latency=4, drop_pending_updates=True)
+      
+        updater.start_polling(
+             timeout=25, 
+             read_latency=4, 
+             drop_pending_updates=True
+)
         if len(argv) not in (1, 3, 4):
             telethn.disconnect()
         else:
