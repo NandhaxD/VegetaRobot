@@ -1,0 +1,32 @@
+import threading
+
+from VegetaRobot.modules.sql import BASE, SESSION
+from sqlalchemy import Column, String, UnicodeText
+
+
+class Couples(BASE):
+    __tablename__ = "couples"
+    user_id = Column(String(14), primary_key=True)
+
+    def __init__(self, user_id, reason=None):
+        self.user_id = user_id
+
+
+Couples.__table__.create(checkfirst=True)
+
+COUPLES = threading.RLock()
+GEH = set()
+
+
+def Gey(user_id, reason=None):
+    with COUPLES:
+        user = SESSION.query(GEH).get(str(user_id))
+        if not user:
+            user = GEH(str(user_id))
+        else:
+            user.reason = reason
+
+        SESSION.add(user)
+        SESSION.commit()
+
+# Bore Adikuthu nu than pannen, idhu varadhu nu nanakiren
