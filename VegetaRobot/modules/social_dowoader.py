@@ -45,12 +45,13 @@ async def Instagram_download(bot, message):
                 download_btn = download_div.find('a') if download_div else None
                 if download_btn:
                     video_url = download_btn['href']
-                    return await bot.send_document(
+                    await bot.send_document(
                         chat_id=m.chat.id, 
                         document=video_url, 
                         reply_to_message_id=m.id,
                         force_document=False
                     )
+                    return await msg.delete()
                 else:
                     return await msg.edit("No media found 👀")
             else:
