@@ -4,8 +4,9 @@ import re
 import requests
 import bs4
 
+
 def is_instagram_url(text: str) -> bool:
-    pattern = r'^https://www\.instagram\.com$'
+    pattern = r'^https://www\.instagram\.com*'
     return bool(re.match(pattern, text))
 
 api_url = "https://v3.saveig.app/api/ajaxSearch"
