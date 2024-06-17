@@ -1,7 +1,7 @@
 import random
 from datetime import date as dt
 
-from VegetaRobot.modules.sql.couples_sql import *
+from VegetaRobot.modules.sql.couple_sql import *
 from VegetaRobot import pgram
 
 from pyrogram import filters, types, enums, errors
