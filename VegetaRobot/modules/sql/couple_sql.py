@@ -72,16 +72,3 @@ def get_couple_info(chat_id):
         else:
             return None
 
-
-
-# Example Usage 
-  """   
-    set_couple_chat("123456789", "man_user_id", "woman_user_id")
-    print(is_couple_chat("123456789"))  # True
-    print([chat.chat_id for chat in get_all_chat_ids()])  # ['123456789']
-    print(get_couples_chat_day("123456789"))  # current day
-    print(get_couple_info("123456789"))  # {'chat_id': '123456789', 'day': current day, 'man': 'man_user_id', 'woman': 'woman_user_id'}
-    rem_couple_chat("123456789")
-    print(is_couple_chat("123456789"))  # False
-
-    """
