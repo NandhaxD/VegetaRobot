@@ -33,8 +33,8 @@ async def Couples(bot, m: types.Message):
         couple['day'] = today
         data = couple
 
-    man_id = data["man_id"]
-    woman_id = data["woman_id"]
+    man_id = int(data["man_id"])
+    woman_id = int(data["woman_id"])
     date_str = data['day']
 
     try:
