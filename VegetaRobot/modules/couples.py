@@ -45,7 +45,7 @@ async def Couples(bot, m: types.Message):
         woman = info[1].mention
     except Exception as e:
         man = man_id
-        woman = woman_if
+        woman = woman_id
         await m.reply_text(f"❌ Error when getting info: {str(e)}")
 
     
