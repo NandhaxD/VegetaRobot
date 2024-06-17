@@ -72,5 +72,5 @@ def get_couple_info(chat_id):
         if couple:
             return {'chat_id': couple.chat_id, 'day': couple.day, 'man_id': couple.man_id, 'woman_id': couple.woman_id}
         else:
-            return None
+            return {}
 
