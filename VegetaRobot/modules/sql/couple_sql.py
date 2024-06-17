@@ -50,9 +50,11 @@ def set_couple_chat(chat_id, man_id, woman_id):
         SESSION.add(couple)
         SESSION.commit()
 
+
 def get_all_chat_ids():
     try:
-        return SESSION.query(CoupleChats).all()
+        chat_ids = SESSION.query(CoupleChats.chat_id).all()
+        return [chat_id[0] for chat_id in chat_ids]  # Extract the first element from each tuple
     finally:
         SESSION.close()
 
