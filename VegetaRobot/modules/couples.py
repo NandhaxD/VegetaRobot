@@ -38,12 +38,18 @@ async def Couples(bot, m: types.Message):
     date_str = data['day']
 
     try:
-        info = await pgram.get_users([man_id, woman_id])
-    except errors.RPCError:
-        return await m.reply_text("❌ Error when getting info.")
+        info = await pgram.get_users(
+          [man_id, woman_id]
+        )
+        man = info[0].mention
+        woman = info[1].mention
+    except Exception as e:
+        man = man_id
+        woman = woman_if
+        await m.reply_text(f"❌ Error when getting info: {str(e)}")
 
-    man = info[0].mention
-    woman = info[1].mention
+    
+  
     photo_url = "https://graph.org/file/0e36d05c9e5fe01d3b986.jpg"
     string = (
         f"""
