@@ -10,14 +10,14 @@ class CoupleChats(BASE):
     __tablename__ = 'couple_chats'
     chat_id = Column(String(14), primary_key=True)
     day = Column(Integer)
-    man = Column(String(14))
-    woman = Column(String(14))
+    man_id = Column(String(14))
+    woman_id = Column(String(14))
 
-    def __init__(self, chat_id, day, man, woman):
+    def __init__(self, chat_id, day, man_id, woman_id):
         self.chat_id = chat_id
         self.day = day
-        self.man = man
-        self.woman = woman
+        self.man_id = man_id
+        self.woman_id = woman_id
 
 CoupleChats.__table__.create(checkfirst=True)
 INSERTION_LOCK = threading.RLock()
@@ -45,8 +45,8 @@ def set_couple_chat(chat_id, man_id, woman_id):
             couple = CoupleChats(str(chat_id), day, man_id, woman_id)
         else:
             couple.day = day
-            couple.man = man_id
-            couple.woman = woman_id
+            couple.man_id = man_id
+            couple.woman_id = woman_id
         SESSION.add(couple)
         SESSION.commit()
 
@@ -70,7 +70,7 @@ def get_couple_info(chat_id):
     with INSERTION_LOCK:
         couple = SESSION.query(CoupleChats).get(str(chat_id))
         if couple:
-            return {'chat_id': couple.chat_id, 'day': couple.day, 'man': couple.man, 'woman': couple.woman}
+            return {'chat_id': couple.chat_id, 'day': couple.day, 'man_id': couple.man_id, 'woman_id': couple.woman_id}
         else:
             return None
 
