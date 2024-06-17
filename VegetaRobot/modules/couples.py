@@ -56,4 +56,6 @@ async def Couples(bot, m: types.Message):
 💖 **Wishing you a lifetime of love and happiness! by {bot.me.mention}** 💖
 """
     )
-    await m.reply_text(text=string)
+    await m.reply_photo(
+      photo=photo_url,
+      caption=string)
