@@ -7,7 +7,7 @@ from VegetaRobot.modules.sql import BASE, SESSION
 
 
 class CoupleChats(BASE):
-    __tablename__ = 'couple_chats'
+    __tablename__ = 'CoupleChats'
     chat_id = Column(String(14), primary_key=True)
     day = Column(Integer)
     man_id = Column(String(14))
