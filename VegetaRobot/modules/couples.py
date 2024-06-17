@@ -22,7 +22,7 @@ async def Couples(bot, m: types.Message):
     today = str(dt.today())
     couple = get_couple_info(chat_id)
   
-    if is_couple and (couple.get('day', 0) == int(today.split("-")[-1])):
+    if is_couple and (couple and (couple.get('day', 0) == int(today.split("-")[-1]))):
         couple['day'] = today
         data = couple    
             
