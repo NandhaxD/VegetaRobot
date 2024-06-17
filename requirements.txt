@@ -84,7 +84,8 @@ pylyrics==1.1.0
 pymongo==4.6.3
 pynewtonmath==1.0.1
 pyrate-limiter==2.10.0
-pyrogram==2.0.106
+#pyrogram==2.0.106
+git+https://github.com/KurimuzonAkuma/pyrogram.git@v2.1.18git+https://github.com/KurimuzonAkuma/pyrogram.git@v2.1.21
 pysmartdl==1.3.4
 pysocks==1.7.1
 python-arq==6.0.6
