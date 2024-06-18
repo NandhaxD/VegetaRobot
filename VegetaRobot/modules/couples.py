@@ -10,7 +10,7 @@ from pyrogram import filters, types, enums, errors
 async def GetMembers(chat_id: int):
     members = []
     async for m in pgram.get_chat_members(chat_id):
-        if m.user.is_bot:
+        if m.user.is_bot or m.user.is_deleted:
            continue
         members.append(m.user.id)
     return members
