@@ -19,12 +19,11 @@ async def GetMembers(chat_id: int):
 @pgram.on_message(filters.command(["shipping", "couples"]) & filters.group)
 async def Couples(bot, m: types.Message):
     chat_id = m.chat.id
-    is_couple = is_couple_chat(chat_id)
     data = {}
     today = str(dt.today())
     couple = get_couple_info(chat_id)
   
-    if is_couple and couple and couple.get('day', 0) == int(today.split("-")[-1]):
+    if couple and int(couple.get('day', 0)) == int(today.split("-")[-1]):
         couple['day'] = today
         data.update(couple)  
             
@@ -32,6 +31,7 @@ async def Couples(bot, m: types.Message):
         members = await GetMembers(chat_id)
         man_id, woman_id = random.sample(members, 2)
         set_couple_chat(chat_id, man_id, woman_id)
+        couple = get_couple_info(chat_id)
         couple['day'] = today
         data.update(couple)
 
@@ -45,9 +45,11 @@ async def Couples(bot, m: types.Message):
         )
         man = info[0].mention
         woman = info[1].mention
+      
     except Exception as e:
         man = man_id
         woman = woman_id
+      
         await m.reply_text(f"❌ Error when getting info: {str(e)}")
 
     
