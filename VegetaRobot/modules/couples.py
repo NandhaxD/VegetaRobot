@@ -10,6 +10,8 @@ from pyrogram import filters, types, enums, errors
 async def GetMembers(chat_id: int):
     members = []
     async for m in pgram.get_chat_members(chat_id):
+        if m.user.is_bot:
+           continue
         members.append(m.user.id)
     return members
 
@@ -18,20 +20,20 @@ async def GetMembers(chat_id: int):
 async def Couples(bot, m: types.Message):
     chat_id = m.chat.id
     is_couple = is_couple_chat(chat_id)
-    data = None
+    data = {}
     today = str(dt.today())
     couple = get_couple_info(chat_id)
   
-    if is_couple and (couple and (couple.get('day', 0) == int(today.split("-")[-1]))):
+    if is_couple and couple and couple.get('day', 0) == int(today.split("-")[-1]):
         couple['day'] = today
-        data = couple    
+        data.update(couple)  
             
     else:
         members = await GetMembers(chat_id)
         man_id, woman_id = random.sample(members, 2)
         set_couple_chat(chat_id, man_id, woman_id)
         couple['day'] = today
-        data = couple
+        data.update(couple)
 
     man_id = int(data["man_id"])
     woman_id = int(data["woman_id"])
@@ -64,4 +66,5 @@ async def Couples(bot, m: types.Message):
     )
     await m.reply_photo(
       photo=photo_url,
-      caption=string)
+      caption=string
+    )
