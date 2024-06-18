@@ -116,7 +116,7 @@ telegraph==2.2.0
 telethon==1.30.3
 tgcrypto==1.2.5
 toml==0.10.2
-tornado==6.4.1
+tornado==6.1
 tqdm==4.66.2
 tracemoepy==4.1
 tswift==0.7.0
