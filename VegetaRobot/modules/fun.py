@@ -27,7 +27,9 @@ def emojimix(u: Update, c: CallbackContext):
         if response.status_code == 200:
              with open(path, 'wb+') as f:
                 f.write(response.content)
-             ok = msg.reply_sticker(path)
+             ok = msg.reply_sticker(
+                sticker=open(path, 'rb')
+             )
              if ok:
                 os.remove(path)
              
