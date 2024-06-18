@@ -59,18 +59,24 @@ def get_all_chat_ids():
         SESSION.close()
 
 def get_couples_chat_day(chat_id):
-    with INSERTION_LOCK:        
-        couple = SESSION.query(CoupleChats).get(str(chat_id))
-        if couple:
-            return couple.day
-        else:
-            return False
+    with INSERTION_LOCK:
+       try:
+          couple = SESSION.query(CoupleChats).get(str(chat_id))
+          if couple:
+              return couple.day
+          else:
+              return False
+       finally:
+           SESSION.close()
 
 def get_couple_info(chat_id):
     with INSERTION_LOCK:
-        couple = SESSION.query(CoupleChats).get(str(chat_id))
-        if couple:
-            return {'chat_id': couple.chat_id, 'day': couple.day, 'man_id': couple.man_id, 'woman_id': couple.woman_id}
-        else:
-            return {}
+       try:
+          couple = SESSION.query(CoupleChats).get(str(chat_id))
+          if couple:
+             return {'chat_id': couple.chat_id, 'day': couple.day, 'man_id': couple.man_id, 'woman_id': couple.woman_id}
+          else:
+             return {}
+       finally:
+         SESSION.close()
 
