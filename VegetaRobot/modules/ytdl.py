@@ -20,7 +20,7 @@ def is_youtube_url(text: str):
 
 
 def download(link: str, mode: str):
-    yt = YouTube(link)
+    yt = YouTube(link, use_oauth=True, allow_oauth_cache=True)
     if mode == "ytaudio":
         file = yt.streams.get_audio_only()
         dl_path = file.download('./')
