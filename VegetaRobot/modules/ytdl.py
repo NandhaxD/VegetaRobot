@@ -23,9 +23,9 @@ def download(link: str, mode: str):
     yt = YouTube(link)
     if mode == "ytaudio":
         file = yt.streams.get_audio_only()
-        path = file.download('./')
-        new_file_path = os.path.splitext(path)[0] + ".mp3"      
-        os.rename(path, new_file_path)
+        dl_path = file.download('./')
+        path = os.path.splitext(dl_path)[0] + ".mp3"      
+        os.rename(dl_path, path)
     else:
         file = yt.streams.get_highest_resolution()
         path = file.download('./')
