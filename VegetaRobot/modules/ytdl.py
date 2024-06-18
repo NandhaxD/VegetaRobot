@@ -1,5 +1,5 @@
 
-import re
+import re, os
 from pytube import YouTube
 
 
@@ -23,9 +23,12 @@ def download(link: str, mode: str):
     yt = YouTube(link)
     if mode == "ytaudio":
         file = yt.streams.get_audio_only()
+        path = file.download('./')
+        new_file_path = os.path.splitext(path)[0] + ".mp3"      
+        os.rename(path, new_file_path)
     else:
         file = yt.streams.get_highest_resolution()
-    path = file.download('./')
+        path = file.download('./')
     return [ yt.title, path ]
 
 
