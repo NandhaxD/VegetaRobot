@@ -21,7 +21,7 @@ def getdebug(u: Update, c: CallbackContext):
         path = os.path.exists(file)
         if path:
             msg.reply_document(
-               document=open(path, 'rb')
+               document=open(file, 'rb')
             )
         else:
             msg.reply_text("🤔 It seems the path doesn't exist")
