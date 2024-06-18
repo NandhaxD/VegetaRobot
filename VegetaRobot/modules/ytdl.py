@@ -31,7 +31,7 @@ def download(link: str, mode: str):
 
 
 @pgram.on_message(filters.command(['ytaudio','ytvideo']))
-async def youtube_dl(bot, m:= types.message):
+async def youtube_dl(bot, m: types.Message):
        cmd = m.command[0]
        if not len(m.text.split()) >= 2:
             return await m.reply_text("```Example:\n/ytvideo url```")
