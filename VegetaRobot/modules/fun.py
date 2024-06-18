@@ -1,6 +1,7 @@
 
 
 import requests
+import os
 
 from VegetaRobot import dispatcher
 from VegetaRobot.modules.disable import DisableAbleCommandHandler
@@ -8,6 +9,37 @@ from VegetaRobot.modules.disable import DisableAbleCommandHandler
 from telegram import Update, ParseMode
 from telegram.ext import CallbackContext, CommandHandler, run_async
 from telegram.utils.helpers import mention_html
+
+
+
+
+
+def emojimix(u: Update, c: CallbackContext):
+    msg = u.effective_message
+    user = u.effective_user
+    chat = u.effective_chat
+  
+    if len(msg.text.split()) == 2:
+        emoji_1, emoji_2 = msg.text.split()[1].split("+")
+        api_url = "https://apis-awesome-tofu.koyeb.app/api/emojimix?emoji1={}&emoji2={}".format(emoji_1, emoji_2)
+        path = f"{user.id}{chat.id}.webp"
+        response = requests.get(api_url)
+        if response.status_code == 200:
+             with open(path, 'wb+') as f:
+                f.write(response.content)
+             ok = msg.reply_sticker(path)
+             if ok:
+                os.remove(path)
+             
+        else:
+             msg.reply_text(f"❌ Status: {response.status_code}")
+        
+    else:
+        return msg.reply_text(
+           "Sorry wrong format pal! do like: /emojimix 😊+🐼")
+     
+ 
+        
 
 
 def truth(update: Update, context: CallbackContext):
@@ -68,20 +100,25 @@ def dare(update: Update, context: CallbackContext):
 
 TRUTH_HANDLER = DisableAbleCommandHandler("truth", truth, run_async=True)                          
 DARE_HANDLER = DisableAbleCommandHandler("dare", dare, run_async=True)
+EMOJIMIX_HANDLER = DisableAbleCommandHandler("emojimix", emojimix, run_async=True)
+
+
 
 dispatcher.add_handler(TRUTH_HANDLER)
 dispatcher.add_handler(DARE_HANDLER)
+dispatcher.add_handler(EMOJIMIX_HANDLER)
 
 
 
 __mod_name__ = "Fun"
 
 __command_list__ = [
-  'truth', 'dare'
+  'truth', 'dare', 'emojimix'
 ]
 
 
 __help__ = """
 ➪ /truth: reply to someone for ask truth's
 ➪ /dare: reply to someone for ask dare's
+➪ /emojimix 🐼+😊: to combine two emojis
 """
