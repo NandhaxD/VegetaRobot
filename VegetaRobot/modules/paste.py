@@ -6,6 +6,8 @@ from requests.exceptions import HTTPError, Timeout, TooManyRedirects
 
 from VegetaRobot import pgram
 
+from pyrogram import filters, types, enums, errors
+
 @pgram.on_message(filters.command('paste'))
 async def dpaste(bot, message):
     m = message
