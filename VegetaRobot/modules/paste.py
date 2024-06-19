@@ -7,7 +7,7 @@ from requests.exceptions import HTTPError, Timeout, TooManyRedirects
 from VegetaRobot import pgram
 
 @pgram.on_message(filters.command('paste'))
-def pastebin(bot, message):
+def async dpaste(bot, message):
     m = message
     reply = message.reply_to_message
     api_url = "https://dpaste.org/api/"
