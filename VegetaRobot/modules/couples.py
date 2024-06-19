@@ -1,4 +1,6 @@
 import random
+import requests
+
 from datetime import date as dt
 
 from VegetaRobot.modules.sql.couple_sql import *
@@ -67,7 +69,9 @@ async def Couples(bot, m: types.Message):
               types.InputMediaPhoto(woman_image)
           ]))
     except:
-        pass
+        await m.reply_text(
+           "❌ Error occured while fetching a couples pfp:\n", str(e)
+        )
   
     string = (
         f"""
