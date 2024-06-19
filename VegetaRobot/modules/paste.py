@@ -40,8 +40,8 @@ async def dpaste(bot, message):
             },
         )
     except Exception as e:
-        await msg.edit("❌ Error:", str(e))
+        return await msg.edit("❌ Error:", str(e))
     await msg.edit(
-      "✨ Paste Link: ", r.text
+      f"✨ **Paste Link**: {r.text}"
     )
     
