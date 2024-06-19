@@ -58,8 +58,8 @@ async def Couples(bot, m: types.Message):
     try:
       api_url = "https://nandha-api.onrender.com/couples"
       response = requests.get(api_url).json()
-      man_image = response['man_image']
-      woman_image = response['woman_image']
+      man_image = response['male_image']
+      woman_image = response['female_image']
       await pgram.send_media_group(
           chat_id, 
           media=([
