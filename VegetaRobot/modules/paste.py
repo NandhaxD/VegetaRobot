@@ -8,6 +8,9 @@ from VegetaRobot import pgram
 
 from pyrogram import filters, types, enums, errors
 
+
+media_url = "https://graph.org/file/cb336f4cc339dbbd5b5d3.jpg"
+
 @pgram.on_message(filters.command('paste'))
 async def dpaste(bot, message):
     m = message
@@ -41,7 +44,13 @@ async def dpaste(bot, message):
         )
     except Exception as e:
         return await msg.edit("❌ Error:", str(e))
-    await msg.edit(
-      f"✨ **Paste Link**: {r.text}"
+    ok = await msg.reply_photo(
+      photo=media_url,
+      reply_markup=types.InlineKeyboardMarkup([[
+        types.InlineKeyboardButton('🖥️ Paste Link', url=str(r.text))
+      ],[
+        types.InlineKeyboardButton('🖥️ Raw Link', url=(str(r.text)+'/raw'))
+      ]])
     )
-    
+    if ok:
+       await msg.delete()
