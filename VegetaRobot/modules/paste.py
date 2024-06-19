@@ -36,7 +36,7 @@ async def dpaste(bot, message):
         r = post(
             url=api_url,
             data={
-                'format': 'url',
+                'format': 'default',
                 'content': paste.encode('utf-8'),
                 'lexer': 'python',
                 'expires': '604800', #expire in week
