@@ -36,7 +36,7 @@ async def dpaste(bot, message):
         r = post(
             url=api_url,
             data={
-                'format': 'default',
+                'format': 'json',
                 'content': paste.encode('utf-8'),
                 'lexer': 'python',
                 'expires': '604800', #expire in week
@@ -44,12 +44,13 @@ async def dpaste(bot, message):
         )
     except Exception as e:
         return await msg.edit("❌ Error:", str(e))
+    data = response.json()
     ok = await msg.reply_photo(
       photo=media_url,
       reply_markup=types.InlineKeyboardMarkup([[
-        types.InlineKeyboardButton('🖥️ Paste Link', url=str(r.text))
+        types.InlineKeyboardButton('🖥️ Paste Link', url=data.get('url'))
       ],[
-        types.InlineKeyboardButton('🖥️ Raw Link', url=(str(r.text)+'/raw'))
+        types.InlineKeyboardButton('🖥️ Raw Link', url=(data.get('url')+'/raw'))
       ]])
     )
     if ok:
