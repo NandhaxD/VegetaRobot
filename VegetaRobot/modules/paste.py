@@ -44,7 +44,7 @@ async def dpaste(bot, message):
         )
     except Exception as e:
         return await msg.edit("❌ Error:", str(e))
-    data = response.json()
+    data = r.json()
     ok = await msg.reply_photo(
       photo=media_url,
       reply_markup=types.InlineKeyboardMarkup([[
