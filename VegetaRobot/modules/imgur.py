@@ -11,6 +11,9 @@ import requests
 @app.on_message(filters.command("imgur"))
 async def imgur(client, message):
     # Check if a reply exists
+    msg = await message.reply_text(
+      "🎉 Please patience. trying to upload..."
+    )
     if message.reply_to_message and message.reply_to_message.photo:
         # Download the photo
         photo_path = await message.reply_to_message.download()
@@ -24,7 +27,7 @@ async def imgur(client, message):
         # Upload image to Imgur and get URL
         response = requests.post(url, headers=headers, data={"image": base64_data})
         result = response.json()
-        await message.reply_text(result["data"]["link"])
+        await msg.edit_text(result["data"]["link"])
     elif message.reply_to_message and message.reply_to_message.animation:
         # Download the animation (GIF)
         animation_path = await message.reply_to_message.download()
@@ -38,6 +41,6 @@ async def imgur(client, message):
         # Upload animation to Imgur and get URL
         response = requests.post(url, headers=headers, data={"image": base64_data})
         result = response.json()
-        await message.reply_text(result["data"]["link"])
+        await msg.edit_text(result["data"]["link"])
     else:
-        await message.reply_text("Please reply to a photo or animation (GIF) to upload to Imgur.")
+        await msg.edit_text("Please reply to a photo or animation (GIF) to upload to Imgur.")
