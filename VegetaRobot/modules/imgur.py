@@ -44,3 +44,15 @@ async def imgur(client, message):
         await msg.edit_text(result["data"]["link"])
     else:
         await msg.edit_text("Please reply to a photo or animation (GIF) to upload to Imgur.")
+
+
+
+
+__mod_name__ = 'Imgur'
+
+__help__ = """
+✨ *Imgur uploader*:
+
+/imgur:
+To upload image & gif to imgur.com
+"""
