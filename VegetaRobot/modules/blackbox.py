@@ -78,7 +78,11 @@ async def blackbox(bot, message):
              
                 return await msg.edit_text(
                       text=rdata['reply']
-             )
+              )
+           else:
+               return await msg.edit_text(
+                   "Okay this feature haven't updated it."
+               )
 
 
                 
