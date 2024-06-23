@@ -9,7 +9,7 @@ from pyrogram import filters, types, enums, errors
 
 
 def id_generator() -> str:
-    return uuid.uuid4()
+    return str(uuid.uuid4())
 
 @pgram.on_message(filters.command("blackbox"))
 async def blackbox(bot, message):
