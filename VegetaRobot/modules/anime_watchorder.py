@@ -14,7 +14,7 @@ anime_url = "https://i.imgur.com/m5XUxTV.jpeg"
 async def WatchOrder(bot, message):
        m = message
        msg = await m.reply_text("Fetching.... 🐼")
-       if len(m.text.split()) >= 2:
+       if not len(m.text.split()) >= 2:
           return await msg.edit("Ok, read dm how to use this.")
        else:
            anime_name = quote(m.text.split(maxsplit=1)[1])
