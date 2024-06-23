@@ -9,6 +9,8 @@ import textwrap
 import requests
 import json
 
+from urllib.parse import quote
+
 from telegram import (InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update)
 from telegram.ext import CallbackQueryHandler, CommandHandler, run_async, CallbackContext
 from telegram.utils.helpers import mention_html
@@ -653,19 +655,39 @@ def animequotes(update: Update, context: CallbackContext):
     reply_photo = message.reply_to_message.reply_photo if message.reply_to_message else message.reply_photo
     reply_photo(
         random.choice(QUOTES_IMG))
-      
-@pgram.on_message(filters.command('watchorder'))
-def watchorderx(_,message):
-	anime =  message.text.replace(message.text.split(' ')[0], '')
-	res = requests.get(f'https://chiaki.site/?/tools/autocomplete_series&term={anime}').json()
-	data = None
-	id_ = res[0]['id']
-	res_ = requests.get(f'https://chiaki.site/?/tools/watch_order/id/{id_}').text
-	soup = BeautifulSoup(res_ , 'html.parser')
-	anime_names = soup.find_all('span' , class_='wo_title')
-	for x in anime_names:
-		data = f"{data}\n{x.text}" if data else x.text
-	message.reply_text(f'Watchorder of {anime}: \n```{data}```')
+
+
+
+anime_url = "https://i.imgur.com/m5XUxTV.jpeg"
+
+@pgram.on_message(filters.command("watchorder"))
+async def AnimeWatchOrder(bot, message):
+       m = message
+       msg = await m.reply_text("Fetching.... 🐼")
+       if not len(m.text.split()) >= 2:
+          return await msg.edit("Ok, read dm how to use this.")
+       else:
+           anime_name = quote(m.text.split(maxsplit=1)[1])
+           api_url = f"https://chiaki.site/?/tools/autocomplete_series&term={anime_name}"
+           try:
+              response = requests.get(api_url).json()
+           except Exception as e:
+               return await msg.edit(
+                  "❌ Error: ", str(e)
+               )
+           if not response:
+               return await msg.edit("🐼 Sorry couldn't find the anime.")
+             
+           text = "✨ **Results**:\n\n" + "\n\n".join([f"✪ **{item['value']}**, {item['type']}, ﹙{item['year']}﹚" for item in response])
+         
+           if (await m.reply_photo(
+               photo=anime_url,
+               caption=text
+           )):
+               await msg.delete()
+
+
+           
 
 __help__ = """
 Get information about anime, manga or characters from [AniList](anilist.co)
