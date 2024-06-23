@@ -121,7 +121,6 @@ async def blackbox(bot, message):
 
 
 
-__mode_name__ = "BlackBox"
 
 __help__ = """
 ✨ *BlackBox AI*:
@@ -132,6 +131,6 @@ or just use it with `/blackbox what is top ten news today?`
 """
 
 
-
+__mode_name__ = "Blackbox"
 
 
