@@ -131,6 +131,6 @@ or just use it with `/blackbox what is top ten news today?`
 """
 
 
-__mode_name__ = "Blackbox"
+__mod_name__ = "Blackbox"
 
 
