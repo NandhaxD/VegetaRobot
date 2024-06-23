@@ -19,7 +19,7 @@ async def blackbox(bot, message):
              "type some query buddy 🐼\n"
              "/blackbox text with reply to the photo or just text"
           )
-       else:
+      else:
            prompt = m.text.split(maxsplit=1)[1]
            user_id = IdGenerator()
            image = None
