@@ -140,7 +140,7 @@ def chatbot(update: Update, context: CallbackContext):
             return
         Message = message.text
         bot.send_chat_action(chat_id, action="typing")
-        kuki_text = get_respons(Message)
+        kuki_text = get_response(Message)
         if kuki_text:
             text = kuki_text
         else:
