@@ -10,8 +10,8 @@ from urllib.parse import quote
 
 anime_url = "https://i.imgur.com/m5XUxTV.jpeg"
 
-@pgram.on_message(filters.command("watchorder"))
-async def WatchOrder(bot, message):
+@pgram.on_message(filters.command("animeow"))
+async def AnimeWatchOrder(bot, message):
        m = message
        msg = await m.reply_text("Fetching.... 🐼")
        if not len(m.text.split()) >= 2:
@@ -42,7 +42,7 @@ __mod_name__ = "Anime W-O"
 __help__ = """
 ✨ *Anime Watch Order*:
 
-/watchorder <query>:
+/animeow <query>:
 To Anime index to watch orderly.
 """
 
