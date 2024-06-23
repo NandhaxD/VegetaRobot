@@ -8,20 +8,22 @@ from pyrogram import filters, types, enums, errors
 
 
 
-def IdGenerator() -> str:
+def id_generator() -> str:
     return uuid.uuid4()
 
 @pgram.on_message(filters.command("blackbox"))
 async def blackbox(bot, message):
       m = message
+      msg = await m.reply_text("Processing.....")
+      
       if len(m.text.split()) == 1:
-          return await m.reply_text(
-             "type some query buddy 🐼\n"
+          return await msg.edit_text(
+             "Type some query buddy 🐼\n"
              "/blackbox text with reply to the photo or just text"
           )
       else:
            prompt = m.text.split(maxsplit=1)[1]
-           user_id = IdGenerator()
+           user_id = id_generator()
            image = None
            
            if m.reply_to_message and m.reply_to_message.photo:
@@ -33,9 +35,23 @@ async def blackbox(bot, message):
                 files = {'image': (file_name, image, 'image/jpeg')}
                 data = {'fileName': file_name, 'userId': user_id}
                 api_url = "https://www.blackbox.ai/api/upload"
-                response = requests.post(api_url, files=files, data=data)
+                try:
+                   response = requests.post(
+                     api_url, 
+                     files=files, 
+                     data=data
+                       )
+                except Exception as e:
+                    return await msg.edit(
+                      "❌ Error: ", str(e)
+                    )
                 response_json = response.json()
-                messages = [{"role": "user", "content": response_json['response'] + "\n#\n" + prompt}]
+                messages = [
+                   {
+                     "role": "user", 
+                     "content": response_json['response'] + "\n#\n" + prompt
+                   }
+                ]
                 data = {
                 "messages": messages,
                 "user_id": user_id,
@@ -45,13 +61,22 @@ async def blackbox(bot, message):
                 }
                 headers = {"Content-Type": "application/json"}
                 url = "https://www.blackbox.ai/api/chat"
-                response = requests.post(url, headers=headers, json=data)
+                try:
+                    response = requests.post(url, headers=headers, json=data)
+                    response_text = response.text
+                except Exception as e:
+                    return await msg.edit(
+                        "❌ Error: ", str(e)
+                    )
                 cleaned_response_text = re.sub(r'^\$?@?\$?v=undefined-rv\d+@?\$?|\$?@?\$?v=v\d+\.\d+-rv\d+@?\$?', '', response_text)
                 text = cleaned_response_text.strip()[2:]
                 if "$~~~$" in text:
-                    text = re.sub(r'\$~~~\$.*?\$~~~\$', '', text, flags=re.DOTALL)
+                    text = re.sub(
+                      r'\$~~~\$.*?\$~~~\$', '', text, flags=re.DOTALL
+                    )
                 rdata = {'reply': text}
-                return await m.reply_text(
+             
+                return await msg.edit_text(
                       text=rdata['reply']
              )
 
