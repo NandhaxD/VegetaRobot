@@ -26,9 +26,11 @@ async def blackbox(bot, message):
            user_id = id_generator()
            image = None
            
-           if m.reply_to_message and m.reply_to_message.photo:
+           if m.reply_to_message and ( m.reply_to_message.photo or ( m.reply_to_message.sticker and not m.reply_to_message.sticker.is_video )):
                  file_name = f'blackbox_{m.chat.id}.jpeg'
-                 file_path = await m.reply_to_message.download(file_name=file_name)
+                 file_path = await m.reply_to_message.download(
+                         file_name=file_name
+                  )
                  with open(file_path, 'rb') as file:
                       image = file.read()
            if image:
@@ -80,18 +82,54 @@ async def blackbox(bot, message):
                       text=rdata['reply']
               )
            else:
+               messages = [
+                   {
+                     "role": "user", 
+                     "content": prompt
+                   }
+               ]
+               data = {
+                "messages": messages,
+                "user_id": user_id,
+                "codeModelMode": True,
+                "agentMode": {},
+                "trendingAgentMode": {},
+               }
+               headers = {"Content-Type": "application/json"}
+               url = "https://www.blackbox.ai/api/chat"
+               try:
+                  response = requests.post(url, headers=headers, json=data)
+                  response_text = response.text
+               except Exception as e:
+                  return await msg.edit(
+                        "❌ Error: ", str(e)
+                    )
+               cleaned_response_text = re.sub(r'^\$?@?\$?v=undefined-rv\d+@?\$?|\$?@?\$?v=v\d+\.\d+-rv\d+@?\$?', '', response_text)
+               text = cleaned_response_text.strip()[2:]
+               if "$~~~$" in text:
+                   text = re.sub(
+                      r'\$~~~\$.*?\$~~~\$', '', text, flags=re.DOTALL
+                    )
+               rdata = {'reply': text}
                return await msg.edit_text(
-                   "Okay this feature haven't updated it."
-               )
-
+                      text=rdata['reply']
+)
+               
 
                 
                 
 
 
 
+__mode_name__ = "BlackBox"
 
+__help__ = """
+✨ *BlackBox AI*:
 
+*Cmd*:
+/blackbox: with query and reply to sticker or photo for ask
+or just use it with `/blackbox what is top ten news today?`
+"""
 
 
 
