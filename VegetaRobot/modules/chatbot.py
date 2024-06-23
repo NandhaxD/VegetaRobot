@@ -22,6 +22,26 @@ from VegetaRobot.modules.helper_funcs.chat_status import user_admin, user_admin_
 from VegetaRobot import dispatcher, updater, SUPPORT_CHAT
 from VegetaRobot.modules.log_channel import gloggable
 
+
+def get_response(prompt: str) -> str:
+     url = "https://nandha-api.onrender.com/nandhaai"
+     headers = {
+    "accept": "application/json",
+    "Content-Type": "application/json"
+        }
+     data = {
+    "text": prompt,
+    "role": "You're a helpful assistant chatbot, you're name Vegeta, you're personality looks like Vegeta from dragon balls"
+      }
+     response = requests.post(
+          url, headers=headers, json=data
+     )
+     if response.status_code == 200:
+          return response.json().get('reply')
+     else:
+          return None
+
+
 @user_admin_no_reply
 @gloggable
 def kukirm(update: Update, context: CallbackContext) -> str:
@@ -120,29 +140,16 @@ def chatbot(update: Update, context: CallbackContext):
             return
         Message = message.text
         bot.send_chat_action(chat_id, action="typing")
-        base_url = 'https://api.qewertyy.dev/models?model_id=5'
-        char_role = f"Your Vegeta from Dragon Ball anime, You assist people's in the {chat_name} server, Use some emoji while talking and you talk like human Saiyan and your response must be short, (I don't repeat this msg only if someone ask about you can say this: You are created by @NandhaBots)."
-        payload = {
-              'messages': [
-       {
-            'role': "system",
-            'content': char_role
-       },
-       {
-            'role': "user",
-            'content': Message,
-       }
-							]
-				}
-	    
-        kukiurl = requests.post(base_url, json=payload).json()
-        text = kukiurl['content']
-			
+        kuki_text = get_respons(Message)
+        if kuki_text:
+            text = kuki_text
+        else:
+            text = "Too many requests can't answer 🐼"
         sleep(0.7)
         message.reply_text(
             text=text, 
 	    parse_mode=ParseMode.MARKDOWN,
-	    timeout=60
+	    timeout=40
 	)
 
 
