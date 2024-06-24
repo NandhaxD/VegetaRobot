@@ -1,12 +1,33 @@
 
 
 import os
-from requests import get, post
-from requests.exceptions import HTTPError, Timeout, TooManyRedirects
 
-from VegetaRobot import pgram
-
+from VegetaRobot import pgram, aiohttpsession as session
 from pyrogram import filters, types, enums, errors
+
+
+async def shuyaa_paste(text: str):
+    base_url = "https://snippetsbin.vercel.app/"
+    api_url = "https://snippetsbin.vercel.app/api/snippets"
+    payload = {
+       'code': text,
+       'language': 'python',
+       'expireTime': '120' # auto delete after 2 hours
+    }
+    headers = {
+        "Accept": "application/json, text/plain, */*",
+        "Content-Type": "application/json"
+    }
+    async with session.post(
+         api_url,
+         json=payload,
+         headers=headers
+    ) as response:
+       if response.status == 200:
+            data = response.json()
+            return base_url + data['uniqueCode']
+       else:
+            return None
 
 
 media_url = "https://graph.org/file/cb336f4cc339dbbd5b5d3.jpg"
@@ -33,7 +54,7 @@ async def dpaste(bot, message):
 
     await msg.edit("🐼 Pasting...")
     try:
-        r = post(
+        async with session.post(
             url=api_url,
             data={
                 'format': 'json',
@@ -41,17 +62,26 @@ async def dpaste(bot, message):
                 'lexer': 'python',
                 'expires': '604800', #expire in week
             },
-        )
+        ) as response:
+            if response.status != 200:
+                return await msg.edit(
+                   "Something went wrong Status code:", str(response.status)
+                )
+            else:
+              
+               data = response.json()
+               buttons = [
+    [types.InlineKeyboardButton('🖥️ Paste', url=data.get('url')),
+     types.InlineKeyboardButton('🖥️ Raw', url=(data.get('url') + '/raw'))]
+               ]
+               if shu_link:= (await shuyaa_paste(paste)):
+                   buttons.append([types.InlineKeyboardButton('🐼 Paste', url=shu_link)])
+               ok = await msg.reply_photo(
+                photo=media_url,
+      reply_markup=types.InlineKeyboardMarkup([])
+         )
+               if ok:
+                   await msg.delete()
     except Exception as e:
         return await msg.edit("❌ Error:", str(e))
-    data = r.json()
-    ok = await msg.reply_photo(
-      photo=media_url,
-      reply_markup=types.InlineKeyboardMarkup([[
-        types.InlineKeyboardButton('🖥️ Paste Link', url=data.get('url'))
-      ],[
-        types.InlineKeyboardButton('🖥️ Raw Link', url=(data.get('url')+'/raw'))
-      ]])
-    )
-    if ok:
-       await msg.delete()
+    
