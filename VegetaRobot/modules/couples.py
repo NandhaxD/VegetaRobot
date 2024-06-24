@@ -4,7 +4,7 @@ import requests
 from datetime import date as dt
 
 from VegetaRobot.modules.sql.couple_sql import *
-from VegetaRobot import pgram
+from VegetaRobot import pgram, aiohttpsession as session
 
 from pyrogram import filters, types, enums, errors
 
@@ -59,16 +59,24 @@ async def Couples(bot, m: types.Message):
     photo_url = "https://graph.org/file/0e36d05c9e5fe01d3b986.jpg"
     try:
       api_url = "https://nandha-api.onrender.com/couples"
-      response = requests.get(api_url).json()
-      man_image = response['male_image']
-      woman_image = response['female_image']
-      await pgram.send_media_group(
-          chat_id, 
-          media=([
+      async with session.get(api_url) as resp:
+           status = resp.status
+           if status == 200:
+                data = resp.json()
+                man_image = data['male_image']
+                woman_image = data['female_image']
+                await pgram.send_media_group(
+                    chat_id, 
+                     media=([
               types.InputMediaPhoto(man_image),
               types.InputMediaPhoto(woman_image)
-          ]))
-    except:
+          ])) 
+           else:
+              await m.reply_text(
+                 "❌ Error while Fetching status code:", str(status)
+              )
+                                
+    except Exception as e:
         await m.reply_text(
            "❌ Error occured while fetching a couples pfp:\n", str(e)
         )
