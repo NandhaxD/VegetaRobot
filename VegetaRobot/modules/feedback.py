@@ -4,12 +4,12 @@ from VegetaRobot import pgram, JOIN_LOGGER, OWNER_USERNAME, SUPPORT_CHAT
 
 
 
-@pgram.on_message(filters.command("bug"))
+@pgram.on_message(filters.command(["bug", "feedback"]))
 async def BugsReport(bot, message):
          m = message
          if not len(m.text.split()) >= 2:
              return await m.reply_text(
-                   "Write your bug what have you found? maybe we'll work on it!"
+                   "⚡ **Offer us any requests for new module or report any bugs using the command:** `/bug text`"
              )
          if not m.from_user: return
                   
@@ -22,24 +22,26 @@ f"""
 🆔 **Id**: `{user_id}`
 📆 **Date**: `{date}`
 
-🐞 **Bug**:
+{ f"🔗 **Link**: {m.link}" if m.chat.type != enums.ChatType.PRIVATE else ""}
+
+🐞 **Bug Msg**:
 ```
 {m.text.split(maxsplit=1)[1]}
 ```
 """
          )                  
          
-         BugMsg = await bot.send_message(
+         try:
+             BugMsg = await bot.send_message(
              chat_id=JOIN_LOGGER, # send bug report to channel
              text=bug_text
-         )
-         if not msg:
-             await bot.send_message(
+                )
+         except:
+             return await bot.send_message(
                   chat_id=OWNER_USERNAME, # if bot can't access channel then send to owner
                   text=bug_text
              )
-         else:
-              ReportMsg = await bot.send_message(
+         ReportMsg = await bot.send_message(
                       chat_id=SUPPORT_CHAT,
                       text = (
                       
@@ -51,7 +53,7 @@ Check here: **[Bug report]({BugMsg.link})**
 """
 )
              )
-              return await m.reply_text(
+         return await m.reply_text(
              text = (
            "**⚡ Successfully the report has been sent to Support chat click the below to view and wait for the answer 🐼.**"           
          ), reply_markup=types.InlineKeyboardMarkup([[
