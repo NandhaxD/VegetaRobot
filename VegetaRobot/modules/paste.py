@@ -24,7 +24,7 @@ async def shuyaa_paste(text: str):
          headers=headers
     ) as response:
        if response.status == 200:
-            data = response.json()
+            data = await response.json()
             return base_url + data['uniqueCode']
        else:
             return None
@@ -65,11 +65,11 @@ async def dpaste(bot, message):
         ) as response:
             if response.status != 200:
                 return await msg.edit(
-                   "Something went wrong Status code:", str(response.status)
+                   f"Something went wrong Status code: {str(response.status)}"
                 )
             else:
               
-               data = response.json()
+               data = await response.json()
                buttons = [
     [types.InlineKeyboardButton('🖥️ Paste', url=data.get('url')),
      types.InlineKeyboardButton('🖥️ Raw', url=(data.get('url') + '/raw'))]
@@ -78,10 +78,10 @@ async def dpaste(bot, message):
                    buttons.append([types.InlineKeyboardButton('🐼 Paste', url=shu_link)])
                ok = await msg.reply_photo(
                 photo=media_url,
-      reply_markup=types.InlineKeyboardMarkup([])
+      reply_markup=types.InlineKeyboardMarkup(buttons)
          )
                if ok:
                    await msg.delete()
     except Exception as e:
-        return await msg.edit("❌ Error:", str(e))
+        return await msg.edit(f"❌ Error: {str(e)}")
     
