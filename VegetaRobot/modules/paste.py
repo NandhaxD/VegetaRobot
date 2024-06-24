@@ -59,14 +59,14 @@ async def dpaste(bot, message):
             url=api_url,
             data={
                 'format': 'json',
-                'content': paste.encode('utf-8'),
+                'content': paste,
                 'lexer': 'python',
                 'expires': '604800', #expire in week
             }, headers={'Content-Type': 'application/x-www-form-urlencoded'}
         ) as response:
             if response.status != 200:
                 return await msg.edit(
-                   f"Something went Wrong in dpaste API Status code: {str(response.status)}"
+                   f"❌ Something went Wrong in dpaste API Status code: {str(response.status)}"
                 )
             else:
               
