@@ -15,7 +15,7 @@ async def BugsReport(bot, message):
                   
          user_id = m.from_user.id
          mention = m.from_user.mention
-         data = m.date
+         date = m.date
          bug_text = (
 f"""                 
 ⚡ **By**: {mention}
