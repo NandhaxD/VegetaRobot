@@ -62,7 +62,7 @@ async def Couples(bot, m: types.Message):
       async with session.get(api_url) as resp:
            status = resp.status
            if status == 200:
-                data = resp.json()
+                data = await resp.json()
                 man_image = data['male_image']
                 woman_image = data['female_image']
                 await pgram.send_media_group(
@@ -73,12 +73,12 @@ async def Couples(bot, m: types.Message):
           ])) 
            else:
               await m.reply_text(
-                 "❌ Error while Fetching status code:", str(status)
+                 "❌ Error while Fetching couples pfp Status code:", str(status)
               )
                                 
     except Exception as e:
         await m.reply_text(
-           "❌ Error occured while fetching a couples pfp:\n", str(e)
+           "❌ Error occured while fetching a couples pfp:", str(e)
         )
   
     string = (
