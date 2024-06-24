@@ -85,4 +85,15 @@ async def dpaste(bot, message):
                    await msg.delete()
     except Exception as e:
         return await msg.edit(f"❌ Error: {str(e)}")
-    
+
+
+
+
+__mod_name__ = "Paste"
+
+__help__ = """
+✨ *Paste*:
+
+⚡ start your journey to paste your codes on dpaste.com
+and dev shuyaa website for share codes.
+"""
