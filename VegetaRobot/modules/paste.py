@@ -23,7 +23,7 @@ async def shuyaa_paste(text: str):
          json=payload,
          headers=headers
     ) as response:
-       if response.status == 200:
+       if response.status == 201:
             data = await response.json()
             return base_url + data['uniqueCode']
        else:
@@ -53,6 +53,7 @@ async def dpaste(bot, message):
         )
 
     await msg.edit("🐼 Pasting...")
+    
     try:
         async with session.post(
             url=api_url,
@@ -61,11 +62,11 @@ async def dpaste(bot, message):
                 'content': paste.encode('utf-8'),
                 'lexer': 'python',
                 'expires': '604800', #expire in week
-            },
+            }, headers={'Content-Type': 'application/x-www-form-urlencoded'}
         ) as response:
             if response.status != 200:
                 return await msg.edit(
-                   f"Something went wrong Status code: {str(response.status)}"
+                   f"Something went Wrong in dpaste API Status code: {str(response.status)}"
                 )
             else:
               
