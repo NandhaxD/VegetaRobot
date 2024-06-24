@@ -1,76 +1,67 @@
 
-from VegetaRobot import pgram as bot, DEV_USERS as dev_user, SUPPORT_CHAT
-from pyrogram import filters, enums 
-from pyrogram.enums import ChatType
-import random
-from datetime import datetime
-from pyrogram.types import *
-from VegetaRobot import OWNER_ID
+from pyrogram import filters, types, enums, errors
+from VegetaRobot import pgram, JOIN_LOGGER, OWNER_USERNAME, SUPPORT_CHAT
 
-#made by t.me/nandhaxd |- t.me/hodackaX
 
-vegeta_img = [ "https://telegra.ph/file/03ba8fea3c3ed2b98b68a.jpg", 
-"https://telegra.ph/file/be242e647504b5b253f79.jpg",
-"https://telegra.ph/file/51323082ef6051f3a9721.jpg",
-"https://telegra.ph/file/072bc7f5f9fdf7f04acb3.jpg"]
 
-@bot.on_message(filters.command(["feedback","bug"]))
-async def feedback(_, m):
-         if m.chat.type == ChatType.PRIVATE:
-               return await m.reply_text("**plz give your feedback or bug report in groups")
-         USER = m.from_user
-         if len(m.command) < 2:
-               await m.reply_text("**Gime a Feedback!**")
-               return
-         text = m.text.split(None, 1)[1]
-         feedback = "**#NewFeedBack**\n"
-         if m.chat:
-             feedback += f"**From chat:** `@{m.chat.username}`\n"
-         feedback+= f"**user id**: `{USER.id}`\n"
-         feedback+= f"**mention**: {USER.mention}\n"
-         feedback += f"**Feedback**: `{text}`"
-     
-         msg = await bot.send_photo(f"@{SUPPORT_CHAT}",random.choice(vegeta_img),caption=feedback,
-                reply_markup=InlineKeyboardMarkup(
-                    [
-                        [    InlineKeyboardButton("Approve ✅", callback_data=f"approve={USER.id}={text}={USER.first_name}"),
-                            InlineKeyboardButton("Reject ❌", callback_data=f"reject={USER.id}={text}={USER.first_name}")
-                        ],
-                    ]
-                )
-            )
-    
+@pgram.on_message(filters.command("bug"))
+async def BugsReport(bot, message):
+         m = message
+         if not len(m.text.split()) >= 2:
+             return await m.reply_text(
+                   "Write your bug what have you found? maybe we'll work on it!"
+             )
+         if not m.from_user: return
+                  
+         user_id = m.from_user.id
+         mention = m.from_user.mention
+         data = m.date
+         bug_text = (
+f"""                 
+⚡ **By**: {mention}
+🆔 **Id**: `{user_id}`
+📆 **Date**: `{date}`
 
-         await m.reply_text("Your feedback Successfully Reported On SupportChat!",
-                    reply_markup=InlineKeyboardMarkup(
-                    [
-                        [
-                            InlineKeyboardButton(
-                                "➡ View Report", url=f"{msg.link}")]]))
-  
+🐞 **Bug**:
+```
+{m.text.split(maxsplit=1)[1]}
+```
+"""
+         )                  
+         
+         BugMsg = await bot.send_message(
+             chat_id=JOIN_LOGGER, # send bug report to channel
+             text=bug_text
+         )
+         if not msg:
+             await bot.send_message(
+                  chat_id=OWNER_USERNAME, # if bot can't access channel then send to owner
+                  text=bug_text
+             )
+         else:
+              ReportMsg = await bot.send_message(
+                      chat_id=SUPPORT_CHAT,
+                      text = (
+                      
+f"""
+**⚡ Someone reported a bug in {bot.me.mention}
+Please checkout and assist them.** ✨
 
-@bot.on_callback_query(filters.regex("reject"))
-async def rejected(_, query: CallbackQuery):
-          mm = query.data.split("=")
-          user_id = mm[1]
-          text = mm[2]
-          name = mm[3]
-          if query.from_user.id in dev_user:
-              await query.edit_message_caption(f"**Feedback:** `{text}` **from** `{name}` | `{user_id}` **is Rejected by {query.from_user.mention} ❌**")
-              await bot.send_message(user_id, f"**Your Feedback:** `{text}` **Has been Rejected by {query.from_user.mention} ❌**")
-          else:
-              await query.answer("Only devs can Reject this feedback.", show_alert=True)
-
-@bot.on_callback_query(filters.regex("approve"))
-async def approved(_, query: CallbackQuery):
-          mm = query.data.split("=")
-          user_id = mm[1]
-          text = mm[2]
-          name = mm[3]
-          if query.from_user.id in dev_user:
-              await query.edit_message_caption(f"**Feedback:** `{text}` **from** `{name}` | `{user_id}` **is Approved by {query.from_user.mention} ✅**")
-              await bot.send_message(user_id, f"**Your Feedback:** `{text}` **Has been Approved by {query.from_user.mention} ✅**")
-          else:
-              await query.answer("Only devs can Approve this feedback.", show_alert=True)
-                                
-  
+Check here: **[Bug report]({BugMsg.link})**
+"""
+)
+             )
+              return await m.reply_text(
+             text = (
+           "**⚡ Successfully the report has been sent to Support chat click the below to view and wait for the answer 🐼.**"           
+         ), reply_markup=types.InlineKeyboardMarkup([[
+                  types.InlineKeyboardButton(
+                           "👁️", url=ReportMsg.link
+                  )
+         ]])
+         )
+         
+                  
+         
+         
+         
