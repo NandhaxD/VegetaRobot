@@ -49,7 +49,7 @@ async def interpreter(bot, message):
               version = data['version']
               code = data['code']
               output = data['output']
-              ping = (start_time - time.time()) * 1000
+              ping = (time.time() - start_time) * 1000
               return await msg.edit_text(
 f"""\n
 🌐 **Language**: `{language}`
