@@ -1,6 +1,7 @@
 import uuid
 import re
 from VegetaRobot import pgram, aiohttpsession as session
+from aiohttp import FormData
 from pyrogram import filters, types, enums, errors
 
 def id_generator() -> str:
@@ -9,11 +10,11 @@ def id_generator() -> str:
 @pgram.on_message(filters.command("blackbox"))
 async def blackbox(bot, message):
     m = message
-    msg = await m.reply_text("🔍")
+    msg = await m.reply_text("Processing.....")
     
     if len(m.text.split()) == 1:
         return await msg.edit_text(
-            "Type! some query buddy 🐼\n"
+            "Type some query buddy 🐼\n"
             "/blackbox text with reply to the photo or just text"
         )
     else:
@@ -28,11 +29,13 @@ async def blackbox(bot, message):
                 image = file.read()
         
         if image:
-            files = {'image': (file_name, image, 'image/jpeg')}
-            data = {'fileName': file_name, 'userId': user_id}
+            data = FormData()
+            data.add_field('fileName', file_name)
+            data.add_field('userId', user_id)
+            data.add_field('image', image, filename=file_name, content_type='image/jpeg')
             api_url = "https://www.blackbox.ai/api/upload"
             try:
-                async with session.post(api_url, data=data, files=files) as response:
+                async with session.post(api_url, data=data) as response:
                     response_json = await response.json()
             except Exception as e:
                 return await msg.edit(
@@ -108,7 +111,7 @@ async def blackbox(bot, message):
 __help__ = """
 ✨ *BlackBox AI*:
 
-*Cmd*:
+🌟 *Cmd*:
 /blackbox: with query and reply to sticker or photo for ask
 or just use it with `/blackbox what is top ten news today?`
 """
