@@ -94,6 +94,8 @@ __mod_name__ = "Paste"
 __help__ = """
 ✨ *Paste*:
 
-⚡ start your journey to paste your codes on dpaste.com
+⚡ /paste: reply to a file or text
+
+Start your journey to paste your codes on dpaste.com
 and dev shuyaa website for share codes.
 """
