@@ -1,6 +1,6 @@
 
 
-import os
+import os, json
 
 from VegetaRobot import pgram, aiohttpsession as session
 from pyrogram import filters, types, enums, errors
@@ -70,7 +70,7 @@ async def dpaste(bot, message):
                 )
             else:
               
-               data = await response.json()
+               data = json.loads(await response.text())
                buttons = [
     [types.InlineKeyboardButton('🖥️ Paste', url=data.get('url')),
      types.InlineKeyboardButton('🖥️ Raw', url=(data.get('url') + '/raw'))]
