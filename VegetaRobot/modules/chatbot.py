@@ -77,6 +77,7 @@ async def ChatBotReply(bot, message):
                prompt = m.text
                response = await get_response(prompt)
                if response:
+                   await bot.send_chat_action(chat_id, enums.ChatAction.TYPING)
                    return await m.reply_text(
                          text=response
                          )
@@ -97,12 +98,12 @@ async def ChatBot_CQ(bot, query):
           if mod == 'enable':
               is_kuki = sql.set_kuki(m.chat.id)
               return await m.edit_text(
-                f"⚡ **Chat bot Successfully added 🟢 in {m.chat.title if m.chat.title else m.chat.first_name} by {m.from_user.mention}**"
+                f"⚡ **Chat bot Successfully added 🟢 in {m.chat.title if m.chat.title else m.chat.first_name} by {query.from_user.mention}**"
               )
           elif mod == 'disable':
               is_kuki = sql.rem_kuki(m.chat.id)
               return await m.edit_text(
-                f"⚡ **Chat bot Successfully removed 🔴 in {m.chat.title if m.chat.title else m.chat.first_name} by {m.from_user.mention}**"
+                f"⚡ **Chat bot Successfully removed 🔴 in {m.chat.title if m.chat.title else m.chat.first_name} by {query.from_user.mention}**"
               )
           else:
               return await query.answer(
