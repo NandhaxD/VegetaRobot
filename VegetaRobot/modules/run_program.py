@@ -42,27 +42,33 @@ async def interpreter(bot, message):
     m = message
     
     ok = "```Example:\n/run python\n\nprint('hello world')```"
-    if len(m.text.split(maxsplit=1)) >= 3:
+    if not len(m.text.split(maxsplit=1)) >= 3:
         return await m.reply_text(text=ok)
     elif not m.text.split()[1] in langs:
-         return await m.reply_text("❌ **Not A Supported language: [Click here view all available language!](https://telegra.ph/Nandha-06-24-3)**")
+         return await m.reply_text("❌ **Not A Supported language**:\n**[Click here view all available language!](https://telegra.ph/Nandha-06-24-3)**")
+      
     code = m.text.split(maxsplit=2)[2]
     lang = m.command[1]
+  
     data = {
         'code': code,
-        'lang': lang
+        'lang': lang,
     }
 
+    msg = await m.reply_text("⏳ Evaluating code....")
+  
     start_time = time.time()
-    async with session.post(api_url, json=data, headers=headers) as response:
-         msg = await m.reply_text("⏳ Evaluating code....")
+    async with session.post(
+        api_url, json=data, headers=headers
+     ) as response:
+        
          if response.status == 200:
               data = await response.json()
               language = data['language']
               version = data['version']
               code = data['code']
               output = data['output']
-              ping = (time.time() - start_time) * 1000
+              ping = round((time.time() - start_time) * 1000, 3)
               return await msg.edit_text(
 f"""\n
 🌐 **Language**: `{language}`
@@ -75,4 +81,4 @@ f"""\n
 ⚡ **Taken Time**: `{ping:.2f}'Ms`
 """ )
          else:
-            return await msg.edit_text("Something went wrong with the API. Please check it out 🤔")
+             return await msg.edit_text("Something went wrong with the API. Please check it out 🤔")
