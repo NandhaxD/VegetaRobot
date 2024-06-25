@@ -33,9 +33,10 @@ async def ChatBot(bot, message):
      if m.chat.type == enums.ChatType.PRIVATE:
           ok = True
      if not ok:
-          async for m in bot.get_chat_members(
-              m.chat.id, filter=enums.ChatMemberStatus.ADMINISTRATOR):
-                 admin_ids.append(m.user.id)
+          async for mem in bot.get_chat_members(
+              chat_id=m.chat.id, filter=enums.ChatMemberStatus.ADMINISTRATOR
+          ):
+                 admin_ids.append(mem.user.id)
           if not m.from_user.id in admin_ids:
               return await m.reply_text(
                   "Sorry you're not authorized to do this. only admin can!"
