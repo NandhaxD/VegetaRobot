@@ -679,7 +679,7 @@ async def AnimeWatchOrder(bot, message):
            if not response:
                return await msg.edit("🐼 Sorry couldn't find the anime.")
              
-           text = "✨ **Results**:\n\n" + "\n\n".join([f"✪ [{item['value']}, {item['type']}, ﹙{item['year']}﹚]({base_url+item['image'])" for item in response])
+           text = "✨ **Results**:\n\n" + "\n\n".join([f"✪ **[{item['value']}, {item['type']}, ﹙{item['year']}﹚]({base_url+item['image']})**" for item in response])
          
            if (await m.reply_photo(
                photo=anime_url,
