@@ -34,7 +34,7 @@ async def ChatBot(bot, message):
           ok = True
      if not ok:
           async for mem in bot.get_chat_members(
-              chat_id=m.chat.id, filter=enums.ChatMemberStatus.ADMINISTRATOR
+              chat_id=m.chat.id, filter=enums.ChatMembersFilter.ADMINISTRATORS
           ):
                  admin_ids.append(mem.user.id)
           if not m.from_user.id in admin_ids:
