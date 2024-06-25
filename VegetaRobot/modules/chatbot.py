@@ -1,11 +1,12 @@
 
 from pyrogram import filters, types, enums, errors
 from VegetaRobot import aiohttpsession as session, pgram, BOT_ID
+from VegetaRobot.modules.sql import chatbot_sql as sql
 
 
 
 
-async def get_response(prompt: str)async def get_response(prompt: str) -> str:
+async def get_response(prompt: str) -> str:
     url = "https://nandha-api.onrender.com/nandhaai"
     headers = {
         "accept": "application/json",
