@@ -18,7 +18,7 @@ langs = [
 ]
 
 
-__mod_name = "Run code"
+__mod_name__ = "Run code"
 
 __help__ = """
 ✨ **Run program codes**:
