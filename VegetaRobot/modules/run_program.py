@@ -24,19 +24,10 @@ __help__ = """
 ✨ **Run program codes**:
 
 🌍 **Languages**:
-'matl', 'matl', 'bash', 'befunge93', 'bqn', 'brachylog', 'brainfuck', 'cjam', 'clojure', 
-'cobol', 'coffeescript', 'cow', 'crystal', 'dart', 'dash', 'typescript', 'javascript', 
-'basic.net', 'fsharp.net', 'csharp.net', 'fsi', 'dragon', 'elixir', 'emacs', 'emojicode',
-'erlang', 'file', 'forte', 'forth', 'freebasic', 'awk', 'c', 'c++', 'd', 'fortran', 'go', 
-'golfscript', 'groovy', 'haskell', 'husk', 'iverilog', 'japt', 'java', 'jelly', 'julia', 
-'kotlin', 'lisp', 'llvm_ir', 'lolcode', 'lua', 'csharp', 'basic', 'nasm', 'nasm64', 'nim', 
-'javascript', 'ocaml', 'octave', 'osabie', 'paradoc', 'pascal', 'perl', 'php', 'ponylang',
-'prolog', 'pure', 'powershell', 'pyth', 'python2', 'python', 'racket', 'raku', 'retina', 
-'rockstar', 'rscript', 'ruby', 'rust', 'samarium', 'scala', 'smalltalk', 'sqlite3', 'swift', 
-'typescript', 'vlang', 'vyxal', 'yeethon', 'zig'
+https://telegra.ph/Nandha-06-24-3
 
-
-💁‍♂️ **Example**: `/run python print('hello')`
+💁‍♂️ **Example**: 
+  `/run python print('hello')`
 """
 
 api_url = 'https://nandha-api.onrender.com/run'
