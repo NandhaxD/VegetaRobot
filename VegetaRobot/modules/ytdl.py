@@ -7,8 +7,7 @@ from pyrogram import filters, types, enums, errors
 from VegetaRobot import pgram
 
 
-pattern = r'(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\w{11})|(?:youtu\.be\/\w{11}))(?:\S+)?'
-
+pattern = r'(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|embed\/|v\/|shorts\/|.*v=)|youtu\.be\/)([\w\-]{11})(?:\S+)?'
 
 def is_youtube_url(text: str):
     match = re.search(pattern, text)
