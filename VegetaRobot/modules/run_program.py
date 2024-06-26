@@ -34,8 +34,9 @@ api_url = 'https://nandha-api.onrender.com/run'
 
 headers = {
     'accept': 'application/json',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/x-www-form-urlencoded'
 }
+
 
 @bot.on_message(filters.command('run'))
 async def interpreter(bot, message):
@@ -59,7 +60,7 @@ async def interpreter(bot, message):
   
     start_time = time.time()
     async with session.post(
-        api_url, json=data, headers=headers
+        api_url, data=data, headers=headers
      ) as response:
         
          if response.status == 200:
