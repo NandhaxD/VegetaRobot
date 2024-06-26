@@ -42,7 +42,7 @@ async def interpreter(bot, message):
     m = message
     
     ok = "```Example:\n/run python\n\nprint('hello world')```"
-    if not len(m.text.split(maxsplit=1)) >= 3:
+    if not len(m.text.split()) >= 3:
         return await m.reply_text(text=ok)
     elif not m.text.split()[1] in langs:
          return await m.reply_text("❌ **Not A Supported language**:\n**[Click here view all available language!](https://telegra.ph/Nandha-06-24-3)**")
