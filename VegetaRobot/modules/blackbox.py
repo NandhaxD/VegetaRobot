@@ -75,9 +75,9 @@ async def blackbox(bot, message):
                 text=rdata['reply']
             )
         else:
-
+            reply = m.reply_to_message
             if reply and reply.text:
-                prompt = f"Old Conversation:\n{reply.text}\n\nQuestion:\n{prompt}"
+                prompt = f"Old conversation:\n{reply.text}\n\nQuestion:\n{prompt}"
             messages = [
                 {
                     "role": "user", 
