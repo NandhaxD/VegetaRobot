@@ -10,7 +10,7 @@ def id_generator() -> str:
 @pgram.on_message(filters.command("blackbox"))
 async def blackbox(bot, message):
     m = message
-    msg = await m.reply_text("Processing.....")
+    msg = await m.reply_text("🔍")
     
     if len(m.text.split()) == 1:
         return await msg.edit_text(
@@ -75,6 +75,9 @@ async def blackbox(bot, message):
                 text=rdata['reply']
             )
         else:
+
+            if reply and reply.text:
+                prompt = f"Old Conversation:\n{reply.text}\n\nQuestion:\n{prompt}"
             messages = [
                 {
                     "role": "user", 
@@ -112,7 +115,7 @@ __help__ = """
 ✨ *BlackBox AI*:
 
 🌟 *Cmd*:
-/blackbox: with query and reply to sticker or photo for ask
+/blackbox: with query and reply to sticker or photo or text for ask
 or just use it with `/blackbox what is top ten news today?`
 """
 
