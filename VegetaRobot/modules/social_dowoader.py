@@ -1,58 +1,57 @@
-from VegetaRobot import pgram
-from pyrogram import filters, types, enums, errors
-import re
-import requests
-import bs4
+from requests import get 
+from pyrogram import filters
+from pyrogram.types import InputMediaPhoto
+from VegetaRobot import pgram as pbot, SUPPORT_CHAT
+import asyncio
+
+"""
+Credits
+t.me/SIAmKira
+t.me/HoshinoXUpdates
+https://hoshi-api-f62i.onrender.com/
+"""
 
 
-def is_instagram_url(text: str) -> bool:
-    pattern = r'^https://www\.instagram\.com.*'
-    return bool(re.match(pattern, text))
+@pbot.on_message(filters.command(["insta","ig", "instadl"]))
+async def insta_download(client, message):
+    try:
+        url = message.text.split(None, 1)[1]
+    except IndexError:
+        return await message.reply("Provide URL. Usage: /insta [url]")
 
-api_url = "https://v3.saveig.app/api/ajaxSearch"
-headers = {
-    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-    "Accept": "*/*"
-}
+    chat_id = message.chat.id
 
-@pgram.on_message(filters.command(['instadl', 'igdl', 'instagramdl']))
-async def Instagram_download(bot, message):
-    m = message
-    if len(message.text.split(maxsplit=1)) != 2:
-        return await m.reply_text("**Can you provide me the url please 👀**")
-    url = message.text.split(maxsplit=1)[1]
-    msg = await m.reply_text("Fetching data please wait 🔍")
-    Instagram = is_instagram_url(url)
-    if not Instagram:
-        return await msg.edit_text(
-            "🤔 Please give only Instagram url!\n```Example\n/instadl https://www.instagram.com/p/C4RmRkRPZ6w/?igsh=MXNwbHhkNjFiZWN3YQ==```"
-        )
-    else:
-        data = {
-            "q": url,
-            "t": "media",
-            "lang": "en"
-        }
-        response = requests.post(api_url, headers=headers, data=data)
+    try:
+        response = get(f"https://hoshi-api-f62i.onrender.com/api/insta?url={url}")
         if response.status_code != 200:
-            return await msg.edit_text("❌ Error while Fetching data...")
+            return await message.reply(f"Error fetching Instagram data. Status code: {response.status_code}\nReport @{SUPPORT_CHAT}")
+
+        data = response.json()
+        media_list = data.get("result", [])
+
+        if url.startswith("https://www.instagram.com/p/"):
+            media_group = []
+            for media_url in media_list[:8]:
+                media_group.append(InputMediaPhoto(media=media_url))
+
+            lalal = await message.reply(f"=> Fetched {len(media_group)} Media")
+            await pbot.send_media_group(chat_id=chat_id, media=media_group)
+            await lalal.delete()
+
+        elif url.startswith("https://www.instagram.com/reel/"):
+            for video_url in media_list:
+                await pbot.send_video(chat_id=chat_id, video=video_url)
+
+        elif url.startswith("https://www.instagram.com/stories/"):
+            for story_url in media_list:
+                try:
+                    await pbot.send_video(chat_id=chat_id, video=story_url)
+                    await asyncio.sleep(0.3)
+                except Exception as e:
+                    await message.reply(f"Error sending video: {e}")
+
         else:
-            response_json = response.json()
-            if 'data' in response_json:
-                html_content = response_json['data']
-                soup = bs4.BeautifulSoup(html_content, 'html.parser')
-                download_div = soup.find('div', class_='download-items__btn')
-                download_btn = download_div.find('a') if download_div else None
-                if download_btn:
-                    video_url = download_btn['href']
-                    await bot.send_document(
-                        chat_id=m.chat.id, 
-                        document=video_url, 
-                        reply_to_message_id=m.id,
-                        force_document=False
-                    )
-                    return await msg.delete()
-                else:
-                    return await msg.edit("No media found 👀")
-            else:
-                return await msg.edit("No data found for media ❌")
+            await message.reply("Invalid Instagram link")
+
+    except Exception as e:
+        await message.reply(f"Error: {e}"
