@@ -54,4 +54,4 @@ async def insta_download(client, message):
             await message.reply("Invalid Instagram link")
 
     except Exception as e:
-        await message.reply(f"Error: {e}"
+        await message.reply(f"Error: {e}")
