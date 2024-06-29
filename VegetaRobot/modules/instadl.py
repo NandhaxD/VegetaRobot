@@ -47,7 +47,8 @@ async def insta_download(client, message):
             await msg.edit_text(f"⚡ Successfully Fetched {len(media_group)} Media")
             ok = await pbot.send_media_group(
               chat_id=chat_id, 
-              media=media_group
+              media=media_group,
+              reply_to_message_id=message.id
             )
             if ok: return await msg.delete()
 
@@ -55,7 +56,8 @@ async def insta_download(client, message):
             for video_url in media_list:
                 ok = await pbot.send_video(
                   chat_id=chat_id,
-                  video=video_url
+                  video=video_url,
+                  reply_to_message_id=message.id
                 )
                 if ok: return await msg.delete()
 
@@ -63,7 +65,7 @@ async def insta_download(client, message):
             await msg.edit("Uploading stories ⚡")
             for story_url in media_list:
                 try:
-                    await pbot.send_video(chat_id=chat_id, video=story_url)
+                    await pbot.send_video(chat_id=chat_id, video=story_url, reply_to_message_id=message.id)
                     await asyncio.sleep(0.5)
                 except Exception as e:
                     await message.reply_text(f"{story_url}: Error sending video: {e}")
