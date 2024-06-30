@@ -1,7 +1,7 @@
 from requests import get 
 from pyrogram import filters
 from pyrogram.types import InputMediaPhoto
-from VegetaRobot import pbot as bot, BOT_USERNAME
+from VegetaRobot import pgram as bot, BOT_USERNAME
 
 
 @bot.on_message(filters.command(['wall', 'wallpaper', 'wallpapers']))
