@@ -36,7 +36,7 @@ async def get_output(prompt: str):
         images = []
   
         if response.status == 200:
-            images = await response.json().get('output')
+            images = (await response.json()).get('output')
         return images
 
 
