@@ -2,7 +2,7 @@
 
 
 
-from VegetaRobot import pgram, aiohttpsession as session
+from VegetaRobot import pgram, aiohttpsession as session, BOT_USERNAME
 from pyrogram import filters, types, enums, errors
 
 
@@ -36,7 +36,7 @@ async def get_output(prompt: str):
         images = []
   
         if response.status == 200:
-            images = response.json().get('output')
+            images = await response.json().get('output')
         return images
 
 
@@ -69,3 +69,12 @@ async def DrawAI(bot, message):
      else:
          return await msg.edit('❌ No media fetched')
        
+__mod_name__ = "Draw"
+
+__help__ = f"""
+✨ **AI DRAW**:
+
+Text to Image System by @{BOT_USERNAME}
+Use `/draw anime cute girl`
+"""
+
