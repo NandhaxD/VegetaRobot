@@ -10,7 +10,7 @@ async def get_response(prompt: str) -> str:
     url = "https://nandha-api.onrender.com/nandhaai"
     headers = {
         "accept": "application/json",
-        "Content-Type": "application/json"
+        "Content-Type": "application/x-www-form-urlencoded"
     }
     data = {
         "text": prompt,
@@ -20,9 +20,8 @@ async def get_response(prompt: str) -> str:
     async with session.post(url, json=data, headers=headers) as response:
             if response.status == 200:
                 data = await response.json()
-                return data.get("reply")
-            else:
-                return None
+            return data.get("reply", "🤷")
+            
 
 
 @pgram.on_message(filters.command("chatbot"))
