@@ -17,7 +17,7 @@ async def get_response(prompt: str) -> str:
         "role": "You're a helpful assistant chatbot, you're name Vegeta, you're personality looks like Vegeta from dragon balls"
     }
     
-    async with session.post(url, json=data, headers=headers) as response:
+    async with session.post(url, data=data, headers=headers) as response:
             if response.status == 200:
                 data = await response.json()
             return data.get("reply", "🤷")
