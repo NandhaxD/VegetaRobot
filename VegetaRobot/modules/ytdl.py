@@ -1,5 +1,5 @@
 
-from VegetaRobot import aiohttpsession as session
+from VegetaRobot import aiohttpsession as session, pgram as bot
 from ytmusicapi import YTMusic
 from yt_dlp import YoutubeDL
 
