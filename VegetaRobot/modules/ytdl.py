@@ -52,6 +52,7 @@ async def Ytdl(bot, message):
     ) if command == 'song' else message.reply_video(
             video=file_path,
             quote=True,
+            duration=results[0]["duration_seconds"],
             file_name=results[0]["title"],
             thumb=thumb_file,
     )
@@ -66,9 +67,9 @@ async def Ytdl(bot, message):
             "- Is explict: {explict}\n"
             "- Message link: {link}</b>"
         ).format(
-            title=results[0]["title"],
-            duration=results[0]["duration_seconds"],
-            explict=results[0]["isExplicit"],
+            title=results[0].get("title"),
+            duration=results[0].get("duration_seconds"),
+            explict=results[0].get("isExplicit"),
             link=file_msg.link
         ), 
             parse_mode=enums.ParseMode.HTML
