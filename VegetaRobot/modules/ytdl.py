@@ -1,58 +1,80 @@
 
-import re, os
-from pytube import YouTube
-
+from VegetaRobot import aiohttpsession as session
+from ytmusicapi import YTMusic
+from yt_dlp import YoutubeDL
 
 from pyrogram import filters, types, enums, errors
-from VegetaRobot import pgram
 
+import io
+import os
 
-pattern = r'(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|embed\/|v\/|shorts\/|.*v=)|youtu\.be\/)([\w\-]{11})(?:\S+)?'
-
-def is_youtube_url(text: str):
-    match = re.search(pattern, text)
-    url = None
-    if match:
-        url = match.group(0)
-    return url
+yt_music = YTMusic()
 
 
 
-def download(link: str, mode: str):
-    yt = YouTube(link)
-    if mode == "ytaudio":
-        file = yt.streams.get_audio_only()
-        dl_path = file.download('./')
-        path = os.path.splitext(dl_path)[0] + ".mp3"      
-        os.rename(dl_path, path)
-    else:
-        file = yt.streams.get_highest_resolution()
-        path = file.download('./')
-    return [ yt.title, path ]
 
-
-
-@pgram.on_message(filters.command(['ytaudio','ytvideo']))
-async def youtube_dl(bot, m: types.Message):
-       cmd = m.command[0]
-       if not len(m.text.split()) >= 2:
-            return await m.reply_text("```Example:\n/ytvideo url```")
-       else:
-          link = is_youtube_url(m.text)
-          if not link:
-              return await m.reply_text("🤔 not youtube link")
-          else:
-              msg = await m.reply_text("✨ Downloading....")
-              try:
-                 title, path = download(link, cmd)
-              except Exception as e:
-                  return await msg.edit(f"❌ Error: {e}")
-              if (await m.reply_document(
-                   document=path, caption=title, force_document=False, quote=True
-              )):
-                   await msg.delete()
-                  
-             
+@bot.on_message(filters.command(['song', 'video']))
+async def Ytdl(bot, message):
+    message = message
+    args = message.text.split()[1][1:]
+    command = message.text.split()[0][1:].lower()
+    if args:
+        query = ' '.join(args)
+        prompt = {
+         'song': {'base_url': 'https://music.youtube.com/watch?v=',  'filter': 'songs', 'format': 'bestaudio[ext=m4a]'},
+         'video': {'base_url': 'https://music.youtube.com/watch?v=', 'filter': 'videos', 'format': 'bestvideo[ext=mp4]'}
+       }
+        results = yt_music.search(query, filter=prompt[command].get('filter'), limit=1)
+        if not results:
+            return await message.reply_text("🤷 No results for this song!")
+          
+        thumb_url = results[0]['thumbnails'][-1]['url']           
+        msg = await message.reply_text("⚡ Downloading...")
+    
+        thumb_file = io.BytesIO()
+        async with session.get(thumb_url) as image:
+             image_content = await image.read()
+             thumb_file.write(image_content)
+             thumb_file.name = results[0]["videoId"] + ".jpg"
+        with YoutubeDL({"format": prompt[command].get('format')}) as yt:
+              info_dict = yt.extract_info(prompt[command].get('base_url') + results[0]["videoId"], download=True)
+              file_path = yt.prepare_filename(info_dict)
+        await msg.edit_text("⚡ Uploading...")
         
-
-
+        file_msg = await (
+             message.reply_audio(
+                 audio=file_path,
+                 quote=True,
+                 title=results[0]["title"],
+                 performer=results[0].get("artists", [-1])[0].get("name", None) if results[0].get("artists", []) else None,
+                 thumbnail=thumb_file,
+                 duration=results[0]["duration_seconds"]
+    ) if command == 'song' else message.reply_document(
+            document=file_path,
+            quote=True,
+            filename=results[0]["title"],
+            thumbnail=thumb_file,
+    )
+)
+              
+        if file_msg:
+            await file_msg.edit_caption(
+                     (
+            "<b>- Downloaded successfully !\n"
+            "- Title : {title}\n"
+            "- Duration: {duration}\n"
+            "- Is explict: {explict}\n"
+            "- Message link: {link}</b>"
+        ).format(
+            title=results[0]["title"],
+            duration=results[0]["duration_seconds"],
+            explict=results[0]["isExplicit"],
+            link=get_message_link(file_msg) if message.chat.type != enums.ChatType.PRIVATE else "⚡"
+        ), 
+            parse_mode=constants.ParseMode.HTML
+        )
+            await msg.delete()
+            os.remove(file_path)     
+               
+    else:
+       return await message.reply_text("🤷 Write some queries to find the song/video !")
