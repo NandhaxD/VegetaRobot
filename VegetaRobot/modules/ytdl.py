@@ -22,7 +22,7 @@ async def Ytdl(bot, message):
         query = ' '.join(args)
         prompt = {
          'song': {'base_url': 'https://music.youtube.com/watch?v=',  'filter': 'songs', 'format': 'bestaudio[ext=m4a]'},
-         'video': {'base_url': 'https://music.youtube.com/watch?v=', 'filter': 'videos', 'format': 'best[height<=720][ext=mp4]'}
+         'video': {'base_url': 'https://youtube.com/watch?v=', 'filter': 'videos', 'format': 'best[height<=720][ext=mp4]'}
        }
         results = yt_music.search(query, filter=prompt[command].get('filter'), limit=1)
         if not results:
