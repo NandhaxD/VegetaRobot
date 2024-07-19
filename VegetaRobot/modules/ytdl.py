@@ -21,8 +21,16 @@ async def Ytdl(bot, message):
     if args:
         query = ' '.join(args)
         prompt = {
-         'song': {'base_url': 'https://music.youtube.com/watch?v=',  'filter': 'songs', 'format': 'bestaudio[ext=m4a]'},
-         'video': {'base_url': 'https://m.youtube.com/watch?v=', 'filter': 'videos', 'format': 'best[height<=720][ext=mp4]'}
+         'song': {
+           'base_url': 'https://music.youtube.com/watch?v=',
+           'filter': 'songs',
+           'format': 'bestaudio[ext=m4a]'
+         },
+         'video': {
+           'base_url': 'https://m.youtube.com/watch?v=',
+           'filter': 'videos', 
+           'format': 'bestvideo[ext=mp4]'
+         }
        }
         results = yt_music.search(query, filter=prompt[command].get('filter'), limit=1)
         if not results:
@@ -50,10 +58,9 @@ async def Ytdl(bot, message):
                  performer=results[0].get("artists", [-1])[0].get("name", None) if results[0].get("artists", []) else None,
                  thumb=thumb_file,
                  duration=results[0]["duration_seconds"]
-    ) if command == 'song' else message.reply_video(
-            video=file_path,
+    ) if command == 'song' else message.reply_document(
+            document=file_path,
             quote=True,
-            duration=results[0]["duration_seconds"],
             file_name=results[0]["title"],
             thumb=thumb_file,
     )
