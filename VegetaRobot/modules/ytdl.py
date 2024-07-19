@@ -47,13 +47,13 @@ async def Ytdl(bot, message):
                  quote=True,
                  title=results[0]["title"],
                  performer=results[0].get("artists", [-1])[0].get("name", None) if results[0].get("artists", []) else None,
-                 thumbnail=thumb_file,
+                 thumb=thumb_file,
                  duration=results[0]["duration_seconds"]
-    ) if command == 'song' else message.reply_document(
-            document=file_path,
+    ) if command == 'song' else message.reply_video(
+            video=file_path,
             quote=True,
-            filename=results[0]["title"],
-            thumbnail=thumb_file,
+            file_name=results[0]["title"],
+            thumb=thumb_file,
     )
 )
               
@@ -69,9 +69,9 @@ async def Ytdl(bot, message):
             title=results[0]["title"],
             duration=results[0]["duration_seconds"],
             explict=results[0]["isExplicit"],
-            link=get_message_link(file_msg) if message.chat.type != enums.ChatType.PRIVATE else "⚡"
+            link=file_msg.link
         ), 
-            parse_mode=constants.ParseMode.HTML
+            parse_mode=enums.ParseMode.HTML
         )
             await msg.delete()
             os.remove(file_path)     
