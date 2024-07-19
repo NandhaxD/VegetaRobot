@@ -16,7 +16,7 @@ yt_music = YTMusic()
 @bot.on_message(filters.command(['song', 'video']))
 async def Ytdl(bot, message):
     message = message
-    args = message.text.split()[1][1:]
+    args = message.text.split()[1:]
     command = message.text.split()[0][1:].lower()
     if args:
         query = ' '.join(args)
