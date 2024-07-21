@@ -1,6 +1,5 @@
 
-#https://github.com/KurimuzonAkuma/pyrogram/archive/v2.1.22.zip
-pyrofork==2.3.36
+https://github.com/KurimuzonAkuma/pyrogram/archive/v2.1.22.zip
 git+https://github.com/python-telegram-bot/ptbcontrib.git
 
 
