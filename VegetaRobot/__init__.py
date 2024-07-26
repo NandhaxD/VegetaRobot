@@ -196,7 +196,16 @@ updater = tg.Updater(
     use_context=True,
     persistence=PostgresPersistence(session=SESSION),
 )
-pgram = Client("VegetaRobot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN, in_memory=True)
+
+pgram = Client(
+  name="VegetaRobot",
+  api_id=API_ID, 
+  api_hash=API_HASH, 
+  bot_token=TOKEN,
+  in_memory=True, 
+  max_concurrent_transmissions=4
+)
+
 telethn = TelegramClient(MemorySession(), API_ID, API_HASH)
 telethn = TelegramClient('tbot-vegeta', api_id=API_ID, api_hash=API_HASH) 
 dispatcher = updater.dispatcher
