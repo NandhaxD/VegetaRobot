@@ -15,8 +15,8 @@ async def Draw(bot, message): # Hey kagger (:
     url=f"https://image.pollinations.ai/prompt/{m.text.split(maxsplit=1)[1]}{random.randint(1, 10000)}"
     async with session.get(url) as response:
         image_data = await response.read()
-        path = str(uuid.uuid4()) + ".jpg"
-        with open(path, "wb") as file: file.write(image_data);
+        image = str(uuid.uuid4()) + ".jpg"
+        with open(image, "wb") as file: file.write(image_data);
         await m.reply_photo(
           image, caption="💀 By @{bot.me.username}"
         )
