@@ -1,6 +1,6 @@
 
 
-import random
+import random, uuid
 
 from VegetaRobot import pgram, aiohttpsession as session, BOT_USERNAME
 from pyrogram import filters, types, enums, errors
