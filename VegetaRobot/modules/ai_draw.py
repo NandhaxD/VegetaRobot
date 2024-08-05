@@ -7,8 +7,8 @@ from pyrogram import filters, types, enums, errors
 
 
 
-@pgram.on_message(filters.command('draw'))
-async def Draw(bot, message): # Hey kagger (:
+@pgram.on_message(filters.command(['draw', 'imagine']))
+async def Draw(bot, message): # Hey I'm @nandha (:
     m = message
     if len(m.text.split()) < 2:
         return await m.reply_text("🙋 where prompt ?")
@@ -18,7 +18,7 @@ async def Draw(bot, message): # Hey kagger (:
         image = str(uuid.uuid4()) + ".jpg"
         with open(image, "wb") as file: file.write(image_data);
         await m.reply_photo(
-          image, caption="💀 By @{bot.me.username}"
+          image, caption=f"💀 By @{bot.me.username}"
         )
          
 
