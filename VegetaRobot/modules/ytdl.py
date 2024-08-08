@@ -34,10 +34,10 @@ async def Ytdl(bot, message):
        }
         results = yt_music.search(query, filter=prompt[command].get('filter'), limit=1)
         if not results:
-            return await message.reply_text("🤷 No results for this song!")
+            return await message.reply_text("🤷 No results for this!")
           
         thumb_url = results[0]['thumbnails'][-1]['url']           
-        msg = await message.reply_text("⚡ Downloading...")
+        msg = await message.reply_text("⚡ Downloading please wait...")
     
         thumb_file = io.BytesIO()
         async with session.get(thumb_url) as image:
@@ -48,7 +48,7 @@ async def Ytdl(bot, message):
               url = prompt[command].get('base_url') + results[0]["videoId"]
               info_dict = yt.extract_info(url, download=True)
               file_path = yt.prepare_filename(info_dict)
-        await msg.edit_text("⚡ Uploading...")
+        await msg.edit_text("⚡ Uploading please wait...")
         
         file_msg = await (
              message.reply_audio(
