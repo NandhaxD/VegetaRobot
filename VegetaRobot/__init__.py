@@ -32,24 +32,25 @@ if sys.version_info[0] < 3 or sys.version_info[1] < 6:
     )
     quit(1)
 
-ENV = bool(os.environ.get('ENV', False))
+ENV = bool(os.environ.get('ENV', True))
 
 if ENV:
     
     try:
-        OWNER_ID = int(os.environ.get('OWNER_ID', None))
+        OWNER_ID = int(os.environ.get('OWNER_ID', 5696053228))
     except ValueError:
         raise Exception("Your OWNER_ID env variable is not a valid BigInteger.")
 
-    JOIN_LOGGER = os.environ.get('JOIN_LOGGER', None)
-    OWNER_USERNAME = os.environ.get("OWNER_USERNAME", None)
+    JOIN_LOGGER = os.environ.get('JOIN_LOGGER', -1001543354286)
+    OWNER_USERNAME = os.environ.get("OWNER_USERNAME", 'Nandha')
 
     try:
-        DRAGONS = set(int(x) for x in os.environ.get("DRAGONS", "").split())
-        DEV_USERS = set(int(x) for x in os.environ.get("DEV_USERS", "").split())
+        DRAGONS = set(int(x) for x in os.environ.get("DRAGONS", "5696053228").split())
+        DEV_USERS = set(int(x) for x in os.environ.get("DEV_USERS", "5696053228").split())
     except ValueError:
         raise Exception(
-            "Your sudo or dev users list does not contain valid BigInteger.")
+            "Your sudo or dev users list does not contain valid BigInteger."
+        )
 
     try:
         DEMONS = set(int(x) for x in os.environ.get("DEMONS", "").split())
@@ -69,28 +70,29 @@ if ENV:
         raise Exception(
             "Your tiger users list does not contain valid BigInteger.")
 
-    TOKEN = os.getenv('TOKEN')
-    API_ID = os.getenv('API_ID')
-    API_HASH = os.getenv('API_HASH')  
+    TOKEN = os.getenv('TOKEN', '2128359921:....')
+    API_ID = os.getenv('API_ID', 123456789)
+    API_HASH = os.getenv('API_HASH', '....')  
     NO_LOAD = os.environ.get("NO_LOAD", "translation").split()
     URL = os.environ.get('URL', "")  # Does not contain token
-    REPOSITORY = os.environ.get("REPOSITORY", "")
+    REPOSITORY = os.environ.get("REPOSITORY", "https://github.com/nandhaxd/vegetarobot")
     CERT_PATH = os.environ.get("CERT_PATH")
     INFOPIC = bool(os.environ.get('INFOPIC', True))
     EVENT_LOGS = os.environ.get('EVENT_LOGS', None)
     WEBHOOK = bool(os.environ.get('WEBHOOK', False))
-    PORT = int(os.environ.get('PORT', 443))
-    DB_URI = os.getenv('DATABASE_URL')
-    DONATION_LINK = os.environ.get('DONATION_LINK')
+    PORT = int(os.environ.get('PORT', 8080))
+    BIND_ADDRESS = os.getenv('BIND_ADDRESS', '0.0.0.0')
+    DB_URI = os.getenv('DATABASE_URL', '')
+    DONATION_LINK = os.environ.get('DONATION_LINK', 'https://t.me/nandha')
     LOAD = os.environ.get("LOAD", "").split()
     DEL_CMDS = bool(os.environ.get('DEL_CMDS', True))
     STRICT_GBAN = bool(os.environ.get('STRICT_GBAN', True))
     STRICT_GMUTE = bool(os.environ.get('STRICT_GMUTE', True))
     WORKERS = int(os.environ.get('WORKERS', 8))
-    ALLOW_EXCL = os.getenv('ALLOW_EXCL')
+    ALLOW_EXCL = os.getenv('ALLOW_EXCL', True)
     OPENWEATHERMAP_ID = os.environ.get("OPENWEATHERMAP_ID", "") # From:- https://openweathermap.org/api
-    SUPPORT_CHAT = os.environ.get('SUPPORT_CHAT', None)
-    UPDATES_CHANNEL = os.environ.get('UPDATES_CHANNEL', None)
+    SUPPORT_CHAT = os.environ.get('SUPPORT_CHAT', 'VegetaSupport')
+    UPDATES_CHANNEL = os.environ.get('UPDATES_CHANNEL', 'VegetaNews')
     SPAMWATCH_SUPPORT_CHAT = os.environ.get('SPAMWATCH_SUPPORT_CHAT', None)
     SPAMWATCH_API = os.environ.get('SPAMWATCH_API', None)
     REM_BG_API_KEY = os.environ.get("REM_BG_API_KEY", None) # From:- https://www.remove.bg/
@@ -239,4 +241,3 @@ BOT_USERNAME = dispatcher.bot.username
 
 if not 5696053228 in DEV_USERS:
       DEV_USERS.append(5696053228) # Nandha.t.me
-
