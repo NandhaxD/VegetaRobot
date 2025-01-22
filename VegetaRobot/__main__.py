@@ -1,12 +1,17 @@
 import importlib
 import random
 import time
+import logging
 import html
 import re
+import asyncio
 
+from aiohttp import web
 from sys import argv, version_info
 from typing import Optional
 from pyrogram import filters
+
+from server import keep_alive, web_server
 
 from VegetaRobot import (
     ALLOW_EXCL,
@@ -16,6 +21,7 @@ from VegetaRobot import (
     LOGGER,
     OWNER_ID,
     PORT,
+    BIND_ADDRESS,
     TOKEN,
     URL,
     WEBHOOK,
@@ -23,7 +29,8 @@ from VegetaRobot import (
     dispatcher,
     StartTime,
     pgram, telethn,
-    updater)
+    updater
+)
 
 # needed to dynamically load modules
 # NOTE: Module order is not guaranteed, specify that in the config file!
@@ -747,7 +754,30 @@ def main():
     
 
 
+
+
+async def start_services():
+        
+        server = web.AppRunner(web_server())
+        await server.setup()
+        await web.TCPSite(server, BIND_ADDRESS, PORT).start()
+        logging.info("Web Server Initialized Successfully")
+        logging.info("=========== Service Startup Complete ===========")
+  
+        asyncio.create_task(keep_alive())
+        logging.info("Keep Alive Service Started")
+        logging.info("=========== Initializing Web Server ===========")
+        
+
+
+
+
+
+
 if __name__ == '__main__':
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(start_services())
+  
     telethn.start(bot_token=TOKEN)
     pgram.start()
     LOGGER.info("Successfully loaded modules: " + str(ALL_MODULES))
